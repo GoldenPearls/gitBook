@@ -15,6 +15,8 @@ description: blog를 하기 위한 테마 모아 보기
 ## 2. Github.io
 
 * 대표적인 테마 모음들 : [http://jekyllthemes.org/](http://jekyllthemes.org/)
+* 테마 모음들 : [https://jekyllthemes.io/free](https://jekyllthemes.io/free)
+* 10위 안에 드는 테마 모음들 : [https://jekyll-themes.com/blog/top-jekyll-themes](https://jekyll-themes.com/blog/top-jekyll-themes)
 
 ### 이 안에서 추천 테마
 
@@ -28,7 +30,7 @@ description: blog를 하기 위한 테마 모아 보기
 * Jekflix : [http://jekyllthemes.org/themes/jekflix/](http://jekyllthemes.org/themes/jekflix/)
 * Sleek : [http://jekyllthemes.org/themes/sleek/](http://jekyllthemes.org/themes/sleek/)
 * Mediumish : [http://jekyllthemes.org/themes/mediumish-jekyll-theme/](http://jekyllthemes.org/themes/mediumish-jekyll-theme/)
-*
+* MrGreen-Jekyll : [https://jekyll-themes.com/MrGreensWorkshop/MrGreen-JekyllTheme](https://jekyll-themes.com/MrGreensWorkshop/MrGreen-JekyllTheme)
 
 
 
@@ -37,3 +39,10 @@ description: blog를 하기 위한 테마 모아 보기
 * Neumorphism : [http://jekyllthemes.org/themes/neumorphism/](http://jekyllthemes.org/themes/neumorphism/)
 * Particle :  [http://jekyllthemes.org/themes/particle/](http://jekyllthemes.org/themes/particle/)
 * front-cover : [http://jekyllthemes.org/themes/front-cover/](http://jekyllthemes.org/themes/front-cover/)
+
+
+
+3\) 이미지 모아보기
+
+* 핀터레스트 : [https://jekyllthemes.io/theme/pintereso](https://jekyllthemes.io/theme/pintereso)
+*
