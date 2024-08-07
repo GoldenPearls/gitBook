@@ -1,6 +1,7 @@
 # Table of contents
 
-* [💻 Programming Lanuage](README.md)
+* [About](README.md)
+* [Programming Lanuage](<README (1).md>)
   * [Rust](programming-lanuage/rust.md)
   * [Java](programming-lanuage/java.md)
 * [회고록](memoir/README.md)
@@ -9,3 +10,8 @@
 * [Book](book/README.md)
   * [에러가 무서워지지 않는 책](book/undefined/README.md)
     * [1장 에러가 왜 무서울까?](book/undefined/1.md)
+* [CS](cs/README.md)
+  * [자료구조](cs/data-structure/README.md)
+    * [Big O](cs/data-structure/big-o.md)
+    * [연결 리스트](cs/data-structure/undefined.md)
+    * [Network](cs/data-structure/network.md)

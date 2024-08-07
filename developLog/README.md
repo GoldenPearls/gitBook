@@ -1,9 +1,8 @@
 ---
-cover: >-
-  https://img1.daumcdn.net/thumb/R1280x0/?fname=http://t1.daumcdn.net/brunch/service/user/2YH6/image/h2ml8aJc3vo03BzUNh7BJIy3OUU.png
+description: 이 gitbook은 공부하면서 알아가는 지식을 넣는 공간
+icon: user-vneck-hair-long
 coverY: 0
 ---
 
-# 💻 Programming Lanuage
+# About
 
-프로그래밍 언어를 모아두는 페이지
