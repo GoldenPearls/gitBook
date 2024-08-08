@@ -16,4 +16,4 @@
   * [자료구조](cs/data-structure/README.md)
     * [Big O](cs/data-structure/big-o.md)
     * [연결 리스트](cs/data-structure/undefined.md)
-    * [Network](cs/data-structure/network.md)
+  * [Network](cs/network.md)
