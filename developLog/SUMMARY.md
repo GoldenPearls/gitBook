@@ -10,6 +10,8 @@
 * [Book](book/README.md)
   * [에러가 무서워지지 않는 책](book/undefined/README.md)
     * [1장 에러가 왜 무서울까?](book/undefined/1.md)
+    * [2장 에러를 잘 읽는 방법](book/undefined/2.md)
+    * [3장 효율적으로 에러의 원인 찾기](book/undefined/3.md)
 * [CS](cs/README.md)
   * [자료구조](cs/data-structure/README.md)
     * [Big O](cs/data-structure/big-o.md)
