@@ -31,3 +31,4 @@
 * [그 외 TIP, Bookmark, 유용한 정보](tip-bookmark/README.md)
   * [Bookmark](tip-bookmark/bookmark.md)
   * [블로그 테마 모아보기(tistory, github.io)](tip-bookmark/tistory-github.io.md)
+  * [대학 입학 전 \~ 취업 전까지의 아르바이트 회고](tip-bookmark/undefined.md)
