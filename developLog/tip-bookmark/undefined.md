@@ -1,6 +1,6 @@
 ---
-description: 대학 입학 전 ~ 취업 전까지의 아르바이트 회고
 icon: building
+description: 대학 입학 전 ~ 취업 전까지의 아르바이트 회고
 ---
 
 # 대학 입학 전 \~ 취업 전까지의 아르바이트 회고
@@ -11,7 +11,12 @@ icon: building
 
 > GS25, 세븐, CU 대표적인 3사는 다 해봄&#x20;
 
+대학 들어가기 전부터 했던 아르바이트 근로랑 투잡ㄱ 을
 
+| 사진 1                                                                      | 사진 2                                                                      | 사진 3                                                                      |
+| ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
+| <img src="../.gitbook/assets/image (16).png" alt="" data-size="original"> | <img src="../.gitbook/assets/image (13).png" alt="" data-size="original"> | <img src="../.gitbook/assets/image (14).png" alt="" data-size="original"> |
+| <img src="../.gitbook/assets/image (15).png" alt="" data-size="original"> | <img src="../.gitbook/assets/image (19).png" alt="" data-size="original"> | <img src="../.gitbook/assets/image (20).png" alt="" data-size="original"> |
 
 ## 2. 교내 근로 : 발열 체크 : 2021.12 \~ 2021.2 중순
 
@@ -32,6 +37,10 @@ icon: building
 ### 2) 유치원 : 2019.12\~2019.2, 2022.4\~2023.2
 
 > 유치원에서는 보통 근로는 무엇을 하느냐
+
+| 사진 1                                                                      | 사진 2                                                                      | 사진 3                                                                      |
+| ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
+| <img src="../.gitbook/assets/image (24).png" alt="" data-size="original"> | <img src="../.gitbook/assets/image (23).png" alt="" data-size="original"> | <img src="../.gitbook/assets/image (27).png" alt="" data-size="original"> |
 
 * 애들 등하교 도움
 * 애들 그림 그려주기
@@ -74,15 +83,17 @@ ETC.... 그냥 `보조 선생님`임
 
 내가 그림을 그려주면 애들이 색칠 했음... 그 중 아주 일부,...
 
-<table><thead><tr><th width="249">그림 1</th><th>그림 2</th><th>그림 3</th></tr></thead><tbody><tr><td><img src="broken-reference" alt="" data-size="original"></td><td><img src="broken-reference" alt="" data-size="original"></td><td><img src="broken-reference" alt="" data-size="original"></td></tr><tr><td><img src="broken-reference" alt="" data-size="original"></td><td><img src="broken-reference" alt="" data-size="original"></td><td><img src="broken-reference" alt="" data-size="original"></td></tr><tr><td><img src="broken-reference" alt="" data-size="original"></td><td><img src="broken-reference" alt="" data-size="original"></td><td><img src="broken-reference" alt="" data-size="original"></td></tr></tbody></table>
+<figure><img src="../.gitbook/assets/image (12).png" alt=""><figcaption></figcaption></figure>
 
 마음에 안들면 삐지고 울고... 다치는 애들 있고 진짜 힘겨웠다 ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ 그래도 **장점**은 밥, 간식 공짜로 주셨어서 좋았다... 그리고 가끔 정이 가는 애들이 있었어..ㅠㅜㅠㅠ 이런거 줬다구...&#x20;
 
+| 사진 1                                                                      | 사진 2                                                                      | 사진 3                                                                      |
+| ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
+| <img src="../.gitbook/assets/image (28).png" alt="" data-size="original"> | <img src="../.gitbook/assets/image (29).png" alt="" data-size="original"> | <img src="../.gitbook/assets/image (30).png" alt="" data-size="original"> |
 
+그리고 애들의 밝은 에너지가 좋긴 하더라... 그리고 체력.. 그리고 가끔 몇몇 애들은 귀여워.. 선생님 **손 잡아요 그런다구.. 그리고 간식, 밥 존맛이었다..**
 
-그리고 애들의 밝은 에너지가 좋긴 하더라... 그리고 체력.. 그리고 가끔 몇몇 애들은 귀여워.. 선생님 **손 잡아요 그런다구..**
-
-
+<figure><img src="../.gitbook/assets/image (18).png" alt="" width="188"><figcaption></figcaption></figure>
 
 근데 유치원 선생님이 박봉이라서 친구 중에 그만둔 친구가 있었는데 내가 근로 했던 곳은 사립인데어보니까.. **설날, 추석날 월급 2배였음 개부럽다 ㅠㅠㅠㅠㅠㅠ**
 
