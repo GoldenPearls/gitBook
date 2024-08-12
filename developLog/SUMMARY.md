@@ -1,24 +1,18 @@
 # Table of contents
 
 * [About](README.md)
-* [Programming Lanuage](<README (1).md>)
-  * [Rust](programming-lanuage/rust.md)
-  * [Java](programming-lanuage/java.md)
-* [Spring](spring.md)
-* [회고록](memoir/README.md)
-  * [2023년](memoir/2023/README.md)
-    * [2023년 7월 회고 겸 8월 목표와 생각의 전환](memoir/2023/2023-7-8.md)
-    * [2023년 8월 회고 및 9월 목표](memoir/2023/2023-8-9.md)
-    * [2023년 9월, 10월 회고글 및 11월 목표](memoir/2023/2023-9-10-11.md)
-    * [2023년 11월 회고록](memoir/2023/2023-11.md)
-    * [변화 Change의 2023 늦은 회고 진화 level up 2024](memoir/2023/change-2023-level-up-2024.md)
-  * [2024년](memoir/2024/README.md)
-    * [쌩 신입개발자 취준기 회고+ 1주일 출근 겸 1월 회고](memoir/2024/+-1-1.md)
-    * [중소 신입 개발자 한 달 출근 겸 2024년 2월 회고 ( feat. 국비 비전공자 친구 취업소식)](memoir/2024/2024-2-feat..md)
-    * [2024년 3월 회고록 및 4월 계획](memoir/2024/2024-3-4.md)
-    * [2024년 4월, 5월 중간 회고록 및 5월, 6월 목표](memoir/2024/2024-4-5-5-6.md)
-    * [2024년 6월 회고록](memoir/2024/2024-6.md)
-    * [2024년 7월 회고록](memoir/2024/2024-7.md)
+
+## 💻 Programming Lanuage
+
+* [Rust](programming-lanuage/rust.md)
+* [Java](programming-lanuage/java.md)
+
+## 🍓 Spring
+
+* [기본 지식](spring/undefined.md)
+
+***
+
 * [Book](book/README.md)
   * [에러가 무서워지지 않는 책](book/undefined/README.md)
     * [1장 에러가 왜 무서울까?](book/undefined/1.md)
@@ -50,6 +44,25 @@
     * [실기](undefined/undefined/undefined-1.md)
   * [SQLD](undefined/sqld.md)
   * [ADsP](undefined/adsp.md)
+
+## 🌸 회고록 <a href="#memoir" id="memoir"></a>
+
+* [2023년](memoir/2023/README.md)
+  * [2023년 7월 회고 겸 8월 목표와 생각의 전환](memoir/2023/2023-7-8.md)
+  * [2023년 8월 회고 및 9월 목표](memoir/2023/2023-8-9.md)
+  * [2023년 9월, 10월 회고글 및 11월 목표](memoir/2023/2023-9-10-11.md)
+  * [2023년 11월 회고록](memoir/2023/2023-11.md)
+  * [변화 Change의 2023 늦은 회고 진화 level up 2024](memoir/2023/change-2023-level-up-2024.md)
+* [2024년](memoir/2024/README.md)
+  * [쌩 신입개발자 취준기 회고+ 1주일 출근 겸 1월 회고](memoir/2024/+-1-1.md)
+  * [중소 신입 개발자 한 달 출근 겸 2024년 2월 회고 ( feat. 국비 비전공자 친구 취업소식)](memoir/2024/2024-2-feat..md)
+  * [2024년 3월 회고록 및 4월 계획](memoir/2024/2024-3-4.md)
+  * [2024년 4월, 5월 중간 회고록 및 5월, 6월 목표](memoir/2024/2024-4-5-5-6.md)
+  * [2024년 6월 회고록](memoir/2024/2024-6.md)
+  * [2024년 7월 회고록](memoir/2024/2024-7.md)
+
+***
+
 * [TIP, Bookmark, 유용한 정보](tip-bookmark/README.md)
   * [Bookmark](tip-bookmark/bookmark.md)
   * [블로그 테마 모아보기(tistory, github.io)](tip-bookmark/tistory-github.io.md)

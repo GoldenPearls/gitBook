@@ -1,6 +1,6 @@
 ---
-description: 요즘 개발자 책을 읽고 적은 후기와 커피챗 후기
 icon: book-open
+description: 요즘 개발자 책을 읽고 적은 후기와 커피챗 후기
 cover: >-
   https://velog.velcdn.com/images/prettylee620/post/2b599a91-49bb-4594-b765-e80acf5a06b9/image.png
 coverY: 0
@@ -8,7 +8,7 @@ coverY: 0
 
 # 요즘 개발자 요약 및 신입 개발자의 방향성 찾기(feat. 커피챗)
 
-<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption><p>요즘 개발자 책</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (22).png" alt=""><figcaption><p>요즘 개발자 책</p></figcaption></figure>
 
 ## 1장 이런 개발자가 되고 싶어
 
