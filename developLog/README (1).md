@@ -1,7 +1,9 @@
 ---
 icon: laptop-code
 cover: >-
-  https://img1.daumcdn.net/thumb/R1280x0/?fname=http://t1.daumcdn.net/brunch/service/user/2YH6/image/h2ml8aJc3vo03BzUNh7BJIy3OUU.png
+  .gitbook/assets/DALL·E 2024-08-12 14.44.11 - A horizontal banner specifically
+  designed for a programming language page. The banner features symbols and
+  icons representing various programming lang (1).webp
 coverY: 0
 layout:
   cover:
