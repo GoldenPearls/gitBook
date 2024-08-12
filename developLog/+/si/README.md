@@ -1,6 +1,6 @@
 ---
-description: 자격증 공부해둔 것에 대해 적어두는 카테고리
-icon: file-certificate
+description: 쌩신입개발자의 중소 취준기
+icon: building-memo
 layout:
   title:
     visible: true
@@ -14,5 +14,5 @@ layout:
     visible: false
 ---
 
-# 자격증
+# 신입개발자의 중소, SI 취준기 및 성장
 
