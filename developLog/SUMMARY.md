@@ -11,6 +11,14 @@
 
 * [기본 지식](spring/undefined.md)
 
+## 🔭 CS
+
+* [자료구조](cs/data-structure/README.md)
+  * [Big O](cs/data-structure/big-o.md)
+  * [연결 리스트](cs/data-structure/undefined.md)
+* [Network](cs/network.md)
+* [운영체제](cs/undefined.md)
+
 ***
 
 * [Book](book/README.md)
@@ -28,12 +36,6 @@
       * [개발자 온보딩 가이드 4장 -(1)](book/undefined-1/4/4-1.md)
       * [필독 개발자 온보딩 가이드 4장 -(2)](book/undefined-1/4/4-2.md)
       * [개발자 온보딩 가이드 4장 - (3)](book/undefined-1/4/4-3.md)
-* [CS](cs/README.md)
-  * [자료구조](cs/data-structure/README.md)
-    * [Big O](cs/data-structure/big-o.md)
-    * [연결 리스트](cs/data-structure/undefined.md)
-  * [Network](cs/network.md)
-  * [운영체제](cs/undefined.md)
 * [github](github/README.md)
   * [github 자주 쓰는 명령어](github/github.md)
   * [github.io 블로그 만들기](github/github.io/README.md)
