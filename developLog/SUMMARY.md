@@ -9,7 +9,8 @@
 
 ## 🍓 Spring
 
-* [기본 지식](spring/undefined.md)
+* [기본 지식](spring/undefined/README.md)
+  * [MVC](spring/undefined/mvc.md)
 
 ## 🔭 CS
 
