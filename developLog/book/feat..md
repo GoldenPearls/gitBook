@@ -417,4 +417,6 @@ si, sm는 대부분 그저 고객사에 맞추는 경우가 많기에 회사의 
 
 모든 개발자, 직장인, 취준생, 대학생 모두 화이팅!!!&#x20;
 
+> [VELOG 버전](https://velog.io/@prettylee620/%EC%9A%94%EC%A6%98-%EA%B0%9C%EB%B0%9C%EC%9E%90-%EB%8F%85%EC%84%9C-%EC%9A%94%EC%95%BD-%EB%B0%8F-%EA%B0%9C%EC%9D%B8%EC%A0%81%EC%9D%B8-%EC%83%9D%EA%B0%81)
+
 <figure><img src="https://velog.velcdn.com/images/prettylee620/post/e820d8e7-9c88-4323-a8cc-06e626024223/image.png" alt=""><figcaption></figcaption></figure>

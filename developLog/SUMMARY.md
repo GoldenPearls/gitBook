@@ -4,8 +4,12 @@
 
 ## 💻 Programming Lanuage
 
-* [Rust](programming-lanuage/rust.md)
+* [Rust](programming-lanuage/rust/README.md)
+  * [Rust가 떠오른 이유 : 안전성, 쾌적한 사용 - 우아한 스터디 및 잇츠 스터디](programming-lanuage/rust/rust.md)
+  * [Chater 06. 오류 처리](programming-lanuage/rust/chater-06..md)
+  * [Chater 12. 연산자 오버로딩](programming-lanuage/rust/chater-12..md)
 * [Java](programming-lanuage/java.md)
+* [Python](programming-lanuage/python.md)
 
 ## 🍓 Spring
 
@@ -17,9 +21,12 @@
 * [자료구조](cs/data-structure/README.md)
   * [Big O](cs/data-structure/big-o.md)
   * [연결 리스트](cs/data-structure/undefined.md)
-* [Network](cs/network.md)
+* [Network](cs/network/README.md)
+  * [네트워크 공부하기 프롤로그](cs/network/undefined.md)
+  * [Story 01. HTTP 리퀘스트 메세지를 작성한다.](cs/network/story-01.-http-..md)
 * [운영체제](cs/undefined.md)
-* [보안](cs/undefined-1.md)
+* [보안](cs/undefined-1/README.md)
+  * [우리나라 보안의 실태](cs/undefined-1/undefined.md)
 
 ## ⛏️  CI-CD
 
@@ -27,6 +34,8 @@
   * [github 자주 쓰는 명령어](ci-cd/github/github.md)
   * [github.io 블로그 만들기](ci-cd/github/github.io/README.md)
     * [github.io Chipy 테마 연동 하기](ci-cd/github/github.io/github.io-chipy.md)
+  * [팀프로젝트때 알아낸 github 지식](ci-cd/github/github-1.md)
+* [GitAction](ci-cd/gitaction.md)
 
 ## 📔 Book
 
@@ -61,18 +70,28 @@
   * [2024년 6월 회고록](memoir/2024/2024-6.md)
   * [2024년 7월 회고록](memoir/2024/2024-7.md)
 
+## 🌟 TIP, bookmark, 유용한 정보 모음
+
+* [Bookmark](tip-bookmark/bookmark.md)
+* [블로그 테마 모아보기(tistory, github.io)](tip-bookmark/tistory-github.io.md)
+* [강연 및 컨퍼런스 후기](tip-bookmark/undefined/README.md)
+  * [점핏 강연 센스있는 BE 되기](tip-bookmark/undefined/be.md)
+* [커피챗](tip-bookmark/undefined-1/README.md)
+  * [커피챗이란?](tip-bookmark/undefined-1/undefined.md)
+  * [인프런 멘토 우연님 후기이자 방향성 - 초보개발자의 고민과 방안](tip-bookmark/undefined-1/undefined-1.md)
+
 ## ⚡ 그 외 <a href="#ex" id="ex"></a>
 
 * [자격증](ex/undefined/README.md)
   * [정보처리기사](ex/undefined/undefined/README.md)
     * [필기](ex/undefined/undefined/undefined.md)
     * [실기](ex/undefined/undefined/undefined-1.md)
+    * [대학생, 취준생, 신입개발자의 과정과 함께한 정보처리기사 4트 2024년 1회 실기 후기](ex/undefined/undefined/4-2024-1.md)
   * [SQLD](ex/undefined/sqld.md)
   * [ADsP](ex/undefined/adsp.md)
-* [TIP, Bookmark, 유용한 정보](ex/tip-bookmark/README.md)
-  * [Bookmark](ex/tip-bookmark/bookmark.md)
-  * [블로그 테마 모아보기(tistory, github.io)](ex/tip-bookmark/tistory-github.io.md)
-  * [강연 및 컨퍼런스 후기](ex/tip-bookmark/undefined.md)
+* [템플릿 나눔](ex/undefined-1/README.md)
+  * [노션 팀 스터디 템플릿 공유](ex/undefined-1/undefined.md)
+  * [팀프로젝트 관련 노션 템플릿 공유](ex/undefined-1/undefined-1.md)
 * [살아가는 이야기 + 취준 이야기](ex/+/README.md)
   * [대학 입학 전 \~ 취업 전까지의 아르바이트 회고](ex/+/undefined.md)
   * [신입개발자의 중소, SI 취준기 및 성장](ex/+/si/README.md)

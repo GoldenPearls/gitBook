@@ -1,9 +1,7 @@
 ---
-coverY: 0
+description: 커피챗으로 얻은 인사이트들 정리합니다.
+icon: coffee-beans
 layout:
-  cover:
-    visible: true
-    size: full
   title:
     visible: true
   description:
@@ -16,5 +14,5 @@ layout:
     visible: false
 ---
 
-# Rust
+# 커피챗
 

@@ -1,6 +1,6 @@
 ---
-icon: line-height
-description: 그 외 카테고리로 tip, bookmark 등을 다룸
+description: 강연 및 컨퍼런스 후기 적는 곳
+icon: screen-users
 layout:
   title:
     visible: true
@@ -14,5 +14,5 @@ layout:
     visible: false
 ---
 
-# 그 외 TIP, Bookmark, 유용한 정보
+# 강연 및 컨퍼런스 후기
 
