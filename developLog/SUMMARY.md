@@ -27,6 +27,8 @@
 * [운영체제](cs/undefined.md)
 * [보안](cs/undefined-1/README.md)
   * [우리나라 보안의 실태](cs/undefined-1/undefined.md)
+* [그 외](cs/undefined-2/README.md)
+  * [멀티캠퍼스에서 배운 cs 지식](cs/undefined-2/cs.md)
 
 ## ⛏️  CI-CD
 

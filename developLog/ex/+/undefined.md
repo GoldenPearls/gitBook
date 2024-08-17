@@ -190,7 +190,7 @@ ETC..
 
 | 사진 1                                                                         | 사진 2                                                                        | 사진 3                                                                        |
 | ---------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
-| ![](<../../.gitbook/assets/image (2).png>)                                   | <img src="../../.gitbook/assets/image (6).png" alt="" data-size="original"> | <img src="../../.gitbook/assets/image (4).png" alt="" data-size="original"> |
+| ![](<../../.gitbook/assets/image (2) (2).png>)                               | <img src="../../.gitbook/assets/image (6).png" alt="" data-size="original"> | <img src="../../.gitbook/assets/image (4).png" alt="" data-size="original"> |
 | <img src="../../.gitbook/assets/image (10).png" alt="" data-size="original"> | <img src="../../.gitbook/assets/image (8).png" alt="" data-size="original"> | <img src="../../.gitbook/assets/image (7).png" alt="" data-size="original"> |
 
 근데.. 무슨 책 표지를 물티슈로 다 닦아달라는 것을 시킴 ㅋㅋㅋㅋㅋㅋㅋ..... 꽂혀있는 책들까지 전부 ㅋㅋㅋ 소독한다고 후... 잠시도 쉬는 걸 용납 못하더라..
