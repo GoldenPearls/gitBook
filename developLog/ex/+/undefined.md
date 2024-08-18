@@ -188,10 +188,10 @@ ETC..
 
 이걸 시간표를 주고 그 시간표에 맞춰서 근로했었는데... 대부분 배가 작업이 서서 계속 넣고 이래서 생각보다 엄청 힘들고 더움... 에어컨 별로 안 빵빵함... 여름 개더워...
 
-| 사진 1                                                                         | 사진 2                                                                        | 사진 3                                                                        |
-| ---------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
-| ![](<../../.gitbook/assets/image (2) (2).png>)                               | <img src="../../.gitbook/assets/image (6).png" alt="" data-size="original"> | <img src="../../.gitbook/assets/image (4).png" alt="" data-size="original"> |
-| <img src="../../.gitbook/assets/image (10).png" alt="" data-size="original"> | <img src="../../.gitbook/assets/image (8).png" alt="" data-size="original"> | <img src="../../.gitbook/assets/image (7).png" alt="" data-size="original"> |
+| 사진 1                                                                             | 사진 2                                                                            | 사진 3                                                                            |
+| -------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
+| ![](<../../.gitbook/assets/image (2) (2).png>)                                   | <img src="../../.gitbook/assets/image (6) (2).png" alt="" data-size="original"> | <img src="../../.gitbook/assets/image (4) (2).png" alt="" data-size="original"> |
+| <img src="../../.gitbook/assets/image (10) (2).png" alt="" data-size="original"> | <img src="../../.gitbook/assets/image (8) (2).png" alt="" data-size="original"> | <img src="../../.gitbook/assets/image (7) (2).png" alt="" data-size="original"> |
 
 근데.. 무슨 책 표지를 물티슈로 다 닦아달라는 것을 시킴 ㅋㅋㅋㅋㅋㅋㅋ..... 꽂혀있는 책들까지 전부 ㅋㅋㅋ 소독한다고 후... 잠시도 쉬는 걸 용납 못하더라..
 
@@ -324,9 +324,9 @@ ETC.... 그냥 `보조 선생님`임 교구 만들기로 진짜 평생의 가위
 
 ### 2) 사진
 
-| 사진 1                                                                         | 사진 2                                                                         | 사진 3                                                                         |
-| ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
-| <img src="../../.gitbook/assets/image (13).png" alt="" data-size="original"> | <img src="../../.gitbook/assets/image (14).png" alt="" data-size="original"> | <img src="../../.gitbook/assets/image (15).png" alt="" data-size="original"> |
+| 사진 1                                                                             | 사진 2                                                                             | 사진 3                                                                             |
+| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| <img src="../../.gitbook/assets/image (13) (2).png" alt="" data-size="original"> | <img src="../../.gitbook/assets/image (14) (2).png" alt="" data-size="original"> | <img src="../../.gitbook/assets/image (15) (2).png" alt="" data-size="original"> |
 
 
 

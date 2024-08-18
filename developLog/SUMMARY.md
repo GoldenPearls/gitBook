@@ -15,6 +15,9 @@
 
 * [기본 지식](spring/undefined/README.md)
   * [MVC](spring/undefined/mvc.md)
+  * [스프링의 핵심은 무엇인가?](spring/undefined/undefined.md)
+  * [스프링 빈을 등록하는 두 가지 방법(@Component, @Bean)](spring/undefined/component-bean.md)
+  * [의존성 주입 3가지 방법 - (생성자 주입, Field 주입, Setter 주입)](spring/undefined/3-field-setter.md)
 
 ## 🔭 CS
 
