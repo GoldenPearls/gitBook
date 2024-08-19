@@ -2,5 +2,5 @@
 icon: java
 ---
 
-# Java
+# 자바
 

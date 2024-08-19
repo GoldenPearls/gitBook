@@ -26,9 +26,9 @@ description: 스프링의 핵심은 무엇인가?
 
 object를 의자 s = new 의자();로 **heap**에 올리면 이 s는 만든 메서드가 관리함 단점은 이렇게 되면 **나중에 공유할 때 힘들어진다.**
 
-<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 #### ⭐ IoC(역전의 제어) ⇒ 주로 주도권 스프링
 
@@ -38,7 +38,7 @@ object를 의자 s = new 의자();로 **heap**에 올리면 이 s는 만든 메�
 
 * 스프링이 직접 만든다. 스캔하여 heap 메모리에 올려주고 스프링이 직접 관리
 
-<figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
 
 #### ⭐ IoC 컨테이너
 
