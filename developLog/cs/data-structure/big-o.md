@@ -247,7 +247,7 @@ def print_twice(arr)
 
 #### 2차 시간복잡도 그래프를 선형 시간복잡도와 비교 그래프
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 **선형 시간복잡도**가 2차 시간복잡도보다 더 **효율적**
 

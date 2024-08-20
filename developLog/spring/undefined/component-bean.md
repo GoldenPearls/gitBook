@@ -16,11 +16,11 @@
 
 ### 1. 컴포넌트 스캔과 자동 의존관계 설정
 
-<figure><img src="../../.gitbook/assets/image (12).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (12) (1).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (13).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (13) (1).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (14).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (14) (1).png" alt=""><figcaption></figcaption></figure>
 
 스프링 부트에서 사용자 클래스를 스프링 빈으로 등록하는 가장 쉬운 방법은 클래스 선언부 위에`@Component` 어노테이션을 사용하는 것이다.
 
@@ -34,7 +34,7 @@
 
 그리고 **특정 타입을 리턴하는 메소드**를 만들고, `@Bean` 어노테이션을 붙여주면 **자동으로 해당 타입의 빈 객체가 생성된다.**
 
-<figure><img src="../../.gitbook/assets/image (15).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (15) (1).png" alt=""><figcaption></figcaption></figure>
 
 MemberRepository는 **인터페이스**이고, MemoryMemberRepository가 **구현체**이기 때문에  MemoryMemberRepository를 new 해준다.
 

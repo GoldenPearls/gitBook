@@ -35,7 +35,7 @@ public CocoController(CocoService cocoService) {        
 
 ### 2. 필드 주입(Field Injection)
 
-<figure><img src="../../.gitbook/assets/image (16).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (16) (1).png" alt=""><figcaption></figcaption></figure>
 
 필드에 `@Autowired` 어노테이션만 붙여주면 자동으로 의존성 주입된다. 사용법이 매우 간단하기 때문에 가장 많이 접할 수 있는 방법이다.
 
