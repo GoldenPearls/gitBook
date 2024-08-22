@@ -224,3 +224,4 @@ icon: bookmark
 ## 7. 쓸 예정이거나 쓰고 싶은 툴
 
 * [inkdrop](https://www.inkdrop.app/) : 노션 같은 느낌의 편집기
+* [정리 글 ](https://dev.to/dev\_kiran/19-open-source-tools-you-should-bookmark-now-5hc4?utm\_source=oneoneone): 지금 북마크 해야 할 오픈소스 모음
