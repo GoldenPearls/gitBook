@@ -1,5 +1,6 @@
 ---
-icon: rectangle-history
+description: spring 관련 강의를 모아두는 카테고리
+icon: person-chalkboard
 layout:
   title:
     visible: true
@@ -13,5 +14,5 @@ layout:
     visible: false
 ---
 
-# 기본 지식
+# spring 관련 강의
 

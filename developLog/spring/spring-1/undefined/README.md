@@ -1,5 +1,5 @@
 ---
-icon: rectangle-history
+icon: folder-user
 layout:
   title:
     visible: true
@@ -13,5 +13,5 @@ layout:
     visible: false
 ---
 
-# 기본 지식
+# 스프링 부트 서버 개발
 

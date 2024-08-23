@@ -1,5 +1,5 @@
 ---
-icon: rectangle-history
+icon: books-medical
 layout:
   title:
     visible: true
@@ -13,5 +13,5 @@ layout:
     visible: false
 ---
 
-# 기본 지식
+# spring 관련 책
 

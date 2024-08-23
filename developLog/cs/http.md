@@ -1,5 +1,6 @@
 ---
-icon: rectangle-history
+description: 김영한님 강의 듣고 정리한 글입니다.
+icon: webhook
 layout:
   title:
     visible: true
@@ -13,5 +14,5 @@ layout:
     visible: false
 ---
 
-# 기본 지식
+# HTTP 웹 지식
 

@@ -1,5 +1,5 @@
 ---
-icon: rectangle-history
+icon: building
 layout:
   title:
     visible: true
@@ -13,5 +13,5 @@ layout:
     visible: false
 ---
 
-# 기본 지식
+# 신입개발자 > 주니어 개발자의 취업과 이직, 업무 이야기
 
