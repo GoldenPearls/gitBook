@@ -129,7 +129,8 @@ icon: bookmark
 * [Backend-Interview-Question](https://github.com/ksundong/backend-interview-question) 백엔드 개발자 입사시 질문, 예상질문 GITHUB
 * [프론트엔드 기술 면접 대비하기 -1편](https://f-lab.kr/blog/frontend-interview-1) 프론트앤드 면접질문정리되어 있는 F-LAB
 * [자바 백엔드 개발자 질문](https://f-lab.kr/blog/java-backend-interview-2) 자바 기술 면접 대비하기정리 되어 있는 F-LAB
-*   [실제로 받은 프론트앤드 질문모음 정리](https://xiubindev.tistory.com/119) 프론트앤드 질문 정리가 되어 있는 Tistory
+* [실제로 받은 프론트앤드 질문모음 정리](https://xiubindev.tistory.com/119) 프론트앤드 질문 정리가 되어 있는 Tistory
+*   [컴퓨터 과학 키워드 총정리](https://csnote.net/) : 컴퓨터 과학 키워드가 총 정리되어 있는 사이트
 
     \
 
