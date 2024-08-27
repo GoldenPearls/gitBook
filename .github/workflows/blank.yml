@@ -1,36 +1,73 @@
-# This is a basic workflow to help you get started with Actions
+name: Convert and Deploy GitBook to Jekyll
 
-name: CI
-
-# Controls when the workflow will run
 on:
-  # Triggers the workflow on push or pull request events but only for the "main" branch
   push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+    branches:
+      - main  # GitBook 리포지토리의 메인 브랜치
 
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
-
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
   build:
-    # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v4
+    - name: Checkout GitBook Repository
+      uses: actions/checkout@v2
+      with:
+        repository: YourGitBookRepoOwner/YourGitBookRepoName
+        path: gitbook
 
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo Hello, world!
+    - name: Setup Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: '2.7'
 
-      # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
-        run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+    - name: Install dependencies
+      run: |
+        gem install jekyll bundler
+
+    - name: Convert Markdown to Jekyll Format
+      run: |
+        mkdir -p _posts
+        for file in $(find ./gitbook -name '*.md'); do
+          filename=$(basename -- "$file")
+          title="${filename%.*}"
+          category=$(basename $(dirname "$file"))
+          date=$(date +"%Y-%m-%d")
+          new_filename="_posts/$date-$title.md"
+          
+          echo "---" > $new_filename
+          echo "title: \"$title\"" >> $new_filename
+          echo "description: \"$title description\"" >> $new_filename
+          echo "author: \"Your Name\"" >> $new_filename
+          echo "date: $date 11:33:00 +0800" >> $new_filename
+          echo "categories: [$category]" >> $new_filename
+          echo "tags: [$title]" >> $new_filename
+          echo "pin: false" >> $new_filename
+          echo "math: false" >> $new_filename
+          echo "mermaid: false" >> $new_filename
+          echo "image:" >> $new_filename
+          echo "  path: /assets/images/$title.png" >> $new_filename
+          echo "  alt: \"$title image\"" >> $new_filename
+          echo "---" >> $new_filename
+          
+          cat "$file" >> $new_filename
+        done
+
+    - name: Checkout GitHub Pages Repository
+      uses: actions/checkout@v2
+      with:
+        repository: YourGitHubPagesRepoOwner/YourGitHubPagesRepoName
+        path: gh-pages
+
+    - name: Copy Converted Files to GitHub Pages Repo
+      run: |
+        cp _posts/* gh-pages/_posts/
+
+    - name: Commit and Push Changes
+      run: |
+        cd gh-pages
+        git config --global user.email "you@example.com"
+        git config --global user.name "Your Name"
+        git add .
+        git commit -m "Auto-commit converted files from GitBook"
+        git push origin main
