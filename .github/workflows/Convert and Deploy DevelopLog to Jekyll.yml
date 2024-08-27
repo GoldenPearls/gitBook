@@ -1,31 +1,19 @@
-name: Convert and Deploy DevelopLog to Jekyll
-
+name: Update Blog Posts
+  
 on:
   push:
     branches:
-      - main
+      - main  # 또는 워크플로우를 트리거하고 싶은 브랜치 이름
+  schedule:
+    - cron: '40 10 * * *'  # 매일 오전 10시 40분에 실행
 
 jobs:
-  build:
+  update_blog:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout Repository
+    - name: Checkout
       uses: actions/checkout@v2
-
-    - name: Setup Ruby
-      uses: ruby/setup-ruby@v1
-      with:
-        ruby-version: '3.0'  # Ruby 3.0.0 이상으로 업데이트
-
-    - name: Update RubyGems
-      run: gem update --system  # RubyGems 업데이트
-
-    - name: Install dependencies
-      run: |
-        gem install bundler  # Bundler 설치
-        gem install ffi  # ffi 최신 버전 설치
-        bundle install  # 필요한 gems 설치
 
     - name: Convert Markdown to Jekyll Format
       run: |
@@ -59,21 +47,17 @@ jobs:
           git commit -m "Add post: $title"
         done
 
-    - name: Checkout GitHub Pages Repository
-      uses: actions/checkout@v2
+    - name: Push changes
+      run: |
+        git config --global user.name 'github-actions[bot]'
+        git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+        git push https://${{ secrets.GH_PAT }}@github.com/GoldenPearls/velog.git # 자신의 깃허브명으로 바꿔야 함
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
       with:
-        repository: YourGitHubPagesRepoOwner/YourGitHubPagesRepoName
-        path: gh-pages
+        python-version: '3.x'
 
-    - name: Copy Converted Files to GitHub Pages Repo
+    - name: Install dependencies
       run: |
-        cp _posts/* gh-pages/_posts/
-
-    - name: Commit and Push Changes
-      run: |
-        cd gh-pages
-        git config --global user.email "github-actions[bot]@users.noreply.github.com"
-        git config --global user.name "github-actions[bot]"
-        git add .
-        git commit -m "Bulk commit of converted posts"
-        git push https://${{ secrets.GH_PAT }}@github.com/GoldenPearls/GoldenPearls.github.io.git
+        pip install feedparser gitpython
