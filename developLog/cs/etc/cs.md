@@ -239,7 +239,7 @@
   * **8080 포트**
 * 이런 에러 발생 원인
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * 외부에서 실행되는 톰캣 서버 존재
 * 서버 연결 정보가 제대로 주어지지 않을 때

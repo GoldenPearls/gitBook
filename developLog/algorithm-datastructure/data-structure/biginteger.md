@@ -4,15 +4,13 @@ description: BigInteger에 대한 정리 글
 
 # BigInteger에 대한 정리
 
-## BigInteger
-
-### BigInteger란?
+## 1. BigInteger란?
 
 > `BigInteger`는 자바에서 제공하는 클래스로, 임의 정밀도 정수(arbitrary-precision integers)를 나타내는 데 사용된다.
 
 정수를 표현할 때 일반적으로 사용되는 기본 자료형(int, long 등)은 크기에 제한이 있다. 예를 들어, int는 32비트이므로 최대값은 2의 31승 - 1이 됩니다. 하지만 BigInteger는 이러한 제한이 없습니다. 따라서 매우 큰 정수 값도 표현할 수 있음!!
 
-### 장점
+### 1) 장점
 
 BigInteger 클래스는 다음과 같은 메서드를 제공하여 정수 연산을 수행할 수 있다
 
@@ -26,7 +24,7 @@ BigInteger 클래스는 다음과 같은 메서드를 제공하여 정수 연산
 
 > 즉, 연산 메서드가 내장되어 있다고 볼 수 있음
 
-### 내장된 메서드 정리
+### 2) 내장된 메서드 정리
 
 > [참고문서](https://docs.oracle.com/javase/8/docs/api/java/math/BigInteger.html)
 
@@ -44,7 +42,7 @@ BigInteger 클래스는 다음과 같은 메서드를 제공하여 정수 연산
 
 ## 🤔 왜? 찾아봤는데?
 
-### 알고리즘 공부하다가
+### 1) 알고리즘 공부하다가
 
 > [엄청난 부자2](https://www.acmicpc.net/problem/1271)
 
@@ -56,7 +54,7 @@ BigInteger 클래스는 다음과 같은 메서드를 제공하여 정수 연산
 
 근데 나는 풀이 과정에서 다른 걸 문제 삼고 있었다.
 
-### 해결과정
+### 2) 해결과정
 
 #### 1.InputMismatch 런타임에러
 
@@ -166,7 +164,7 @@ public class Main {
 
 즉, `nextLine`으로 받아서 그럼
 
-### 최종 코드
+### 3) 최종 코드
 
 ```java
 import java.util.Scanner;

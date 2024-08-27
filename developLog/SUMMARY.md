@@ -18,7 +18,8 @@
   * [김영한님 자바 강의 모음](programming-lanuage/java/younghan-lecture/README.md)
     * [자바 입문 강의 정리](programming-lanuage/java/younghan-lecture/undefined.md)
 * [Python](programming-lanuage/python/README.md)
-  * [정보처리기사 실기를 위한 파이썬 정리(약간의 접수 후기를 곁드린)](programming-lanuage/python/undefined.md)
+  * [파이썬 프롤로그](programming-lanuage/python/undefined.md)
+  * [정보처리기사 실기를 위한 파이썬 정리(약간의 접수 후기를 곁드린)](programming-lanuage/python/undefined-1.md)
 
 ## 🍓 Spring
 
@@ -27,6 +28,9 @@
   * [스프링의 핵심은 무엇인가?](spring/basic/undefined.md)
   * [스프링 빈을 등록하는 두 가지 방법(@Component, @Bean)](spring/basic/component-bean.md)
   * [의존성 주입 3가지 방법 - (생성자 주입, Field 주입, Setter 주입)](spring/basic/3-field-setter.md)
+  * [스프링부트 동작원리](spring/basic/undefined-1.md)
+  * [JPA란 무엇인가요?](spring/basic/jpa.md)
+  * [messageConverter가 무엇인가요?](spring/basic/messageconverter.md)
 * [spring 관련 책](spring/book/README.md)
   * [사람을 사랑한 기술](spring/book/undefined.md)
 * [spring 관련 강의](spring/lecture/README.md)
@@ -35,10 +39,7 @@
 
 ## 🔭 CS
 
-* [자료구조](cs/data-structure/README.md)
-  * [Big O](cs/data-structure/big-o.md)
-  * [연결 리스트](cs/data-structure/undefined.md)
-  * [BigInteger에 대한 정리](cs/data-structure/biginteger.md)
+* [CS 관련 BOOKMARK](cs/cs-bookmark.md)
 * [Network](cs/network/README.md)
   * [네트워크 공부하기 프롤로그](cs/network/undefined.md)
   * [Story 01. HTTP 리퀘스트 메세지를 작성한다.](cs/network/story-01.-http-..md)
@@ -46,9 +47,37 @@
   * [프로세스, 스레드, 멀티태스킹, 멀티스레딩, 멀티프로세싱, 멀티프로그래밍과 스레드를 많이 쓸수록 항상 성능이 좋을까..?](cs/os/untitled.md)
 * [보안](cs/security/README.md)
   * [우리나라 보안의 실태](cs/security/undefined.md)
-* [HTTP 웹 지식](cs/http.md)
+* [HTTP 웹 지식](cs/http/README.md)
+  * [인터넷 네트워크](cs/http/undefined.md)
+  * [URI와 웹 브라우저의 요청 흐름](cs/http/uri.md)
+  * [HTTP의 기본](cs/http/http.md)
+  * [HTTP 메서드](cs/http/http-1.md)
+  * [HTTP 메서드 활용](cs/http/http-2.md)
+  * [HTTP 상태코드](cs/http/http-3.md)
+  * [HTTP 헤더 1 - 일반 헤더](cs/http/http-1-1.md)
+* [SEVER](cs/sever/README.md)
+  * [톰켓이란 무엇인가](cs/sever/undefined.md)
 * [그 외](cs/etc/README.md)
   * [멀티캠퍼스에서 배운 cs 지식](cs/etc/cs.md)
+
+## Algorithm-DataStructure
+
+* [자료구조](algorithm-datastructure/data-structure/README.md)
+  * [Big O](algorithm-datastructure/data-structure/big-o.md)
+  * [연결 리스트](algorithm-datastructure/data-structure/undefined.md)
+  * [BigInteger에 대한 정리](algorithm-datastructure/data-structure/biginteger.md)
+  * [배열(array)](algorithm-datastructure/data-structure/array.md)
+  * [스택과 큐](algorithm-datastructure/data-structure/undefined-1.md)
+  * [Array vs ArrayList vs LinkedList 차이](algorithm-datastructure/data-structure/array-vs-arraylist-vs-linkedlist.md)
+  * [재귀함수](algorithm-datastructure/data-structure/undefined-2.md)
+  * [트리](algorithm-datastructure/data-structure/undefined-3.md)
+  * [우선순위 큐와 힙의 차이](algorithm-datastructure/data-structure/undefined-4.md)
+* [Algorithm](algorithm-datastructure/algorithm/README.md)
+  * [그리디](algorithm-datastructure/algorithm/undefined.md)
+  * [구현](algorithm-datastructure/algorithm/undefined-1.md)
+  * [그래프 알고리즘](algorithm-datastructure/algorithm/undefined-2.md)
+  * [버블 정렬, 삽입 정렬, 선택 정렬](algorithm-datastructure/algorithm/undefined-3.md)
+  * [동적 계획법과 분할정복](algorithm-datastructure/algorithm/undefined-4.md)
 
 ## ⛏️  CI-CD
 
