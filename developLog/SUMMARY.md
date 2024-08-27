@@ -62,6 +62,7 @@
 
 ## Algorithm-DataStructure
 
+* [Algorithm 관련  bookmark](algorithm-datastructure/algorithm-bookmark.md)
 * [자료구조](algorithm-datastructure/data-structure/README.md)
   * [Big O](algorithm-datastructure/data-structure/big-o.md)
   * [연결 리스트](algorithm-datastructure/data-structure/undefined.md)
@@ -104,6 +105,8 @@
     * [개발자 온보딩 가이드 4장 -(1)](book/onboarding/4/4-1.md)
     * [필독 개발자 온보딩 가이드 4장 -(2)](book/onboarding/4/4-2.md)
     * [개발자 온보딩 가이드 4장 - (3)](book/onboarding/4/4-3.md)
+* [객체지향의 오해와 사실](book/oop/README.md)
+  * [1장 : 협력하는 객체들의 공동체](book/oop/1.md)
 
 ## 🌸 회고록 <a href="#memoir" id="memoir"></a>
 
@@ -151,3 +154,5 @@
     * [주니어가 첫 회사 다니면서 깨달은(?깨달아가는) 20가지](ex/employment-job-change/si/20.md)
 * [살아가는 이야기](ex/my-story/README.md)
   * [대학 입학 전 \~ 취업 전까지의 아르바이트 회고](ex/my-story/undefined.md)
+* [얻은 지식 모음](ex/knowledge/README.md)
+  * [트위터를 통한 모르는 지식을 얻어가기](ex/knowledge/undefined.md)
