@@ -16,16 +16,16 @@ jobs:
     - name: Setup Ruby
       uses: ruby/setup-ruby@v1
       with:
-        ruby-version: '2.7.8'  # 기존 Ruby 버전 유지
+        ruby-version: '3.0'  # Ruby 3.0.0 이상으로 업데이트
 
-    - name: Install compatible FFI
-      run: gem install ffi -v 1.17.0  # 호환 가능한 버전 설치
-
-    - name: Install compatible Bundler
-      run: gem install bundler -v 2.4.22  # 호환 가능한 버전 설치
+    - name: Update RubyGems
+      run: gem update --system  # RubyGems 업데이트
 
     - name: Install dependencies
-      run: bundle install
+      run: |
+        gem install bundler  # Bundler 설치
+        gem install ffi  # ffi 최신 버전 설치
+        bundle install  # 필요한 gems 설치
 
     - name: Convert Markdown to Jekyll Format
       run: |
@@ -72,8 +72,8 @@ jobs:
     - name: Commit and Push Changes
       run: |
         cd gh-pages
-        git config --global user.email "github-actions[bot]"
-        git config --global user.name "github-actions[bot]@users.noreply.github.com"
+        git config --global user.email "github-actions[bot]@users.noreply.github.com"
+        git config --global user.name "github-actions[bot]"
         git add .
         git commit -m "Bulk commit of converted posts"
-        git push https://${{ secrets.GH_PAT }}@github.com/GoldenPearls/GoldenPearls.github.io.git #자신의 깃허브명으로 바꿔야 함
+        git push https://${{ secrets.GH_PAT }}@github.com/GoldenPearls/GoldenPearls.github.io.git
