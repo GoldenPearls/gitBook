@@ -3,7 +3,7 @@ name: Convert and Deploy DevelopLog to Jekyll
 on:
   push:
     branches:
-      - main  # GitBook 리포지토리의 메인 브랜치
+      - main
 
 jobs:
   build:
@@ -16,11 +16,16 @@ jobs:
     - name: Setup Ruby
       uses: ruby/setup-ruby@v1
       with:
-        ruby-version: '2.7'
+        ruby-version: '2.7.8'  # 기존 Ruby 버전 유지
+
+    - name: Install compatible FFI
+      run: gem install ffi -v 1.17.0  # 호환 가능한 버전 설치
+
+    - name: Install compatible Bundler
+      run: gem install bundler -v 2.4.22  # 호환 가능한 버전 설치
 
     - name: Install dependencies
-      run: |
-        gem install jekyll bundler
+      run: bundle install
 
     - name: Convert Markdown to Jekyll Format
       run: |
