@@ -21,16 +21,19 @@ jobs:
     - name: Set UTF-8 Encoding
       run: |
         export LC_CTYPE="UTF-8"  # UTF-8 인코딩을 명시적으로 설정
+
     - name: Rename and Update Markdown files
       run: |
-        for file in $(find developLog/* -type f -name '*.md' -not -path 'developLog/README.md' -not -path 'developLog/SUMMARY.md'); do
+        find developLog/* -type f -name '*.md' ! -name 'README.md' ! -name 'SUMMARY.md' | while read file; do
           # 파일의 디렉토리 구조를 유지하면서 첫 번째 H1 제목을 추출하여 새 파일명 생성
           dir=$(dirname "$file")
           title=$(grep -m 1 '^#' "$file" | sed 's/^# //')
+
           if [ -n "$title" ]; then
-            # 공백 대신 밑줄을 사용하지 않고, 공백을 유지
-            title=$(echo "$title" | sed 's/ / /g')
-            new_filename="$dir/$title.md"
+            # 공백은 유지하면서 특수 문자만 언더스코어로 변환
+            sanitized_title=$(echo "$title" | sed 's/[^a-zA-Z0-9 ]/_/g')
+            new_filename="$dir/$sanitized_title.md"
+
             # 파일 이름이 동일한 경우에도 강제로 업데이트
             if [ "$file" != "$new_filename" ]; then
               echo "Renaming $file to $new_filename"
@@ -43,9 +46,10 @@ jobs:
             echo "No valid title found in $file, skipping."
           fi
         done
+
     - name: Commit changes
       run: |
-        git add .  # 모든 변경사항 추가
+        git add -A  # 모든 변경사항 추가
         git config --global user.name 'github-actions[bot]'
         git config --global user.email 'github-actions[bot]@users.noreply.github.com'
         git diff --staged --quiet || git commit -m "Rename and update Markdown files based on h1 titles"
