@@ -3,7 +3,7 @@ name: Rename and Commit Markdown Files
 on:
   push:
     branches:
-      - dev  # dev 브랜치에 푸시될 때 워크플로우 트리거
+      - main  # main 브랜치에 푸시될 때 워크플로우 트리거
   workflow_dispatch:  # 수동으로 워크플로우를 실행할 수 있는 옵션
 
 jobs:
@@ -16,7 +16,7 @@ jobs:
       with: 
           token: ${{ secrets.GITBOOKKEY }}
           fetch-depth: 0
-          ref: dev
+          ref: main
 
     - name: Rename Markdown files
       run: |
@@ -34,4 +34,4 @@ jobs:
         git config --local user.name "GoldenPearls"
         git add .
         git commit -m "Rename Markdown files based on h1 titles"
-        git push origin dev  # 변경사항을 dev 브랜치로 푸시
+        git push origin main  # 변경사항을 main 브랜치로 푸시
