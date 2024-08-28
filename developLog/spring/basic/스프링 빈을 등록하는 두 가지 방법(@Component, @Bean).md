@@ -55,6 +55,6 @@ MemberRepository는 **인터페이스**이고, MemoryMemberRepository가 **구�
 
 ### **등록된 빈을 사용하는 3가지 방법**
 
-{% content-ref url="3-field-setter.md" %}
-[3-field-setter.md](3-field-setter.md)
+{% content-ref url="의존성 주입 3가지 방법 - (생성자 주입, Field 주입, Setter 주입).md" %}
+[의존성 주입 3가지 방법 - (생성자 주입, Field 주입, Setter 주입).md](<의존성 주입 3가지 방법 - (생성자 주입, Field 주입, Setter 주입).md>)
 {% endcontent-ref %}
