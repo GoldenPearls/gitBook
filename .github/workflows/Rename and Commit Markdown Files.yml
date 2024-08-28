@@ -23,6 +23,34 @@ jobs:
 
     - name: Rename and Add New Markdown files  # Markdown 파일을 이름 변경 및 복사
       run: |
+        for file in $(find developLog -type f -name '*.md'); do
+          # README.md 및 SUMMARY.md 파일은 건너뜀
+          if [[ "$file" == *"README.md" ]] || [[ "$file" == *"SUMMARY.md" ]]; then
+            echo "Skipping $file"  # 해당 파일은 건너뜀
+            continue  # 다음 파일로 진행
+          fi
+        
+          # 파일 내용의 첫 번째 제목 줄을 추출
+          title=$(grep -m 1 '^#' "$file")
+          
+          if [ -n "$title" ]; then
+            # 파일의 디렉토리 구조를 유지하면서 제목을 기반으로 새 파일명 생성
+            dir=$(dirname "$file")
+            new_filename="$dir/$title.md"
+            
+            # 파일 이름이 동일한 경우에도 강제로 업데이트
+            if [ "$file" != "$new_filename" ]; then
+              echo "Renaming $file to $new_filename"
+              mv "$file" "$new_filename"
+            else
+              echo "Updating timestamp for $file"
+              touch "$file"  # 파일의 타임스탬프를 업데이트
+            fi
+          else
+            echo "No valid title found in $file, skipping."
+          fi
+        done
+
         # developLog 디렉토리에서 .md 파일을 모두 찾음
         find developLog -type f -name '*.md' | while IFS= read -r file; do
           # README.md 및 SUMMARY.md 파일은 건너뜀
@@ -35,13 +63,10 @@ jobs:
           title=$(grep -m 1 '^#' "$file")
           
           if [ -n "$title" ]; then
-            # 공백을 유지하면서 한글과 알파벳, 숫자를 제외한 특수 문자만 언더스코어로 변환
-            sanitized_title=$(echo "$title" | tr -c '[:alnum:]가-힣 ' '_')
-            # 파일명 앞뒤에 생긴 불필요한 언더스코어 제거
-            sanitized_title=$(echo "$sanitized_title" | sed 's/^_//;s/_$//')
-            dir=$(dirname "$file")  # 파일의 디렉토리 경로 추출
-            new_filename="$dir/$sanitized_title.md"  # 새 파일명 생성
-
+            # 파일의 디렉토리 구조를 유지하면서 제목을 기반으로 새 파일명 생성
+            dir=$(dirname "$file")
+            new_filename="$dir/$title.md"
+            
             # 기존 파일명을 유지한 채 새 파일명으로 복사
             if [ "$file" != "$new_filename" ]; then
               echo "Copying $file to $new_filename"  # 복사 작업 로그 출력
