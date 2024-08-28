@@ -20,32 +20,31 @@ jobs:
 
     - name: Set UTF-8 Encoding
       run: |
-        export LC_CTYPE="UTF-8"  # UTF-8 인코딩을 명시적으로 설정
+        export LC_CTYPE="C.UTF-8"  # UTF-8 인코딩을 명시적으로 설정
 
     - name: Rename and Update Markdown files
       run: |
-        for file in $(find developLog -type f -name '*.md'); do
-        # 파일의 디렉토리와 파일명 추출
-        dir=$(dirname "$file")
-        base_name=$(basename "$file" .md)
-        
-        # 첫 번째 H1 제목을 추출하여 제목으로 사용
-        title=$(grep -m 1 '^#' "$file" | sed 's/^# //')
-        
-        if [ -n "$title" ]; then
-            # 새 파일명을 디렉토리 경로를 유지하면서 제목을 기반으로 생성
-            new_filename="$dir/$title.md"
-            
-            # 파일 이름이 동일한 경우에는 mv 명령을 건너뜁니다
+        find developLog/* -type f -name '*.md' ! -name 'README.md' ! -name 'SUMMARY.md' | while read file; do
+          # 파일의 디렉토리 구조를 유지하면서 첫 번째 H1 제목을 추출하여 새 파일명 생성
+          dir=$(dirname "$file")
+          title=$(grep -m 1 '^#' "$file" | sed 's/^# //')
+
+          if [ -n "$title" ]; then
+            # 공백은 유지하면서 특수 문자만 언더스코어로 변환 (한글은 그대로 유지)
+            sanitized_title=$(echo "$title" | tr -c '[:alnum:][:space:]ㄱ-ㅎㅏ-ㅣ가-힣' '_')
+            new_filename="$dir/$sanitized_title.md"
+
+            # 파일 이름이 동일한 경우에도 강제로 업데이트
             if [ "$file" != "$new_filename" ]; then
-                echo "Renaming $file to $new_filename"
-                mv "$file" "$new_filename"
+              echo "Renaming $file to $new_filename"
+              mv "$file" "$new_filename"
             else
-                echo "No rename needed for $file"
+              echo "Updating timestamp for $file"
+              touch "$file"  # 파일의 타임스탬프를 업데이트
             fi
-        else
+          else
             echo "No valid title found in $file, skipping."
-        fi
+          fi
         done
 
     - name: Commit changes
