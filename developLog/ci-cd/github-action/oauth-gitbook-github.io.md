@@ -226,7 +226,9 @@
 
 <figure><img src="../../.gitbook/assets/image (35).png" alt=""><figcaption></figcaption></figure>
 
-###
+### 한글 이름으로 바꿔주기 위한 작업..
+
+> gpt의 도움을 받았습니다... + 문서
 
 1. Gitbook title rename을 dev 브랜치에 먼저 해주기 위해 **Rename and Commit Markdown Files.yml**을 만들어주고 아래의 스크립트 작성
 
@@ -280,7 +282,97 @@ jobs:
 ✅ 파일 이름이 변경되었는지 확인하고, 이미 동일한 이름이라면 `mv` 명령을 건너뛰도록 수정할 수 있다.
 
 ```
+name: Rename and Commit Markdown Files
+
+on:
+  push:
+    branches:
+      - main  # main 브랜치에 푸시될 때 워크플로우 트리거
+  workflow_dispatch:  # 수동으로 워크플로우를 실행할 수 있는 옵션
+
+jobs:
+  process-markdown:
+    runs-on: ubuntu-latest  # 최신 Ubuntu 환경에서 실행
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4  # 레포지토리의 소스 코드를 체크아웃
+
+    - name: Rename Markdown files
+      run: |
+        for file in developLog/*.md; do
+          # 첫 번째 H1 제목을 추출하여 제목으로 사용
+          title=$(grep -m 1 '^# ' "$file" | sed 's/^# //')
+          
+          if [ -n "$title" ]; then
+            # 새 파일명을 제목을 기반으로 생성, 공백은 밑줄(_)로 대체
+            new_filename="developLog/${title// /_}.md"
+            
+            # 파일 이름이 동일한 경우에는 mv 명령을 건너뜁니다
+            if [ "$file" != "$new_filename" ]; then
+              mv "$file" "$new_filename"
+            fi
+          fi
+        done
+
+    - name: Commit changes
+      run: |
+        # Git 사용자 정보 설정
+        git config --local user.email "your-email@example.com"
+        git config --local user.name "Your Name"
+        # 모든 변경사항을 추가하고 커밋
+        git add .
+        git commit -m "Rename Markdown files based on h1 titles"
+        # 변경사항을 원격 저장소의 main 브랜치로 푸시
+        git push origin main
+
 ```
+
+하지만, 이 또한 문제가 되는데...&#x20;
+
+🔥 바뀔 것이 없다고 자꾸 뜸
+
+<figure><img src="../../.gitbook/assets/image (38).png" alt=""><figcaption></figcaption></figure>
+
+✅ add -A로 전체로 해주고 그리고 토큰을 이용해서 github action 봇이 넣게 수정
+
+```
+# 일부 코드
+  git add -A  # 모든 변경사항 추가
+        git config --global user.name 'github-actions[bot]'
+        git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+        git diff --staged --quiet || git commit -m "Rename Markdown files based on h1 titles"
+        git push https://${{ secrets.GH_PAT }}@github.com/GoldenPearls/gitBook.git  # 변경사항을 main 브랜치로 푸시
+```
+
+🔥 실행은 되는데 파일이 바뀌지 않음..
+
+<figure><img src="../../.gitbook/assets/image (39).png" alt=""><figcaption></figcaption></figure>
+
+✅ 한글 인코딩 작업 수행
+
+```
+  - name: Set UTF-8 Encoding
+      run: |
+        export LC_CTYPE="UTF-8"  # UTF-8 인코딩을 명시적으로 설정
+
+```
+
+🔥 `mv` 명령어로 파일을 이동하려고 할 때, 새 파일 이름에 포함된 디렉토리가 존재하지 않는 경우 오류가 발생한다고 함
+
+<figure><img src="../../.gitbook/assets/image (40).png" alt=""><figcaption></figcaption></figure>
+
+✅  이 문제를 해결하려면, 이동할 경로에 해당하는 디렉토리가 존재하지 않으면 디렉토리를 생성하는 로직을 추가해야 한다.
+
+<figure><img src="../../.gitbook/assets/image (41).png" alt=""><figcaption></figcaption></figure>
+
+
+
+해결!!!!! ㅠㅜㅠㅠㅠ 40분의 삽질 끝에 잘바뀌었다.. 흑흑
+
+<figure><img src="../../.gitbook/assets/image (42).png" alt=""><figcaption></figcaption></figure>
+
+### 2.&#x20;
 
 ## TMI
 
