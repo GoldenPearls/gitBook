@@ -45,4 +45,4 @@ jobs:
          git config --global user.name 'github-actions[bot]'
         git config --global user.email 'github-actions[bot]@users.noreply.github.com'
         git commit -m "Rename Markdown files based on h1 titles"
-        git push https://${{ secrets.GH_PAT }}@github.com/GoldenPearls/gitBook.git  # 변경사항을 main 브랜치로 푸시
+        git push https://${{ secrets.GITBOOKKEY }}@github.com/GoldenPearls/gitBook.git  # 변경사항을 main 브랜치로 푸시
