@@ -33,6 +33,10 @@ jobs:
             dir=$(dirname "$file")
             new_filename="$dir/$title.md"
             
+            # 대상 디렉토리가 없으면 생성
+            new_dir=$(dirname "$new_filename")
+            mkdir -p "$new_dir"
+            
             # 파일 이름이 동일한 경우에도 강제로 업데이트
             if [ "$file" != "$new_filename" ]; then
               echo "Renaming $file to $new_filename"
