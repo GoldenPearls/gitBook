@@ -167,7 +167,7 @@
 * &#x20;`Name`에는 `.yml` 파일에서 사용할 이름, `Value`에는 아까 발급받은 PAT 작성
 * &#x20;`Add Secret` 클릭
 
-## workflow 작성하기
+## workflow 작성하기 전, 요구사항 정리
 
 워크플로우에 작업해야 할 것은 큰 틀은&#x20;
 
@@ -216,7 +216,7 @@
 
 6. 모든 작업이 끝났다면, github.io \_posts에 `push` 해준다. - checkout  필요
 
-### workspace 자동화를 위한 스크립트
+## workspace 자동화를 위한 스크립트
 
 > 📁 참고 : [github action의 워크플로우 구문](https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#jobsjob\_idneeds)
 
@@ -225,6 +225,8 @@
 뒤에 3, 4, 5, 6은 github.io repo에 넘어갈 때 작업으로 **Convert and Deploy DevelopLog to Jekyll.ym**l로 작업해야 겠다.
 
 <figure><img src="../../.gitbook/assets/image (35).png" alt=""><figcaption></figcaption></figure>
+
+###
 
 1. Gitbook title rename을 dev 브랜치에 먼저 해주기 위해 **Rename and Commit Markdown Files.yml**을 만들어주고 아래의 스크립트 작성
 
@@ -263,6 +265,21 @@ jobs:
         git commit -m "Rename Markdown files based on h1 titles"
         git push origin dev  # 변경사항을 dev 브랜치로 푸시
 
+```
+
+🔥 문제 : push가 main 브랜치에 되면서, 스크립트 실행 안됨
+
+✅ gitbook push 자체가 무조건 main으로 돼서 그냥 일단, main으로 바꾸기로 함
+
+
+
+<figure><img src="../../.gitbook/assets/image (37).png" alt=""><figcaption></figcaption></figure>
+
+🔥 이후의 문제는 파일 이름을 변경하려고 할 때 이미 그렇게 h1의 이름으로 되어 있는 것들도 있다는 것이 **이미 존재하는 파일 이름과 동일한 이름으로 변경하려고 할 때 발생**
+
+✅ 파일 이름이 변경되었는지 확인하고, 이미 동일한 이름이라면 `mv` 명령을 건너뛰도록 수정할 수 있다.
+
+```
 ```
 
 ## TMI
