@@ -25,24 +25,29 @@ jobs:
     - name: Rename Markdown files
       run: |
         for file in developLog/*.md; do
-        # 첫 번째 H1 제목을 추출하여 제목으로 사용
-        title=$(grep -m 1 '^# ' "$file" | sed 's/^# //')
-        
-        if [ -n "$title" ]; then
-          # 새 파일명을 제목을 기반으로 생성
-          new_filename="developLog/$title.md"
+          # 첫 번째 H1 제목을 추출하여 제목으로 사용
+          title=$(grep -m 1 '^# ' "$file" | sed 's/^# //')
           
-          # 파일 이름이 동일한 경우에는 mv 명령을 건너뜁니다
-          if [ "$file" != "$new_filename" ]; then
-            mv "$file" "$new_filename"
+          if [ -n "$title" ]; then
+            # 새 파일명을 제목을 기반으로 생성
+            new_filename="developLog/$title.md"
+            
+            # 파일 이름이 동일한 경우에는 mv 명령을 건너뜁니다
+            if [ "$file" != "$new_filename" ]; then
+              echo "Renaming $file to $new_filename"  # 디버그 정보 출력
+              mv "$file" "$new_filename"
+            else
+              echo "File $file already has the correct name, skipping rename."
+            fi
+          else
+            echo "No H1 title found in $file, skipping rename."
           fi
-        fi
         done
 
     - name: Commit changes
       run: |
-        git add .
-         git config --global user.name 'github-actions[bot]'
+        git add -A  # 모든 변경사항 추가
+        git config --global user.name 'github-actions[bot]'
         git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-        git commit -m "Rename Markdown files based on h1 titles"
+        git diff --staged --quiet || git commit -m "Rename Markdown files based on h1 titles"
         git push https://${{ secrets.GITBOOKKEY }}@github.com/GoldenPearls/gitBook.git  # 변경사항을 main 브랜치로 푸시
