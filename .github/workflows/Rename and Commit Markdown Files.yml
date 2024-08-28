@@ -1,0 +1,37 @@
+name: Rename and Commit Markdown Files
+
+on:
+  push:
+    branches:
+      - dev  # dev 브랜치에 푸시될 때 워크플로우 트리거
+  workflow_dispatch:  # 수동으로 워크플로우를 실행할 수 있는 옵션
+
+jobs:
+  process-markdown:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with: 
+          token: ${{ secrets.GITBOOKKEY }}
+          fetch-depth: 0
+          ref: dev
+
+    - name: Rename Markdown files
+      run: |
+        for file in developLog/*.md; do
+          title=$(grep -m 1 '^# ' "$file" | sed 's/^# //')
+          if [ -n "$title" ]; then
+            new_filename="developLog/${title// /_}.md"
+            mv "$file" "$new_filename"
+          fi
+        done
+
+    - name: Commit changes
+      run: |
+        git config --local user.email "prettylee620@naver.com"
+        git config --local user.name "GoldenPearls"
+        git add .
+        git commit -m "Rename Markdown files based on h1 titles"
+        git push origin dev  # 변경사항을 dev 브랜치로 푸시
