@@ -24,7 +24,7 @@ jobs:
 
     - name: Rename and Update Markdown files
       run: |
-        for file in $(find developLog -type f -name '*.md'); do
+        find developLog -type f -name '*.md' | while IFS= read -r file; do
           # README.md 및 SUMMARY.md 파일은 건너뜀
           if [[ "$file" == *"README.md" ]] || [[ "$file" == *"SUMMARY.md" ]]; then
             echo "Skipping $file"
