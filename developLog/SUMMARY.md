@@ -87,7 +87,9 @@
   * [github.io 블로그 만들기](ci-cd/github/github.io/README.md)
     * [github.io Chipy 테마 연동 하기](ci-cd/github/github.io/github.io-chipy.md)
   * [팀프로젝트때 알아낸 github 지식](ci-cd/github/github-1.md)
-* [GitAction](ci-cd/gitaction.md)
+* [Github Action](ci-cd/github-action/README.md)
+  * [Github Action 링크 모음](ci-cd/github-action/github-action.md)
+  * [OAuth 앱에 대한 범위 및 gitbook과 github.io를 자동화를 위한 작업](ci-cd/github-action/oauth-gitbook-github.io.md)
 
 ## 📔 Book
 
@@ -133,6 +135,7 @@
 * [커피챗](tip-bookmark/coffeechat/README.md)
   * [커피챗이란?](tip-bookmark/coffeechat/undefined.md)
   * [인프런 멘토 우연님 후기이자 방향성 - 초보개발자의 고민과 방안](tip-bookmark/coffeechat/undefined-1.md)
+* [잘 정리된 tech blog](tip-bookmark/tech-blog.md)
 
 ## ⚡ 그 외 <a href="#ex" id="ex"></a>
 
