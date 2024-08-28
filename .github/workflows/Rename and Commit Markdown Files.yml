@@ -35,8 +35,8 @@ jobs:
           title=$(grep -m 1 '^#' "$file")
           
           if [ -n "$title" ]; then
-            # 공백은 유지하면서 한글과 알파벳, 숫자를 제외한 특수 문자만 언더스코어로 변환
-            sanitized_title=$(echo "$title" | sed 's/[^[:alnum:][:space:][:blank:]ㄱ-ㅎㅏ-ㅣ가-힣]/_/g')
+            # 공백은 유지하면서 특수 문자만 언더스코어로 변환 (한글은 그대로 유지)
+            sanitized_title=$(echo "$title" | tr -c '[:alnum:]가-힣 ' '_')
             dir=$(dirname "$file")
             new_filename="$dir/$sanitized_title.md"
             
