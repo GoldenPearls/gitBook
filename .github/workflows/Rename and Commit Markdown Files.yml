@@ -38,16 +38,18 @@ jobs:
             dir=$(dirname "$file")
             new_filename="$dir/$title.md"
             
-            # 기존 파일명을 유지한 채 새 파일명으로 복사
+            new_dir=$(dirname "$new_filename")
+            
+            # 파일 이름이 동일한 경우에도 강제로 업데이트
             if [ "$file" != "$new_filename" ]; then
-              echo "Renaming $file to $new_filename"  # 복사 작업 로그 출력
-              mv "$file" "$new_filename"  # 새 파일명으로 파일 복사
+              echo "Renaming $file to $new_filename"
+              mv "$file" "$new_filename"
             else
-              echo "Updating timestamp for $file"  # 파일명이 같으면 로그 출력
+              echo "Updating timestamp for $file"
               touch "$file"  # 파일의 타임스탬프를 업데이트
             fi
           else
-            echo "No valid title found in $file, skipping."  # 유효한 제목이 없으면 로그 출력
+            echo "No valid title found in $file, skipping."
           fi
         done
 
