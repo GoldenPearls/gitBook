@@ -22,25 +22,27 @@ jobs:
       run: |
         export LC_CTYPE="UTF-8"  # UTF-8 인코딩을 명시적으로 설정
 
-    - name: Rename Markdown files
+    - name: Rename and Update Markdown files
       run: |
-        for file in developLog/*.md; do
-          # 첫 번째 H1 제목을 추출하여 제목으로 사용
-          title=$(grep -m 1 '^# ' "$file" | sed 's/^# //')
+        for file in $(find developLog -type f -name '*.md'); do
+          # 파일 내용의 첫 번째 제목 줄을 추출
+          title=$(grep -m 1 '^#' "$file" | sed 's/^# //')
           
           if [ -n "$title" ]; then
-            # 새 파일명을 제목을 기반으로 생성
-            new_filename="title.md"
+            # 파일의 디렉토리 구조를 유지하면서 제목을 기반으로 새 파일명 생성
+            dir=$(dirname "$file")
+            new_filename="$dir/$title.md"
             
-            # 파일 이름이 동일한 경우에는 mv 명령을 건너뜁니다
+            # 파일 이름이 동일한 경우에도 강제로 업데이트
             if [ "$file" != "$new_filename" ]; then
-              echo "Renaming $file to $new_filename"  # 디버그 정보 출력
+              echo "Renaming $file to $new_filename"
               mv "$file" "$new_filename"
             else
-              echo "File $file already has the correct name, skipping rename."
+              echo "Updating timestamp for $file"
+              touch "$file"  # 파일의 타임스탬프를 업데이트
             fi
           else
-            echo "No H1 title found in $file, skipping rename."
+            echo "No valid title found in $file, skipping."
           fi
         done
 
@@ -49,5 +51,5 @@ jobs:
         git add -A  # 모든 변경사항 추가
         git config --global user.name 'github-actions[bot]'
         git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-        git diff --staged --quiet || git commit -m "Rename Markdown files based on h1 titles"
+        git diff --staged --quiet || git commit -m "Rename and update Markdown files based on h1 titles"
         git push https://${{ secrets.GITBOOKKEY }}@github.com/GoldenPearls/gitBook.git  # 변경사항을 main 브랜치로 푸시
