@@ -30,7 +30,7 @@ jobs:
             continue  # 다음 파일로 진행
           fi
 
-          # 파일 내용의 첫 번째 제목 줄(H1)을 추출
+          # 파일 내용의 첫 번째 제목 줄(H1)을 추출하고 #을 제거
           title=$(grep -m 1 '^#' "$file" | sed 's/^# //')
           
           if [ -n "$title" ]; then
@@ -38,9 +38,10 @@ jobs:
             dir=$(dirname "$file")
             new_filename="$dir/$title.md"
             
-            # 대상 파일이 이미 존재하면 건너뜀
+            # 대상 파일이 이미 존재하면 기존 파일 삭제
             if [ -e "$new_filename" ]; then
-              echo "File $new_filename already exists. Skipping..."
+              echo "File $new_filename already exists. Deleting..."
+              rm "$file"
               continue
             fi
             
