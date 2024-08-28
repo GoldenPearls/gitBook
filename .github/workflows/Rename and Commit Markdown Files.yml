@@ -5,6 +5,8 @@ on:
     branches:
       - main  # main 브랜치에 푸시될 때 워크플로우 트리거
   workflow_dispatch:  # 수동으로 워크플로우를 실행할 수 있는 옵션
+  schedule:
+    - cron: '17 15 * * *'  # 매일 오전 10시 40분에 실행
 
 jobs:
   process-markdown:
@@ -25,8 +27,8 @@ jobs:
         title=$(grep -m 1 '^# ' "$file" | sed 's/^# //')
         
         if [ -n "$title" ]; then
-          # 새 파일명을 제목을 기반으로 생성, 공백은 밑줄(_)로 대체
-          new_filename="developLog/${title// /_}.md"
+          # 새 파일명을 제목을 기반으로 생성
+          new_filename="developLog/$title.md"
           
           # 파일 이름이 동일한 경우에는 mv 명령을 건너뜁니다
           if [ "$file" != "$new_filename" ]; then
@@ -37,8 +39,8 @@ jobs:
 
     - name: Commit changes
       run: |
-        git config --local user.email "prettylee620@naver.com"
-        git config --local user.name "GoldenPearls"
         git add .
+        git config user.email "prettylee620@naver.com"
+        git config user.name "GoldenPearls"
         git commit -m "Rename Markdown files based on h1 titles"
         git push origin main  # 변경사항을 main 브랜치로 푸시
