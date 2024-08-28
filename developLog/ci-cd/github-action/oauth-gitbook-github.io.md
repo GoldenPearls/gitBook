@@ -25,12 +25,14 @@
 
 * gitbook은 github repo에 동기화가 가능해서 commit이 됨, 잔디심기 가능
 * url 커스텀 가능&#x20;
+* notion이랑 달리.. 카테고리화 및 workspace 안에서 숨긴 글이나 카테고리 지정하면 외부에서는 안보여서 관리하기 좋음
 
 2. 단점
 
 * 문서 홈페이지라서 댓글 기능 x
 * 방문 수 확인을 위해서는 pro로 가야함
 * 핸드폰에서 깨짐... 반응형이 아닌지 글머리 기호도 안보여...
+* h3는 목차로 쳐주지도 않음
 
 > 결론 자동화해서 github.io 블로그로 연동하기 위![](<../../.gitbook/assets/image (33).png>)
 
@@ -64,7 +66,7 @@
 
 2. <mark style="color:red;">repo</mark> ⭐&#x20;
 
-<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
 
 * 코드, 커밋 상태, 리포지토리 초대, 협력자, 배포 상태 및 리포지토리 웹후크에 대한 읽기 및 쓰기 권한을 포함하여 퍼블릭 및 프라이빗 리포지토리에 대한 모든 권한을 부여합니다.&#x20;
 * **참고**: 리포지토리 관련 리소스 외에도 `repo` 범위는 <mark style="color:red;">프로젝트, 초대, 팀 멤버 자격 및 웹후크를 포함하여 조직 소유 리소스를 관리할 수 있는 액세스 권한을 부여</mark>합니다. 이 범위는 사용자가 소유한 프로젝트를 관리하는 기능도 부여합니다.
@@ -101,7 +103,7 @@
 
 ## repo끼리 연결하기 위한 토큰 발급
 
-### **<< Github PAT 발급 >>**
+### **1. << Github PAT 발급 >>**
 
 > 이 것을 Gitgook이 Github.io로 연결해주기 위한 토근
 
@@ -136,24 +138,69 @@
 
 * 만약 패키지 작업을 하지 않는다면, `repo`, `workflow`, `public_repo` 등의 기본적인 권한만으로 충분합니다.
 
-## 토큰 설정
+### 2. 토큰 설정
 
 > gitbook repo에 push 되거나, 일정 시간마다 github.io에 글을 연결해줄 거임
 
 <figure><img src="../../.gitbook/assets/image (32).png" alt=""><figcaption></figcaption></figure>
 
-### Gitbook repo에 PAT 등록
+### 3. Gitbook repo, Github.io repo에 PAT 등록 ⭐
 
-* GITBOOK 레포의 `⚙️ Settings` 클릭
+`Github action` 파일에 개인 레포로 변경사항을 `push`할 수 있도록 하려면\
+위에서 발급 받은 개인 토큰을 함께 보내 내 레포에 `push`할 권한을 받은 사람임을 증명 하기 위함
+
+<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+
+* GITBOOK , Github.io레포의 `⚙️ Settings` 클릭
 * `⊞ Secrets and variables`를 펼쳐 `Actions` 클릭
 * `New repository secret` 클릭
 * &#x20;`Name`에는 `.yml` 파일에서 사용할 이름, `Value`에는 아까 발급받은 PAT 작성
 * &#x20;`Add Secret` 클릭
 
+## workflow 작성하기
 
+워크플로우에 작업해야 할 것은 큰 틀은&#x20;
+
+> gitbook에 있는 md 파일을 github.io의 `_posts`에 넣어야 함
+
+<figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+
+### gitbook 을  가져오기 위한 문제가 있는데
+
+1. gitbook은 한글을 저장하지 못하더라?
+2. 그래서 한글로 된 타이틀의 경우, github repo에 저장 시, undefinded로 저장됨
+
+<figure><img src="../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+
+3. md 파일 코드 안에는 잘 들어가짐&#x20;
+
+* gitbook이 ##  까지만 목차로 만들어주는데 그 이유가 우리가 gitbook에서 ##로 목차를 하면 ### 로 #로 하면 ##로 <mark style="color:red;"># 을  하나씩 더 붙여지는 꼴임</mark>
+* 즉, 제목이 # 한게 h1임 => 이걸 github io에 넘어가기 전 workflow에서 변경해줘야 함 push가 들어올 때 변경을 하던 아니면 일정시간마다 변경을 하던지
+
+### 즉, workflow에서 작업해야 할 것들을 정리해보면
+
+1. gitbook 커밋 시, <mark style="color:red;">파일 이름</mark>을 다 바꿔줘야 함... md파일 안에 있는 <mark style="color:red;">h1</mark>으로
+2. gitbook의  github.io로 변경사항을 가져올 건데, md 파일들을 찾아야 함(main 브랜치에 `checkout`)
+3. developLog  >  있는 것들 중 아래 두개를 제외하고 전부 가져오고 그 이후는 변경사항이 있을 때만 가져올 거임
+
+<figure><img src="../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+
+4. **폴더**를 `카테고리`로 분류 할 거임&#x20;
+5. md파일을 수정해줘야 함 둘이 살짝 달라서 gitbook에서 보낼 때 카테고리, 발급날짜, 타이틀 등을 md파일 안에 넣어줘야 함
+
+✅ gitbook의 경우, github.io와 연동이 안되기에 md 파일 안에 있는 상단에 있는 --- ---  을 삭제 시켜줘야함
+
+✅ 그리고 github.io에 맞춰 수정해주어야 함
+
+✅  타이틀도 그것에 맞게 바꿔줘야 함
+
+6. 모든 작업이 끝났다면, github.io \_posts에 `push` 해준다.
 
 > 📁 참고&#x20;
 >
 > * [Github action으로 Sync Fork 자동화하기 - push 될 때마다](https://velog.io/@charming-l/Github-action%EC%9C%BC%EB%A1%9C-push-%EB%90%A0-%EB%95%8C%EB%A7%88%EB%8B%A4-%EC%9E%90%EB%8F%99%EC%9C%BC%EB%A1%9C-%EC%B5%9C%EC%8B%A0%ED%99%94%ED%95%98%EA%B8%B0to-forked-repo)
 > * [GitAction에서 다른 레포로 접근하려면?](https://stackoverflow.com/questions/71068476/accessing-another-repository-with-github-cli-in-github-actions)
+> * [GitHub Organization 프로젝트를 vercel 무료로 연동하기 (+git actions)](https://velog.io/@rmaomina/organization-vercel-hobby-deploy)
 

@@ -36,13 +36,13 @@
 
 #### 인텔리제이를 통한 자바 설치 관리
 
-<figure><img src="../../../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * 내부에 자바를 편리하게 설치하고 관리할 수 있는 기능을 제공
 
 #### 인텔리제이를 통한 자바 컴파일, 실행 과정
 
-<figure><img src="../../../.gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (3) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 1. **컴파일**
 
@@ -60,7 +60,7 @@
 
 1. 일반적인 프로그램은 다른 운영체제에서 실행 할 수 없다.
 
-<figure><img src="../../../.gitbook/assets/image (5) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (5) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 2. 자바 프로그램은 자바가 설치된 모든 OS에서 실행할 수 있다.
 
@@ -68,7 +68,7 @@
 * **OS 호환성 문제는 자바가 해결한다.** Hello.class 와 같이 컴파일된 자바 파일은 모든 자바 환경에서 실행할 수 있다.
 * 윈도우 자바는 윈도우 OS가 사용하는 명령어들로 구성되어 있다. MAC이나 리눅스 자바도 본인의 OS가 사용하는 명령어들로 구성되어 있다. 개발자는 각 OS에 맞도록 자바를 설치하기만 하면 된다.
 
-<figure><img src="../../../.gitbook/assets/image (6) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (6) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 #### 자바 개발과 운영 환경
 

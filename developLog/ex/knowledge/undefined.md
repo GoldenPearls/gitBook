@@ -1,6 +1,6 @@
 # 트위터를 통한 모르는 지식을 얻어가기
 
-<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
 
 ## 1. 소나큐브란?
 
@@ -41,15 +41,15 @@
 
 ## 3. 오픈소스 컨트리뷰터
 
-<figure><img src="../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
 
 {% embed url="https://www.contribution.ac/" %}
 
 ## 4. 타입 스크립트 밈 이해하기
 
-<figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (4) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### 이게 뭔 뜻이냐?
 
@@ -110,7 +110,7 @@ ChatGPT
 
 ### 댓글 살펴보기
 
-<figure><img src="../../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (5) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## 5. verse란
 
@@ -122,7 +122,7 @@ ChatGPT
 
 ## 6. 오픈소스 링크
 
-<figure><img src="../../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (6) (1).png" alt=""><figcaption></figcaption></figure>
 
 {% embed url="https://openapi.tools/#documentation" %}
 

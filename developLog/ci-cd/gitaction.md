@@ -13,5 +13,5 @@ layout:
     visible: false
 ---
 
-# GitAction
+# Github Action
 

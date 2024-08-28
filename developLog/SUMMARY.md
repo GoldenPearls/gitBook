@@ -87,7 +87,7 @@
   * [github.io 블로그 만들기](ci-cd/github/github.io/README.md)
     * [github.io Chipy 테마 연동 하기](ci-cd/github/github.io/github.io-chipy.md)
   * [팀프로젝트때 알아낸 github 지식](ci-cd/github/github-1.md)
-* [Github Action](ci-cd/github-action/README.md)
+* [Github Action](ci-cd/gitaction.md)
   * [Github Action 링크 모음](ci-cd/github-action/github-action.md)
   * [OAuth 앱에 대한 범위 및 gitbook과 github.io를 자동화를 위한 작업](ci-cd/github-action/oauth-gitbook-github.io.md)
 
