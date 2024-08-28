@@ -20,7 +20,7 @@ jobs:
 
     - name: Set UTF-8 Encoding
       run: |
-        export LC_CTYPE="C.UTF-8"  # UTF-8 인코딩을 명시적으로 설정
+        export LC_CTYPE="UTF-8"  # UTF-8 인코딩을 명시적으로 설정
 
     - name: Rename and Update Markdown files
       run: |
@@ -30,8 +30,8 @@ jobs:
           title=$(grep -m 1 '^#' "$file" | sed 's/^# //')
 
           if [ -n "$title" ]; then
-            # 공백은 유지하면서 특수 문자만 언더스코어로 변환 (한글은 그대로 유지)
-            sanitized_title=$(echo "$title" | tr -c '[:alnum:][:space:]ㄱ-ㅎㅏ-ㅣ가-힣' '_')
+            # 공백은 유지하면서 특수 문자만 언더스코어로 변환
+            sanitized_title=$(echo "$title" | sed 's/[^a-zA-Z0-9 ]/_/g')
             new_filename="$dir/$sanitized_title.md"
 
             # 파일 이름이 동일한 경우에도 강제로 업데이트
@@ -53,4 +53,4 @@ jobs:
         git config --global user.name 'github-actions[bot]'
         git config --global user.email 'github-actions[bot]@users.noreply.github.com'
         git diff --staged --quiet || git commit -m "Rename and update Markdown files based on h1 titles"
-        git push https://${{ secrets.GITBOOKKEY }}@github.com/GoldenPearls/gitBook.git  # 변경사항을 main 브랜치로 푸시
+        git push https://${{ secrets.GH_PAT }}@github.com/GoldenPearls/gitBook.git  # 변경사항을 main 브랜치로 푸시
