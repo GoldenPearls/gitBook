@@ -24,16 +24,22 @@ jobs:
 
     - name: Rename and Update Markdown files
       run: |
-        find developLog/* -type f -name '*.md' ! -name 'README.md' ! -name 'SUMMARY.md' | while read file; do
-          # 파일의 디렉토리 구조를 유지하면서 첫 번째 H1 제목을 추출하여 새 파일명 생성
-          dir=$(dirname "$file")
-          title=$(grep -m 1 '^#' "$file" | sed 's/^# //')
-
+        find developLog -type f -name '*.md' | while IFS= read -r file; do
+          # README.md 및 SUMMARY.md 파일은 건너뜀
+          if [[ "$file" == *"README.md" ]] || [[ "$file" == *"SUMMARY.md" ]]; then
+            echo "Skipping $file"
+            continue
+          fi
+          
+          # 파일 내용의 첫 번째 제목 줄을 추출
+          title=$(grep -m 1 '^#' "$file")
+          
           if [ -n "$title" ]; then
-            # 공백은 유지하면서 특수 문자만 언더스코어로 변환
-            sanitized_title=$(echo "$title" | sed 's/[^a-zA-Z0-9 ]/_/g')
+            # 공백은 유지하면서 특수 문자만 언더스코어로 변환 (한글은 그대로 유지)
+            sanitized_title=$(echo "$title" | tr -c '[:alnum:]가-힣 ' '_')
+            dir=$(dirname "$file")
             new_filename="$dir/$sanitized_title.md"
-
+            
             # 파일 이름이 동일한 경우에도 강제로 업데이트
             if [ "$file" != "$new_filename" ]; then
               echo "Renaming $file to $new_filename"
