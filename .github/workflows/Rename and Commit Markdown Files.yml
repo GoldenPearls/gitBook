@@ -14,9 +14,9 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v4
       with: 
-          token: ${{ secrets.GITBOOKKEY }}
-          fetch-depth: 0
-          ref: main
+        token: ${{ secrets.GITBOOKKEY }}
+        fetch-depth: 0
+        ref: main
 
     - name: Set UTF-8 Encoding
       run: |
@@ -30,6 +30,8 @@ jobs:
           title=$(grep -m 1 '^#' "$file" | sed 's/^# //')
 
           if [ -n "$title" ]; then
+            # 공백 대신 밑줄을 사용하지 않고, 공백을 유지
+            title=$(echo "$title" | sed 's/ / /g')
             new_filename="$dir/$title.md"
 
             # 파일 이름이 동일한 경우에도 강제로 업데이트
