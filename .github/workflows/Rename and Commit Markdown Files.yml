@@ -5,8 +5,6 @@ on:
     branches:
       - main  # main 브랜치에 푸시될 때 워크플로우 트리거
   workflow_dispatch:  # 수동으로 워크플로우를 실행할 수 있는 옵션
-  schedule:
-    - cron: '17 15 * * *'  # 매일 오전 10시 40분에 실행
 
 jobs:
   process-markdown:
@@ -19,6 +17,10 @@ jobs:
           token: ${{ secrets.GITBOOKKEY }}
           fetch-depth: 0
           ref: main
+
+    - name: Set UTF-8 Encoding
+      run: |
+        export LC_CTYPE="UTF-8"  # UTF-8 인코딩을 명시적으로 설정
 
     - name: Rename Markdown files
       run: |
@@ -40,7 +42,7 @@ jobs:
     - name: Commit changes
       run: |
         git add .
-        git config user.email "prettylee620@naver.com"
-        git config user.name "GoldenPearls"
+         git config --global user.name 'github-actions[bot]'
+        git config --global user.email 'github-actions[bot]@users.noreply.github.com'
         git commit -m "Rename Markdown files based on h1 titles"
-        git push origin main  # 변경사항을 main 브랜치로 푸시
+        git push https://${{ secrets.GH_PAT }}@github.com/GoldenPearls/gitBook.git  # 변경사항을 main 브랜치로 푸시
