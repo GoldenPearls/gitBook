@@ -31,22 +31,22 @@ jobs:
           fi
 
           # 파일 내용의 첫 번째 제목 줄(H1)을 추출
-          title=$(grep -m 1 '^#' "$file")
+          title=$(grep -m 1 '^#' "$file" | sed 's/^# //')
           
           if [ -n "$title" ]; then
-            # 공백을 유지하면서 한글과 알파벳, 숫자를 제외한 특수 문자만 언더스코어로 변환
-            sanitized_title=$(echo "$title" | tr -c '[:alnum:]가-힣 ' '_')
-            # 파일명 앞뒤에 생긴 불필요한 언더스코어 제거
-            sanitized_title=$(echo "$sanitized_title" | sed 's/^_//;s/_$//')
-            dir=$(dirname "$file")  # 파일의 디렉토리 경로 추출
-            new_filename="$dir/$sanitized_title.md"  # 새 파일명 생성
+            # 파일의 디렉토리 구조를 유지하면서 제목을 기반으로 새 파일명 생성
+            dir=$(dirname "$file")
+            new_filename="$dir/$title.md"
+            
+            new_dir=$(dirname "$new_filename")
             
             # 파일 이름이 동일한 경우에도 강제로 업데이트
             if [ "$file" != "$new_filename" ]; then
               echo "Renaming $file to $new_filename"
-              git mv "$file" "$new_filename"  # git mv 사용하여 이름 변경 처리
+              git mv "$file" "$new_filename"  # Git이 이름 변경으로 인식하게 git mv 사용
             else
-              echo "No need to rename $file"
+              echo "Updating timestamp for $file"
+              touch "$file"  # 파일의 타임스탬프를 업데이트
             fi
           else
             echo "No valid title found in $file, skipping."
@@ -58,5 +58,5 @@ jobs:
         git add -A  # 모든 변경 사항 추가
         git config --global user.name 'github-actions[bot]'  # 커밋 사용자 이름 설정
         git config --global user.email 'github-actions[bot]@users.noreply.github.com'  # 커밋 사용자 이메일 설정
-        git diff --staged --quiet || git commit -m "Rename and update Markdown files based on h1 titles"  # 변경 사항이 있으면 커밋
+        git diff --staged --quiet || git commit -m "Add new Markdown files based on h1 titles"  # 변경 사항이 있으면 커밋
         git push https://${{ secrets.GITBOOKKEY }}@github.com/GoldenPearls/gitBook.git  # 변경 사항을 원격 리포지토리의 main 브랜치로 푸시
