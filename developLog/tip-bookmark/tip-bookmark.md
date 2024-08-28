@@ -1,2 +1,2 @@
-# 🌟 tip-bookmark
+# tip-bookmark
 

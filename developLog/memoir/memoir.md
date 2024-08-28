@@ -1,2 +1,2 @@
-# 🌸 memoir
+# memoir
 
