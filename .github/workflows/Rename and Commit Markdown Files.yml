@@ -41,7 +41,7 @@ jobs:
             new_filename="$dir/$sanitized_title.md"
 
             # 파일 이름이 동일한 경우에도 강제로 업데이트
-            if [ "$file" != "$new_filename" ]; then
+            if [ "$file" != "$new_filename" ];kan then
               echo "Renaming $file to $new_filename"
               # 파일 내용을 임시 파일에 저장한 후, 파일 이름을 변경
               tmp_file=$(mktemp)
@@ -56,10 +56,11 @@ jobs:
           fi
         done
 
-    - name: Commit changes
+    - name: Commit and Push changes
       run: |
         git add -A  # 모든 변경사항 추가
         git config --global user.name 'github-actions[bot]'
         git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-        git diff --staged --quiet || git commit -m "Rename and update Markdown files based on h1 titles"
+        git pull --rebase https://${{ secrets.GITBOOKKEY }}@github.com/GoldenPearls/gitBook.git main
+        git commit -m "Rename and update Markdown files based on h1 titles"
         git push https://${{ secrets.GITBOOKKEY }}@github.com/GoldenPearls/gitBook.git  # 변경사항을 main 브랜치로 푸시
