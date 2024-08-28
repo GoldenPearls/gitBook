@@ -30,7 +30,7 @@ jobs:
           
           if [ -n "$title" ]; then
             # 새 파일명을 제목을 기반으로 생성
-            new_filename="developLog/$title.md"
+            new_filename="title.md"
             
             # 파일 이름이 동일한 경우에는 mv 명령을 건너뜁니다
             if [ "$file" != "$new_filename" ]; then
