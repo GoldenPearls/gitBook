@@ -24,27 +24,27 @@ jobs:
 
     - name: Rename and Update Markdown files
       run: |
-        find developLog/* -type f -name '*.md' ! -name 'README.md' ! -name 'SUMMARY.md' | while read file; do
-          # 파일의 디렉토리 구조를 유지하면서 첫 번째 H1 제목을 추출하여 새 파일명 생성
+        # 파일 내용의 첫 번째 제목 줄을 추출
+        title=$(grep -m 1 '^#' "$file" | sed 's/^# //')
+        
+        if [ -n "$title" ]; then
+          # 파일의 디렉토리 구조를 유지하면서 제목을 기반으로 새 파일명 생성
           dir=$(dirname "$file")
-          title=$(grep -m 1 '^#' "$file" | sed 's/^# //')
-    
-          if [ -n "$title" ]; then
-            # 공백은 유지하면서 특수 문자만 언더스코어로 변환 (한글 포함)
-            sanitized_title=$(echo "$title" | sed 's/[^[:alnum:][:space:]ㄱ-ㅎㅏ-ㅣ가-힣]/_/g')
-            new_filename="$dir/$sanitized_title.md"
-    
-            # 파일 이름이 동일한 경우에도 강제로 업데이트
-            if [ "$file" != "$new_filename" ]; then
-              echo "Renaming $file to $new_filename"
-              mv "$file" "$new_filename"
-            else
-              echo "Updating timestamp for $file"
-              touch "$file"  # 파일의 타임스탬프를 업데이트
-            fi
+          new_filename="$dir/$title.md"
+          
+          new_dir=$(dirname "$new_filename")
+          
+          # 파일 이름이 동일한 경우에도 강제로 업데이트
+          if [ "$file" != "$new_filename" ]; then
+            echo "Renaming $file to $new_filename"
+            mv "$file" "$new_filename"
           else
-            echo "No valid title found in $file, skipping."
+            echo "Updating timestamp for $file"
+            touch "$file"  # 파일의 타임스탬프를 업데이트
           fi
+        else
+          echo "No valid title found in $file, skipping."
+        fi
         done
 
     - name: Commit changes
@@ -53,4 +53,4 @@ jobs:
         git config --global user.name 'github-actions[bot]'
         git config --global user.email 'github-actions[bot]@users.noreply.github.com'
         git diff --staged --quiet || git commit -m "Rename and update Markdown files based on h1 titles"
-        git push https://${{ secrets.GH_PAT }}@github.com/GoldenPearls/gitBook.git  # 변경사항을 main 브랜치로 푸시
+        git push https://${{ secrets.GITBOOKKEY }}@github.com/GoldenPearls/gitBook.git  # 변경사항을 main 브랜치로 푸시
