@@ -41,7 +41,7 @@ jobs:
             new_filename="$dir/$sanitized_title.md"
 
             # 파일 이름이 동일한 경우에도 강제로 업데이트
-            if [ "$file" != "$new_filename" ];kan then
+            if [ "$file" != "$new_filename" ]; then
               echo "Renaming $file to $new_filename"
               # 파일 내용을 임시 파일에 저장한 후, 파일 이름을 변경
               tmp_file=$(mktemp)
