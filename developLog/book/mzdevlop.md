@@ -1,6 +1,6 @@
 ---
-icon: book-open
 description: 요즘 개발자 책을 읽고 적은 후기와 커피챗 후기
+icon: book-open
 cover: >-
   https://velog.velcdn.com/images/prettylee620/post/2b599a91-49bb-4594-b765-e80acf5a06b9/image.png
 coverY: 0

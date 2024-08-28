@@ -1,6 +1,6 @@
 ---
-icon: book-bookmark
 description: blog를 하기 위한 테마 모아 보기
+icon: book-bookmark
 ---
 
 # 블로그 테마 모아보기(tistory, github.io)
