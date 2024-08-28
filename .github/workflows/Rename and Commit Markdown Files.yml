@@ -28,12 +28,12 @@ jobs:
           # 파일의 디렉토리 구조를 유지하면서 첫 번째 H1 제목을 추출하여 새 파일명 생성
           dir=$(dirname "$file")
           title=$(grep -m 1 '^#' "$file" | sed 's/^# //')
-
+    
           if [ -n "$title" ]; then
-            # 공백은 유지하면서 특수 문자만 언더스코어로 변환
-            sanitized_title=$(echo "$title" | sed 's/[^a-zA-Z0-9 ]/_/g')
+            # 공백은 유지하면서 특수 문자만 언더스코어로 변환 (한글 포함)
+            sanitized_title=$(echo "$title" | sed 's/[^[:alnum:][:space:]ㄱ-ㅎㅏ-ㅣ가-힣]/_/g')
             new_filename="$dir/$sanitized_title.md"
-
+    
             # 파일 이름이 동일한 경우에도 강제로 업데이트
             if [ "$file" != "$new_filename" ]; then
               echo "Renaming $file to $new_filename"
