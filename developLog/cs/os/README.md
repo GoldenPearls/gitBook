@@ -1,6 +1,17 @@
 ---
-icon: apple
+icon: windows
+layout:
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: false
 ---
 
-# OS
+# 운영체제
 

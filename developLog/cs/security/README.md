@@ -1,6 +1,17 @@
 ---
 icon: shield-cross
+layout:
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: false
 ---
 
-# security
+# 보안
 
