@@ -33,8 +33,7 @@ jobs:
           title=$(grep -m 1 '^#' "$file" | sed 's/^# //')
           
           if [ -n "$title" ]; then
-            # 새 파일명을 디렉토리 경로를 유지하면서 제목을 기반으로 생성
-            new_filename="$dir/$title.md"
+
             
             # 파일 이름이 동일한 경우에는 mv 명령을 건너뜁니다
             if [ "$file" != "$new_filename" ]; then
