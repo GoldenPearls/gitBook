@@ -347,15 +347,13 @@ steps:
     git push origin main
 ```
 
-하지만, 이 또한 문제가 되는데...&#x20;
-
-🔥 바뀔 것이 없다고 자꾸 뜸 &#x20;
-
-\++ 이 건 사실 나중에 알게 됐는 데 문제 없었음
+하지만, 이 또한 문제가 되는데... 🔥 바뀔 것이 없다고 자꾸 뜸&#x20;
 
 <figure><img src="https://velog.velcdn.com/images/prettylee620/post/37ce1966-3382-4b70-8432-fa019dc4b718/image.png" alt=""><figcaption></figcaption></figure>
 
 ✅ add -A로 전체로 해주고 그리고 토큰을 이용해서 github action 봇이 넣게 수정
+
+## 일부 코드
 
 ```
   git add -A  # 모든 변경사항 추가
@@ -449,14 +447,6 @@ jobs:
 ```
 
 <figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
-
-**이후 생긴 문제들**
-
-🔥(가 잘 못인식
-
-🔥한글 번역 타이틀 문서만 나두니 gitbook이랑 동기화안됨
-
-
 
 ## TMI
 
