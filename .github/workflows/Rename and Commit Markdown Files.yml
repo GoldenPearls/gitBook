@@ -35,9 +35,10 @@ jobs:
           title=$(grep -m 1 '^#' "$file")
           
           if [ -n "$title" ]; then
-            # 파일의 디렉토리 구조를 유지하면서 제목을 기반으로 새 파일명 생성
+            # 공백은 유지하면서 한글과 알파벳, 숫자를 제외한 특수 문자만 언더스코어로 변환
+            sanitized_title=$(echo "$title" | sed 's/[^[:alnum:][:space:][:blank:]ㄱ-ㅎㅏ-ㅣ가-힣]/_/g')
             dir=$(dirname "$file")
-            new_filename="$dir/$title.md"
+            new_filename="$dir/$sanitized_title.md"
             
             # 파일 이름이 동일한 경우에도 강제로 업데이트
             if [ "$file" != "$new_filename" ]; then
