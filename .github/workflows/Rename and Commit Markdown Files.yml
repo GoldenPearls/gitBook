@@ -52,6 +52,7 @@ jobs:
             echo "No valid title found in $file, skipping."
           fi
         done
+        echo "Rename and update completed successfully!"  # 작업 완료 메시지 출력
 
     - name: Commit changes  # 변경 사항을 커밋하고 푸시
       run: |
