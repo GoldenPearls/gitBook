@@ -24,27 +24,26 @@ jobs:
 
     - name: Rename and Update Markdown files
       run: |
-        # 파일 내용의 첫 번째 제목 줄을 추출
-        title=$(grep -m 1 '^#' "$file" | sed 's/^# //')
-        
-        if [ -n "$title" ]; then
-          # 파일의 디렉토리 구조를 유지하면서 제목을 기반으로 새 파일명 생성
-          dir=$(dirname "$file")
-          new_filename="$dir/$title.md"
+        for file in $(find developLog/* -type f -name '*.md' ! -name 'README.md' ! -name 'SUMMARY.md'); do
+          # 파일 내용의 첫 번째 제목 줄을 추출
+          title=$(grep -m 1 '^#' "$file" | sed 's/^# //')
           
-          new_dir=$(dirname "$new_filename")
-          
-          # 파일 이름이 동일한 경우에도 강제로 업데이트
-          if [ "$file" != "$new_filename" ]; then
-            echo "Renaming $file to $new_filename"
-            mv "$file" "$new_filename"
+          if [ -n "$title" ]; then
+            # 파일의 디렉토리 구조를 유지하면서 제목을 기반으로 새 파일명 생성
+            dir=$(dirname "$file")
+            new_filename="$dir/$title.md"
+            
+            # 파일 이름이 동일한 경우에도 강제로 업데이트
+            if [ "$file" != "$new_filename" ]; then
+              echo "Renaming $file to $new_filename"
+              mv "$file" "$new_filename"
+            else
+              echo "Updating timestamp for $file"
+              touch "$file"  # 파일의 타임스탬프를 업데이트
+            fi
           else
-            echo "Updating timestamp for $file"
-            touch "$file"  # 파일의 타임스탬프를 업데이트
+            echo "No valid title found in $file, skipping."
           fi
-        else
-          echo "No valid title found in $file, skipping."
-        fi
         done
 
     - name: Commit changes
