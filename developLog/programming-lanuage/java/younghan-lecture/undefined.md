@@ -4,7 +4,7 @@
 
 ### 자바 표준 스펙
 
-<figure><img src="../../../.gitbook/assets/image (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 #### 자바 표준 스펙과 구현
 
@@ -16,7 +16,7 @@
 
 ### 컴파일과 실행
 
-<figure><img src="../../../.gitbook/assets/image (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 자바 프로그램은 컴파일과 실행 단계를 거친다.
 
