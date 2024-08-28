@@ -75,12 +75,12 @@ object를 의자 s = new 의자();로 **heap**에 올리면 이 s는 만든 메�
 
 #### ⭐ DI(Dependency Injection)란?
 
-{% content-ref url="스프링 빈을 등록하는 두 가지 방법(@Component, @Bean).md" %}
-[스프링 빈을 등록하는 두 가지 방법(@Component, @Bean).md](<스프링 빈을 등록하는 두 가지 방법(@Component, @Bean).md>)
+{% content-ref url="component-bean.md" %}
+[component-bean.md](component-bean.md)
 {% endcontent-ref %}
 
-{% content-ref url="의존성 주입 3가지 방법 - (생성자 주입, Field 주입, Setter 주입).md" %}
-[의존성 주입 3가지 방법 - (생성자 주입, Field 주입, Setter 주입).md](<의존성 주입 3가지 방법 - (생성자 주입, Field 주입, Setter 주입).md>)
+{% content-ref url="3-field-setter.md" %}
+[3-field-setter.md](3-field-setter.md)
 {% endcontent-ref %}
 
 #### ⭐ 스프링 컨테이너 (= IoC 컨테이너)의 종류
