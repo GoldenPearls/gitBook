@@ -1,6 +1,6 @@
 ---
-icon: git
 description: github 자주 쓰는 명령어 모아보기
+icon: git
 layout:
   title:
     visible: true
