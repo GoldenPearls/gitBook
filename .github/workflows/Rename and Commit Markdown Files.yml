@@ -1,62 +1,64 @@
-name: Rename and Commit Markdown Files
+name: Rename and Add New Markdown Files
 
 on:
   push:
     branches:
-      - main
-  workflow_dispatch:
+      - main  # main 브랜치에 푸시될 때 워크플로우 트리거
+  workflow_dispatch:  # 수동으로 워크플로우를 실행할 수 있는 옵션
 
 jobs:
   process-markdown:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest  # 최신 Ubuntu 환경에서 워크플로우 실행
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v4
+    - name: Checkout repository  # GitHub 리포지토리의 코드를 체크아웃
+      uses: actions/checkout@v4  # GitHub에서 제공하는 checkout 액션을 사용
       with: 
-        token: ${{ secrets.GITBOOKKEY }}
-        fetch-depth: 1
+        token: ${{ secrets.GITBOOKKEY }}  # GitHub Personal Access Token 사용
+        fetch-depth: 1  # 최신 커밋만 가져오도록 설정하여 성능 최적화
 
-    - name: Set UTF-8 Encoding
+    - name: Set UTF-8 Encoding  # UTF-8 인코딩을 설정하여 인코딩 문제 방지
       run: |
-        export LC_CTYPE="UTF-8"
+        export LC_CTYPE="UTF-8"  # UTF-8 인코딩 명시적으로 설정
 
-    - name: Rename and Update Markdown files
+    - name: Rename and Add New Markdown files  # Markdown 파일을 이름 변경 및 복사
       run: |
+        # developLog 디렉토리에서 .md 파일을 모두 찾음
         find developLog -type f -name '*.md' | while IFS= read -r file; do
+          # README.md 및 SUMMARY.md 파일은 건너뜀
           if [[ "$file" == *"README.md" ]] || [[ "$file" == *"SUMMARY.md" ]]; then
-            echo "Skipping $file"
-            continue
+            echo "Skipping $file"  # 해당 파일은 건너뜀
+            continue  # 다음 파일로 진행
           fi
 
+          # 파일 내용의 첫 번째 제목 줄(H1)을 추출
           title=$(grep -m 1 '^#' "$file")
           
+          # 유효한 제목이 있는 경우
           if [ -n "$title" ]; then
+            # 공백을 유지하면서 특수 문자만 언더스코어로 변환
             sanitized_title=$(echo "$title" | tr -c '[:alnum:]가-힣 ' '_')
+            # 파일명 앞뒤에 생긴 불필요한 언더스코어 제거
             sanitized_title=$(echo "$sanitized_title" | sed 's/^_//;s/_$//')
-            dir=$(dirname "$file")
-            new_filename="$dir/$sanitized_title.md"
+            dir=$(dirname "$file")  # 파일의 디렉토리 경로 추출
+            new_filename="$dir/$sanitized_title.md"  # 새 파일명 생성
 
+            # 기존 파일명을 유지한 채 새 파일명으로 복사
             if [ "$file" != "$new_filename" ]; then
-              if [ -f "$new_filename" ]; then
-                echo "Removing duplicate $new_filename"
-                rm "$new_filename"
-              fi
-              echo "Renaming $file to $new_filename"
-              mv "$file" "$new_filename"
+              echo "Copying $file to $new_filename"  # 복사 작업 로그 출력
+              cp "$file" "$new_filename"  # 새 파일명으로 파일 복사
             else
-              echo "Updating timestamp for $file"
-              touch "$file"
+              echo "No need to rename $file"  # 파일명이 같으면 로그 출력
             fi
           else
-            echo "No valid title found in $file, skipping."
+            echo "No valid title found in $file, skipping."  # 유효한 제목이 없으면 로그 출력
           fi
         done
 
-    - name: Commit changes
+    - name: Commit changes  # 변경 사항을 커밋하고 푸시
       run: |
-        git add -A
-        git config --global user.name 'github-actions[bot]'
-        git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-        git diff --staged --quiet || git commit -m "Rename and update Markdown files based on h1 titles"
-        git push https://${{ secrets.GITBOOKKEY }}@github.com/GoldenPearls/gitBook.git
+        git add -A  # 모든 변경 사항 추가
+        git config --global user.name 'github-actions[bot]'  # 커밋 사용자 이름 설정
+        git config --global user.email 'github-actions[bot]@users.noreply.github.com'  # 커밋 사용자 이메일 설정
+        git diff --staged --quiet || git commit -m "Add new Markdown files based on h1 titles"  # 변경 사항이 있으면 커밋
+        git push https://${{ secrets.GITBOOKKEY }}@github.com/GoldenPearls/gitBook.git  # 변경 사항을 원격 리포지토리의 main 브랜치로 푸시
