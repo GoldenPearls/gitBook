@@ -1,6 +1,6 @@
 ---
-description: blog를 하기 위한 테마 모아 보기
 icon: book-bookmark
+description: blog를 하기 위한 테마 모아 보기
 ---
 
 # 블로그 테마 모아보기(tistory, github.io)
@@ -32,6 +32,11 @@ icon: book-bookmark
 * Sleek : [http://jekyllthemes.org/themes/sleek/](http://jekyllthemes.org/themes/sleek/)
 * Mediumish : [http://jekyllthemes.org/themes/mediumish-jekyll-theme/](http://jekyllthemes.org/themes/mediumish-jekyll-theme/)
 * MrGreen-Jekyll : [https://jekyll-themes.com/MrGreensWorkshop/MrGreen-JekyllTheme](https://jekyll-themes.com/MrGreensWorkshop/MrGreen-JekyllTheme)
+* :thumbsup:  Hydejack : [http://jekyllthemes.org/themes/hydejack/](http://jekyllthemes.org/themes/hydejack/)
+
+
+
+> 고민 Chirpy를 기반으로 쓰고 Catbook의 카테고리 참고,  Jekfix의 포트폴리오 참고? 아냐.,.. 이거를 포트폴리오 사이트를 연결해버리고, 위에 home 태그를 위에다가..
 
 
 

@@ -7,13 +7,21 @@
 하나의 변경 사항이 생겼을 경우,\
 이를 merge 할 때마다 빌드-테스트의 과정을 거쳐 배포까지 거치는 과정을 `Github action`은 이 중요하지만 귀찮은 과정들을 자동화 시켜줄 수 있다!
 
+> 끌어오기 요청이 열리거나 이슈가 생성되는 것과 같은 ‘이벤트’가 리포지토리에서 발생할 때 트리거되도록 GitHub Actions ‘워크플로’를 구성할 수 있다.
+
+각 작업은 자체 가상 머신 ‘실행기’ 또는 컨테이너 내에서 실행되며, 정의한 스크립트를 실행하거나 **워크플로를 간소화할 수 있는 재사용 가능한 확장인 ‘작업’을 실행하는 ‘단계’를 하나 이상 포함**한다.
+
 \+ 각 워크 플로우는 `.yml` 혹은 `.yaml` 확장자를 가진 파일에 작성된다.
 
 \+ `.github/workflows/` 에 action 파일을 올리면 Github이 자동으로 인식한다.
 
 \+ 레포지토리에i  github action을 누르면 알아서 workflows 폴더가 생성 됨
 
+### 워크플로란?
 
+**워크플로**는 하나 이상의 작업을 실행할 구성 가능한 자동화된 프로세스이다. 워크플로는 리포지토리에 체크 인된 YAML 파일에서 정의되며, 리포지토리의 이벤트로 트리거될 때 실행되거나 수동으로 또는 정의된 일정에 따라 트리거될 수 있다.
+
+워크플로는 리포지토리의 `.github/workflows` 디렉터리에 정의
 
 ## 이걸 하는 배경
 
@@ -190,13 +198,78 @@
 4. **폴더**를 `카테고리`로 분류 할 거임&#x20;
 5. md파일을 수정해줘야 함 둘이 살짝 달라서 gitbook에서 보낼 때 카테고리, 발급날짜, 타이틀 등을 md파일 안에 넣어줘야 함
 
-✅ gitbook의 경우, github.io와 연동이 안되기에 md 파일 안에 있는 상단에 있는 --- ---  을 삭제 시켜줘야함
+✅ gitbook의 경우, github.io와 연동이 안되기에 md 파일 안에 있는 상단에 있는 --- ---  영역인 부분을 삭제 시켜줘야함
 
-✅ 그리고 github.io에 맞춰 수정해주어야 함
+✅ 그리고 github.io에 맞춰 안에 내용 수정 사진과 같이 해줘야 함
 
-✅  타이틀도 그것에 맞게 바꿔줘야 함
+* title : 파일 제목으로 가져옴
+* description : 은 gitbook이랑 똑같이 없으면 들어가지 않게
+* author : 무조건 mellona
+* date : commit한 날짜와 시간으로
+* pin : 기본값 fasle
+* mermaid : 기본값 true
+* image: gitbook cover로 해서 가져옴 기본값은 없음 .gitbook/assets/DALL·E 2024-08-12 14.38.23 - A blog banner designed with a minimalist winter theme, featuring a snow-covered landscape with a trail of footsteps leading through the snow. The desi.webp
 
-6. 모든 작업이 끝났다면, github.io \_posts에 `push` 해준다.
+<figure><img src="../../.gitbook/assets/image (36).png" alt=""><figcaption></figcaption></figure>
+
+✅  타이틀도 그것에 맞게 바꿔줘야 함 타이틀 : 년도-월-일 파일제목&#x20;
+
+6. 모든 작업이 끝났다면, github.io \_posts에 `push` 해준다. - checkout  필요
+
+### workspace 자동화를 위한 스크립트
+
+> 📁 참고 : [github action의 워크플로우 구문](https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#jobsjob\_idneeds)
+
+앞에 1, 2은 gitbook repo에 푸시될 때 사용하기 위해 **Gitbook title rename.yml**으로&#x20;
+
+뒤에 3, 4, 5, 6은 github.io repo에 넘어갈 때 작업으로 **Convert and Deploy DevelopLog to Jekyll.ym**l로 작업해야 겠다.
+
+<figure><img src="../../.gitbook/assets/image (35).png" alt=""><figcaption></figcaption></figure>
+
+1. Gitbook title rename을 dev 브랜치에 먼저 해주기 위해 **Rename and Commit Markdown Files.yml**을 만들어주고 아래의 스크립트 작성
+
+```
+name: Rename and Commit Markdown Files
+
+on:
+  push:
+    branches:
+      - dev  # dev 브랜치에 푸시될 때 워크플로우 트리거
+  workflow_dispatch:  # 수동으로 워크플로우를 실행할 수 있는 옵션
+
+jobs:
+  process-markdown:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Rename Markdown files
+      run: |
+        for file in developLog/*.md; do
+          title=$(grep -m 1 '^# ' "$file" | sed 's/^# //')
+          if [ -n "$title" ]; then
+            new_filename="developLog/${title// /_}.md"
+            mv "$file" "$new_filename"
+          fi
+        done
+
+    - name: Commit changes
+      run: |
+        git config --local user.email "your-email@example.com"
+        git config --local user.name "Your Name"
+        git add .
+        git commit -m "Rename Markdown files based on h1 titles"
+        git push origin dev  # 변경사항을 dev 브랜치로 푸시
+
+```
+
+## TMI
+
+GITHUB Action이 편하기는 한다 잘 몰라서... 할 때마다 공부해야 할 듯 ㅋㅋㅋㅋㅋㅋㅋㅋ 너무 많기도 하고... 하지만 자동화 최고
+
+
 
 > 📁 참고&#x20;
 >
