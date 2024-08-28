@@ -24,14 +24,14 @@ jobs:
 
     - name: Rename and Update Markdown files
       run: |
-        find developLog/* -type f -name '*.md' ! -name 'README.md' ! -name 'SUMMARY.md' | while read file; do
+        for file in $(find developLog/* -type f -name '*.md' ! -name 'README.md' ! -name 'SUMMARY.md'); do
           # 파일의 디렉토리 구조를 유지하면서 첫 번째 H1 제목을 추출하여 새 파일명 생성
           dir=$(dirname "$file")
           title=$(grep -m 1 '^#' "$file" | sed 's/^# //')
 
           if [ -n "$title" ]; then
-            # 공백은 유지하면서 특수 문자만 언더스코어로 변환 (한글은 그대로 유지)
-            sanitized_title=$(echo "$title" | sed 's/[^[:alnum:][:space:]ㄱ-ㅎㅏ-ㅣ가-힣]/_/g')
+            # 제목에 포함된 특수문자나 공백을 언더스코어로 변환
+            sanitized_title=$(echo "$title" | tr -c '[:alnum:]-_' '_')
             new_filename="$dir/$sanitized_title.md"
 
             # 파일 이름이 동일한 경우에도 강제로 업데이트
