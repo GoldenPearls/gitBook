@@ -26,7 +26,7 @@ jobs:
       run: |
         for file in $(find developLog/* -type f -name '*.md' ! -name 'README.md' ! -name 'SUMMARY.md'); do
           # 파일 내용의 첫 번째 제목 줄을 추출
-          title=$(grep -m 1 '^#' "$file" | sed 's/^# //')
+          title=$(grep -m 1 '^#' "$file" ')
           
           if [ -n "$title" ]; then
             # 파일의 디렉토리 구조를 유지하면서 제목을 기반으로 새 파일명 생성
