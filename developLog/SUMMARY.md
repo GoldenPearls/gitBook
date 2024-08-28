@@ -94,8 +94,6 @@
 
 ## 📔 Book
 
-* [그림으로 쉽게 이해하는 웹/HTTP/네트워크](book/http/README.md)
-  * [후기](book/http/undefined.md)
 * [에러가 무서워지지 않는 책](book/learn-errors/README.md)
   * [1장 에러가 왜 무서울까?](book/learn-errors/1.md)
   * [2장 에러를 잘 읽는 방법](book/learn-errors/2.md)
