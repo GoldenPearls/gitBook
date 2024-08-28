@@ -21,11 +21,18 @@ jobs:
     - name: Rename Markdown files
       run: |
         for file in developLog/*.md; do
-          title=$(grep -m 1 '^# ' "$file" | sed 's/^# //')
-          if [ -n "$title" ]; then
-            new_filename="developLog/${title// /_}.md"
+        # 첫 번째 H1 제목을 추출하여 제목으로 사용
+        title=$(grep -m 1 '^# ' "$file" | sed 's/^# //')
+        
+        if [ -n "$title" ]; then
+          # 새 파일명을 제목을 기반으로 생성, 공백은 밑줄(_)로 대체
+          new_filename="developLog/${title// /_}.md"
+          
+          # 파일 이름이 동일한 경우에는 mv 명령을 건너뜁니다
+          if [ "$file" != "$new_filename" ]; then
             mv "$file" "$new_filename"
           fi
+        fi
         done
 
     - name: Commit changes
