@@ -35,15 +35,18 @@ jobs:
           title=$(grep -m 1 '^#' "$file")
           
           if [ -n "$title" ]; then
-            # 공백은 유지하면서 특수 문자만 언더스코어로 변환 (한글은 그대로 유지)
+            # 공백은 유지하면서 한글과 알파벳, 숫자를 제외한 특수 문자만 언더스코어로 변환
             sanitized_title=$(echo "$title" | tr -c '[:alnum:]가-힣 ' '_')
             dir=$(dirname "$file")
             new_filename="$dir/$sanitized_title.md"
-            
+
             # 파일 이름이 동일한 경우에도 강제로 업데이트
             if [ "$file" != "$new_filename" ]; then
               echo "Renaming $file to $new_filename"
-              mv "$file" "$new_filename"
+              # 파일 내용을 임시 파일에 저장한 후, 파일 이름을 변경
+              tmp_file=$(mktemp)
+              cat "$file" > "$tmp_file"
+              mv "$tmp_file" "$new_filename"
             else
               echo "Updating timestamp for $file"
               touch "$file"  # 파일의 타임스탬프를 업데이트
