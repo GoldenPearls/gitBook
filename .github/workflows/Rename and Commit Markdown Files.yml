@@ -1,5 +1,3 @@
-name: Rename and Add New Markdown Files
-
 on:
   push:
     branches:
@@ -21,9 +19,18 @@ jobs:
       run: |
         export LC_CTYPE="UTF-8"
 
+    - name: Create New Directory and Copy Files
+      run: |
+        # 새 디렉토리 생성
+        new_dir="koreanPageTitle"
+        mkdir -p "$new_dir"
+
+        # 기존 developLog의 모든 파일과 디렉토리를 새 디렉토리로 복사
+        cp -r developLog/* "$new_dir"
+
     - name: Rename and Add New Markdown files
       run: |
-        for file in $(find developLog -type f -name '*.md'); do
+        for file in $(find "$new_dir" -type f -name '*.md'); do
           if [[ "$file" == *"README.md" ]] || [[ "$file" == *"SUMMARY.md" ]]; then
                 echo "Skipping $file"
                 continue
