@@ -37,7 +37,7 @@ jobs:
             
             if [ "$file" != "$new_filename" ]; then
               echo "Renaming $file to $new_filename"
-              git mv "$file" "$new_filename"
+              mv "$file" "$new_filename"
             else
               echo "Updating timestamp for $file"
               touch "$file"
