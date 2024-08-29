@@ -25,32 +25,6 @@ jobs:
         rm -rf koreanPageTitle
         echo "koreanPageTitle directory has been deleted."
 
-    - name: Rename and Add New Markdown files
-      run: |
-        for file in $(find developLog -type f -name '*.md'); do
-          if [[ "$file" == *"README.md" ]] || [[ "$file" == *"SUMMARY.md" ]]; then
-                echo "Skipping $file"
-                continue
-          fi
-        
-          title=$(grep -m 1 '^#' "$file" | sed 's/^# //')
-          
-          if [ -n "$title" ]; then
-            dir=$(dirname "$file")
-            new_filename="$dir/$title.md"
-            
-            if [ "$file" != "$new_filename" ]; then
-              echo "Renaming $file to $new_filename"
-              git mv "$file" "$new_filename"
-            else
-              echo "Updating timestamp for $file"
-              touch "$file"
-            fi
-          else
-            echo "No valid title found in $file, skipping."
-          fi
-        done
-
     - name: Commit changes
       run: |
         git add -A
