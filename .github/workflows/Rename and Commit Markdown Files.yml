@@ -1,62 +1,68 @@
 name: Rename and Commit Markdown Files
+
 on:
   push:
     branches:
-      - main
-  workflow_dispatch:
+      - main  # main 브랜치에 푸시될 때 워크플로우 트리거
+  workflow_dispatch:  # 수동으로 워크플로우를 실행할 수 있는 옵션
 
 jobs:
   process-markdown:
     runs-on: ubuntu-latest
+
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
       with: 
-          token: ${{ secrets.GITBOOKKEY }}
-          fetch-depth: 0
-          ref: main
+        token: ${{ secrets.GITBOOKKEY }}
+        fetch-depth: 0
+        ref: main
 
     - name: Set UTF-8 Encoding
       run: |
-        export LC_CTYPE="UTF-8"
+        export LC_CTYPE="UTF-8"  # UTF-8 인코딩을 명시적으로 설정
 
     - name: Rename and Update Markdown files
       run: |
         for file in $(find developLog -type f -name '*.md'); do
-          # README.md와 SUMMARY.md 파일 제외
-          if [[ $(basename "$file") != "README.md" && $(basename "$file") != "SUMMARY.md" ]]; then
-            # 파일 내용의 첫 번째 제목 줄을 추출
-            title=$(grep -m 1 '^#' "$file" | sed 's/^# //')
+
+          # README.md 및 SUMMARY.md 파일은 건너뜀
+          if [[ "$(basename "$file")" == "README.md" || "$(basename "$file")" == "SUMMARY.md" ]]; then
+            echo "Skipping $file (README.md or SUMMARY.md)"
+            continue
+          fi
+        
+          # 파일 내용의 첫 번째 제목 줄을 추출
+          title=$(grep -m 1 '^#' "$file" | sed 's/^# //')
+
+          if [ -n "$title" ]; then
+            # 공백이나 특수 문자를 포함한 원래 제목을 그대로 파일명으로 사용
+            new_filename=$(printf '%s' "$title")
+            dir=$(dirname "$file")
+            new_filename="$dir/$new_filename.md"
             
-            if [ -n "$title" ]; then
-              # 파일의 디렉토리 구조를 유지하면서 제목을 기반으로 새 파일명 생성
-              dir=$(dirname "$file")
-              new_filename="$dir/$title.md"
-              
-              # 대상 디렉토리가 없으면 생성
-              new_dir=$(dirname "$new_filename")
-              mkdir -p "$new_dir"
-              
-              # 파일 이름이 동일한 경우에도 강제로 업데이트
-              if [ "$file" != "$new_filename" ]; then
-                echo "Renaming $file to $new_filename"
-                mv "$file" "$new_filename"
-              else
-                echo "Updating timestamp for $file"
-                touch "$file"  # 파일의 타임스탬프를 업데이트
-              fi
+            # 대상 디렉토리가 없으면 생성
+            if [ ! -d "$dir" ]; then
+              mkdir -p "$dir"
+            fi
+            
+            # 파일 이름이 동일한 경우에도 강제로 업데이트
+            if [ "$file" != "$new_filename" ]; then
+              echo "Renaming $file to $new_filename"
+              mv "$file" "$new_filename"
             else
-              echo "No valid title found in $file, skipping."
+              echo "Updating timestamp for $file"
+              touch "$file"  # 파일의 타임스탬프를 업데이트
             fi
           else
-            echo "Skipping $file (README.md or SUMMARY.md)"
+            echo "No valid title found in $file, skipping."
           fi
         done
 
     - name: Commit changes
       run: |
-        git add -A
+        git add -A  # 모든 변경사항 추가
         git config --global user.name 'github-actions[bot]'
         git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-        git diff --staged --quiet || git commit -m "Rename and update Markdown files based on h1 titles (excluding README and SUMMARY)"
-        git push https://${{ secrets.GITBOOKKEY }}@github.com/GoldenPearls/gitBook.git
+        git diff --staged --quiet || git commit -m "Rename and update Markdown files based on h1 titles"
+        git push https://${{ secrets.GITBOOKKEY }}@github.com/GoldenPearls/gitBook.git  # 변경사항을 main 브랜치로 푸시
