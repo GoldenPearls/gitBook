@@ -1,4 +1,3 @@
-name: Rename and Add New Markdown Files
 
 on:
   push:
@@ -20,6 +19,11 @@ jobs:
     - name: Set UTF-8 Encoding
       run: |
         export LC_CTYPE="UTF-8"
+
+    - name: Remove koreanPageTitle directory after processing
+      run: |
+        rm -rf koreanPageTitle
+        echo "koreanPageTitle directory has been deleted."
 
     - name: Rename and Add New Markdown files
       run: |
@@ -46,11 +50,6 @@ jobs:
             echo "No valid title found in $file, skipping."
           fi
         done
-
-    - name: Remove koreanPageTitle directory after processing
-      run: |
-        rm -rf koreanPageTitle
-        echo "koreanPageTitle directory has been deleted."
 
     - name: Commit changes
       run: |
