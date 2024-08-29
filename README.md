@@ -6,11 +6,12 @@
 
 - velog, notion 등에서 적어둔 저의 개발적인 지식, 그 외의 것들 기록해두는 공간입니다. 🐾
 - 혼자 나아가는 것이 아닌 같이 나아가기 위해 기록하고 공유하는 것이 목표입니다. 🍀
+- main 브랜치는 실제 사이트랑 연결된 이름, koreanPageTitle 브랜치는 github.io와 연결을 위한  것입니다. 🐾
 
 ## 😀 블로그의 주인장  Mellona에  대해 말하자면,
 <p align ="center"> <img src="https://github.com/user-attachments/assets/79379010-591b-4608-8fa7-ec1fec6d8840" alt="KakaoTalk_20240531_095426888_02" width="300"> </p>
 
-> 🌱 1년차  주니어 개발자입니다.
+> 🌱 1년차 주니어 개발자입니다.
 
 
 - 🖋 지금 현재 관심이 있고 공부하는 분야는 **OOP, JPA** 에요.
