@@ -52,5 +52,5 @@ jobs:
         git add -A
         git config --global user.name 'github-actions[bot]'
         git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-        git diff --staged --quiet || git commit -m "Rename and update Markdown files based on h1 titles"
+        git commit -m "Rename and update Markdown files based on h1 titles"
         git push https://${{ secrets.GITBOOKKEY }}@github.com/GoldenPearls/gitBook.git
