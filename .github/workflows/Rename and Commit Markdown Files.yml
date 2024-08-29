@@ -21,16 +21,16 @@ jobs:
       run: |
         export LC_CTYPE="UTF-8"  # UTF-8 인코딩 명시적으로 설정
 
-    - name: Rename and Update Markdown files  # Markdown 파일을 이름 변경 및 복사
+    - name: Rename and Update Markdown files
       run: |
-        find developLog -type f -name '*.md' | while IFS= read -r file; do
+        for file in $(find developLog -type f -name '*.md'); do
           # README.md 및 SUMMARY.md 파일은 건너뜀
           if [[ "$file" == *"README.md" ]] || [[ "$file" == *"SUMMARY.md" ]]; then
             echo "Skipping $file"  # 해당 파일은 건너뜀
             continue  # 다음 파일로 진행
           fi
-
-          # 파일 내용의 첫 번째 제목 줄(H1)을 추출
+    
+          # 파일 내용의 첫 번째 제목 줄을 추출
           title=$(grep -m 1 '^#' "$file" | sed 's/^# //')
           
           if [ -n "$title" ]; then
@@ -38,16 +38,14 @@ jobs:
             dir=$(dirname "$file")
             new_filename="$dir/$title.md"
             
-            # 대상 파일이 이미 존재하면 건너뜀
-            if [ -e "$new_filename" ]; then
-              echo "File $new_filename already exists. Skipping..."
-              continue
-            fi
+            # 대상 디렉토리가 없으면 생성
+            new_dir=$(dirname "$new_filename")
+            mkdir -p "$new_dir"
             
             # 파일 이름이 동일한 경우에도 강제로 업데이트
             if [ "$file" != "$new_filename" ]; then
               echo "Renaming $file to $new_filename"
-              git mv "$file" "$new_filename"  # Git이 이름 변경으로 인식하게 git mv 사용
+              mv "$file" "$new_filename"
             else
               echo "Updating timestamp for $file"
               touch "$file"  # 파일의 타임스탬프를 업데이트
@@ -56,7 +54,9 @@ jobs:
             echo "No valid title found in $file, skipping."
           fi
         done
+
         echo "Rename and update completed successfully!"  # 작업 완료 메시지 출력
+
 
     - name: Commit changes  # 변경 사항을 커밋하고 푸시
       run: |
