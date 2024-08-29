@@ -47,6 +47,11 @@ jobs:
           fi
         done
 
+    - name: Remove koreanPageTitle directory after processing
+      run: |
+        rm -rf koreanPageTitle
+        echo "koreanPageTitle directory has been deleted."
+
     - name: Commit changes
       run: |
         git add -A
