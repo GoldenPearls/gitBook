@@ -92,7 +92,8 @@
   * [Git에서 알게 된 지식](ci-cd/github/git.md)
 * [Github Action](ci-cd/github-action/README.md)
   * [Github Action 링크 모음](ci-cd/github-action/github-action.md)
-  * [OAuth 앱에 대한 범위 및 gitbook과 github.io를 자동화를 위한 작업](ci-cd/github-action/oauth-gitbook-github.io.md)
+  * [OAuth 앱에 대한 범위 및 gitbook과 github.io를 자동화를 위한 작업 1탄](ci-cd/github-action/oauth-gitbook-github.io-1.md)
+  * [gitbook과 github.io를 자동화를 위한 gitaction 연동  - 워크플로우 작성과 문제](ci-cd/github-action/gitbook-github.io-gitaction.md)
 
 ## 📔 Book
 
