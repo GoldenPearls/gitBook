@@ -19,18 +19,14 @@ jobs:
       run: |
         export LC_CTYPE="UTF-8"
 
-    - name: Create New Directory and Copy Files
+    - name: Create New Directory and Process Files
       run: |
         # 새 디렉토리 생성
         new_dir="koreanPageTitle"
         mkdir -p "$new_dir"
 
-        # 기존 developLog의 모든 파일과 디렉토리를 새 디렉토리로 복사
-        cp -r developLog/* "$new_dir"
-
-    - name: Rename and Add New Markdown files
-      run: |
-        for file in $(find "$new_dir" -type f -name '*.md'); do
+        # developLog 디렉토리 내의 모든 Markdown 파일 처리
+        for file in $(find developLog -type f -name '*.md'); do
           if [[ "$file" == *"README.md" ]] || [[ "$file" == *"SUMMARY.md" ]]; then
                 echo "Skipping $file"
                 continue
@@ -39,15 +35,14 @@ jobs:
           title=$(grep -m 1 '^#' "$file" | sed 's/^# //')
           
           if [ -n "$title" ]; then
-            dir=$(dirname "$file")
-            new_filename="$dir/$title.md"
+            new_filename="$new_dir/$title.md"
             
+            # 새 파일명으로 새 디렉토리에 복사
             if [ "$file" != "$new_filename" ]; then
-              echo "Renaming $file to $new_filename"
-              mv "$file" "$new_filename"
+              echo "Copying $file to $new_filename"
+              cp "$file" "$new_filename"
             else
-              echo "Updating timestamp for $file"
-              touch "$file"
+              echo "File already has the correct name, skipping."
             fi
           else
             echo "No valid title found in $file, skipping."
