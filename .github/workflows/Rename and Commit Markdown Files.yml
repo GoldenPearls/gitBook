@@ -33,13 +33,12 @@ jobs:
           title=$(grep -m 1 '^#' "$file" | sed 's/^# //')
           
           if [ -n "$title" ]; then
-            # 파일의 디렉토리 구조를 유지하면서 제목을 기반으로 새 파일명 생성
-            dir=$(dirname "$file")
-            new_filename="$dir/$title.md"
-            
-            # 대상 디렉토리가 없으면 생성
-            new_dir=$(dirname "$new_filename")
-            mkdir -p "$new_dir"
+            # 공백을 유지하면서 한글과 알파벳, 숫자를 제외한 특수 문자만 언더스코어로 변환
+            sanitized_title=$(echo "$title" )
+            # 파일명 앞뒤에 생긴 불필요한 언더스코어 제거
+            sanitized_title=$(echo "$sanitized_title" | sed 's/^_//;s/_$//')
+            dir=$(dirname "$file")  # 파일의 디렉토리 경로 추출
+            new_filename="$dir/$sanitized_title.md"  # 새 파일명 생성
             
             # 파일 이름이 동일한 경우에도 강제로 업데이트
             if [ "$file" != "$new_filename" ]; then
