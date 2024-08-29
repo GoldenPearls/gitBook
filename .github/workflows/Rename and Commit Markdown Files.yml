@@ -25,10 +25,11 @@ jobs:
     - name: Rename and Update Markdown files
       run: |
         for file in $(find developLog -type f -name '*.md'); do
-          # 리드미는 건뛰
+
+          # README.md 및 SUMMARY.md 파일은 건너뜀
           if [[ "$file" == *"README.md" ]] || [[ "$file" == *"SUMMARY.md" ]]; then
-            echo "Skipping $file"
-            continue
+            echo "Skipping $file"  # 해당 파일은 건너뜀
+            continue  # 다음 파일로 진행
           fi
         
           # 파일 내용의 첫 번째 제목 줄을 추출
@@ -39,18 +40,25 @@ jobs:
             dir=$(dirname "$file")
             new_filename="$dir/$title.md"
             
-            # 대상 디렉토리가 없으면 생성
-            new_dir=$(dirname "$new_filename")
-            mkdir -p "$new_dir"
-            
-            # 파일 이름이 동일한 경우에도 강제로 업데이트
-            if [ "$file" != "$new_filename" ]; then
-              echo "Renaming $file to $new_filename"
-              mv "$file" "$new_filename"
-            else
-              echo "Updating timestamp for $file"
-              touch "$file"  # 파일의 타임스탬프를 업데이트
+            # 동일한 파일명이 존재하는지 확인
+            if [ -e "$new_filename" ]; then
+              echo "File $new_filename already exists. Skipping..."
+              continue
             fi
+
+            # 디렉토리가 존재하는 경우에만 파일 이름 변경
+            if [ -d "$dir" ]; then
+              if [ "$file" != "$new_filename" ]; then
+                echo "Renaming $file to $new_filename"
+                mv "$file" "$new_filename"
+              else
+                echo "Updating timestamp for $file"
+                touch "$file"  # 파일의 타임스탬프를 업데이트
+              fi
+            else
+              echo "Directory $dir does not exist. Skipping $file."
+            fi
+
           else
             echo "No valid title found in $file, skipping."
           fi
