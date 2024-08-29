@@ -1,3 +1,4 @@
+name: Rename and Add New Markdown Files
 
 on:
   push:
@@ -14,21 +15,42 @@ jobs:
       uses: actions/checkout@v4
       with:
         token: ${{ secrets.GITBOOKKEY }}
-        fetch-depth: 0
+        fetch-depth: 1
 
     - name: Set UTF-8 Encoding
       run: |
         export LC_CTYPE="UTF-8"
 
-    - name: Remove koreanPageTitle directory after processing
+    - name: Rename and Add New Markdown files
       run: |
-        rm -rf koreanPageTitle
-        echo "koreanPageTitle directory has been deleted."
+        for file in $(find developLog -type f -name '*.md'); do
+          if [[ "$file" == *"README.md" ]] || [[ "$file" == *"SUMMARY.md" ]]; then
+                echo "Skipping $file"
+                continue
+          fi
+        
+          title=$(grep -m 1 '^#' "$file" | sed 's/^# //')
+          
+          if [ -n "$title" ]; then
+            dir=$(dirname "$file")
+            new_filename="$dir/$title.md"
+            
+            if [ "$file" != "$new_filename" ]; then
+              echo "Renaming $file to $new_filename"
+              git mv "$file" "$new_filename"
+            else
+              echo "Updating timestamp for $file"
+              touch "$file"
+            fi
+          else
+            echo "No valid title found in $file, skipping."
+          fi
+        done
 
     - name: Commit changes
       run: |
         git add -A
         git config --global user.name 'github-actions[bot]'
         git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-        git commit -m "Rename and update Markdown files based on h1 titles"
+        git diff --staged --quiet || git commit -m "Rename and update Markdown files based on h1 titles"
         git push https://${{ secrets.GITBOOKKEY }}@github.com/GoldenPearls/gitBook.git
