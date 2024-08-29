@@ -64,7 +64,7 @@ jobs:
 
     - name: Commit changes
       run: |
-        git add -A  # 모든 변경사항 추가
+        git add .  # 모든 파일 추가
         git config --global user.name 'github-actions[bot]'
         git config --global user.email 'github-actions[bot]@users.noreply.github.com'
         git diff --staged --quiet || git commit -m "Rename and update Markdown files based on h1 titles"
