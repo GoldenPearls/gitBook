@@ -1,4 +1,4 @@
-name: Rename and Add New Markdown Files
+name: Rename and Update Markdown Files
 
 on:
   push:
@@ -21,7 +21,7 @@ jobs:
       run: |
         export LC_CTYPE="UTF-8"  # UTF-8 인코딩 명시적으로 설정
 
-    - name: Rename and Add New Markdown files  # Markdown 파일을 이름 변경 및 복사
+    - name: Rename and Update Markdown files  # Markdown 파일을 이름 변경 및 복사
       run: |
         find developLog -type f -name '*.md' | while IFS= read -r file; do
           # README.md 및 SUMMARY.md 파일은 건너뜀
@@ -38,7 +38,11 @@ jobs:
             dir=$(dirname "$file")
             new_filename="$dir/$title.md"
             
-            new_dir=$(dirname "$new_filename")
+            # 대상 파일이 이미 존재하면 건너뜀
+            if [ -e "$new_filename" ]; then
+              echo "File $new_filename already exists. Skipping..."
+              continue
+            fi
             
             # 파일 이름이 동일한 경우에도 강제로 업데이트
             if [ "$file" != "$new_filename" ]; then
@@ -59,5 +63,5 @@ jobs:
         git add -A  # 모든 변경 사항 추가
         git config --global user.name 'github-actions[bot]'  # 커밋 사용자 이름 설정
         git config --global user.email 'github-actions[bot]@users.noreply.github.com'  # 커밋 사용자 이메일 설정
-        git diff --staged --quiet || git commit -m "Add new Markdown files based on h1 titles"  # 변경 사항이 있으면 커밋
+        git diff --staged --quiet || git commit -m "Rename and update Markdown files based on h1 titles"  # 변경 사항이 있으면 커밋
         git push https://${{ secrets.GITBOOKKEY }}@github.com/GoldenPearls/gitBook.git  # 변경 사항을 원격 리포지토리의 main 브랜치로 푸시
