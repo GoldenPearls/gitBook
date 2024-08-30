@@ -198,13 +198,55 @@ git push
 
 ![](https://velog.velcdn.com/images/prettylee620/post/e95923a4-4544-446f-bc0a-3f37f955572d/image.png)
 
+안하면 아래와 같은 화면 나옴
+
+<figure><img src="../../../.gitbook/assets/image (38).png" alt=""><figcaption></figcaption></figure>
+
 4. 로컬이랑 맞춰줘야 함
 
 ![](https://velog.velcdn.com/images/prettylee620/post/51eb7b1b-9512-4b0f-b59a-e42440c1f450/image.png)
 
-5. 커스터마이징을 위한 \_config.yml 수정하기
+5. github > workflows > startser > pages-deploy.yml 로컬에서 삭제 후 한번 더 git pull
 
-> [참고 깃허브](https://github.com/focuschange-test/focuschange-test.github.io/blob/main/\_config.yml)
+<figure><img src="../../../.gitbook/assets/image (39).png" alt=""><figcaption></figcaption></figure>
+
+6. .gitignore 내 assets/js/dist 디렉토리 내 파일들의 Push가 무시되도록하는 설정을 주석처리\`\`\`ignore
+
+```
+# Bundler cache
+.bundle
+vendor
+Gemfile.lock
+
+# Jekyll cache
+.jekyll-cache
+.jekyll-metadata
+_site
+
+# RubyGems
+*.gem
+
+# NPM dependencies
+node_modules
+package-lock.json
+
+# IDE configurations
+.idea
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+!.vscode/tasks.json
+
+# Misc
+#_sass/dist
+#assets/js/dist
+```
+
+> 로컬에서**는 assets/js/dist/\*.min.js 파일이 존재하여 정상 동작했지만, 위 설정을 하지 않고 배포할 경우 Github에는 해당 파일이 push되지 않으므로 블로그 기능이 정상 동작하지 않는다고 함**
+
+7. 커스터마이징을 위한 \_config.yml 수정하기
+
+> 참고로 fork해 온 것은 커밋 규칙 안맞으면 안들어감...
 
 ```jsx
 git add . 
