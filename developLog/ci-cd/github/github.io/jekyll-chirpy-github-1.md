@@ -2,7 +2,7 @@
 description: github.io로 블로그 만들기 1탄
 ---
 
-# github.io Chipy 테마 연동 하기
+# Jekyll Chirpy 테마를 연동 및 Github 블로그 만들기  1탄 - 로컬 테스트 및 확인
 
 ## github.io blog 만들기
 
@@ -255,5 +255,7 @@ git push
 ```
 
 훔... 일단 배포만 해두고 ... 지금 gitbook 테마가 더 마음에 들어서 gitbook에만 해둘까? 아님 github.io랑 연결해서 할 수 있는 방법을 찾을까 고민중임
+
+<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
 내 [gitbook](https://mellona-log.gitbook.io/log)
