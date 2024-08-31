@@ -96,3 +96,50 @@ $ rm -rf old-repository.git
 git push --mirror https://<TOKEN>@github.com/exampleuser/new-repository.git
 ```
 
+## 3. 다른 브랜치를 `git clone`
+
+다른 브랜치를 `git clone`하는 경우 기본적으로는 원격 저장소의 기본 브랜치(예: `main` 또는 `master`)가 복제됩니다. 하지만 특정 브랜치를 클론하고 싶다면 다음과 같은 방법을 사용할 수 있습니다.
+
+
+
+### 1) 특정 브랜치를 지정하여 클론하기
+
+특정 브랜치를 지정하여 저장소를 클론하려면 `-b` 옵션을 사용하여 브랜치 이름을 명시합니다.
+
+```bash
+git clone -b <branch-name> <repository-url>
+```
+
+예를 들어, `feature-branch`라는 브랜치를 클론하려면:
+
+```bash
+git clone -b feature-branch https://github.com/username/repository.git
+```
+
+이 명령은 지정한 브랜치를 기준으로 저장소를 클론합니다.
+
+### 2) 클론 후 브랜치 체크아웃
+
+기본 브랜치로 클론한 후에 다른 브랜치로 전환할 수도 있습니다.
+
+```bash
+git clone <repository-url>
+cd <repository-directory>
+git checkout <branch-name>
+```
+
+예를 들어:
+
+```bash
+git clone https://github.com/username/repository.git
+cd repository
+git checkout feature-branch
+```
+
+이 방법은 기본 브랜치를 클론한 후에 다른 브랜치로 전환하여 작업을 진행할 수 있습니다.
+
+이렇게 하면 해당 브랜치의 내용으로 작업 디렉토리가 전환됩니다.
+
+
+
+### 3) 특수문자를 로컬에 clone하려 하면 문제 생김

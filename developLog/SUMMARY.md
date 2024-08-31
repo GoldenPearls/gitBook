@@ -113,7 +113,7 @@
     * [필독 개발자 온보딩 가이드 4장 -(2)](book/onboarding/4/4-2.md)
     * [개발자 온보딩 가이드 4장 - (3)](book/onboarding/4/4-3.md)
 * [객체지향의 오해와 사실](book/oop/README.md)
-  * [1장 : 협력하는 객체들의 공동체](book/oop/1.md)
+  * [1장 협력하는 객체들의 공동체](book/oop/1.md)
 
 ## 🌸 회고록 <a href="#memoir" id="memoir"></a>
 
