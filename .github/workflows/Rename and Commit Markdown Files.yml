@@ -21,9 +21,29 @@ jobs:
       run: |
         export LC_CTYPE="UTF-8"
 
+    - name: Rename folders based on README.md H1 title
+      run: |
+        for dir in $(find developLog -type d -not -path "*/\.*"); do
+          if [ -f "$dir/README.md" ]; then
+            # README.md 파일에서 H1 제목을 추출
+            title=$(grep -m 1 '^#' "$dir/README.md" | sed 's/^# //')
+
+            if [ -n "$title" ]; then
+              # 새 폴더 이름 설정
+              parent_dir=$(dirname "$dir")
+              new_folder_name="$parent_dir/$title"
+              
+              # 폴더 이름 변경
+              mv "$dir" "$new_folder_name"
+              echo "Folder renamed to $new_folder_name"
+            else
+              echo "No valid H1 title found in $dir/README.md"
+            fi
+          fi
+        done
+
     - name: Rename and Copy Markdown files to koreanPageTitle
       run: |
-        # Markdown 파일 복사 및 이름 변경
         for file in $(find developLog -type f -name '*.md'); do
           if [[ "$file" == *"README.md" ]] || [[ "$file" == *"SUMMARY.md" ]]; then
                 echo "Skipping $file"
@@ -59,7 +79,7 @@ jobs:
         if [ -d "developLog/.gitbook/assets" ]; then
           mkdir -p "koreanPageTitle/developLog/.gitbook/assets"
           cp -r developLog/.gitbook/assets/* koreanPageTitle/developLog/.gitbook/assets/
-          echo ".gitbook/assets directory copied to koreanPageTitle/developLog"
+          echo ".gitbook/assets directory copied to koreanPageTitle"
         fi
 
     - name: Commit changes in koreanPageTitle
