@@ -20,11 +20,12 @@ jobs:
     - name: Set UTF-8 Encoding
       run: |
         export LC_CTYPE="UTF-8"
-
-    - name: Rename folders based on README.md H1 title
+       
+    - name: Rename and Copy Markdown files to koreanPageTitle, Rename Folders Based on README H1
       run: |
-        for dir in $(find developLog -type d -not -path "*/\.*"); do
-          if [ -f "$dir/README.md" ]; then
+       
+        for file in $(find developLog -type f -name '*.md'); do
+           if [ -f "$dir/README.md" ]; then
             # README.md 파일에서 H1 제목을 추출
             title=$(grep -m 1 '^#' "$dir/README.md" | sed 's/^# //')
 
@@ -44,12 +45,8 @@ jobs:
               echo "No valid H1 title found in $dir/README.md"
             fi
           fi
-        done
-        
-    - name: Rename and Copy Markdown files to koreanPageTitle
-      run: |
-        # Markdown 파일 복사 및 이름 변경
-        for file in $(find developLog -type f -name '*.md'); do
+
+          # Markdown 파일 복사 및 이름 변경
           if [[ "$file" == *"README.md" ]] || [[ "$file" == *"SUMMARY.md" ]]; then
                 echo "Skipping $file"
                 continue
