@@ -21,8 +21,9 @@ jobs:
       run: |
         export LC_CTYPE="UTF-8"
 
-    - name: Rename Folders Based on README H1
+    - name: Rename and Copy Markdown files to koreanPageTitle, Rename Folders Based on README H1
       run: |
+        # 폴더 이름 변경을 위해 README.md 파일의 H1 제목을 사용
         for dir in $(find developLog -type d -not -path "*/\.*"); do
           if [ -f "$dir/README.md" ]; then
             # README.md 파일에서 H1 제목을 추출
@@ -46,16 +47,16 @@ jobs:
           fi
         done
 
-    - name: Rename and Copy Markdown files to koreanPageTitle
-      run: |
-        mkdir -p koreanPageTitle/developLog
-
+        # Markdown 파일 복사 및 이름 변경
         for file in $(find developLog -type f -name '*.md'); do
-          if [[ "$file" == *"README.md" ]] || [[ "$file" == *"SUMMARY.md" ]]; then
-                echo "Skipping $file"
-                continue
+          if [[ "$file" == *"README.md" ]]; then
+            echo "Copying $file without renaming"
+            new_dir="koreanPageTitle/$(dirname "$file")"
+            mkdir -p "$new_dir"
+            cp "$file" "$new_dir/"
+            continue
           fi
-        
+
           title=$(grep -m 1 '^#' "$file" | sed 's/^# //')
           
           if [ -n "$title" ]; then
@@ -85,7 +86,7 @@ jobs:
         if [ -d "developLog/.gitbook/assets" ]; then
           mkdir -p "koreanPageTitle/developLog/.gitbook/assets"
           cp -r developLog/.gitbook/assets/* koreanPageTitle/developLog/.gitbook/assets/
-          echo ".gitbook/assets directory copied to koreanPageTitle"
+          echo ".gitbook/assets directory copied to koreanPageTitle/developLog"
         fi
 
     - name: Commit changes in koreanPageTitle
@@ -96,4 +97,4 @@ jobs:
         git config --global user.name 'github-actions[bot]'
         git config --global user.email 'github-actions[bot]@users.noreply.github.com'
         git commit -m "Rename and update Markdown files based on h1 titles in koreanPageTitle"
-        git push https://***@github.com/GoldenPearls/gitBook.git master:koreanPageTitle --force
+        git push https://${{ secrets.GITBOOKKEY }}@github.com/GoldenPearls/gitBook.git master:koreanPageTitle --force
