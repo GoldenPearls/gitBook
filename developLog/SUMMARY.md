@@ -5,7 +5,7 @@
 ## 💻 Programming Lanuage
 
 * [Rust](programming-lanuage/rust/README.md)
-  * [Rust가 떠오른 이유 : 안전성, 쾌적한 사용 - 우아한 스터디 및 잇츠 스터디](programming-lanuage/rust/rust.md)
+  * [Rust가 떠오른 이유 안전성, 쾌적한 사용 - 우아한 스터디 및 잇츠 스터디](programming-lanuage/rust/rust.md)
   * [Chater 06. 오류 처리](programming-lanuage/rust/chater-06..md)
   * [Chater 12. 연산자 오버로딩](programming-lanuage/rust/chater-12..md)
   * [재미 있는 리포지토리](programming-lanuage/rust/undefined.md)
@@ -25,12 +25,12 @@
 
 * [기본 지식](spring/basic/README.md)
   * [MVC](spring/basic/mvc.md)
-  * [스프링의 핵심은 무엇인가?](spring/basic/undefined.md)
+  * [스프링의 핵심은 무엇인가](spring/basic/undefined.md)
   * [스프링 빈을 등록하는 두 가지 방법(@Component, @Bean)](spring/basic/component-bean.md)
   * [의존성 주입 3가지 방법 - (생성자 주입, Field 주입, Setter 주입)](spring/basic/3-field-setter.md)
   * [스프링부트 동작원리](spring/basic/undefined-1.md)
-  * [JPA란 무엇인가요?](spring/basic/jpa.md)
-  * [messageConverter가 무엇인가요?](spring/basic/messageconverter.md)
+  * [JPA란 무엇인가요](spring/basic/jpa.md)
+  * [messageConverter가 무엇인가요](spring/basic/messageconverter.md)
 * [spring 관련 책](spring/book/README.md)
   * [사람을 사랑한 기술](spring/book/undefined.md)
 * [spring 관련 강의](spring/lecture/README.md)
@@ -138,7 +138,7 @@
 * [강연 및 컨퍼런스 후기](tip-bookmark/conference/README.md)
   * [점핏 강연 센스있는 BE 되기](tip-bookmark/conference/be.md)
 * [커피챗](tip-bookmark/coffeechat/README.md)
-  * [커피챗이란?](tip-bookmark/coffeechat/undefined.md)
+  * [커피챗이란](tip-bookmark/coffeechat/undefined.md)
   * [인프런 멘토 우연님 후기이자 방향성 - 초보개발자의 고민과 방안](tip-bookmark/coffeechat/undefined-1.md)
 * [잘 정리된 tech blog](tip-bookmark/tech-blog.md)
 
@@ -161,6 +161,6 @@
     * [애매한 쌩신입개발자 중소, si 취준기 2탄 면접 후기, 질문, 취업 관련 사이트 모음, 결과](ex/employment-job-change/si/si-2.md)
     * [주니어가 첫 회사 다니면서 깨달은(?깨달아가는) 20가지](ex/employment-job-change/si/20.md)
 * [살아가는 이야기](ex/my-story/README.md)
-  * [대학 입학 전 \~ 취업 전까지의 아르바이트 회고](ex/my-story/undefined.md)
+  * [대학 입학 - 취업 전까지의 아르바이트 회고](ex/my-story/undefined.md)
 * [얻은 지식 모음](ex/knowledge/README.md)
   * [트위터를 통한 모르는 지식을 얻어가기](ex/knowledge/undefined.md)
