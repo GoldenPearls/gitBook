@@ -1,65 +1,41 @@
-# 안녕하세요! 👋, Mellona의 우당탕탕 Log 입니다.
-
-> [🔑 gitbook Link](https://mellona-log.gitbook.io/log)
-
-## 📌 Mellona의 우당탕탕 Log란?
-
-- velog, notion 등에서 적어둔 저의 개발적인 지식, 그 외의 것들 기록해두는 공간입니다. 🐾
-- 혼자 나아가는 것이 아닌 같이 나아가기 위해 기록하고 공유하는 것이 목표입니다. 🍀
-- main 브랜치는 실제 사이트랑 연결된 이름, koreanPageTitle 브랜치는 github.io와 연결을 위한  것입니다. 🐾
-
-## 🌲 브랜치 전략
-
-두 개의 주요 브랜치를 사용합니다:
-
-### 1. **main 브랜치**
-- **용도:** 실제 배포와 사이트 운영을 위한 브랜치입니다. gitbook에 직접적 연결되어 있는 브랜치입니다.
-- **설명:** 이 브랜치는 배포 가능한 안정적인 코드를 포함하고 있습니다. 모든 최종적인 변경 사항은 이 브랜치로 병합되며, 사이트에 반영됩니다.
-
-### 2. **koreanPageTitle 브랜치**
-- **용도:** GitHub Pages와 연결되어 git.io 사이트에 자동으로 포스팅되게 해두기 위한 브랜치입니다.
-- **설명:** GitHub Pages에서 사용하는 정적 사이트를 호스팅하기 위해 사용됩니다. 이 브랜치에서는 gitbook에서는 **한글 이름의 페이지 타이틀을 허용하지 않아** 한글 이름의 페이지 타이틀로 변경해둔 것입니다.
-
-> **Tip:** 한글화된 타이틀 제목을 보고 싶다면, koreanPageTitle을 확인해주세요!
-
 # Table of contents
 
 * [About](README.md)
 
 ## 💻 Programming Lanuage
 
-* [Rust](programming-lanuage/rust/README.md)
-  * [Rust가 떠오른 이유 안전성, 쾌적한 사용 - 우아한 스터디 및 잇츠 스터디](programming-lanuage/rust/rust.md)
-  * [Chater 06. 오류 처리](programming-lanuage/rust/chater-06..md)
-  * [Chater 12. 연산자 오버로딩](programming-lanuage/rust/chater-12..md)
-  * [재미 있는 리포지토리](programming-lanuage/rust/undefined.md)
-* [자바](programming-lanuage/java/README.md)
-  * [문법 정리](programming-lanuage/java/grammar/README.md)
-    * [자바 문법 한눈에 정리 1편](programming-lanuage/java/grammar/1.md)
-    * [자바 문법 한눈에 정리 2편](programming-lanuage/java/grammar/2.md)
-    * [NullPointException에 대해 알아보자.](programming-lanuage/java/grammar/nullpointexception-..md)
-    * [Call by value vs Call by Reference과 기본형과 참조형](programming-lanuage/java/grammar/call-by-value-vs-call-by-reference.md)
-  * [김영한님 자바 강의 모음](programming-lanuage/java/younghan-lecture/README.md)
-    * [자바 입문 강의 정리](programming-lanuage/java/younghan-lecture/undefined.md)
-* [Python](programming-lanuage/python/README.md)
-  * [파이썬 프롤로그](programming-lanuage/python/undefined.md)
-  * [정보처리기사 실기를 위한 파이썬 정리(약간의 접수 후기를 곁드린)](programming-lanuage/python/undefined-1.md)
+* [Rust](developLog/programming-lanuage/rust/README.md)
+  * [Rust가 떠오른 이유 안전성, 쾌적한 사용 - 우아한 스터디 및 잇츠 스터디](developLog/programming-lanuage/rust/rust.md)
+  * [Chater 06. 오류 처리](developLog/programming-lanuage/rust/chater-06..md)
+  * [Chater 12. 연산자 오버로딩](developLog/programming-lanuage/rust/chater-12..md)
+  * [재미 있는 리포지토리](developLog/programming-lanuage/rust/undefined.md)
+* [자바](developLog/programming-lanuage/java/README.md)
+  * [문법 정리](developLog/programming-lanuage/java/grammar/README.md)
+    * [자바 문법 한눈에 정리 1편](developLog/programming-lanuage/java/grammar/1.md)
+    * [자바 문법 한눈에 정리 2편](developLog/programming-lanuage/java/grammar/2.md)
+    * [NullPointException에 대해 알아보자.](developLog/programming-lanuage/java/grammar/nullpointexception-..md)
+    * [Call by value vs Call by Reference과 기본형과 참조형](developLog/programming-lanuage/java/grammar/call-by-value-vs-call-by-reference.md)
+  * [김영한님 자바 강의 모음](developLog/programming-lanuage/java/younghan-lecture/README.md)
+    * [자바 입문 강의 정리](developLog/programming-lanuage/java/younghan-lecture/undefined.md)
+* [Python](developLog/programming-lanuage/python/README.md)
+  * [파이썬 프롤로그](developLog/programming-lanuage/python/undefined.md)
+  * [정보처리기사 실기를 위한 파이썬 정리(약간의 접수 후기를 곁드린)](developLog/programming-lanuage/python/undefined-1.md)
 
 ## 🍓 Spring
 
-* [기본 지식](spring/basic/README.md)
-  * [MVC](spring/basic/mvc.md)
-  * [스프링의 핵심은 무엇인가](spring/basic/undefined.md)
-  * [스프링 빈을 등록하는 두 가지 방법(@Component, @Bean)](spring/basic/component-bean.md)
-  * [의존성 주입 3가지 방법 - (생성자 주입, Field 주입, Setter 주입)](spring/basic/3-field-setter.md)
-  * [스프링부트 동작원리](spring/basic/undefined-1.md)
-  * [JPA란 무엇인가요](spring/basic/jpa.md)
-  * [messageConverter가 무엇인가요](spring/basic/messageconverter.md)
-* [spring 관련 책](spring/book/README.md)
-  * [사람을 사랑한 기술](spring/book/undefined.md)
-* [spring 관련 강의](spring/lecture/README.md)
-  * [스프링 부트 서버 개발](spring/lecture/undefined/README.md)
-    * [스프링 부트 서버 개발 프롤로그](spring/lecture/undefined/undefined.md)
+* [기본 지식](developLog/spring/basic/README.md)
+  * [MVC](developLog/spring/basic/mvc.md)
+  * [스프링의 핵심은 무엇인가](developLog/spring/basic/undefined.md)
+  * [스프링 빈을 등록하는 두 가지 방법(@Component, @Bean)](developLog/spring/basic/component-bean.md)
+  * [의존성 주입 3가지 방법 - (생성자 주입, Field 주입, Setter 주입)](developLog/spring/basic/3-field-setter.md)
+  * [스프링부트 동작원리](developLog/spring/basic/undefined-1.md)
+  * [JPA란 무엇인가요](developLog/spring/basic/jpa.md)
+  * [messageConverter가 무엇인가요](developLog/spring/basic/messageconverter.md)
+* [spring 관련 책](developLog/spring/book/README.md)
+  * [사람을 사랑한 기술](developLog/spring/book/undefined.md)
+* [spring 관련 강의](developLog/spring/lecture/README.md)
+  * [스프링 부트 서버 개발](developLog/spring/lecture/undefined/README.md)
+    * [스프링 부트 서버 개발 프롤로그](developLog/spring/lecture/undefined/undefined.md)
 
 ## 🔭 CS
 
@@ -81,6 +57,7 @@
   * [HTTP 메서드 활용](cs/http/http-2.md)
   * [HTTP 상태코드](cs/http/http-3.md)
   * [HTTP 헤더 1 - 일반 헤더](cs/http/http-1-1.md)
+  * [HTTP 헤더 2 - 캐시와 조건부 요청](cs/http/http-2-1.md)
 * [SEVER](cs/sever/README.md)
   * [톰켓이란 무엇인가](cs/sever/undefined.md)
 * [그 외](cs/etc/README.md)
