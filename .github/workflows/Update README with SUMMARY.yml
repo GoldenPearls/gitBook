@@ -1,0 +1,40 @@
+name: Update README with SUMMARY
+
+on:
+  push:
+    paths:
+      - "developLog/SUMMARY.md" # SUMMARY.md 파일이 변경될 때마다 트리거
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.GITBOOKKEY }}
+        fetch-depth: 0
+
+    - name: Append SUMMARY to README
+      run: |
+        # 기존 README 내용을 임시 파일로 저장
+        cp README.md README_backup.md
+        
+        # SUMMARY.md 내용을 README.md 파일 끝에 추가
+        cat developLog/SUMMARY.md >> README.md
+        
+        # 중복 방지 및 기존 내용 유지 (이미 SUMMARY 내용이 포함된 경우를 방지)
+        uniq README.md > README.tmp && mv README.tmp README.md
+        
+        # 기존 내용과 병합
+        cat README_backup.md README.md > README_combined.md
+        mv README_combined.md README.md
+
+    - name: Commit changes
+      run: |
+        git add README.md
+        git config --global user.name 'github-actions[bot]'
+        git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+        git commit -m "Update README with changes from SUMMARY.md"
+        git push https://${{ secrets.GITBOOKKEY }}@github.com/GoldenPearls/gitBook.git
