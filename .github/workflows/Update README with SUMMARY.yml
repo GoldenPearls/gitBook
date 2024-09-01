@@ -16,25 +16,26 @@ jobs:
         token: ${{ secrets.GITBOOKKEY }}
         fetch-depth: 0
 
-    - name: Append SUMMARY to README
+    - name: Update README with SUMMARY content
       run: |
-        # 기존 README 내용을 임시 파일로 저장
+        # 기존 README 내용을 백업
         cp README.md README_backup.md
-        
-        # SUMMARY.md 내용을 README.md 파일 끝에 추가
-        cat developLog/SUMMARY.md >> README.md
-        
-        # 중복 방지 및 기존 내용 유지 (이미 SUMMARY 내용이 포함된 경우를 방지)
-        uniq README.md > README.tmp && mv README.tmp README.md
-        
-        # 기존 내용과 병합
-        cat README_backup.md README.md > README_combined.md
-        mv README_combined.md README.md
 
+        # SUMMARY.md의 링크들에 'developLog/'를 추가
+        sed -i 's/](programming-lanuage/](developLog\/programming-lanuage/g' developLog/SUMMARY.md
+        sed -i 's/](rust/](developLog\/rust/g' developLog/SUMMARY.md
+        sed -i 's/](spring/](developLog\/spring/g' developLog/SUMMARY.md
+        # 필요한 다른 경로들에 대해서도 위와 같이 'sed' 명령어를 사용하여 'developLog/'를 추가할 수 있습니다.
+
+        # 기존 README 내용을 지우고 SUMMARY 내용으로 교체
+        cp developLog/SUMMARY.md README.md
+
+        # README 파일의 커밋
     - name: Commit changes
       run: |
         git add README.md
         git config --global user.name 'github-actions[bot]'
         git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-        git commit -m "Update README with changes from SUMMARY.md"
+        git commit -m "Update README with updated SUMMARY.md content"
         git push https://${{ secrets.GITBOOKKEY }}@github.com/GoldenPearls/gitBook.git
+
