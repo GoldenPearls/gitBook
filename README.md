@@ -1,3 +1,13 @@
+# 안녕하세요! 👋, Mellona의 우당탕탕 Log 입니다.
+
+> [🔑 gitbook Link](https://mellona-log.gitbook.io/log)
+
+## 📌 Mellona의 우당탕탕 Log란?
+
+- velog, notion 등에서 적어둔 저의 개발적인 지식, 그 외의 것들 기록해두는 공간입니다. 🐾
+- 혼자 나아가는 것이 아닌 같이 나아가기 위해 기록하고 공유하는 것이 목표입니다. 🍀
+- main 브랜치는 실제 사이트랑 연결된 이름, koreanPageTitle 브랜치는 github.io와 연결을 위한  것입니다. 🐾
+
 # Table of contents
 
 * [About](README.md)
