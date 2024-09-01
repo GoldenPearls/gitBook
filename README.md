@@ -40,3 +40,213 @@
 - LinkedIn : https://www.linkedin.com/in/mellona/
 - Velog : https://velog.io/@prettylee620/posts
 - Rallit : https://www.rallit.com/resumes/6107@prettylee620/%EC%9D%B4%EA%B8%88%EC%A3%BC(%EC%88%98%EC%A0%95%20%EC%A4%91)
+# 안녕하세요! 👋, Mellona의 우당탕탕 Log 입니다.
+
+> [🔑 gitbook Link](https://mellona-log.gitbook.io/log)
+
+## 📌 Mellona의 우당탕탕 Log란?
+
+- velog, notion 등에서 적어둔 저의 개발적인 지식, 그 외의 것들 기록해두는 공간입니다. 🐾
+- 혼자 나아가는 것이 아닌 같이 나아가기 위해 기록하고 공유하는 것이 목표입니다. 🍀
+- main 브랜치는 실제 사이트랑 연결된 이름, koreanPageTitle 브랜치는 github.io와 연결을 위한  것입니다. 🐾
+
+## 🌲 브랜치 전략
+
+두 개의 주요 브랜치를 사용합니다:
+
+### 1. **main 브랜치**
+- **용도:** 실제 배포와 사이트 운영을 위한 브랜치입니다. gitbook에 직접적 연결되어 있는 브랜치입니다.
+- **설명:** 이 브랜치는 배포 가능한 안정적인 코드를 포함하고 있습니다. 모든 최종적인 변경 사항은 이 브랜치로 병합되며, 사이트에 반영됩니다.
+
+### 2. **koreanPageTitle 브랜치**
+- **용도:** GitHub Pages와 연결되어 git.io 사이트에 자동으로 포스팅되게 해두기 위한 브랜치입니다.
+- **설명:** GitHub Pages에서 사용하는 정적 사이트를 호스팅하기 위해 사용됩니다. 이 브랜치에서는 gitbook에서는 **한글 이름의 페이지 타이틀을 허용하지 않아** 한글 이름의 페이지 타이틀로 변경해둔 것입니다.
+
+> **Tip:** 한글화된 타이틀 제목을 보고 싶다면, koreanPageTitle을 확인해주세요!
+
+## 😀 블로그의 주인장 Mellona에 대해 말하자면,
+<p align="center"> <img src="https://github.com/user-attachments/assets/79379010-591b-4608-8fa7-ec1fec6d8840" alt="KakaoTalk_20240531_095426888_02" width="300"> </p>
+
+> 🌱 1년차 주니어 개발자입니다.
+
+- 🖋 지금 현재 관심이 있고 공부하는 분야는 **OOP, JPA** 에요.
+- ☕ 부족한 도메인 지식은 `커피챗`을 통해 다양하게 채워 나가는 중입니다!
+- 💬 제가 현재 주력으로 사용하고 있는 기술은 **spring, mariadb, java, javascript, mybatis** 입니다.
+- 📝 저는 기록하고 남들과 정보를 나누는 것을 좋아하기에 <a href="https://velog.io/@prettylee620"><img src="https://img.shields.io/badge/Velog-20C997?style=flat-square&logo=Velog&logoColor=white&https://velog.io/@prettylee620" /></a> 와  <a href="https://mellona.oopy.io/"><img src="https://img.shields.io/badge/Notion-000000?style=flat-square&logo=Notion&logoColor=white"></a>에 기록합니다.
+- 📌 최근에 기록하여 많은 공감을 얻었던 글은 면접에 관련된 글이며, 그 외의 다수의 글로 공감과 댓글을 받았으며, 2024년 velog 팔로워 100명 이상을 달성하였습니다.
+
+## ☎ CONTACT
+
+- Email : prettylee620@gmail.com
+- GitHub : https://github.com/GoldenPearls
+- LinkedIn : https://www.linkedin.com/in/mellona/
+- Velog : https://velog.io/@prettylee620/posts
+- Rallit : https://www.rallit.com/resumes/6107@prettylee620/%EC%9D%B4%EA%B8%88%EC%A3%BC(%EC%88%98%EC%A0%95%20%EC%A4%91)
+# Table of contents
+
+* [About](README.md)
+
+## 💻 Programming Lanuage
+
+* [Rust](programming-lanuage/rust/README.md)
+  * [Rust가 떠오른 이유 안전성, 쾌적한 사용 - 우아한 스터디 및 잇츠 스터디](programming-lanuage/rust/rust.md)
+  * [Chater 06. 오류 처리](programming-lanuage/rust/chater-06..md)
+  * [Chater 12. 연산자 오버로딩](programming-lanuage/rust/chater-12..md)
+  * [재미 있는 리포지토리](programming-lanuage/rust/undefined.md)
+* [자바](programming-lanuage/java/README.md)
+  * [문법 정리](programming-lanuage/java/grammar/README.md)
+    * [자바 문법 한눈에 정리 1편](programming-lanuage/java/grammar/1.md)
+    * [자바 문법 한눈에 정리 2편](programming-lanuage/java/grammar/2.md)
+    * [NullPointException에 대해 알아보자.](programming-lanuage/java/grammar/nullpointexception-..md)
+    * [Call by value vs Call by Reference과 기본형과 참조형](programming-lanuage/java/grammar/call-by-value-vs-call-by-reference.md)
+  * [김영한님 자바 강의 모음](programming-lanuage/java/younghan-lecture/README.md)
+    * [자바 입문 강의 정리](programming-lanuage/java/younghan-lecture/undefined.md)
+* [Python](programming-lanuage/python/README.md)
+  * [파이썬 프롤로그](programming-lanuage/python/undefined.md)
+  * [정보처리기사 실기를 위한 파이썬 정리(약간의 접수 후기를 곁드린)](programming-lanuage/python/undefined-1.md)
+
+## 🍓 Spring
+
+* [기본 지식](spring/basic/README.md)
+  * [MVC](spring/basic/mvc.md)
+  * [스프링의 핵심은 무엇인가](spring/basic/undefined.md)
+  * [스프링 빈을 등록하는 두 가지 방법(@Component, @Bean)](spring/basic/component-bean.md)
+  * [의존성 주입 3가지 방법 - (생성자 주입, Field 주입, Setter 주입)](spring/basic/3-field-setter.md)
+  * [스프링부트 동작원리](spring/basic/undefined-1.md)
+  * [JPA란 무엇인가요](spring/basic/jpa.md)
+  * [messageConverter가 무엇인가요](spring/basic/messageconverter.md)
+* [spring 관련 책](spring/book/README.md)
+  * [사람을 사랑한 기술](spring/book/undefined.md)
+* [spring 관련 강의](spring/lecture/README.md)
+  * [스프링 부트 서버 개발](spring/lecture/undefined/README.md)
+    * [스프링 부트 서버 개발 프롤로그](spring/lecture/undefined/undefined.md)
+
+## 🔭 CS
+
+* [CS 관련 BOOKMARK](cs/cs-bookmark.md)
+* [Network](cs/network/README.md)
+  * [네트워크 공부하기 프롤로그](cs/network/undefined.md)
+  * [Story 01. HTTP 리퀘스트 메세지를 작성한다.](cs/network/story-01.-http-..md)
+* [운영체제](cs/os/README.md)
+  * [프로세스, 스레드, 멀티태스킹, 멀티스레딩, 멀티프로세싱, 멀티프로그래밍과 스레드를 많이 쓸수록 항상 성능이 좋을까..?](cs/os/untitled.md)
+  * [비동기에서 각 맥락에 따른 의미를 설명](cs/os/undefined.md)
+  * [컴퓨터 구조와 운영체제를 알아야 하는 이유 - 운영체제 개념](cs/os/undefined-1.md)
+* [보안](cs/security/README.md)
+  * [우리나라 보안의 실태](cs/security/undefined.md)
+* [HTTP 웹 지식](cs/http/README.md)
+  * [인터넷 네트워크](cs/http/undefined.md)
+  * [URI와 웹 브라우저의 요청 흐름](cs/http/uri.md)
+  * [HTTP의 기본](cs/http/http.md)
+  * [HTTP 메서드](cs/http/http-1.md)
+  * [HTTP 메서드 활용](cs/http/http-2.md)
+  * [HTTP 상태코드](cs/http/http-3.md)
+  * [HTTP 헤더 1 - 일반 헤더](cs/http/http-1-1.md)
+* [SEVER](cs/sever/README.md)
+  * [톰켓이란 무엇인가](cs/sever/undefined.md)
+* [그 외](cs/etc/README.md)
+  * [멀티캠퍼스에서 배운 cs 지식](cs/etc/cs.md)
+
+## Algorithm-DataStructure
+
+* [Algorithm 관련  bookmark](algorithm-datastructure/algorithm-bookmark.md)
+* [자료구조](algorithm-datastructure/data-structure/README.md)
+  * [Big O](algorithm-datastructure/data-structure/big-o.md)
+  * [연결 리스트](algorithm-datastructure/data-structure/undefined.md)
+  * [BigInteger에 대한 정리](algorithm-datastructure/data-structure/biginteger.md)
+  * [배열(array)](algorithm-datastructure/data-structure/array.md)
+  * [스택과 큐](algorithm-datastructure/data-structure/undefined-1.md)
+  * [Array vs ArrayList vs LinkedList 차이](algorithm-datastructure/data-structure/array-vs-arraylist-vs-linkedlist.md)
+  * [재귀함수](algorithm-datastructure/data-structure/undefined-2.md)
+  * [트리](algorithm-datastructure/data-structure/undefined-3.md)
+  * [우선순위 큐와 힙의 차이](algorithm-datastructure/data-structure/undefined-4.md)
+  * [값이 중복되는 객체를 제거할 목적으로 hash set을 쓰려면](algorithm-datastructure/data-structure/hash-set.md)
+* [Algorithm](algorithm-datastructure/algorithm/README.md)
+  * [그리디](algorithm-datastructure/algorithm/undefined.md)
+  * [구현](algorithm-datastructure/algorithm/undefined-1.md)
+  * [그래프 알고리즘](algorithm-datastructure/algorithm/undefined-2.md)
+  * [버블 정렬, 삽입 정렬, 선택 정렬](algorithm-datastructure/algorithm/undefined-3.md)
+  * [동적 계획법과 분할정복](algorithm-datastructure/algorithm/undefined-4.md)
+
+## ⛏️  CI-CD
+
+* [github](ci-cd/github/README.md)
+  * [github 자주 쓰는 명령어](ci-cd/github/github.md)
+  * [github.io 블로그 만들기](ci-cd/github/github.io/README.md)
+    * [Jekyll Chirpy 테마를 연동 및 Github 블로그 만들기  1탄 - 로컬 테스트 및 확인](ci-cd/github/github.io/jekyll-chirpy-github-1.md)
+    * [Jekyll Chirpy 테마를 연동 및 Github 블로그 만들기 2탄 - fork한 것 mirror 해오기](ci-cd/github/github.io/jekyll-chirpy-github-2-fork-mirror.md)
+    * [Jekyll Chirpy 테마를 연동 및 Github 블로그 만들기 3탄 - github에 도메인 적용](ci-cd/github/github.io/jekyll-chirpy-github-3-github.md)
+  * [팀프로젝트때 알아낸 github 지식](ci-cd/github/github-1.md)
+  * [Git에서 알게 된 지식](ci-cd/github/git.md)
+* [Github Action](ci-cd/github-action/README.md)
+  * [Github Action 링크 모음](ci-cd/github-action/github-action.md)
+  * [OAuth 앱에 대한 범위 및 gitbook과 github.io를 자동화를 위한 작업 1탄](ci-cd/github-action/oauth-gitbook-github.io-1.md)
+  * [gitbook과 github.io를 자동화를 위한 gitaction 연동  - 워크플로우 작성과 문제](ci-cd/github-action/gitbook-github.io-gitaction.md)
+* [docker](ci-cd/docker.md)
+
+## 📔 Book
+
+* [에러가 무서워지지 않는 책](book/learn-errors/README.md)
+  * [1장 에러가 왜 무서울까?](book/learn-errors/1.md)
+  * [2장 에러를 잘 읽는 방법](book/learn-errors/2.md)
+  * [3장 효율적으로 에러의 원인 찾기](book/learn-errors/3.md)
+* [요즘 개발자 요약 및 신입 개발자의 방향성 찾기(feat. 커피챗)](book/mzdevlop.md)
+* [필독 개발자 온보딩 가이드](book/onboarding/README.md)
+  * [필독 개발자 온보딩 가이드 1장](book/onboarding/1.md)
+  * [필독 개발자 온보딩 가이드 2장](book/onboarding/2.md)
+  * [필독 개발자 온보딩 가이드 3장](book/onboarding/3.md)
+  * [필독 개발자 온보딩 가이드 4장](book/onboarding/4/README.md)
+    * [개발자 온보딩 가이드 4장 -(1)](book/onboarding/4/4-1.md)
+    * [필독 개발자 온보딩 가이드 4장 -(2)](book/onboarding/4/4-2.md)
+    * [개발자 온보딩 가이드 4장 - (3)](book/onboarding/4/4-3.md)
+* [객체지향의 오해와 사실](book/oop/README.md)
+  * [1장 협력하는 객체들의 공동체](book/oop/1.md)
+
+## 🌸 회고록 <a href="#memoir" id="memoir"></a>
+
+* [2023년](memoir/2023/README.md)
+  * [2023년 7월 회고 겸 8월 목표와 생각의 전환](memoir/2023/2023-7-8.md)
+  * [2023년 8월 회고 및 9월 목표](memoir/2023/2023-8-9.md)
+  * [2023년 9월, 10월 회고글 및 11월 목표](memoir/2023/2023-9-10-11.md)
+  * [2023년 11월 회고록](memoir/2023/2023-11.md)
+  * [변화 Change의 2023 늦은 회고 진화 level up 2024](memoir/2023/change-2023-level-up-2024.md)
+* [2024년](memoir/2024/README.md)
+  * [쌩 신입개발자 취준기 회고+ 1주일 출근 겸 1월 회고](memoir/2024/+-1-1.md)
+  * [중소 신입 개발자 한 달 출근 겸 2024년 2월 회고 ( feat. 국비 비전공자 친구 취업소식)](memoir/2024/2024-2-feat..md)
+  * [2024년 3월 회고록 및 4월 계획](memoir/2024/2024-3-4.md)
+  * [2024년 4월, 5월 중간 회고록 및 5월, 6월 목표](memoir/2024/2024-4-5-5-6.md)
+  * [2024년 6월 회고록](memoir/2024/2024-6.md)
+  * [2024년 7월 회고록](memoir/2024/2024-7.md)
+
+## 🌟 TIP, bookmark, 유용한 정보 모음
+
+* [Bookmark](tip-bookmark/bookmark.md)
+* [블로그 테마 모아보기(tistory, github.io)](tip-bookmark/blog-theme.md)
+* [강연 및 컨퍼런스 후기](tip-bookmark/conference/README.md)
+  * [점핏 강연 센스있는 BE 되기](tip-bookmark/conference/be.md)
+* [커피챗](tip-bookmark/coffeechat/README.md)
+  * [커피챗이란](tip-bookmark/coffeechat/undefined.md)
+  * [인프런 멘토 우연님 후기이자 방향성 - 초보개발자의 고민과 방안](tip-bookmark/coffeechat/undefined-1.md)
+* [잘 정리된 tech blog](tip-bookmark/tech-blog.md)
+
+## ⚡ 그 외 <a href="#ex" id="ex"></a>
+
+* [자격증](ex/credential/README.md)
+  * [정보처리기사](ex/credential/engineer-information-processing/README.md)
+    * [필기](ex/credential/engineer-information-processing/undefined.md)
+    * [실기](ex/credential/engineer-information-processing/undefined-1.md)
+    * [대학생, 취준생, 신입개발자의 과정과 함께한 정보처리기사 4트 2024년 1회 실기 후기](ex/credential/engineer-information-processing/4-2024-1.md)
+  * [SQLD](ex/credential/sqld.md)
+  * [ADsP](ex/credential/adsp.md)
+* [템플릿 나눔](ex/template/README.md)
+  * [노션 팀 스터디 템플릿 공유](ex/template/undefined.md)
+  * [팀프로젝트 관련 노션 템플릿 공유](ex/template/undefined-1.md)
+* [신입개발자 > 주니어 개발자의 취업과 이직, 업무 이야기](ex/employment-job-change/README.md)
+  * [신입개발자의 중소, SI 취준기 및 성장](ex/employment-job-change/si/README.md)
+    * [애매한 신입개발자의 중소, si 취준기(feat. 이력서 및 포트폴리오 작성법, 면접 후기) - 간추린 버전](ex/employment-job-change/si/si-feat..md)
+    * [애매한 쌩신입개발자 중소, si 취준기 1탄 이력서 및 포트폴리오 작성법 및 후기](ex/employment-job-change/si/si-1.md)
+    * [애매한 쌩신입개발자 중소, si 취준기 2탄 면접 후기, 질문, 취업 관련 사이트 모음, 결과](ex/employment-job-change/si/si-2.md)
+    * [주니어가 첫 회사 다니면서 깨달은(?깨달아가는) 20가지](ex/employment-job-change/si/20.md)
+* [살아가는 이야기](ex/my-story/README.md)
+  * [대학 입학 - 취업 전까지의 아르바이트 회고](ex/my-story/undefined.md)
+* [얻은 지식 모음](ex/knowledge/README.md)
+  * [트위터를 통한 모르는 지식을 얻어가기](ex/knowledge/undefined.md)
