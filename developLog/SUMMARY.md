@@ -57,6 +57,7 @@
   * [HTTP 메서드 활용](cs/http/http-2.md)
   * [HTTP 상태코드](cs/http/http-3.md)
   * [HTTP 헤더 1 - 일반 헤더](cs/http/http-1-1.md)
+  * [HTTP 헤더 2 - 캐시와 조건부 요청](cs/http/http-2-1.md)
 * [SEVER](cs/sever/README.md)
   * [톰켓이란 무엇인가](cs/sever/undefined.md)
 * [그 외](cs/etc/README.md)
