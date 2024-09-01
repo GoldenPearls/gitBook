@@ -4,7 +4,7 @@
 
 ### 자바 표준 스펙
 
-<figure><img src="../../../.gitbook/assets/image (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 #### 자바 표준 스펙과 구현
 
@@ -16,7 +16,7 @@
 
 ### 컴파일과 실행
 
-<figure><img src="../../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 자바 프로그램은 컴파일과 실행 단계를 거친다.
 
@@ -36,13 +36,13 @@
 
 #### 인텔리제이를 통한 자바 설치 관리
 
-<figure><img src="../../../.gitbook/assets/image (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * 내부에 자바를 편리하게 설치하고 관리할 수 있는 기능을 제공
 
 #### 인텔리제이를 통한 자바 컴파일, 실행 과정
 
-<figure><img src="../../../.gitbook/assets/image (3) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (3) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 1. **컴파일**
 
@@ -60,7 +60,7 @@
 
 1. 일반적인 프로그램은 다른 운영체제에서 실행 할 수 없다.
 
-<figure><img src="../../../.gitbook/assets/image (5) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (5) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 2. 자바 프로그램은 자바가 설치된 모든 OS에서 실행할 수 있다.
 
@@ -68,11 +68,11 @@
 * **OS 호환성 문제는 자바가 해결한다.** Hello.class 와 같이 컴파일된 자바 파일은 모든 자바 환경에서 실행할 수 있다.
 * 윈도우 자바는 윈도우 OS가 사용하는 명령어들로 구성되어 있다. MAC이나 리눅스 자바도 본인의 OS가 사용하는 명령어들로 구성되어 있다. 개발자는 각 OS에 맞도록 자바를 설치하기만 하면 된다.
 
-<figure><img src="../../../.gitbook/assets/image (6) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (6) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 #### 자바 개발과 운영 환경
 
-<figure><img src="../../../.gitbook/assets/image (7) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (7) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * 개발할 때 자바와 서버에서 실행 시 다른 자바를 사용할 수 있다.
 * 개발자들은 개발의 편의를 위해 윈도우나 MAC OS를 주로 사용한다.
@@ -117,7 +117,7 @@ java: variable a might not have been initialize
 
 #### 초기화 되지 않은 것은 컴파일 되지 않음
 
-<figure><img src="../../../.gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (8) (1).png" alt=""><figcaption></figcaption></figure>
 
 * out에 뜨지 않는다.
 * 그리고 컴파일 시 변수를 쓰지 않는다면 자바가 최적화 하여 코드가
@@ -132,7 +132,7 @@ public class Var6 {
 }
 ```
 
-<figure><img src="../../../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (9) (1).png" alt=""><figcaption></figcaption></figure>
 
 > tip : 1줄 복사 단축키 `ctrl + D`
 
@@ -337,7 +337,7 @@ public class OperatorAdd1 {
 
 * 증감 연산이 먼저 수행된 후 나머지 연산이 수행된다
 
-<figure><img src="../../../.gitbook/assets/image (10).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (10) (1).png" alt=""><figcaption></figcaption></figure>
 
 ```java
 a = 1, b = 0
@@ -353,7 +353,7 @@ b = a //2.  이후에 a를 대입 b = 2
 
 * **다른 연산이 먼저 수행된 후** 증감 연산이 수행된다.
 
-<figure><img src="../../../.gitbook/assets/image (11).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (11) (1).png" alt=""><figcaption></figcaption></figure>
 
 ```java
 a = 1, b = 0
@@ -592,9 +592,9 @@ while (조건식) {
 
 > 쓰는 이유는 코드를 `유연하게` 바꾸기 위해서이다.
 
-<figure><img src="../../../.gitbook/assets/image (12).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (12) (1).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (13).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (13) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### do-while문
 
@@ -967,7 +967,7 @@ public class Casting2 {
 }
 ```
 
-<figure><img src="../../../.gitbook/assets/image (14).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (14) (1).png" alt=""><figcaption></figcaption></figure>
 
 > 이런 문제는 매우 큰 버그를 유발할 수 있다. 예를 들어서 은행 프로그램이 고객에게 은행 이자를 계산해서 입금해야 하는데 만약 이런 코드가 아무런 오류 없이 수행된다면 끔찍한 문제를 만들 수 있다. 그래서 자바는 이런 경우 컴파일 오류를 발생시킨다. 항상 강조하지만 `컴파일 오류`는 **문제를 가장 빨리 발견할 수 있는 좋은 오류**이다
 
@@ -1009,7 +1009,7 @@ public class Casting3 {
 }
 ```
 
-<figure><img src="../../../.gitbook/assets/image (15).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (15) (1).png" alt=""><figcaption></figcaption></figure>
 
 #### 정상 범위
 

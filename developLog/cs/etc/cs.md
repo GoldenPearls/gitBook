@@ -168,7 +168,7 @@
 
 ### 3) 프로토콜 종류
 
-<figure><img src="../../.gitbook/assets/image (17).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (17) (1).png" alt=""><figcaption></figcaption></figure>
 
 ***
 
@@ -239,7 +239,7 @@
   * **8080 포트**
 * 이런 에러 발생 원인
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * 외부에서 실행되는 톰캣 서버 존재
 * 서버 연결 정보가 제대로 주어지지 않을 때
@@ -300,7 +300,7 @@ CF. 여러 개의 브라우저 서버 동시 접속 시도는 지원 되어야 �
 
 8. **다음의 화면을 구현하기 위한 HTML 코드를 작성해 주세요**
 
-<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ```java
 <html>
