@@ -68,8 +68,8 @@ jobs:
         cd koreanPageTitle
         git init
         git add -A
-        git config --global user.name 'github-actions[bot]'
-        git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+        git config --global user.name 'GoldenPearls'
+        git config --global user.email 'prettylee620.naver.com'
         git commit -m "Rename and update Markdown files based on h1 titles in koreanPageTitle"
         git push https://${{ secrets.GITBOOKKEY }}@github.com/GoldenPearls/gitbook_public.git master:koreanPageTitle --force
 
@@ -86,6 +86,8 @@ jobs:
 
     - name: Merge koreanPageTitle into main
       run: |
+        git config --global user.name 'GoldenPearls'
+        git config --global user.email 'prettylee620.naver.com'
         git fetch origin
         git checkout main
         git pull origin main
