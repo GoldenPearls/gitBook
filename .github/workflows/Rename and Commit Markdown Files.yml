@@ -34,8 +34,8 @@ jobs:
           title=$(grep -m 1 '^#' "$file" | sed 's/^# //')
           
           if [ -n "$title" ]; then
-            dir=$(dirname "$file")
-            new_dir="koreanPageTitle/$dir"
+            dir=$(dirname "$file" | sed 's|developLog/||') # developLog 부분을 제거한 경로
+            new_dir="temp_dir/$dir"
             new_filename="$new_dir/$title.md"
             
             mkdir -p "$new_dir"
@@ -81,6 +81,7 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v4
       with:
+        repository: GoldenPearls/gitbook_public.git
         token: ${{ secrets.GITBOOKKEY }}
         fetch-depth: 0
 
