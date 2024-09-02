@@ -48,6 +48,7 @@
   * [비동기에서 각 맥락에 따른 의미를 설명](cs/os/undefined.md)
   * [컴퓨터 구조와 운영체제를 알아야 하는 이유 - 운영체제 개념](cs/os/undefined-1.md)
   * [메모리와 메모리 관리](cs/os/undefined-2.md)
+  * [Call by value vs Call by Reference + 기본형과 참조형](cs/os/call-by-value-vs-call-by-reference-+.md)
 * [보안](cs/security/README.md)
   * [우리나라 보안의 실태](cs/security/undefined.md)
 * [HTTP 웹 지식](cs/http/README.md)
@@ -66,7 +67,7 @@
 
 ## Algorithm-DataStructure
 
-* [Algorithm 관련  bookmark](algorithm-datastructure/algorithm-bookmark.md)
+* [Algorithm 관련 bookmark](algorithm-datastructure/algorithm-bookmark.md)
 * [자료구조](algorithm-datastructure/data-structure/README.md)
   * [Big O](algorithm-datastructure/data-structure/big-o.md)
   * [연결 리스트](algorithm-datastructure/data-structure/undefined.md)
@@ -85,12 +86,12 @@
   * [버블 정렬, 삽입 정렬, 선택 정렬](algorithm-datastructure/algorithm/undefined-3.md)
   * [동적 계획법과 분할정복](algorithm-datastructure/algorithm/undefined-4.md)
 
-## ⛏️  CI-CD
+## ⛏️ CI-CD
 
 * [github](ci-cd/github/README.md)
   * [github 자주 쓰는 명령어](ci-cd/github/github.md)
   * [github.io 블로그 만들기](ci-cd/github/github.io/README.md)
-    * [Jekyll Chirpy 테마를 연동 및 Github 블로그 만들기  1탄 - 로컬 테스트 및 확인](ci-cd/github/github.io/jekyll-chirpy-github-1.md)
+    * [Jekyll Chirpy 테마를 연동 및 Github 블로그 만들기 1탄 - 로컬 테스트 및 확인](ci-cd/github/github.io/jekyll-chirpy-github-1.md)
     * [Jekyll Chirpy 테마를 연동 및 Github 블로그 만들기 2탄 - fork한 것 mirror 해오기](ci-cd/github/github.io/jekyll-chirpy-github-2-fork-mirror.md)
     * [Jekyll Chirpy 테마를 연동 및 Github 블로그 만들기 3탄 - github에 도메인 적용](ci-cd/github/github.io/jekyll-chirpy-github-3-github.md)
   * [팀프로젝트때 알아낸 github 지식](ci-cd/github/github-1.md)
@@ -98,7 +99,7 @@
 * [Github Action](ci-cd/github-action/README.md)
   * [Github Action 링크 모음](ci-cd/github-action/github-action.md)
   * [OAuth 앱에 대한 범위 및 gitbook과 github.io를 자동화를 위한 작업 1탄](ci-cd/github-action/oauth-gitbook-github.io-1.md)
-  * [gitbook과 github.io를 자동화를 위한 gitaction 연동  - 워크플로우 작성과 문제](ci-cd/github-action/gitbook-github.io-gitaction.md)
+  * [gitbook과 github.io를 자동화를 위한 gitaction 연동 - 워크플로우 작성과 문제](ci-cd/github-action/gitbook-github.io-gitaction.md)
 * [docker](ci-cd/docker.md)
 
 ## 📔 Book
