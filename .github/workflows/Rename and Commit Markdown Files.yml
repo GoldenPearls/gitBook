@@ -21,7 +21,7 @@ jobs:
       run: |
         export LC_CTYPE="UTF-8"
        
-    - name: Rename and Copy Markdown files to koreanPageTitle, Rename Folders Based on README H1
+    - name: Rename and Copy Markdown files to temp_dir, Rename Folders Based on README H1
       run: |
         mkdir -p temp_dir
         
@@ -65,7 +65,7 @@ jobs:
           echo ".gitbook/assets directory copied to temp_dir/.gitbook/assets"
         fi
 
-    - name: Commit changes in koreanPageTitle
+    - name: Commit changes to main
       run: |
         cd temp_dir
         git init
@@ -73,4 +73,6 @@ jobs:
         git config --global user.name 'GoldenPearls'
         git config --global user.email 'prettylee620.naver.com'
         git commit -m "Rename and update Markdown files based on h1 titles in main"
-        git push https://${{ secrets.GITBOOKKEY }}@github.com/GoldenPearls/gitbook_public.git origin main --force
+        git branch -M main
+        git remote add origin https://{{ secrets.GITBOOKKEY }}@github.com/GoldenPearls/gitbook_public.git
+        git push -u origin main --force
