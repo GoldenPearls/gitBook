@@ -1,4 +1,4 @@
-name: Rename, Add, and Merge Markdown Files
+name: Rename and Add New Markdown Files
 
 on:
   push:
@@ -34,8 +34,8 @@ jobs:
           title=$(grep -m 1 '^#' "$file" | sed 's/^# //')
           
           if [ -n "$title" ]; then
-            dir=$(dirname "$file" | sed 's|developLog/||') # developLog 부분을 제거한 경로
-            new_dir="temp_dir/$dir"
+            dir=$(dirname "$file")
+            new_dir="koreanPageTitle/$dir"
             new_filename="$new_dir/$title.md"
             
             mkdir -p "$new_dir"
@@ -58,43 +58,25 @@ jobs:
 
         # .gitbook/assets 디렉토리 복사
         if [ -d "developLog/.gitbook/assets" ]; then
-          cp "developLog/.gitbook/assets" "temp_dir/.gitbook/assets"
-          echo "/.gitbook/assets copied to temp_dir"
+          mkdir -p "koreanPageTitle/developLog/.gitbook/assets"
+          cp -r developLog/.gitbook/assets/* koreanPageTitle/developLog/.gitbook/assets/
+          echo ".gitbook/assets directory copied to koreanPageTitle/developLog"
         fi
 
         # Copy SUMMARY.md
         if [ -f "developLog/SUMMARY.md" ]; then
-          cp "developLog/SUMMARY.md" "temp_dir/SUMMARY.md"
-          echo "SUMMARY.md copied to temp_dir"
+          cp "developLog/SUMMARY.md" "developLog/SUMMARY.md"
+          echo "SUMMARY.md copied to developLog"
         fi
 
     - name: Commit changes in koreanPageTitle
       run: |
-        cd temp_dir
+        cd koreanPageTitle
         git init
         git add -A
-        git config --global user.name 'GoldenPearls'
-        git config --global user.email 'prettylee620.naver.com'
+        git config --global user.name 'github-actions[bot]'
+        git config --global user.email 'github-actions[bot]@users.noreply.github.com'
         git commit -m "Rename and update Markdown files based on h1 titles in koreanPageTitle"
-        git push https://${{ secrets.GITBOOKKEY }}@github.com/GoldenPearls/gitbook_public.git master:koreanPageTitle --force
+        git push https://${{ secrets.GITBOOKKEY }}@github.com/GoldenPearls/gitBook.git master:koreanPageTitle --force
 
-  merge-to-main:
-    needs: process-markdown
-    runs-on: ubuntu-latest
 
-    steps:
-    - name: Checkout repository
-      uses: actions/checkout@v4
-      with:
-        token: ${{ secrets.GITBOOKKEY }}
-        fetch-depth: 0
-
-    - name: Merge koreanPageTitle into main
-      run: |
-        git config --global user.name 'GoldenPearls'
-        git config --global user.email 'prettylee620.naver.com'
-        git fetch origin
-        git checkout main
-        git pull origin main
-        git merge origin/koreanPageTitle --allow-unrelated-histories
-        git push origin main
