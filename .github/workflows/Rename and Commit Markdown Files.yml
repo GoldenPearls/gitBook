@@ -65,8 +65,8 @@ jobs:
 
         # Copy SUMMARY.md
         if [ -f "developLog/SUMMARY.md" ]; then
-          cp "developLog/SUMMARY.md" "developLog/SUMMARY.md"
-          echo "SUMMARY.md copied to developLog"
+          cp "developLog/SUMMARY.md" "koreanPageTitle/developLog/SUMMARY.md"
+          echo "SUMMARY.md copied to koreanPageTitle"
         fi
 
     - name: Commit changes in koreanPageTitle
