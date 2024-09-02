@@ -26,12 +26,17 @@ jobs:
         sed -i 's/](spring/](developLog\/spring/g' developLog/SUMMARY.md
         sed -i 's/](algorithm-datastructure/](developLog\/algorithm-datastructure/g' developLog/SUMMARY.md
         sed -i 's/](book/](developLog\/book/g' developLog/SUMMARY.md
+        sed -i 's/](ci-cd/](developLog\/ci-cd/g' developLog/SUMMARY.md
+        sed -i 's/](cs/](developLog\/cs/g' developLog/SUMMARY.md
+        sed -i 's/](ex/](developLog\/ex/g' developLog/SUMMARY.md
+        sed -i 's/](memoir/](developLog\/memoir/g' developLog/SUMMARY.md
+        sed -i 's/](tip-bookmark/](developLog\/tip-bookmark/g' developLog/SUMMARY.md
         # 필요한 다른 경로들에 대해서도 위와 같이 'sed' 명령어를 사용하여 'developLog/'를 추가할 수 있다.
 
         # 기존 README 내용을 지우고 SUMMARY 내용으로 교체
         cp developLog/SUMMARY.md README.md
 
-        # README 파일의 커밋
+   # README 파일의 커밋
     - name: Commit changes
       run: |
         git add README.md
