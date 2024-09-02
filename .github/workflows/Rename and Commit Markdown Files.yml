@@ -15,7 +15,6 @@ jobs:
       uses: actions/checkout@v4
       with:
         token: ${{ secrets.GITBOOKKEY }}
-        repository: GoldenPearls/gitbook_public
         fetch-depth: 0
 
     - name: Set UTF-8 Encoding
@@ -24,8 +23,6 @@ jobs:
        
     - name: Rename and Copy Markdown files to koreanPageTitle, Rename Folders Based on README H1
       run: |
-        mkdir -p temp_dir
-        
         for file in $(find developLog -type f -name '*.md'); do    
 
           # Markdown 파일 복사 및 이름 변경
@@ -61,9 +58,9 @@ jobs:
 
         # .gitbook/assets 디렉토리 복사
         if [ -d "developLog/.gitbook/assets" ]; then
-          mkdir -p "temp_dir/.gitbook/assets"
-          cp -r developLog/.gitbook/assets/* temp_dir/.gitbook/assets/
-          echo ".gitbook/assets directory copied to temp_dir/.gitbook/assets"
+          mkdir -p "koreanPageTitle/developLog/.gitbook/assets"
+          cp -r developLog/.gitbook/assets/* koreanPageTitle/developLog/.gitbook/assets/
+          echo ".gitbook/assets directory copied to koreanPageTitle/developLog"
         fi
 
     - name: Commit changes in koreanPageTitle
@@ -74,7 +71,7 @@ jobs:
         git config --global user.name 'GoldenPearls'
         git config --global user.email 'prettylee620.naver.com'
         git commit -m "Rename and update Markdown files based on h1 titles in koreanPageTitle"
-        git push https://${{ secrets.GITBOOKKEY }}@github.com/GoldenPearls/gitbook_public.git main:koreanPageTitle --force
+        git push https://${{ secrets.GITBOOKKEY }}@github.com/GoldenPearls/gitbook_public.git master:koreanPageTitle --force
 
   merge-to-main:
     needs: process-markdown
@@ -84,7 +81,6 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v4
       with:
-        repository: GoldenPearls/gitbook_public
         token: ${{ secrets.GITBOOKKEY }}
         fetch-depth: 0
 
@@ -92,6 +88,7 @@ jobs:
       run: |
         git config --global user.name 'GoldenPearls'
         git config --global user.email 'prettylee620.naver.com'
+        git fetch origin
         git checkout main
         git pull origin main
         git merge origin/koreanPageTitle --allow-unrelated-histories
