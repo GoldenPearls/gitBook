@@ -89,5 +89,5 @@ jobs:
         git fetch origin
         git checkout main
         git pull origin main
-        git merge origin/koreanPageTitle
+        git merge origin/koreanPageTitle --allow-unrelated-histories
         git push origin main
