@@ -47,6 +47,7 @@
   * [프로세스, 스레드, 멀티태스킹, 멀티스레딩, 멀티프로세싱, 멀티프로그래밍과 스레드를 많이 쓸수록 항상 성능이 좋을까..?](cs/os/untitled.md)
   * [비동기에서 각 맥락에 따른 의미를 설명](cs/os/undefined.md)
   * [컴퓨터 구조와 운영체제를 알아야 하는 이유 - 운영체제 개념](cs/os/undefined-1.md)
+  * [메모리와 메모리 관리](cs/os/undefined-2.md)
 * [보안](cs/security/README.md)
   * [우리나라 보안의 실태](cs/security/undefined.md)
 * [HTTP 웹 지식](cs/http/README.md)
