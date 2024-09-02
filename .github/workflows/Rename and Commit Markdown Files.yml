@@ -74,5 +74,5 @@ jobs:
         git add -A
         git commit -m "Rename and update Markdown files based on h1 titles in main"
         git branch -M main  # 현재 브랜치를 main으로 변경
-        git remote add origin https://{{ secrets.GITBOOKKEY }}@github.com/GoldenPearls/gitbook_public.git
+        git remote add origin https://{{ secrets.GITBOOKKEY }}@github.com/GoldenPearls/gitbook_public.git  # 원격 저장소 추가
         git push -u origin main --force  # main 브랜치로 푸시
