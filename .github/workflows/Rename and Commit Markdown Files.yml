@@ -65,14 +65,19 @@ jobs:
           echo ".gitbook/assets directory copied to temp_dir/.gitbook/assets"
         fi
 
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        repository: GoldenPearls/gitbook_public  # 새로운 레포지토리 정보
+        token: ${{ secrets.GITBOOKKEY }}
+        fetch-depth: 0
+
     - name: Commit changes in koreanPageTitle
       run: |
         cd temp_dir
         git init
-        git config --global user.name 'GoldenPearls'
-        git config --global user.email 'prettylee620.naver.com'
         git add -A
-        git commit -m "Rename and update Markdown files based on h1 titles in main"
-        git branch -M main  # 현재 브랜치를 main으로 변경
-        git remote add origin https://{{ secrets.GITBOOKKEY }}@github.com/GoldenPearls/gitbook_public.git  # 원격 저장소 추가
-        git push -u origin main --force  # main 브랜치로 푸시
+        git config --global user.name 'github-actions[bot]'
+        git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+        git commit -m "Rename and update Markdown files based on h1 titles in koreanPageTitle"
+        git push https://${{ secrets.GITBOOKKEY }}@github.com/GoldenPearls/gitbook_public.git 
