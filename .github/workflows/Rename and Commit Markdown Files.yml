@@ -58,9 +58,15 @@ jobs:
 
         # .gitbook/assets 디렉토리 복사
         if [ -d "developLog/.gitbook/assets" ]; then
-          mkdir -p "koreanPageTitle/developLog/.gitbook/assets"
-          cp -r developLog/.gitbook/assets/* koreanPageTitle/developLog/.gitbook/assets/
-          echo ".gitbook/assets directory copied to koreanPageTitle/developLog"
+          mkdir -p "koreanPageTitle/.gitbook/assets"
+          cp -r developLog/.gitbook/assets/* koreanPageTitle/.gitbook/assets/
+          echo ".gitbook/assets directory copied to koreanPageTitle"
+        fi
+
+        # Copy SUMMARY.md
+        if [ -f "developLog/SUMMARY.md" ]; then
+          cp "developLog/SUMMARY.md" "temp_dir/SUMMARY.md"
+          echo "SUMMARY.md copied to temp_dir"
         fi
 
     - name: Commit changes in koreanPageTitle
