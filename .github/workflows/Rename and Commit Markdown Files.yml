@@ -1,4 +1,4 @@
-name: Rename and Add New Markdown Files
+name: Rename, Add, and Merge Markdown Files
 
 on:
   push:
@@ -23,8 +23,6 @@ jobs:
        
     - name: Rename and Copy Markdown files to koreanPageTitle, Rename Folders Based on README H1
       run: |
-        mkdir -p temp_dir
-        
         for file in $(find developLog -type f -name '*.md'); do    
 
           # Markdown 파일 복사 및 이름 변경
@@ -36,8 +34,8 @@ jobs:
           title=$(grep -m 1 '^#' "$file" | sed 's/^# //')
           
           if [ -n "$title" ]; then
-            dir=$(dirname "$file" | sed 's|developLog/||') # developLog 부분을 제거한 경로
-            new_dir="temp_dir/$dir"
+            dir=$(dirname "$file")
+            new_dir="koreanPageTitle/$dir"
             new_filename="$new_dir/$title.md"
             
             mkdir -p "$new_dir"
@@ -60,18 +58,36 @@ jobs:
 
         # .gitbook/assets 디렉토리 복사
         if [ -d "developLog/.gitbook/assets" ]; then
-          mkdir -p "temp_dir/.gitbook/assets"
-          cp -r developLog/.gitbook/assets/* temp_dir/.gitbook/assets/
-          echo ".gitbook/assets directory copied to temp_dir/.gitbook/assets"
+          mkdir -p "koreanPageTitle/developLog/.gitbook/assets"
+          cp -r developLog/.gitbook/assets/* koreanPageTitle/developLog/.gitbook/assets/
+          echo ".gitbook/assets directory copied to koreanPageTitle/developLog"
         fi
 
     - name: Commit changes in koreanPageTitle
       run: |
-        cd temp_dir
+        cd koreanPageTitle
         git init
         git add -A
         git config --global user.name 'github-actions[bot]'
         git config --global user.email 'github-actions[bot]@users.noreply.github.com'
         git commit -m "Rename and update Markdown files based on h1 titles in koreanPageTitle"
-        git remote add origin https://${{ secrets.GITBOOKKEY }}@github.com/GoldenPearls/gitbook_public.git
-        git push -u origin main --force
+        git push https://${{ secrets.GITBOOKKEY }}@github.com/GoldenPearls/gitbook_public.git master:koreanPageTitle --force
+
+  merge-to-main:
+    needs: process-markdown
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.GITBOOKKEY }}
+        fetch-depth: 0
+
+    - name: Merge koreanPageTitle into main
+      run: |
+        git fetch origin
+        git checkout main
+        git pull origin main
+        git merge origin/koreanPageTitle
+        git push origin main
