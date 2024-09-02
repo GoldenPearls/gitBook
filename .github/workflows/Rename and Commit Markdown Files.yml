@@ -58,9 +58,8 @@ jobs:
 
         # .gitbook/assets 디렉토리 복사
         if [ -d "developLog/.gitbook/assets" ]; then
-          mkdir -p "koreanPageTitle/.gitbook/assets"
-          cp -r developLog/.gitbook/assets/* koreanPageTitle/.gitbook/assets/
-          echo ".gitbook/assets directory copied to koreanPageTitle"
+          cp "developLog/.gitbook/assets" "temp_dir/.gitbook/assets"
+          echo "/.gitbook/assets copied to temp_dir"
         fi
 
         # Copy SUMMARY.md
