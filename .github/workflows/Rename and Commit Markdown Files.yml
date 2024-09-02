@@ -73,6 +73,5 @@ jobs:
         git config --global user.name 'github-actions[bot]'
         git config --global user.email 'github-actions[bot]@users.noreply.github.com'
         git commit -m "Rename and update Markdown files based on h1 titles in main"
-        git branch -M main
         git remote add origin https://{{ secrets.GITBOOKKEY }}@github.com/GoldenPearls/gitbook_public.git
         git push -u origin main --force
