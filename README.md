@@ -60,6 +60,7 @@
   * [HTTP 상태코드](developLog/cs/http/http-3.md)
   * [HTTP 헤더 1 - 일반 헤더](developLog/cs/http/http-1-1.md)
   * [HTTP 헤더 2 - 캐시와 조건부 요청](developLog/cs/http/http-2-1.md)
+  * [응답 206 partial content](developLog/cs/http/206-partial-content.md)
 * [SEVER](developLog/cs/sever/README.md)
   * [톰켓이란 무엇인가](developLog/cs/sever/undefined.md)
 * [그 외](developLog/cs/etc/README.md)
