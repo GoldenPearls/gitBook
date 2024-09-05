@@ -142,6 +142,7 @@
   * [2024년 4월, 5월 중간 회고록 및 5월, 6월 목표](developLog/memoir/2024/2024-4-5-5-6.md)
   * [2024년 6월 회고록](developLog/memoir/2024/2024-6.md)
   * [2024년 7월 회고록](developLog/memoir/2024/2024-7.md)
+  * [2024년 8월 회고록 - 새로운 인연들, 커피챗, 지침, 불안에 몸부림 중](developLog/memoir/2024/2024-8.md)
 
 ## 🌟 TIP, bookmark, 유용한 정보 모음
 
