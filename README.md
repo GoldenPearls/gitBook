@@ -45,6 +45,7 @@
 
 ## 🔭 CS
 
+* [모르는 용어 그때 그때 정리하기](developLog/cs/undefined.md)
 * [CS 관련 BOOKMARK](developLog/cs/cs-bookmark.md)
 * [Network](developLog/cs/network/README.md)
   * [네트워크 공부하기 프롤로그](developLog/cs/network/undefined.md)
