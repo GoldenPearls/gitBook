@@ -95,7 +95,7 @@ public static Boolean valueOf(boolean b) {
 
 #### **✔️ 호출될 때마다 인스턴스를 새로 생성하지는 않아도 된다.**
 
-덕분에 [불변 클래스](https://app.gitbook.com/o/uvU8dr3THCOelP3V0vXT/s/qKPDlntOwGZBfzPFGkYi/\~/changes/106/programming-lanuage/java/undefined/undefined)(immutable class； 아이템 17는 인스턴스를 미리 만들어 놓거나 새로 생성한 인스턴스를 캐싱하여 `재활용`하는 식으로 **불필요한 객체 생성을 피할 수 있다.**
+덕분에 [불변 클래스(immutable class](https://mellona-log.gitbook.io/log/programming-lanuage/java/undefined/undefined)； 아이템 17는 인스턴스를 미리 만들어 놓거나 새로 생성한 인스턴스를 캐싱하여 `재활용`하는 식으로 **불필요한 객체 생성을 피할 수 있다.**
 
 따라서（특히 생성 비용이 큰) 같은 객체가 자주 요청되는 상황 이라면 **성능을 끌어올려 준다.** [플라이웨이트 패턴(Flyweight pattern)](#user-content-fn-1)[^1]도 이와 비슷한 기법이라 할 수 있다.
 
