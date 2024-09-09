@@ -21,6 +21,8 @@
     * [Call by value vs Call by Reference과 기본형과 참조형](programming-lanuage/java/grammar/call-by-value-vs-call-by-reference.md)
   * [김영한님 자바 강의 모음](programming-lanuage/java/younghan-lecture/README.md)
     * [자바 입문 강의 정리](programming-lanuage/java/younghan-lecture/undefined.md)
+  * [이펙티브 자바](programming-lanuage/java/effective-java/README.md)
+    * [item 01 \~ item 05](programming-lanuage/java/effective-java/item-01-item-05.md)
 * [Python](programming-lanuage/python/README.md)
   * [파이썬 프롤로그](programming-lanuage/python/undefined.md)
   * [정보처리기사 실기를 위한 파이썬 정리(약간의 접수 후기를 곁드린)](programming-lanuage/python/undefined-1.md)
