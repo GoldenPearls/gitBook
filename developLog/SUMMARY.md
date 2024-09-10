@@ -26,6 +26,7 @@
     * [item 02. 생성자에 매개변수가 많다면 빌더를 고려하라](programming-lanuage/java/effective-java/item-02..md)
   * [그 외 용어 정리](programming-lanuage/java/undefined/README.md)
     * [불변 클래스](programming-lanuage/java/undefined/undefined.md)
+    * [정적 멤버 클래스](programming-lanuage/java/undefined/undefined-1.md)
 * [Python](programming-lanuage/python/README.md)
   * [파이썬 프롤로그](programming-lanuage/python/undefined.md)
   * [정보처리기사 실기를 위한 파이썬 정리(약간의 접수 후기를 곁드린)](programming-lanuage/python/undefined-1.md)

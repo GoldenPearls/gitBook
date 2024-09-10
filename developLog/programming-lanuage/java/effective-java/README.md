@@ -1,6 +1,6 @@
 ---
-description: 자바카페 스터디 후 이펙티브 자바 책 정리
 icon: coffee-bean
+description: 자바카페 스터디 후 이펙티브 자바 책 정리
 layout:
   title:
     visible: true
@@ -16,3 +16,4 @@ layout:
 
 # 이펙티브 자바
 
+<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
