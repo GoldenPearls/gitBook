@@ -31,6 +31,8 @@
 
 ### 유틸리티 클래스 설계
 
+> 읽어보면 좋은 블로그 글 : [utillity class는 무엇으로 구현하는 것이 좋을까?](https://seoarc.tistory.com/122)
+
 ```java
 public class UtilityClass {
     // 기본 생성자가 만들어지는 것을 막는다 (인스턴스화 방지용)

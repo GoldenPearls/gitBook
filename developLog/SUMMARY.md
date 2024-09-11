@@ -26,6 +26,7 @@
     * [item 02. 생성자에 매개변수가 많다면 빌더를 고려하라](programming-lanuage/java/effective-java/item-02..md)
     * [item 03 : private 생성자나 열거 타입으로 싱글턴임을 보증하라.](programming-lanuage/java/effective-java/item-03-private-..md)
     * [item 04 : 인스턴스화를 막으려거든 private 생성자를 사용하라](programming-lanuage/java/effective-java/item-04-private.md)
+    * [item 05 : 자원을 직접 명시하지 말고 의존 객체 주입을 사용하라](programming-lanuage/java/effective-java/item-05.md)
   * [그 외 용어 정리](programming-lanuage/java/undefined/README.md)
     * [불변 클래스](programming-lanuage/java/undefined/undefined.md)
     * [정적 멤버 클래스](programming-lanuage/java/undefined/undefined-1.md)
