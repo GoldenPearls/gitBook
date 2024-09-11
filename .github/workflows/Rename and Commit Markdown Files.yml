@@ -63,12 +63,6 @@ jobs:
           echo ".gitbook/assets directory copied to koreanPageTitle/developLog"
         fi
 
-        # Copy SUMMARY.md
-        if [ -f "developLog/SUMMARY.md" ]; then
-          cp "developLog/SUMMARY.md" "koreanPageTitle/developLog/SUMMARY.md"
-          echo "SUMMARY.md copied to koreanPageTitle"
-        fi
-
     - name: Commit changes in koreanPageTitle
       run: |
         cd koreanPageTitle
@@ -77,6 +71,4 @@ jobs:
         git config --global user.name 'github-actions[bot]'
         git config --global user.email 'github-actions[bot]@users.noreply.github.com'
         git commit -m "Rename and update Markdown files based on h1 titles in koreanPageTitle"
-        git push https://${{ secrets.GITBOOKKEY }}@github.com/GoldenPearls/gitBook_public.git master:koreanPageTitle --force
-
-
+        git push https://${{ secrets.GITBOOKKEY }}@github.com/GoldenPearls/gitBook.git master:koreanPageTitle --force
