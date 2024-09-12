@@ -170,7 +170,11 @@
 
 * [자격증](ex/credential/README.md)
   * [정보처리기사](ex/credential/engineer-information-processing/README.md)
-    * [필기](ex/credential/engineer-information-processing/undefined.md)
+    * [필기](ex/credential/engineer-information-processing/undefined/README.md)
+      * [1과목](ex/credential/engineer-information-processing/undefined/1/README.md)
+        * [1. 소프트웨어 생명 주기 SDLC(Software Development Life Cycle)](ex/credential/engineer-information-processing/undefined/1/1.-sdlc-software-development-life-cycle.md)
+        * [2. 스크럼(Scrum) 기법](ex/credential/engineer-information-processing/undefined/1/2.-scrum.md)
+        * [3. XP(eXtreme Programming : 익스트림) 기법과 린(Lean)](ex/credential/engineer-information-processing/undefined/1/3.-xp-extreme-programming-lean.md)
     * [실기](ex/credential/engineer-information-processing/undefined-1.md)
     * [대학생, 취준생, 신입개발자의 과정과 함께한 정보처리기사 4트 2024년 1회 실기 후기](ex/credential/engineer-information-processing/4-2024-1.md)
   * [SQLD](ex/credential/sqld.md)
