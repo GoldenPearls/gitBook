@@ -152,6 +152,7 @@ public class Main {
 1. **호환성 유지**: 기존 코드를 사용하는 다른 부분은 변경할 필요가 없으므로, 시스템의 안정성을 유지할 수 있습니다. 즉, 외부에서 `getInstance()` 호출 방식은 그대로 유지됩니다.
 2. **유연성**: 내부적으로 스레드별 인스턴스를 반환하는 방식으로 변경함으로써, 필요에 따라 여러 인스턴스를 제공할 수 있습니다. 이는 새로운 요구사항이 생길 때 유용합니다.
 3. **확장성**: 나중에 더 복잡한 로직이나 상태 관리가 필요할 때, API를 변경하지 않고도 기능을 추가하거나 수정할 수 있습니다.
+4.
 
 #### 예시
 
@@ -174,6 +175,7 @@ Elvis elvis2 = Elvis.getInstance();
 
 #### 1. 직렬화와 싱글턴
 
+* <mark style="color:red;">메모리 주소가 똑같은 한 개의 인스턴스만 있어야 하는데 직렬화 후 역직렬화를 하게 되면, 완전 다른 인스턴스가 생성되게 되버리는 거임</mark>
 * **Serializable 구현**: 싱글턴 클래스를 직렬화하려면 `Serializable` 인터페이스를 구현해야 한다. 그러나 이 인터페이스를 구현하는 것만으로는 충분하지 않다.
 * **transient 필드**: 모든 인스턴스 필드를 `transient`로 선언해야 하며, 이는 직렬화 시 해당 필드가 저장되지 않도록 한다.
 *   **readResolve 메서드**: 직렬화된 객체를 역직렬화할 때마다 새로운 인스턴스가 생성되는 것을 방지하기 위해 `readResolve` 메서드를 제공한다. 이 메서드는 역직렬화 과정에서 호출되어, 진짜 싱글턴 인스턴스를 반환하게 된다.
@@ -214,4 +216,198 @@ Elvis elvis2 = Elvis.getInstance();
 #### 결론
 
 결론적으로, `readResolve` 메서드를 사용하여 직렬화 시 진짜 인스턴스를 반환함으로써 싱글턴을 보장하고, 원소가 하나인 열거 타입을 사용하여 간결하고 안전하게 싱글턴을 구현하는 방법이 있다. 이 두 가지 방법은 각각의 상황에 맞게 사용할 수 있으며, **특히 열거 타입은 복잡한 직렬화와 리플렉션 공격에 대한 안전성을 제공하는 최선의 선택으로 여겨진다.**
+
+
+
+**++ 스터디에 추가**
+
+```java
+class Singleton {
+    // 싱글톤 클래스 객체를 담을 인스턴스 변수
+    private static Singleton instance;
+
+    // 생성자를 private로 선언 (외부에서 new 사용 X)
+    private Singleton() {}
+
+    // 외부에서 정적 메서드를 호출하면 그제서야 초기화 진행 (lazy)
+    public static Singleton getInstance() {
+        if (instance == null) {
+            instance = new Singleton(); // 오직 1개의 객체만 생성
+        }
+        return instance;
+    }
+}
+```
+
+제공하신 `Singleton` 클래스는 기본적인 싱글톤 패턴을 구현하고 있지만, 멀티스레드 환경에서 안전하지 않은 문제가 있다. 여러 스레드가 동시에 `getInstance()` 메서드를 호출할 경우, `instance`가 여러 번 초기화될 수 있는 위험이 있다.
+
+**저 코드에서 문제**
+
+1. <mark style="color:red;">스레드는 없다고 판단을 하게 됨...결국 싱글톤을 만들기 위해 만들어진 코드인데. .싱글톤이 깨지게 된다는 것</mark>
+2. getInstance에서 인스턴스가 없는데 인스턴스가 생성되는 걸 수도 있다.
+
+
+
+> 해결방법
+
+#### 1. 동기화(Synchronized) 사용
+
+가장 간단한 방법은 `getInstance()` 메서드에 `synchronized` 키워드를 추가하여 동기화하는 것입니다. 이렇게 하면 한 번에 하나의 스레드만 메서드에 접근할 수 있습니다.
+
+```java
+public static synchronized Singleton getInstance() {
+    if (instance == null) {
+        instance = new Singleton();
+    }
+    return instance;
+}
+```
+
+```java
+class Singleton {
+    // 싱글톤 클래스 객체를 담을 인스턴스 변수
+    private static Singleton instance;
+
+    // 생성자를 private로 선언 (외부에서 new 사용 X)
+    private Singleton() {}
+
+    // 외부에서 정적 메서드를 호출하면 그제서야 초기화 진행 (lazy)
+    public static synchronized Singleton getInstance() {
+        if (instance == null) {
+            instance = new Singleton(); // 오직 1개의 객체만 생성
+        }
+        return instance;
+    }
+}
+```
+
+매번 동기화하면... 성능 문제가 생길 수 있음 모든 스레드가 동기화를 하게 됨..
+
+#### 2. 이중 검사 잠금(Double-Checked Locking)
+
+성능을 개선하기 위해 이중 검사 잠금을 사용할 수 있습니다. 이 방법은 `synchronized` 블록을 최소화하여 성능을 향상시킵니다
+
+**여기서 질문?**
+
+* if가 두 번 걸린 이유? `동기화`를 선택적으로 하기 위해? 처음 instance는 여러 스레드가 대기상태에 걸릴 수 있는데... 그 다음 부터 들어오는 스레드들은 대기 상태가 아니고 빠르게 넘어갈 수 있어서..?
+
+```java
+public static Singleton getInstance() {
+    if (instance == null) {
+        synchronized (Singleton.class) { //최신 값으로 동기화가 가능 
+            if (instance == null) {
+                instance = new Singleton();
+            }
+        }
+    }
+    return instance;
+}
+```
+
+```java
+class Singleton {
+    private static volatile Singleton instance; // volatile 키워드 적용
+
+    private Singleton() {}
+
+    public static Singleton getInstance() {
+        if (instance == null) {
+            // 메서드에 동기화 거는게 아닌, Singleton 클래스 자체를 동기화 걸어버림
+            synchronized (Singleton.class) { 
+                if(instance == null) { 
+                    instance = new Singleton(); // 최초 초기화만 동기화 작업이 일어나서 리소스 낭비를 최소화
+                }
+            }
+        }
+        return instance; // 최초 초기화가 되면 앞으로 생성된 인스턴스만 반환
+    }
+}
+```
+
+#### 3. 정적 초기화(Static Initialization)
+
+정적 초기화 블록을 사용하여 클래스가 로드될 때 인스턴스를 생성하는 방법도 있습니다. 이 방법은 스레드 안전하며, 간단하게 구현할 수 있습니다.
+
+```java
+public class Singleton {
+    private static final Singleton instance = new Singleton();
+
+    private Singleton() {}
+
+    public static Singleton getInstance() {
+        return instance;
+    }
+}
+```
+
+```java
+class Singleton {
+
+    private Singleton() {}
+
+    // static 내부 클래스를 이용
+    // Holder로 만들어, 클래스가 메모리에 로드되지 않고 getInstance 메서드가 호출되어야 로드됨
+    private static class SingleInstanceHolder {
+        private static final Singleton INSTANCE = new Singleton();
+    }
+
+    public static Singleton getInstance() {
+        return SingleInstanceHolder.INSTANCE;
+    }
+}
+```
+
+* 성능 이슈가 없어서 많이 사용함
+* 동기화도 없기 때문에 대신 직렬화나 리플렉션 공격이 들어올 수 있다.
+
+#### 4. Enum을 사용한 싱글톤
+
+Java에서는 `enum`을 사용하여 싱글톤을 구현하는 방법도 있습니다. 이 방법은 직렬화와 리플렉션 공격에 대해 안전합니다.
+
+```java
+public enum Singleton {
+    INSTANCE;
+
+    // 필요한 메서드 추가
+    public void someMethod() {
+        // ...
+    }
+}
+```
+
+리플렉션까지 방어한 것
+
+```java
+import java.io.ObjectStreamException;
+import java.io.Serializable;
+
+public class Singleton implements Serializable {
+
+    // 직렬화 방지를 위해 serialVersionUID를 명시적으로 선언
+    private static final long serialVersionUID = 1L;
+
+    // 생성자에서 이미 객체가 생성된 경우 예외를 던져 Reflection을 통한 추가 인스턴스 생성을 방지
+    private Singleton() {
+        if (SingleInstanceHolder.INSTANCE != null) {
+            throw new IllegalStateException("Singleton instance already created.");
+        }
+    }
+
+    // static 내부 클래스를 이용한 Singleton 구현
+    private static class SingleInstanceHolder {
+        private static final Singleton INSTANCE = new Singleton();
+    }
+
+    public static Singleton getInstance() {
+        return SingleInstanceHolder.INSTANCE;
+    }
+
+    // 역직렬화 시 Singleton 보장 (기존 인스턴스를 반환)
+    private Object readResolve() throws ObjectStreamException {
+        return SingleInstanceHolder.INSTANCE;
+    }
+}
+```
+
+####
 
