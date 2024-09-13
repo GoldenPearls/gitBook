@@ -27,6 +27,8 @@
     * [item 03 : private 생성자나 열거 타입으로 싱글턴임을 보증하라.](developLog/programming-lanuage/java/effective-java/item-03-private-..md)
     * [item 04 : 인스턴스화를 막으려거든 private 생성자를 사용하라](developLog/programming-lanuage/java/effective-java/item-04-private.md)
     * [item 05 : 자원을 직접 명시하지 말고 의존 객체 주입을 사용하라](developLog/programming-lanuage/java/effective-java/item-05.md)
+  * [모던 자바 인 액션](developLog/programming-lanuage/java/modern-java-in-action/README.md)
+    * [chaper 1. 자바 8, 9, 10, 11 : 무슨 일이 일어나고 있는가?](developLog/programming-lanuage/java/modern-java-in-action/chaper-1.-8-9-10-11.md)
   * [그 외 용어 정리](developLog/programming-lanuage/java/undefined/README.md)
     * [불변 클래스](developLog/programming-lanuage/java/undefined/undefined.md)
     * [정적 멤버 클래스](developLog/programming-lanuage/java/undefined/undefined-1.md)
