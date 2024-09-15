@@ -114,6 +114,7 @@
     * [Jekyll Chirpy 테마를 연동 및 Github 블로그 만들기 1탄 - 로컬 테스트 및 확인](developLog/ci-cd/github/github.io/jekyll-chirpy-github-1.md)
     * [Jekyll Chirpy 테마를 연동 및 Github 블로그 만들기 2탄 - fork한 것 mirror 해오기](developLog/ci-cd/github/github.io/jekyll-chirpy-github-2-fork-mirror.md)
     * [Jekyll Chirpy 테마를 연동 및 Github 블로그 만들기 3탄 - github에 도메인 적용](developLog/ci-cd/github/github.io/jekyll-chirpy-github-3-github.md)
+    * [Jekyll Chirpy 테마를 연동 및 Github 블로그 만들기 4탄 - 세부사항](developLog/ci-cd/github/github.io/jekyll-chirpy-github-4.md)
   * [팀프로젝트때 알아낸 github 지식](developLog/ci-cd/github/github-1.md)
   * [Git에서 알게 된 지식](developLog/ci-cd/github/git.md)
 * [Github Action](developLog/ci-cd/github-action/README.md)
