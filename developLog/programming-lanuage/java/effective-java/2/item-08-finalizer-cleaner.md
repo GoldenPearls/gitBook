@@ -1,4 +1,4 @@
-# item 08. finalizer와 cleaner 사용을 피하라
+# item 08 : finalizer와 cleaner 사용을 피하라
 
 ## 객체 소멸자
 
@@ -31,7 +31,7 @@
 
 > finalizer와 cleaner로는 제때 실행되어야 하는 작업을 절대 할 수 없으며.. 시스템의 중대한 오류를 일으킬 수 있기에 그냥 안쓰는 게 맞음
 
-### AutoCloseable
+### [AutoCloseable](https://mellona-log.gitbook.io/log/programming-lanuage/java/undefined/autocloseable)
 
 > 위 두개의 대안으로 나온 것
 
