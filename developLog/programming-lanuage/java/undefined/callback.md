@@ -44,6 +44,3 @@ fetchData(processData);
 
 콜백은 특정 작업이 완료된 후 호출되는 함수로, 비동기 작업 및 이벤트 기반 프로그래밍에서 흔히 사용됩니다. 이를 통해 코드의 유연성과 재사용성을 높이고, 비동기 처리를 효과적으로 관리할 수 있습니다.
 
-이런 자료를 참고했어요. \[1] Wikipedia - 콜백 - 위키백과, 우리 모두의 백과사전 (https://ko.wikipedia.org/wiki/%EC%BD%9C%EB%B0%B1) \[2] MDN Web Docs - 콜백 함수 - MDN Web Docs 용어 사전: 웹 용어 정의 (https://developer.mozilla.org/ko/docs/Glossary/Callback\_function) \[3] Medium - 콜백이란 무엇인가. 비동기처리… | by Sooka (https://medium.com/@flqjsl/%EC%BD%9C%EB%B0%B1%EC%9D%B4%EB%9E%80-%EB%AC%B4%EC%97%87%EC%9D%B8%EA%B0%80-56c26e1f1bc3) \[4] MathWorks - 콜백으로 모델 동작 사용자 지정하기 - MATLAB & Simulink (https://kr.mathworks.com/help/simulink/ug/using-callback-functions.html)
-
-뤼튼 사용하러 가기 > https://agent.wrtn.ai/5xb91l
