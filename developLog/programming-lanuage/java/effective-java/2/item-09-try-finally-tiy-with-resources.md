@@ -129,6 +129,11 @@ static String firstLineOfFile(String path, String defaultVal) {
   * **예외 처리 개선**: 여러 예외가 발생해도 처음 예외를 보존하고, 나머지 예외는 suppressed로 처리되어 디버깅이 용이하다.
   * **자동 자원 관리**: 자원을 자동으로 닫아주어 자원 누수를 방지한다.
 
+**++ 스터디를 통해 알아간 것**
+
+* <mark style="color:red;">외부 리소스를 사용시 자바에서 꼭 close를 해줘야 하는데 다른 이름 (ex. disable)인 경우도 있기에 꼭 확인해보자 무조건 AutoCloseable이 구현되어 있다고 생각하고 하게 되면 문제 생길 수 있으니 java doc를 꼭 확인 해보자</mark>
+* <mark style="color:red;">앵간하면 리소스를 잘 닫아주자...메모리를 다 먹는 경우가 있다.</mark>
+
 **참고 자료:**
 
 * **Oracle 공식 문서**: [The try-with-resources Statement](https://docs.oracle.com/javase/tutorial/essential/exceptions/tryResourceClose.html)

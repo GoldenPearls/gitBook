@@ -245,6 +245,10 @@ public Object pop() {
 
 1. 직접 관리하는 메모리 구조에서, 예를 들어 배열과 같은 자료 구조를 사용 시 필요
 2. 오랜 시간동안 유지되면서 많은 객체 참조하는 경우, 참조 해제를 통해 메모리 사용을 줄일 수 있음
+3. 해법은 여러가지 / WeakHashMap(엔트리가 살아 있는 캐시가 필요한 상황인경우에만)
+   * [https://blog.breakingthat.com/2018/08/26/java-collection-map-weakhashmap/](https://blog.breakingthat.com/2018/08/26/java-collection-map-weakhashmap/)
+   * 보통 시간이 지날수록 엔트리의 가치를 떨어뜨리는 방식을 사용하는데, 이 경우에는 쓰지 않는 엔트리를 이따금 청소해줘야함
+     * (예:백그라운드 스레드 활용 ScheduledThreadPoolExecutor / 새 엔트리를 추가할 때 부수 작업으로 수행하도록:LinkedHashMap의 removeEldesEntry메서드)
 
 이 두 가지에 해당하지 않는 경우, 가비지 컬렉션이 대부분의 메모리 관리를 알아서 잘해주기 때문에 굳이 null 참조 설정하지 않아도 된다고 하며, 자바 21버전에서는 ZGC를 통해 메모리 자원을 효율적으로 관리하고 있다고 함
 

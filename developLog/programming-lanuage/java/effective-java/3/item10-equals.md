@@ -198,7 +198,9 @@ if (!(obj instanceof MyInterface)) {
    * 필드의 타입에 따라 적절한 비교 방법을 사용
 5. 모든 필드가 일치하면 `true`를 반환하고, 하나라도 다르면 `false`를 반환합니다.
 
+equals는  jvm내에 있는 객체만 가지고 판단해야 하는데 네트워크를 타게 되면.. 매번 달라지게 된다? ip에 따라 달라지게 된다고 한다..
 
+{% embed url="https://stackoverflow.com/questions/3771081/proper-way-to-check-for-url-equality" %}
 
 ## 5. equals 구현 시 주의사항
 
@@ -272,7 +274,93 @@ public final class PhoneNumber {
 
 ```
 
+## 스터디에서 알아가는 것것
 
+**false인 이유**
+
+```java
+public class Test {
+    private String name;
+
+    public Test(String name) {
+        this.name = name;
+    }
+
+    @Override
+        public boolean equals(Object obj) {
+            if (obj instanceof Test) {
+                return this.name.equals(((Test) obj).name);
+            }
+            return false;
+        }
+
+    public static void main(String[] args) throws Exception {
+        Set<Test> set = new HashSet<>();
+        Test test = new Test("java");
+        set.add(test);
+        Test test2 = new Test("java");
+        System.out.println(set.contains(test2)); //false
+    }
+}
+
+```
+
+위 코드에서 `Set<Test>`에 동일한 `name` 값을 가진 객체(`test`와 `test2`)를 추가하고, 그 후 `set.contains(test2)`가 `false`로 출력되는 이유는 `HashSet`이 내부적으로 **`equals`와 `hashCode`** 메서드를 모두 사용해 객체의 동일성을 비교하기 때문이다.
+
+#### 이유
+
+`HashSet`은 내부적으로 해시 기반 자료구조이다. **`HashSet`이 객체를 저장하거나 조회할 때는 `equals`뿐만 아니라 `hashCode`** 메서드도 사용한다.
+
+* **`equals`**: 두 객체가 동일한지 비교하는 메서이다. 현재 `equals` 메서드를 오버라이드하여 <mark style="color:red;">`name`</mark> <mark style="color:red;"></mark><mark style="color:red;">값만을 기준으로 비교하도록 구현되어 있다.</mark> 따라서 `test`와 `test2`는 `equals` 메서드 상으로는 동일한 객체로 판단
+* **`hashCode`**: 객체를 해시 테이블에서 빠르게 찾기 위해 사용되는 정수 값이다. `HashSet`이나 `HashMap`과 같은 해시 기반 자료구조는 객체를 비교할 때 먼저 `hashCode`를 비교하고, `hashCode`가 동일한 경우에만 `equals` 메서드를 호출하여 최종적으로 동일성을 판단한다.
+
+문제는 현재 `Test` 클래스에서 **`hashCode` 메서드가 오버라이드되어 있지 않기 때문이**다. 기본적으로 `Object` 클래스의 `hashCode`는 객체의 메모리 주소를 기반으로 해시 값을 생성하므로, `test`와 `test2`는 서로 다른 해시 코드를 가진다.
+
+따라서, `HashSet`은 `test`와 `test2`를 서로 다른 객체로 인식하게 되며, `set.contains(test2)`는 `false`를 반환하게 된다.
+
+#### 해결 방법
+
+**`hashCode` 메서드를 `equals`와 일관되게 오버라이드**해야 한다. `name` 필드를 기준으로 `hashCode`를 생성하면 `test`와 `test2`가 같은 해시 코드를 가지게 되어 `HashSet`이 동일 객체로 인식하게 된다.
+
+수정된 코드는 다음과 같다:
+
+```java
+public class Test {
+    private String name;
+
+    public Test(String name) {
+        this.name = name;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof Test) {
+            return this.name.equals(((Test) obj).name);
+        }
+        return false;
+    }
+
+    @Override
+    public int hashCode() {
+        return name.hashCode(); // name 필드를 기준으로 hashCode 생성
+    }
+
+    public static void main(String[] args) throws Exception {
+        Set<Test> set = new HashSet<>();
+        Test test = new Test("java");
+        set.add(test);
+        Test test2 = new Test("java");
+        System.out.println(set.contains(test2)); // true
+    }
+}
+```
+
+#### 설명:
+
+* **`hashCode` 오버라이드**: `hashCode` 메서드를 `name` 필드를 기준으로 오버라이드하여, `name`이 동일한 객체는 같은 해시 코드를 가지도록 했습니다.
+* 이제 `test`와 `test2`는 같은 해시 코드를 가지며, `HashSet`이 이 두 객체를 동일한 객체로 인식하게 됩니다.
+
+이제 `set.contains(test2)`는 `true`를 반환하게 됩니다.
 
 > **✨  정리**&#x20;
 >
