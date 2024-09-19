@@ -97,6 +97,16 @@ static void copy(String src, String dst) throws IOException {
 
 또한, `try-with-resources`에서도 `catch` 절을 사용할 수 있어 예외 처리를 유연하게 할 수 있다.
 
+* **`try` 블록**: 전체 자원 관리와 예외 처리를 담당하는 블록
+* **`with` 부분**: `try` 뒤의 괄호 안에서 자원을 선언하고 초기화하는 부분
+* **`resources`**: `with` 부분에서 선언된 자원 객체들로, `AutoCloseable`을 구현해야 한다
+* **with 블록 (자원 선언 부분)**:
+  * `InputStream in = new FileInputStream("input.txt");`
+  * `OutputStream out = new FileOutputStream("output.txt");`
+  * 여러 자원을 세미콜론 `;`으로 구분하여 선언할 수 있다.
+  * **resource (자원들)**:
+    * `in`과 `out`이 각각의 자원이다.
+
 #### 코드 9-5: `try-with-resources`에 `catch` 절을 함께 사용
 
 ```java
