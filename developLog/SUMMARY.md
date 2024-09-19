@@ -61,6 +61,7 @@
   * [스프링부트 동작원리](spring/basic/undefined-1.md)
   * [JPA란 무엇인가요](spring/basic/jpa.md)
   * [messageConverter가 무엇인가요](spring/basic/messageconverter.md)
+  * [어노테이션 정리 하기](spring/basic/undefined-2.md)
 * [spring 관련 책](spring/book/README.md)
   * [사람을 사랑한 기술](spring/book/undefined.md)
 * [spring 관련 강의](spring/lecture/README.md)
