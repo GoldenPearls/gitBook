@@ -121,6 +121,11 @@
   * [버블 정렬, 삽입 정렬, 선택 정렬](algorithm-datastructure/algorithm/undefined-3.md)
   * [동적 계획법과 분할정복](algorithm-datastructure/algorithm/undefined-4.md)
 
+## 🐋 backend
+
+* [database](backend/database/README.md)
+  * [팀 프로젝트 시 데이터베이스는 어떻게..? mysql과 h2, jpa와 mybatis](backend/database/..-mysql-h2-jpa-mybatis.md)
+
 ## ⛏️ CI-CD
 
 * [github](ci-cd/github/README.md)
