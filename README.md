@@ -34,6 +34,7 @@
       * [item 09 : try-finally보다는 tiy-with-resources를 사용하라](developLog/programming-lanuage/java/effective-java/2/item-09-try-finally-tiy-with-resources.md)
     * [3장 : 모든 객체의 공통 메서드](developLog/programming-lanuage/java/effective-java/3/README.md)
       * [item10 : equals는 일반 규약을 지켜 재정의하라](developLog/programming-lanuage/java/effective-java/3/item10-equals.md)
+      * [item 11 : equals를 재정의하려거든 hashCode도 재정의하라](developLog/programming-lanuage/java/effective-java/3/item-11-equals-hashcode.md)
     * [스터디에서 알아가는 것](developLog/programming-lanuage/java/effective-java/undefined.md)
   * [모던 자바 인 액션](developLog/programming-lanuage/java/modern-java-in-action/README.md)
     * [chaper 1. 자바 8, 9, 10, 11 : 무슨 일이 일어나고 있는가?](developLog/programming-lanuage/java/modern-java-in-action/chaper-1.-8-9-10-11.md)
