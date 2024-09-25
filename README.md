@@ -50,6 +50,7 @@
     * [Object 클래스에 대한 정리](developLog/programming-lanuage/java/undefined/object.md)
     * [인스턴스 통제 클래스](developLog/programming-lanuage/java/undefined/undefined-2.md)
     * [Transactional](developLog/programming-lanuage/java/undefined/transactional.md)
+    * [AssertionError](developLog/programming-lanuage/java/undefined/assertionerror.md)
 * [Python](developLog/programming-lanuage/python/README.md)
   * [파이썬 프롤로그](developLog/programming-lanuage/python/undefined.md)
   * [정보처리기사 실기를 위한 파이썬 정리(약간의 접수 후기를 곁드린)](developLog/programming-lanuage/python/undefined-1.md)
