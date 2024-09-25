@@ -62,7 +62,7 @@ public class Pokemon implements Cloneable {
 
 이 기대를 만족시키려면 그 클래스와 모든 상위 클래스는 복잡 하고, 강제할 수 없고, 허술하게 기술된 프로토콜을 지켜야만 하는데, 그 결과 로 <mark style="color:red;">깨지기 쉽고, 위험하고, 모순적인 메커니즘이 탄생</mark>한다. 생성자를 호출하지 않고도 객체를 생성할 수 있게 되는 것이다.
 
-### 3. Clone() 메서드의 구현 방법
+### 3. Clone() 메서드
 
 ### 1) clone() 메서드의 일반 규약
 
@@ -107,7 +107,9 @@ public Object clone() throws CloneNotSupportedException {
 
 
 
-### 3) clone() 메서드의 구현 순서
+## 3. Clone() 메서드의 구현
+
+### 1) 가변 상태를 참조하지 않는 클래스용 clone() 메서드
 
 1. `super.clone()`을 호출한다.
 
@@ -138,7 +140,15 @@ public PhoneNumber clone() {
 * 대신 `try-catch` 블록으로 감싸고, 예외가 발생할 수 없음을 보장하기 위해 [`AssertionError`](#user-content-fn-1)[^1]를 던진다.
 * 과도한 검사 예외는 API를 사용하기 불편하게 만든다.
 
-### 4) 가변 객체를 참조하는 클래스의 `clone()` 메서드 구현
+### 2) 가변 객체를 참조하는 클래스의 `clone()` 메서드 구현
+
+{% hint style="info" %}
+가변객체란, instance 생성 이후에도 내부 상태 변경이 가능한 객체를 말한다.
+{% endhint %}
+
+* 이 클래스를 그대로 복제하면, primitive 타입의 값은 올바르게 복제되지만, 복제된 Stack의 elements는 복제 전의 Stack과 같은 배열을 가리키게 될 것이다.
+* <mark style="color:red;">두 스택에 같은 elements가 들어있고, 하나를 바꾸면 다른 하나도 연동된다는 뜻이다.</mark> 이건 우리가 원한 clone()이 아니다.
+* Stack 클래스의 유일한 생성자를 이용하면 이런 문제는 없을 것이다. 그러나 값이 복사되지 않는 문제가 있다.
 
 **얕은 복사의 문제점**
 
@@ -152,44 +162,148 @@ public PhoneNumber clone() {
 
 ***
 
-#### 4. 깊은 복사를 위한 방법
+### 3) 깊은 복사를 위한 방법
 
-**4.1 배열의 `clone()` 메서드 사용**
+**배열의 `clone()` 메서드 사용**
 
 배열은 `clone()` 메서드를 호출하면 깊은 복사가 이루어집니다. 즉, 배열 자체가 복사되고 배열의 각 요소들도 복사됩니다. 따라서 배열을 복제할 때는 배열의 `clone()` 메서드를 사용하는 것이 좋습니다.
 
 * **예시:**
 
 ```java
-java코드 복사public class Stack implements Cloneable {
-    private Object[] elements;
-    private int size;
+@Override
+public Stack clone() {
+    try {
+        // 먼저 super.clone()을 호출하여 이 객체의 얕은 복사(shallow copy)를 수행합니다.
+        Stack result = (Stack) super.clone();
 
+        // elements 배열을 복제하여 원본과 복제본이 서로 다른 배열을 참조하도록 합니다.
+        result.elements = elements.clone();
+
+        // 복제된 Stack 객체를 반환합니다.
+        return result;
+
+    } catch (CloneNotSupportedException e) {
+        // 이 예외는 발생하지 않으므로 AssertionError를 던집니다.
+        // Cloneable을 구현했기 때문에 super.clone()은 성공해야 합니다.
+        throw new AssertionError();
+    }
+}
+
+```
+
+🧐 **왜 `elements` 배열을 복제하나요?**
+
+* `elements` 배열은 `Stack`의 내부 상태를 저장하는 중요한 가변 객체이다.
+* 원본과 복제본이 같은 배열을 공유하면 한쪽에서 변경이 발생할 때 다른 쪽에도 영향을 미친다.
+* 이를 방지하기 위해 `elements` <mark style="color:red;">배열을 복제하여 복제본이 독립적인 배열을 가지도록 한다.</mark>
+
+**사용예제**
+
+```java
+public class Stack implements Cloneable {
+    private Object[] elements;
+    private int size = 0;
+
+    private static final int DEFAULT_INITIAL_CAPACITY = 16;
+
+    // 생성자
+    public Stack() {
+        elements = new Object[DEFAULT_INITIAL_CAPACITY];
+    }
+
+    // push 메서드
+    public void push(Object e) {
+        ensureCapacity();
+        elements[size++] = e;
+    }
+
+    // pop 메서드
+    public Object pop() {
+        if (size == 0)
+            throw new EmptyStackException();
+        Object result = elements[--size];
+        elements[size] = null; // 다 쓴 참조 해제
+        return result;
+    }
+
+    // 내부 배열의 크기 조정
+    private void ensureCapacity() {
+        if (elements.length == size)
+            elements = Arrays.copyOf(elements, 2 * size + 1);
+    }
+
+    // clone 메서드
     @Override
     public Stack clone() {
         try {
             Stack result = (Stack) super.clone();
-            result.elements = elements.clone(); // 배열 복사
+            result.elements = elements.clone(); // 배열 복제
             return result;
         } catch (CloneNotSupportedException e) {
-            throw new AssertionError(); // 발생하지 않음
+            throw new AssertionError();
         }
     }
 }
 ```
 
-**4.2 연결 리스트의 복제 방법**
+#### 사용 예시
+
+```java
+public class Main {
+    public static void main(String[] args) {
+        Stack originalStack = new Stack();
+        originalStack.push("A");
+        originalStack.push("B");
+
+        // 스택 복제
+        Stack clonedStack = originalStack.clone();
+
+        // 원본 스택과 복제본 스택이 별개의 객체인지 확인
+        System.out.println(originalStack != clonedStack); // true
+
+        // elements 배열이 별개의 객체인지 확인
+        System.out.println(originalStack.elements != clonedStack.elements); // true
+
+        // 원본과 복제본의 내용이 같은지 확인
+        System.out.println(Arrays.equals(originalStack.elements, clonedStack.elements)); // true
+
+        // 원본 스택에 추가
+        originalStack.push("C");
+
+        // 복제본에는 영향이 없는지 확인
+        System.out.println(clonedStack.size); // 2
+    }
+}
+```
+
+* **설명:**
+  * `originalStack`을 생성하고 "A", "B"를 추가
+  * `originalStack`을 복제하여 `clonedStack`을 생성
+  * 원본과 복제본이 서로 다른 객체이고, 내부의 `elements` 배열도 다른 객체임을 확인
+  * 원본 스택에 "C"를 추가해도 복제본에는 영향이 없다.
+
+{% hint style="info" %}
+😀 위의 내용을 요약하자면
+{% endhint %}
+
+* `clone()` 메서드를 재정의할 때는 `super.clone()`을 호출하여 객체의 얕은 복사를 수행한다.
+* <mark style="color:red;">가변 객체를 참조하는 필드</mark>는 반드시 복제하여 원본과 복제본이 독립적인 객체 상태를 유지하도록 힌다.
+* `CloneNotSupportedException`은 발생하지 않지만 예외 처리를 위해 `try-catch` 블록을 사용하고, 예외가 발생하면 `AssertionError`를 던진다.
+* `Cloneable` 인터페이스를 구현해야 `super.clone()`을 호출할 수 있다.
+
+**연결 리스트의 복제 방법**
 
 연결 리스트를 복제할 때는 각 노드를 개별적으로 복사해야 합니다.
 
-**4.2.1 재귀적 복제의 문제점**
+**재귀적 복제의 문제점**
 
-재귀적으로 연결 리스트를 복제하면 리스트의 길이만큼 스택 프레임을 사용하므로, 리스트가 길면 스택 오버플로우가 발생할 수 있습니다.
+재귀적으로 연결 리스트를 복제하면 리스트의 길이만큼 스택 프레임을 사용하므로, 리스트가 길면 스택 오버플로우가 발생할 수 있다.
 
 * **재귀적 복제 코드 예시:**
 
 ```java
-java코드 복사public class Entry {
+public class Entry {
     Object key;
     Object value;
     Entry next;
@@ -200,14 +314,14 @@ java코드 복사public class Entry {
 }
 ```
 
-**4.2.2 반복문을 사용한 복제**
+**반복문을 사용한 복제**
 
-반복문을 사용하면 스택 오버플로우의 위험 없이 연결 리스트를 복제할 수 있습니다.
+반복문을 사용하면 스택 오버플로우의 위험 없이 연결 리스트를 복제할 수 있다.
 
 * **반복문을 사용한 복제 코드 예시:**
 
 ```java
-java코드 복사public class Entry {
+public class Entry {
     Object key;
     Object value;
     Entry next;
@@ -226,10 +340,10 @@ java코드 복사public class Entry {
 }
 ```
 
-**4.3 코드 예시: `HashTable` 클래스의 `clone()` 메서드**
+**코드 예시: `HashTable` 클래스의 `clone()` 메서드**
 
 ```java
-java코드 복사public class HashTable implements Cloneable {
+public class HashTable implements Cloneable {
     private Entry[] buckets;
 
     @Override
@@ -253,20 +367,20 @@ java코드 복사public class HashTable implements Cloneable {
 
 ***
 
-#### 5. `clone()` 메서드에서 재정의 가능한 메서드 호출 금지
+### 4) `clone()` 메서드에서 재정의 가능한 메서드 호출 금지
 
-**5.1 재정의된 메서드 호출의 문제점**
+**재정의된 메서드 호출의 문제점**
 
-`clone()` 메서드에서 하위 클래스에서 재정의된 메서드를 호출하면, 하위 클래스는 복제 과정에서 자신의 상태를 적절히 초기화할 수 없게 됩니다. 이는 원본과 복제본의 상태가 달라질 수 있다는 것을 의미합니다.
+`clone()` 메서드에서 하위 클래스에서 재정의된 메서드를 호출하면, 하위 클래스는 복제 과정에서 자신의 상태를 적절히 초기화할 수 없게 된다. <mark style="color:red;">이는 원본과 복제본의 상태가 달라질 수 있다는 것을 의미</mark>
 
-**5.2 해결책**
+**5해결책**
 
-`clone()` 메서드 내에서 호출하는 메서드는 `final` 또는 `private`으로 선언하여 재정의되지 않도록 해야 합니다.
+`clone()` 메서드 내에서 호출하는 메서드는 `final` 또는 `private`으로 선언하여 재정의되지 않도록 해야 한다.
 
 * **예시:**
 
 ```java
-java코드 복사@Override
+@Override
 protected Object clone() throws CloneNotSupportedException {
     MyClass result = (MyClass) super.clone();
     result.init(); // init() 메서드는 final 또는 private이어야 함
@@ -286,7 +400,16 @@ protected Object clone() throws CloneNotSupportedException {
 * **예외 처리의 복잡성**: `CloneNotSupportedException` 등 불필요한 예외 처리가 필요합니다.
 * **재정의된 메서드 호출 문제**: `clone()` 메서드에서 재정의된 메서드를 호출하면 문제가 발생합니다.
 
-**6.2 복사 생성자와 복사 팩터리 메서드 소개**
+
+
+## 4. Clone() 메서드 주의사항
+
+* `Object.clone()`은 동기화를 신경쓰지 않은 메서드이다.
+  * 동시성 문제가 발생할 수 있다.
+* 만일 `clone()`을 막고 싶다면 `clone()` 메서드를 재정의하여, `CloneNotSupportedException()`을 던지도록 하자.
+* 기본 타입이나 불변 객체 참조만 가지면 아무것도 수정할 필요 없으나 `일련번호` 혹은 `고유 ID`와 같은 값을 가지고 있다면, 비록 불변일지라도 새롭게 수정해줘야 함
+
+## 5. 복사 생성자 및 복사 팩터리 메서드
 
 `Cloneable` 인터페이스와 `clone()` 메서드 대신 **복사 생성자**와 **복사 팩터리 메서드**를 사용하는 것이 좋습니다.
 
@@ -311,7 +434,7 @@ java코드 복사public class Yum {
 **6.3.2 복사 팩터리 메서드**
 
 ```java
-java코드 복사public class Yum {
+public class Yum {
     private int value;
 
     private Yum(int value) {
