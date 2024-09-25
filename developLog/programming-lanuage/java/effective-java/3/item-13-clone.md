@@ -148,12 +148,13 @@ public PhoneNumber clone() {
 
 * 이 클래스를 그대로 복제하면, primitive 타입의 값은 올바르게 복제되지만, 복제된 Stack의 elements는 복제 전의 Stack과 같은 배열을 가리키게 될 것이다.
 * <mark style="color:red;">두 스택에 같은 elements가 들어있고, 하나를 바꾸면 다른 하나도 연동된다는 뜻이다.</mark> 이건 우리가 원한 clone()이 아니다.
-* Stack 클래스의 유일한 생성자를 이용하면 이런 문제는 없을 것이다. 그러나 값이 복사되지 않는 문제가 있다.
+* 예를 들어, `Stack` 클래스의 `elements` 배열이 이에 해당한다.
+* `Stack` 클래스의 유일한 생성자를 이용하면 이런 문제는 없을 것이다. 그러나 값이 복사되지 않는 문제가 있다.
 
 **얕은 복사의 문제점**
 
-단순히 `super.clone()`을 호출하면 얕은 복사가 이루어져, 객체의 필드 값만 복사되고 그 필드들이 참조하는 객체들은 복사되지 않는다. 따라서 가변 객체를 참조하는 필드가 있을 경우, 원본 객체와 복제된 객체가 동일한 가변 객체를 공유하게 된다.
-
+* 단순히 `super.clone()`을 호출하면 얕은 복사가 이루어져, 객체의 필드 값만 복사되고 그 필드들이 참조하는 객체들은 복사되지 않는다.
+* 따라서 가변 객체를 참조하는 필드가 있을 경우, 원본 객체와 복제된 객체가 동일한 가변 객체를 공유하게 된다.
 * **문제점**: 원본이나 복제본 중 하나에서 가변 객체를 변경하면 다른 하나에도 영향을 미쳐 불변식이 깨질 수 있다.
 
 **깊은 복사의 필요성**
@@ -283,6 +284,22 @@ public class Main {
   * 원본과 복제본이 서로 다른 객체이고, 내부의 `elements` 배열도 다른 객체임을 확인
   * 원본 스택에 "C"를 추가해도 복제본에는 영향이 없다.
 
+**테스트 결과:**
+
+```csharp
+stack1 = [value1, value2, null, null, null, null, null, null, null, null, null, null, null, null, null, null]
+stack2 = [value1, value2, value3, null, null, null, null, null, null, null, null, null, null, null, null, null]
+```
+
+* `stack1`과 `stack2`는 서로 다른 `elements` 배열을 가지고 있으며, 독립적으로 동작한다.
+
+**요약**
+
+* `clone()` 메서드를 재정의할 때는 `super.clone()`을 호출하여 객체의 얕은 복사를 수행한다.
+* 가변 객체를 참조하는 필드는 반드시 복제하여 원본과 복제본이 독립적인 객체 상태를 유지하도록 한다.
+* `CloneNotSupportedException`은 발생하지 않지만 예외 처리를 위해 `try-catch` 블록을 사용하고, 예외가 발생하면 `AssertionError`를 던진다.
+* `Cloneable` 인터페이스를 구현해야 `super.clone()`을 호출할 수 있다.
+
 {% hint style="info" %}
 😀 위의 내용을 요약하자면
 {% endhint %}
@@ -373,7 +390,7 @@ public class HashTable implements Cloneable {
 
 `clone()` 메서드에서 하위 클래스에서 재정의된 메서드를 호출하면, 하위 클래스는 복제 과정에서 자신의 상태를 적절히 초기화할 수 없게 된다. <mark style="color:red;">이는 원본과 복제본의 상태가 달라질 수 있다는 것을 의미</mark>
 
-**5해결책**
+**해결책**
 
 `clone()` 메서드 내에서 호출하는 메서드는 `final` 또는 `private`으로 선언하여 재정의되지 않도록 해야 한다.
 
@@ -388,40 +405,177 @@ protected Object clone() throws CloneNotSupportedException {
 }
 ```
 
+### **5) `final` 필드와의 충돌 문제**
+
+* 만약 `elements` 필드가 `final`로 선언되어 있다면, `clone()` 메서드에서 새로운 배열을 할당할 수 없어 문제가 발생한다.
+* 이는 **가변 객체를 참조하는 필드는 `final`로 선언하라**는 일반적인 규칙과 충돌한다.
+* 이러한 경우, `clone()` 메서드를 사용하는 대신 **복사 생성자**를 사용하는 것이 더 바람직하다.
+
+**복사 생성자 사용 예시**
+
+```java
+public Stack(Stack original) {
+    this.elements = original.elements.clone();
+    this.size = original.size;
+}
+```
+
+* **장점**:
+  * `clone()` 메서드보다 구현이 간단하고 명확하다.
+  * 예외 처리가 필요 없다.
+  * `final` 필드와의 충돌이 없다.
+
+**사용 예시**
+
+```java
+java코드 복사Stack stack1 = new Stack();
+stack1.push("value1");
+stack1.push("value2");
+
+Stack stack2 = new Stack(stack1); // 복사 생성자 사용
+stack2.push("value3");
+```
+
+* `stack1`과 `stack2`는 독립적인 스택으로 동작한다.
+
+### **6) `HashTable` 클래스의 예시와 문제점**
+
+**잘못된 `clone()` 메서드:**
+
+```java
+static class HashTable implements Cloneable {
+    private Entry[] buckets;
+
+    private static class Entry {
+        final Object key;
+        Object value;
+        Entry next;
+
+        public Entry(Object key, Object value, Entry next) {
+            this.key = key;
+            this.value = value;
+            this.next = next;
+        }
+    }
+
+    @Override
+    public HashTable clone() {
+        try {
+            HashTable result = (HashTable) super.clone();
+            result.buckets = buckets.clone(); // buckets 배열만 복제
+            return result;
+        } catch (CloneNotSupportedException e) {
+            throw new AssertionError();
+        }
+    }
+}
+```
+
+* `buckets` 배열만 복제하고, 배열 내부의 `Entry` 객체들은 복제되지 않았다.
+* **문제점:** 복제된 `HashTable`과 원본 `HashTable`이 같은 `Entry` 객체들을 공유하게 된다.
+
+### **7) `HashTable` 클래스의 올바른 `clone()` 메서드 구현**
+
+**깊은 복사를 위한 `clone()` 메서드:**
+
+```java
+static class HashTable implements Cloneable {
+    private Entry[] buckets;
+
+    private static class Entry {
+        final Object key;
+        Object value;
+        Entry next;
+
+        public Entry(Object key, Object value, Entry next) {
+            this.key = key;
+            this.value = value;
+            this.next = next;
+        }
+
+        // 연결 리스트를 깊은 복사하는 메서드
+        Entry deepCopy() {
+            Entry result = new Entry(key, value, next);
+            Entry p = result;
+            while (p.next != null) {
+                p.next = new Entry(p.next.key, p.next.value, p.next.next);
+                p = p.next;
+            }
+            return result;
+        }
+    }
+
+    @Override
+    public HashTable clone() {
+        try {
+            HashTable result = (HashTable) super.clone();
+            result.buckets = new Entry[buckets.length];
+
+            for (int i = 0; i < buckets.length; i++) {
+                if (buckets[i] != null) {
+                    result.buckets[i] = buckets[i].deepCopy(); // 각 버킷의 연결 리스트를 복제
+                }
+            }
+
+            return result;
+        } catch (CloneNotSupportedException e) {
+            throw new AssertionError();
+        }
+    }
+}
+```
+
+* `deepCopy()` 메서드를 통해 각 버킷의 연결 리스트를 복제한다.
+* **결과:** 복제된 `HashTable`은 원본과 독립적인 `Entry` 객체들을 가지게된다.
+
+### **8)  `deepCopy()` 메서드의 동작 원리**
+
+* **반복문 사용:** 재귀 호출 대신 반복문을 사용하여 스택 오버플로우를 방지
+* **새로운 `Entry` 객체 생성:** 연결된 각 `Entry`를 새로운 객체로 생성하여 복사한다.
+* **원본과 복제본의 독립성 보장:** 복제된 객체들은 원본 객체들과 독립적으로 동작한다.
+
+### **9) 생성자에서 재정의 가능한 메서드 호출 금지**
+
+* <mark style="color:red;">생성자에서는 재정의될 수 있는 메서드를 호출하면 안 됩니다.</mark>
+* 만약 `put()` 메서드를 이용하여 복제한다면, `put()` 메서드는 `final` 또는 `private`으로 선언되어야 합니다.
+* 이는 하위 클래스에서 메서드를 재정의하여 예상치 못한 동작이 발생하는 것을 방지합니다.
+
 ***
 
-#### 6. `Cloneable` 인터페이스의 문제점과 대안
-
-**6.1 `Cloneable`의 문제점 요약**
-
-* **언어적인 모순과 위험성**: `Cloneable`과 `clone()` 메서드는 직관적이지 않고 구현하기 어렵습니다.
-* **얕은 복사의 기본 동작**: 기본적으로 얕은 복사가 이루어져 가변 객체를 제대로 복제하지 못합니다.
-* **`final` 필드와의 충돌**: `final` 필드는 복사 후 값을 변경할 수 없어 복제 시 문제가 발생합니다.
-* **예외 처리의 복잡성**: `CloneNotSupportedException` 등 불필요한 예외 처리가 필요합니다.
-* **재정의된 메서드 호출 문제**: `clone()` 메서드에서 재정의된 메서드를 호출하면 문제가 발생합니다.
 
 
+## **4. `Cloneable`의 문제점 요약**
 
-## 4. Clone() 메서드 주의사항
+* **언어적인 모순과 위험성**: `Cloneable`과 `clone()` 메서드는 직관적이지 않고 구현하기 어렵다.
+* **얕은 복사의 기본 동작**: 기본적으로 얕은 복사가 이루어져 가변 객체를 제대로 복제하지 못한다.
+* **`final` 필드와의 충돌**: `final` 필드는 복사 후 값을 변경할 수 없어 복제 시 문제가 발생한다.
+* **예외 처리의 복잡성**: `CloneNotSupportedException` 등 불필요한 예외 처리가 필요
+* **재정의된 메서드 호출 문제**: `clone()` 메서드에서 재정의된 메서드를 호출하면 문제가 발생한다.
+
+
+
+## 5. Clone() 메서드 주의사항
 
 * `Object.clone()`은 동기화를 신경쓰지 않은 메서드이다.
   * 동시성 문제가 발생할 수 있다.
 * 만일 `clone()`을 막고 싶다면 `clone()` 메서드를 재정의하여, `CloneNotSupportedException()`을 던지도록 하자.
 * 기본 타입이나 불변 객체 참조만 가지면 아무것도 수정할 필요 없으나 `일련번호` 혹은 `고유 ID`와 같은 값을 가지고 있다면, 비록 불변일지라도 새롭게 수정해줘야 함
 
-## 5. 복사 생성자 및 복사 팩터리 메서드
+## 6. 복사 생성자 및 복사 팩터리 메서드
 
-`Cloneable` 인터페이스와 `clone()` 메서드 대신 **복사 생성자**와 **복사 팩터리 메서드**를 사용하는 것이 좋습니다.
+{% hint style="info" %}
+복사 생성자란 단순히 자신과 같은 클래스의 인스턴스를 인수로 받는 생성자를 말한다.
+{% endhint %}
 
-* **복사 생성자**: 같은 클래스의 인스턴스를 인수로 받아 새로운 인스턴스를 생성하는 생성자입니다.
-* **복사 팩터리 메서드**: 복사 생성자와 유사하지만 정적 팩터리 메서드로 구현됩니다.
+`Cloneable` 인터페이스와 `clone()` 메서드 대신 **복사 생성자**와 **복사 팩터리 메서드**를 사용하는 것이 좋다.
 
-**6.3 코드 예시: 복사 생성자 및 복사 팩터리 메서드**
+* **복사 팩터리 메서드**: 복사 생성자와 유사하지만 정적 팩터리 메서드로 구현된다.
+* Cloneable을 이미 구현한 클래스를 확장한다면 어쩔 수 없이 clone을 잘 작동하도록 구현해야 한다. 그렇지 않은 상황에서는 `복사 생성자와 복사 팩터리`라는 더 나은 객체 복사 방식을 제공할 수 있다.
 
-**6.3.1 복사 생성자**
+### **복사 생성자**
 
 ```java
-java코드 복사public class Yum {
+public class Yum {
     private int value;
 
     // 복사 생성자
@@ -431,7 +585,7 @@ java코드 복사public class Yum {
 }
 ```
 
-**6.3.2 복사 팩터리 메서드**
+### **복사 팩터리 메서드**
 
 ```java
 public class Yum {
@@ -448,13 +602,96 @@ public class Yum {
 }
 ```
 
-**6.4 복사 생성자와 복사 팩터리의 장점**
+### **복사 생성자와 복사 팩터리의 장점**
 
-* **직관적인 객체 생성**: 생성자나 정적 메서드를 사용하므로 객체 생성 방식이 명확합니다.
-* **안전성**: `Cloneable`의 복잡한 규약에 의존하지 않으므로 구현 실수의 위험이 적습니다.
-* **유연성**: 필요한 경우 복사 과정에서 필드를 변환하거나 수정할 수 있습니다.
-* **예외 처리 간소화**: 불필요한 예외를 던지지 않으므로 사용하기 편리합니다.
-* **형변환 불필요**: 반환 타입이 명확하므로 형변환할 필요가 없습니다.
+* **직관적인 객체 생성**: 생성자나 정적 메서드를 사용하므로 객체 생성 방식이 명확
+* **안전성**: `Cloneable`의 복잡한 규약에 의존하지 않으므로 구현 실수의 위험이 적다.
+* **유연성**: 필요한 경우 복사 과정에서 필드를 변환하거나 수정할 수 있다.
+* **예외 처리 간소화**: 불필요한 예외를 던지지 않으므로 사용하기 편리합
+* **형변환 불필요**: 반환 타입이 명확하므로 형변환할 필요가 없다.
+
+### 복사 생성자랑 복사 팩터리로 clone() 구현하기
+
+```java
+/**
+ * Constructs a new {@code HashMap} with the same mappings as the
+ * specified {@code Map}.  The {@code HashMap} is created with
+ * default load factor (0.75) and an initial capacity sufficient to
+ * hold the mappings in the specified {@code Map}.
+ *
+ * @param   m the map whose mappings are to be placed in this map
+ * @throws  NullPointerException if the specified map is null
+ */
+public HashMap(Map<? extends K, ? extends V> m) {
+    this.loadFactor = DEFAULT_LOAD_FACTOR;
+    putMapEntries(m, false);
+}
+```
+
+* 위는 `HashMap`에서 제공하는 복사 생성자로 볼 수 있다.
+
+> 더 정확한 이름은 `변환 생성자(conversion constructor)`와 `변환 팩터리(conversion factory)`이다.
+
+### ArrayList
+
+#### 변환 생성자 예시: `ArrayList`
+
+이 방식은 `clone()` 메서드보다 여러 면에서 더 낫습니다. `ArrayList`는 `clone()` 메서드를 사용하기보다, 다른 컬렉션의 요소를 받아들이는 생성자를 제공한다.
+
+**주석이 포함된 코드 예제:**
+
+```java
+/**
+ * 지정된 컬렉션의 요소를 순서대로 포함하는 리스트를 생성합니다.
+ *
+ * @param c 이 리스트에 추가될 요소를 포함하는 컬렉션
+ * @throws NullPointerException 지정된 컬렉션이 null인 경우
+ */
+public ArrayList(Collection<? extends E> c) {
+    // 컬렉션의 요소를 배열로 변환합니다.
+    elementData = c.toArray();
+    // 리스트의 크기를 설정합니다.
+    size = elementData.length;
+    // c.toArray()가 Object[]를 반환하지 않을 수 있으므로, 배열의 타입을 Object[]로 보장합니다.
+    if (elementData.getClass() != Object[].class)
+        elementData = Arrays.copyOf(elementData, size, Object[].class);
+}
+```
+
+**설명:**
+
+* **목적**: 이 생성자는 지정된 컬렉션 `c`의 모든 요소를 포함하는 새로운 `ArrayList` 인스턴스를 생성한다다. 요소들은 컬렉션의 이터레이터가 반환하는 순서를 따른다.
+* **자세한 장점:**
+  1. **클론 메커니즘의 문제 회피**:
+     * `clone()` 메서드는 얕은 복사로 인해 가변 객체를 올바르게 복제하지 못하는 등의 문제가 있다.
+     * 생성자를 사용하면 복제 과정에서 완전한 통제를 할 수 있다.
+  2. **인터페이스 타입 수용**:
+     * `Collection<? extends E>`를 인수로 받으므로, `List`, `Set` 등 다양한 컬렉션을 인수로 받을 수 있다.
+     * 이를 통해 생성자의 활용 범위가 넓어짐
+  3. **형변환 불필요**:
+     * 내부적으로 타입 변환을 처리하므로, 호출 시에 별도의 형변환이 필요 없다.
+     * 런타임 시 `ClassCastException`이 발생할 위험을 줄인다.
+  4. **검사 예외 처리 간소화**:
+     * `clone()` 메서드는 `CloneNotSupportedException`을 처리해야 하지만, 이 생성자는 그런 예외를 던지지 않아 사용이 간편
+  5. **`final` 필드의 올바른 초기화**:
+     * 생성자를 사용하면 `final` 필드를 적절히 초기화할 수 있지만, `clone()`은 생성자를 호출하지 않으므로 `final` 필드 초기화에 문제가 생길 수 있다.
+
+**사용 예시**
+
+```java
+// 원본 컬렉션
+Collection<String> originalCollection = Arrays.asList("사과", "바나나", "체리");
+
+// 변환 생성자를 사용하여 새로운 ArrayList 생성
+ArrayList<String> fruitList = new ArrayList<>(originalCollection);
+
+// 새로운 리스트에 요소 추가
+fruitList.add("데이트");
+
+// 원본 컬렉션은 변경되지 않음
+System.out.println("원본 컬렉션: " + originalCollection); // [사과, 바나나, 체리]
+System.out.println("과일 리스트: " + fruitList); // [사과, 바나나, 체리, 데이트]
+```
 
 ## **✨ 결론**
 
@@ -469,6 +706,10 @@ public class Yum {
   * 이들은 코드가 명확하고 이해하기 쉬우며, `final` 필드와도 충돌하지 않고, 불필요한 예외 처리나 형변환이 필요하지 않는다.
 * **배열은 예외**
   * 배열은 `clone()` 메서드를 사용하여 복제하는 것이 가장 깔끔하고 효율적
+
+
+
+> 참고 및 일부 가져오기 : [https://jake-seo-dev.tistory.com/31#%EB%B-%B-%EC%--%AC%--%EC%--%-D%EC%--%B-%EC%-E%--%EC%--%--%--%EB%B-%B-%EC%--%AC%--%ED%-C%A-%ED%--%B-%EB%A-%AC%EB%A-%-C%--clone--%--%EA%B-%AC%ED%--%--%ED%--%--%EA%B-%B-](https://jake-seo-dev.tistory.com/31#%EB%B-%B-%EC%--%AC%--%EC%--%-D%EC%--%B-%EC%-E%--%EC%--%--%--%EB%B-%B-%EC%--%AC%--%ED%-C%A-%ED%--%B-%EB%A-%AC%EB%A-%-C%--clone--%--%EA%B-%AC%ED%--%--%ED%--%--%EA%B-%B-)
 
 [^1]: AssertionError란 무엇인가요?
 
