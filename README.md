@@ -147,6 +147,7 @@
   * [OAuth 앱에 대한 범위 및 gitbook과 github.io를 자동화를 위한 작업 1탄](developLog/ci-cd/github-action/oauth-gitbook-github.io-1.md)
   * [gitbook과 github.io를 자동화를 위한 gitaction 연동 - 워크플로우 작성과 문제](developLog/ci-cd/github-action/gitbook-github.io-gitaction.md)
 * [docker](developLog/ci-cd/docker.md)
+* [SVN](developLog/ci-cd/svn.md)
 
 ## 📔 Book
 
