@@ -179,6 +179,12 @@ public String toString() {
 * `toString()`을 재정의한 클래스는 **사용하기도 즐겁고**, 그 클래스를 사용한 시스템을 **디버깅하기 쉽게** 해준다.
 * `toString()`은 해당 객체에 관한 **명확하고 유용한 정보**를 **읽기 좋은 형태**로 반환해야 한다.
 
+#### 스터디
+
+* 민감한 정보 마스킹작업..? toString 어떻게 처리하는 지 찾아보자
+
+<figure><img src="../../../../.gitbook/assets/image (50).png" alt=""><figcaption></figcaption></figure>
+
 
 
 > 참고글 : [https://sasca37.tistory.com/251](https://sasca37.tistory.com/251)

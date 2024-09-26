@@ -709,6 +709,12 @@ System.out.println("과일 리스트: " + fruitList); // [사과, 바나나, 체
 
 
 
+\++ native 메서드
+
+native: 메서드는 C나 C++ 같은 네이티브 프로그래밍 언어로 작성한 메서드를 의미한다. Java Native Interface(JNI)라고 부른다. 즉, C나 C++의 코드를 자바에서 불러 사용하려면 native 메서드를 정의해서 메서드 바디를 갖지 않는 메서드를 구현한다. (메서드 바디가 dll (Unix에선 so) 파일로 되어 있어 런타임 시에 dll 파일을 System.loadLibrary 메서드가 수행하여 classpath 경로에서 파라미터의 파일을 메모리에 로딩)
+
+
+
 > 참고 및 일부 가져오기 : [https://jake-seo-dev.tistory.com/31#%EB%B-%B-%EC%--%AC%--%EC%--%-D%EC%--%B-%EC%-E%--%EC%--%--%--%EB%B-%B-%EC%--%AC%--%ED%-C%A-%ED%--%B-%EB%A-%AC%EB%A-%-C%--clone--%--%EA%B-%AC%ED%--%--%ED%--%--%EA%B-%B-](https://jake-seo-dev.tistory.com/31#%EB%B-%B-%EC%--%AC%--%EC%--%-D%EC%--%B-%EC%-E%--%EC%--%--%--%EB%B-%B-%EC%--%AC%--%ED%-C%A-%ED%--%B-%EB%A-%AC%EB%A-%-C%--clone--%--%EA%B-%AC%ED%--%--%ED%--%--%EA%B-%B-)
 
 [^1]: AssertionError란 무엇인가요?

@@ -331,4 +331,12 @@ Lombok이 더 많이 사용되는 이유는 그 유연성과 광범위한 기능
 
 {% embed url="https://stackoverflow.com/questions/3771081/proper-way-to-check-for-url-equality" %}
 
-## 5. equals 구현 시 주의사항
+## 5. 로그 추적을 위한 것
+
+* ELK
+
+<figure><img src="../../../.gitbook/assets/image (52).png" alt=""><figcaption></figcaption></figure>
+
+{% embed url="https://spring.io/projects/spring-cloud-sleuth" %}
+
+<figure><img src="../../../.gitbook/assets/image (51).png" alt=""><figcaption></figcaption></figure>
