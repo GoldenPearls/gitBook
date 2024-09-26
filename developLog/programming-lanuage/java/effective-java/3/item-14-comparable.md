@@ -309,13 +309,30 @@ public int compareTo(PhoneNumber pn) {
 * **정적 `compare` 메서드**를 사용
 * 또는 **`Comparator` 생성 메서드**를 활용한다.
 
-### 5) 정적 compare 메서드를 활용한 비교자&#x20;
+### 5) 올바른 비교자&#x20;
 
-### &#x20;비교자 생성 메서드를 활용한 비교자&#x20;
+**정적 `compare` 메서드 활용:**
 
+```java
+static Comparator<Object> hashCodeOrder = new Comparator<Object>() {
+    public int compare(Object o1, Object o2) {
+        return Integer.compare(o1.hashCode(), o2.hashCode());
+    }
+};
 ```
-// Some code
+
+* `Integer.compare`를 사용하여 오버플로우 없이 안전하게 비교한다.
+
+**2. 비교자 생성 메서드 활용:**
+
+```java
+static Comparator<Object> hashCodeOrder =
+    Comparator.comparingInt(o -> o.hashCode());
 ```
+
+* `Comparator.comparingInt`를 사용하여 더욱 간결하게 구현한다.
+
+
 
 ### 유의 사항
 
@@ -329,6 +346,10 @@ public int compareTo(PhoneNumber pn) {
   * 그러나 **성능 저하**가 있을 수 있으므로 상황에 맞게 선택
 * **값의 차이를 반환하는 방식은 피해야 한다.**
   * 오버플로우, 언더플로우 등의 문제를 일으킬 수 있다.
+* **`compareTo` 메서드 구현 시:**
+  * **정적 비교자 생성 메서드**를 활용하여 간결하고 명확한 코드를 작성한다.
+  * **필드의 중요도 순서**에 따라 비교를 진행한다.
+  * **타입 추론의 한계**로 인해 람다 표현식에서 타입을 명시해야 할 때가 있으니 주의해야 한다.
 
 ## **✨ 결론**
 
