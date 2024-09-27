@@ -16,7 +16,7 @@ icon: arrow-right-from-bracket
 
 **Spring Cloud Sleuth**는 **Spring Cloud**에서 제공하는 **분산 추적(distributed tracing)** 도구입니다. 마이크로서비스 아키텍처에서 서비스 간의 호출 관계를 추적하고 모니터링할 수 있도록 해줍니다. Sleuth는 각 요청에 대해 **trace ID**와 **span ID**를 생성하여, 로그에 자동으로 포함시킵니다.
 
-**Logback과 Spring Cloud Sleuth를 함께 사용하면**, 애플리케이션의 로그에 trace ID와 span ID가 자동으로 추가되어 **분산된 시스템에서의 요청 흐름을 추적**할 수 있습니다. 이를 통해 문제 발생 시 어느 서비스에서 문제가 생겼는지 빠르게 파악하고, 성능 병목 지점을 식별할 수 있습니다.
+**Logback과 Spring Cloud Sleuth를 함께 사용하면**, 애플리케이션의 로그에 trace ID와 span ID가 자동으로 추가되어 **분산된 시스템에서의 요청 흐름을 추적**할 수 있습니다. 이를 통해 문제 발생 시 어느 서비스에서 문제가 생겼는지 빠르게 파악하고, 성능 병목 지점을 식별할 수 있습니다!
 
 
 
