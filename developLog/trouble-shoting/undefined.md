@@ -1,3 +1,7 @@
+---
+icon: arrow-right-from-bracket
+---
+
 # 로그 파일 관련
 
 {% hint style="info" %}
