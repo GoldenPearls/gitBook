@@ -9,6 +9,8 @@ on:
 jobs:
   process-markdown:
     runs-on: ubuntu-latest
+    env:
+      destination_directory: koreanPageTitle  # 환경 변수로 선언
 
     steps:
     - name: Checkout repository
@@ -24,7 +26,7 @@ jobs:
     - name: Rename Folders Based on README H1 and Copy Markdown Files
       run: |
         # 목적지 디렉토리 설정
-        destination_directory="koreanPageTitle"
+        destination_directory="${destination_directory}"
 
         # README.md 파일을 찾아서 디렉토리 이름 변경
         find developLog -type f -name 'README.md' | while read file; do
@@ -104,6 +106,9 @@ jobs:
 
     - name: Commit changes in koreanPageTitle branch
       run: |
+        # 목적지 디렉토리 설정
+        destination_directory="${destination_directory}"
+
         # Git 사용자 설정 (이미 설정되어 있다면 생략 가능)
         git config user.name 'GoldenPearls'
         git config user.email 'prettylee620@naver.com'
