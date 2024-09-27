@@ -24,6 +24,7 @@ jobs:
         export LC_CTYPE="UTF-8"
        
     - name: Rename Folders Based on README H1 and Copy Markdown Files
+      shell: bash  # 셸을 Bash로 지정
       run: |
         set -euxo pipefail  # 디버깅을 위한 셸 옵션 설정
 
@@ -90,11 +91,12 @@ jobs:
             # 제목 정제 (파일명에 적합하도록)
             title=$(echo "$title" | tr -cd '[:alnum:] _-')
 
-            src_dir=$(dirname "$file")
+            dir=$(dirname "$file")
+            src_dir="$dir"
             relative_dir=$(realpath --relative-to="developLog" "$src_dir")
 
             # 기존의 디렉토리 매핑이 있는 경우 적용
-            if [[ -n "${dir_mappings[$src_dir]}" ]]; then
+            if [[ -v 'dir_mappings[$src_dir]' ]]; then
               dest_dir="${dir_mappings[$src_dir]}"
             else
               dest_dir="$destination_directory/$relative_dir"
@@ -131,6 +133,7 @@ jobs:
         find "$destination_directory" -type f
 
     - name: Commit changes in koreanPageTitle branch
+      shell: bash  # 셸을 Bash로 지정
       run: |
         set -euxo pipefail  # 디버깅을 위한 셸 옵션 설정
 
