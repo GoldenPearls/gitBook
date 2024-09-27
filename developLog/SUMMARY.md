@@ -195,6 +195,10 @@
   * [인프런 멘토 우연님 후기이자 방향성 - 초보개발자의 고민과 방안](tip-bookmark/coffeechat/undefined-1.md)
 * [잘 정리된 tech blog](tip-bookmark/tech-blog.md)
 
+## 👓 트러블슈팅 <a href="#trouble-shoting" id="trouble-shoting"></a>
+
+* [로그 파일 관련](trouble-shoting/undefined.md)
+
 ## ⚡ 그 외 <a href="#ex" id="ex"></a>
 
 * [자격증](ex/credential/README.md)
