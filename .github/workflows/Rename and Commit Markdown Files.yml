@@ -30,11 +30,16 @@ jobs:
         # 목적지 디렉토리 설정
         destination_directory="${destination_directory}"
 
-        # koreanPageTitle 디렉토리 생성 (없을 경우)
+        # 목적지 디렉토리 생성
         mkdir -p "$destination_directory"
 
-        # README.md 파일을 찾아서 디렉토리 이름 변경
-        find developLog -type f -name 'README.md' | while read file; do
+        # 모든 README.md 파일의 경로와 헤딩을 미리 수집
+        mapfile -t readme_files < <(find developLog -type f -name 'README.md')
+
+        declare -A dir_mappings  # 원본 디렉토리와 새로운 디렉토리의 매핑을 저장
+
+        # README.md 파일을 기반으로 새로운 디렉토리 이름 생성
+        for file in "${readme_files[@]}"; do
           echo "Processing $file"
 
           # README.md 파일에서 첫 번째 h1 헤딩 추출
@@ -51,31 +56,32 @@ jobs:
 
           # README.md 파일이 있는 디렉토리 경로
           dir=$(dirname "$file")
-          parent_dir=$(dirname "$dir")
+          relative_dir=$(realpath --relative-to="developLog" "$dir")
 
           # 새로운 디렉토리 경로 생성
-          new_dir="$parent_dir/$heading"
+          new_dir="$destination_directory/$relative_dir"
+          new_dir_parent=$(dirname "$new_dir")
+          new_dir="$new_dir_parent/$heading"
 
-          # 동일한 이름의 디렉토리가 존재하는지 확인
-          if [[ -d "$new_dir" ]]; then
-            echo "이미 존재하는 디렉토리입니다: $new_dir"
-            continue
-          fi
-
-          # 디렉토리 이름 변경
-          mv "$dir" "$new_dir"
+          # 디렉토리 매핑 저장
+          dir_mappings["$dir"]="$new_dir"
         done
 
-        # 디렉토리 이름 변경 후, 모든 마크다운 파일 처리
-        find developLog -type f -name '*.md' | while read file; do
-          echo "Processing $file"
+        # 파일 및 디렉토리 복사 및 이름 변경
+        for src_dir in "${!dir_mappings[@]}"; do
+          dest_dir="${dir_mappings[$src_dir]}"
+          echo "Copying from $src_dir to $dest_dir"
 
-          # README.md 및 SUMMARY.md 파일 처리
-          if [[ "$(basename "$file")" == "README.md" ]] || [[ "$(basename "$file")" == "SUMMARY.md" ]]; then
-            # README.md 및 SUMMARY.md 파일을 목적지 디렉토리로 복사
-            cp "$file" "$destination_directory/$(basename "$file")"
-            continue
-          fi
+          # 디렉토리 복사
+          mkdir -p "$dest_dir"
+          cp -r "$src_dir/"* "$dest_dir/" || true  # 오류 무시 (파일이 없을 수 있음)
+
+          # README.md 파일은 이미 복사되었으므로 추가 처리 불필요
+        done
+
+        # 나머지 마크다운 파일 처리
+        find developLog -type f -name '*.md' ! -name 'README.md' | while read file; do
+          echo "Processing $file"
 
           # 첫 번째 h1 헤딩을 추출하여 제목으로 사용
           title=$(grep -m 1 '^#' "$file" | sed 's/^# //')
@@ -84,11 +90,18 @@ jobs:
             # 제목 정제 (파일명에 적합하도록)
             title=$(echo "$title" | tr -cd '[:alnum:] _-')
 
-            dir=$(dirname "$file")
-            new_dir="$destination_directory/$dir"
-            new_filename="$new_dir/$title.md"
+            src_dir=$(dirname "$file")
+            relative_dir=$(realpath --relative-to="developLog" "$src_dir")
 
-            mkdir -p "$new_dir"
+            # 기존의 디렉토리 매핑이 있는 경우 적용
+            if [[ -n "${dir_mappings[$src_dir]}" ]]; then
+              dest_dir="${dir_mappings[$src_dir]}"
+            else
+              dest_dir="$destination_directory/$relative_dir"
+              mkdir -p "$dest_dir"
+            fi
+
+            new_filename="$dest_dir/$title.md"
 
             if [ -f "$new_filename" ]; then
               if cmp -s "$file" "$new_filename"; then
@@ -132,7 +145,7 @@ jobs:
         git checkout -b koreanPageTitle
 
         # 변경된 파일 추가
-        git add "$destination_directory"/*
+        git add "$destination_directory"
 
         # 커밋 작성
         git commit -m "Rename and update Markdown files based on h1 titles in koreanPageTitle"
