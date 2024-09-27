@@ -31,6 +31,8 @@ jobs:
         sed -i 's/](ex/](developLog\/ex/g' developLog/SUMMARY.md
         sed -i 's/](memoir/](developLog\/memoir/g' developLog/SUMMARY.md
         sed -i 's/](tip-bookmark/](developLog\/tip-bookmark/g' developLog/SUMMARY.md
+        sed -i 's/](backend/](developLog\/backend/g' developLog/SUMMARY.md
+        sed -i 's/](trouble-shoting/](developLog\/trouble-shoting/g' developLog/SUMMARY.md
         # 필요한 다른 경로들에 대해서도 위와 같이 'sed' 명령어를 사용하여 'developLog/'를 추가할 수 있다.
 
         # 기존 README 내용을 지우고 SUMMARY 내용으로 교체
