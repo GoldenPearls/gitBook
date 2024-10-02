@@ -1,4 +1,4 @@
-# JPA란 무엇인가요?
+# JPA란 무엇인가요
 
 > 🔗 강의링크 : [https://www.inflearn.com/course/스프링부트-개념정리/dashboard](https://www.inflearn.com/course/%EC%8A%A4%ED%94%84%EB%A7%81%EB%B6%80%ED%8A%B8-%EA%B0%9C%EB%85%90%EC%A0%95%EB%A6%AC/dashboard)
 

@@ -2,7 +2,7 @@
 description: github.io로 블로그 만들기 1탄
 ---
 
-# Jekyll Chirpy 테마를 연동 및 Github 블로그 만들기  1탄 - 로컬 테스트 및 확인
+# Jekyll Chirpy 테마를 연동 및 Github 블로그 만들기 1탄 - 로컬 테스트 및 확인
 
 ## github.io blog 만들기
 

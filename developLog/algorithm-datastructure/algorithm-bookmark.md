@@ -2,7 +2,7 @@
 icon: circle-bookmark
 ---
 
-# Algorithm 관련  bookmark
+# Algorithm 관련 bookmark
 
 ### 📌 알고리즘
 

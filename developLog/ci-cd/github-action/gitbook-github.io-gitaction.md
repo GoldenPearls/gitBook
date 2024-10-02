@@ -1,4 +1,4 @@
-# gitbook과 github.io를 자동화를 위한 gitaction 연동  - 워크플로우 작성과 문제
+# gitbook과 github.io를 자동화를 위한 gitaction 연동 - 워크플로우 작성과 문제
 
 ## 1. ㅎ 위한 스크립트 및 트러블 슈팅&#x20;
 

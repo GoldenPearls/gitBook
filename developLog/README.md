@@ -1,6 +1,6 @@
 ---
-icon: user-vneck-hair-long
 description: 이 gitbook은 공부하면서 알아가는 지식을 넣는 공간
+icon: user-vneck-hair-long
 cover: >-
   .gitbook/assets/DALL·E 2024-08-12 14.38.23 - A blog banner designed with a
   minimalist winter theme, featuring a snow-covered landscape with a trail of

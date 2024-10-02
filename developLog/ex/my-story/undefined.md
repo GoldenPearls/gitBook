@@ -1,6 +1,6 @@
 ---
-icon: building
 description: 대학 입학 전 ~ 취업 전까지의 아르바이트 회고
+icon: building
 ---
 
 # 대학 입학 - 취업 전까지의 아르바이트 회고
