@@ -128,8 +128,8 @@
 
 ## 🐋 backend
 
-* [database](backend/database/README.md)
-  * [팀 프로젝트 시 데이터베이스는 어떻게..? mysql과 h2, jpa와 mybatis](backend/database/..-mysql-h2-jpa-mybatis.md)
+* [database](developLog/backend/database/README.md)
+  * [팀 프로젝트 시 데이터베이스는 어떻게..? mysql과 h2, jpa와 mybatis](developLog/backend/database/..-mysql-h2-jpa-mybatis.md)
 
 ## ⛏️ CI-CD
 
@@ -197,7 +197,7 @@
 
 ## 👓 트러블슈팅 <a href="#trouble-shoting" id="trouble-shoting"></a>
 
-* [로그 파일 관련](trouble-shoting/undefined.md)
+* [로그 파일 관련](developLog/trouble-shoting/undefined.md)
 
 ## ⚡ 그 외 <a href="#ex" id="ex"></a>
 
