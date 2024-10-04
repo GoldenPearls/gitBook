@@ -40,7 +40,7 @@
       * [item 14 : Comparable 을 구현할지 고려하라](developLog/programming-lanuage/java/effective-java/3/item-14-comparable.md)
     * [4장 : 클래스와 인터페이스](developLog/programming-lanuage/java/effective-java/4/README.md)
       * [item 15 : 클래스와 멤버의 접근 권한을 최소화하라](developLog/programming-lanuage/java/effective-java/4/item-15.md)
-      * [Page](developLog/programming-lanuage/java/effective-java/4/page.md)
+      * [item 16 : public 클래스에서는 public 필드가 아닌 접 근자 메서드를 사용하라](developLog/programming-lanuage/java/effective-java/4/item-16-public-public.md)
     * [스터디에서 알아가는 것](developLog/programming-lanuage/java/effective-java/undefined.md)
   * [모던 자바 인 액션](developLog/programming-lanuage/java/modern-java-in-action/README.md)
     * [chaper 1. 자바 8, 9, 10, 11 : 무슨 일이 일어나고 있는가?](developLog/programming-lanuage/java/modern-java-in-action/chaper-1.-8-9-10-11.md)
