@@ -886,3 +886,197 @@ public class Counter {
 #### 결론
 
 레이스 컨디션은 멀티스레드 환경에서 매우 흔하게 발생하는 문제로, 프로그램의 신뢰성과 안정성을 해칠 수 있습니다. 따라서 공유 자원에 대한 접근은 반드시 적절한 동기화 메커니즘을 사용하여 제어해야 합니다.
+
+## 10. 자기사용이란 뭐고 왜 문제가 될까? - item 18
+
+#### 자기사용(self-use)이란 무엇인가요?
+
+\*\*자기사용(self-use)\*\*은 객체 지향 프로그래밍에서 **클래스 내의 메서드가 같은 클래스의 다른 메서드를 호출하여 기능을 구현하는 것**을 의미합니다. 즉, 클래스의 메서드들이 서로를 호출하여 동작을 수행하는 것을 말합니다.
+
+**예시로 이해하기**
+
+예를 들어, `HashSet` 클래스에서 `addAll()` 메서드가 `add()` 메서드를 사용하여 구현되어 있다면, 이는 `addAll()` 메서드가 `add()` 메서드를 **자기사용**하고 있다고 말할 수 있습니다.
+
+```java
+public class HashSet<E> implements Set<E> {
+    // ...
+
+    public boolean addAll(Collection<? extends E> c) {
+        boolean modified = false;
+        for (E e : c) {
+            if (add(e)) { // 여기서 add() 메서드를 호출합니다.
+                modified = true;
+            }
+        }
+        return modified;
+    }
+
+    public boolean add(E e) {
+        // 원소를 추가하는 로직
+    }
+
+    // ...
+}
+```
+
+위 코드에서 보듯이, `addAll()` 메서드는 내부적으로 `add()` 메서드를 호출하여 컬렉션의 각 원소를 추가합니다. 이는 `addAll()`이 `add()`를 **자기사용**하고 있는 것입니다.
+
+#### 왜 자기사용이 문제가 될까요?
+
+자기사용은 클래스의 내부 구현 방식에 해당하며, 외부에 공개되지 않은 **구현 세부사항**입니다. 따라서 자식 클래스가 부모 클래스의 **자기사용 여부에 의존하여 동작을 구현하면** 다음과 같은 문제가 발생할 수 있습니다.
+
+1. **내부 구현 변경 시 문제 발생**:
+   * 부모 클래스의 내부 구현이 변경되면 자식 클래스의 동작이 의도치 않게 변할 수 있습니다.
+   * 예를 들어, 다음 버전에서 `HashSet`의 `addAll()`이 더 이상 `add()`를 사용하지 않고 직접 원소를 추가하도록 구현이 변경된다면, 자식 클래스에서 `add()`를 재정의하여 추가적인 기능을 구현한 부분이 더 이상 동작하지 않을 수 있습니다.
+2. **상위 클래스의 사양에 없는 동작에 의존**:
+   * `HashSet`의 공식 문서나 API 사양에는 `addAll()`이 `add()`를 사용하여 구현된다는 내용이 없습니다.
+   * 즉, 이는 **구현 세부사항**이며, 외부에서 알 수 없고 의존해서도 안 되는 부분입니다.
+3. **코드의 유지보수성 및 안정성 저하**:
+   * 상위 클래스의 내부 구현에 의존하면, 상위 클래스의 업데이트나 수정에 취약해집니다.
+   * 이는 코드의 안정성을 저해하고, 예기치 않은 버그를 유발할 수 있습니다.
+
+#### InstrumentedHashSet에서의 문제점
+
+`InstrumentedHashSet` 클래스는 `HashSet`을 상속받아 원소가 추가된 횟수를 세기 위해 `add()`와 `addAll()` 메서드를 재정의했습니다.
+
+```java
+public class InstrumentedHashSet<E> extends HashSet<E> {
+    private int addCount = 0;
+
+    @Override
+    public boolean add(E e) {
+        addCount++; // 원소 추가 카운트 증가
+        return super.add(e);
+    }
+
+    @Override
+    public boolean addAll(Collection<? extends E> c) {
+        addCount += c.size(); // 추가되는 원소 수만큼 카운트 증가
+        return super.addAll(c);
+    }
+
+    public int getAddCount() {
+        return addCount;
+    }
+}
+```
+
+**문제 발생 상황**:
+
+* `addAll()` 메서드를 통해 원소를 추가하면 `addCount`가 **두 배로 증가**합니다.
+  * `addAll()`에서 `addCount += c.size();`로 증가.
+  * `super.addAll(c);`를 호출하면 `HashSet`의 `addAll()`이 내부적으로 `add()`를 호출.
+  * `add()`는 재정의된 `add()` 메서드이므로 `addCount++`로 다시 증가.
+
+**원인**:
+
+* `InstrumentedHashSet`이 `HashSet`의 \*\*자기사용(self-use)\*\*에 의존하여 동작하고 있기 때문입니다.
+* `HashSet`의 `addAll()`이 `add()`를 사용한다는 구현 세부사항에 기반하여 코드를 작성했습니다.
+* 그러나 이러한 내부 구현은 **언제든지 변경될 수 있으며**, 변경 시 `InstrumentedHashSet`의 동작이 깨지게 됩니다.
+
+#### 자기사용에 의존하지 않는 설계 방법
+
+\*\*컴포지션과 위임(Delegation)\*\*을 사용하여 상위 클래스의 내부 구현에 의존하지 않는 안전한 코드를 작성할 수 있습니다.
+
+**InstrumentedSet 구현 예시**
+
+```java
+public class InstrumentedSet<E> implements Set<E> {
+    private final Set<E> set; // 실제 작업을 위임할 Set 객체
+    private int addCount = 0;
+
+    public InstrumentedSet(Set<E> set) {
+        this.set = set;
+    }
+
+    @Override
+    public boolean add(E e) {
+        addCount++;
+        return set.add(e);
+    }
+
+    @Override
+    public boolean addAll(Collection<? extends E> c) {
+        addCount += c.size();
+        return set.addAll(c);
+    }
+
+    public int getAddCount() {
+        return addCount;
+    }
+
+    // 나머지 메서드들은 set 객체에 위임
+    // ...
+}
+```
+
+* **컴포지션 사용**: `InstrumentedSet` 클래스는 `Set` 인터페이스를 구현하고, 내부에 다른 `Set` 인스턴스를 필드로 가집니다.
+* **위임 사용**: 메서드들은 내부의 `set` 객체에 동작을 위임합니다.
+* **장점**:
+  * 상위 클래스의 내부 구현에 의존하지 않으므로, 상위 클래스의 변경에 영향을 받지 않습니다.
+  * 코드의 안정성과 유지보수성이 향상됩니다.
+
+#### 요약
+
+* \*\*자기사용(self-use)\*\*은 클래스 내의 메서드가 다른 메서드를 호출하여 동작을 구현하는 것을 의미합니다.
+* **상속을 사용할 때 상위 클래스의 자기사용 여부에 의존하면 위험**합니다.
+  * 상위 클래스의 내부 구현은 언제든지 변경될 수 있으며, 이러한 변경은 하위 클래스의 동작을 깨뜨릴 수 있습니다.
+* **해결책**:
+  * 상속보다는 **컴포지션과 위임**을 사용하여 상위 클래스의 내부 구현에 의존하지 않고 기능을 확장합니다.
+  * 이를 통해 코드의 안정성과 유연성을 높일 수 있습니다.
+
+#### 추가 예시: 자기사용의 문제를 보여주는 간단한 코드
+
+```java
+public class Parent {
+    public void methodA() {
+        System.out.println("Parent.methodA()");
+        methodB();
+    }
+
+    public void methodB() {
+        System.out.println("Parent.methodB()");
+    }
+}
+
+public class Child extends Parent {
+    @Override
+    public void methodB() {
+        System.out.println("Child.methodB()");
+    }
+}
+```
+
+**설명**:
+
+* `Parent` 클래스의 `methodA()`는 `methodB()`를 호출합니다.
+* `Child` 클래스는 `Parent`를 상속하고 `methodB()`를 재정의합니다.
+* `Child`의 인스턴스로 `methodA()`를 호출하면 어떤 결과가 나올까요?
+
+**실행 코드**:
+
+```java
+Child child = new Child();
+child.methodA();
+```
+
+**출력 결과**:
+
+```
+Parent.methodA()
+Child.methodB()
+```
+
+**분석**:
+
+* `Parent`의 `methodA()`에서 `methodB()`를 호출할 때, **재정의된 `Child`의 `methodB()`가 호출**됩니다.
+* 이는 `Parent` 클래스의 자기사용 메서드 호출이 **다른 클래스의 재정의된 메서드를 호출**하게 되어 예상치 못한 동작을 유발할 수 있습니다.
+
+**이러한 이유로**:
+
+* 상속을 사용할 때는 상위 클래스의 메서드들이 내부적으로 어떤 메서드를 호출하는지(자기사용 여부)를 고려해야 합니다.
+* 상위 클래스의 내부 구현에 의존하지 않고 기능을 확장하려면 **컴포지션과 위임**을 사용하는 것이 바람직합니다.
+
+#### 결론
+
+자기사용(self-use)은 클래스의 내부 구현 방식이며, 외부에서는 알 수 없는 부분입니다. 상속을 통해 자식 클래스에서 부모 클래스의 자기사용에 의존하여 동작을 구현하면, 부모 클래스의 내부 구현 변경 시 자식 클래스의 동작이 깨질 수 있습니다. 따라서 상속보다는 **컴포지션과 위임**을 사용하여 안전하고 유연한 코드를 작성하는 것이 좋습니다.
