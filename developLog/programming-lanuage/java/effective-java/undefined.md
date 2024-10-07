@@ -331,7 +331,7 @@ Lombok이 더 많이 사용되는 이유는 그 유연성과 광범위한 기능
 
 {% embed url="https://stackoverflow.com/questions/3771081/proper-way-to-check-for-url-equality" %}
 
-## 5. 로그 추적을 위한 것
+## 6. 로그 추적을 위한 것
 
 * ELK
 
@@ -340,3 +340,549 @@ Lombok이 더 많이 사용되는 이유는 그 유연성과 광범위한 기능
 {% embed url="https://spring.io/projects/spring-cloud-sleuth" %}
 
 <figure><img src="../../../.gitbook/assets/image (51).png" alt=""><figcaption></figcaption></figure>
+
+## 7. private로 했을 때.. 클라이언트가 값을 저장하고 받는 방법
+
+> 음 나는 궁금한게 클라이언트가 변경하지 못하게 필드나 그런거에 private를 쓰래 근데 클라이언트가 값을 입력하면 받아서 또 저장하고 보여줘야 하잖아? 근데 그러면 private를 쓰면 그게 불가하지 않아?
+
+좋은 질문입니다! **`private` 접근 제어자**를 사용하면 **클래스 내부의 필드를 외부에서 직접 접근하지 못하도록 막을 수 있습니다**. 하지만 이것이 **클라이언트가 값을 입력하고 저장하고 보여주는 기능을 불가능하게 만드는 것은 아닙니다**.
+
+#### 어떻게 가능한가요?
+
+1. **생성자나 메서드를 통해 값을 입력받습니다**:
+   * **생성자**: 객체가 생성될 때 필요한 값을 받아서 `private` 필드에 저장합니다.
+   * **메서드**: `public` 메서드를 통해 외부에서 값을 입력받아 `private` 필드에 저장할 수 있습니다.
+2. **접근자(getter) 메서드를 통해 값을 반환합니다**:
+   * `public` 접근자를 가진 메서드를 제공하여 `private` 필드의 값을 외부에 노출할 수 있습니다. 이렇게 하면 필드의 값을 읽을 수 있지만, 직접 수정할 수는 없습니다.
+
+#### 예제 코드
+
+아래는 `User` 클래스를 예로 들어 설명하겠습니다.
+
+```java
+public final class User {
+
+    // 필드를 private으로 선언하여 외부에서 직접 접근을 막음
+    private final String name;
+    private int age;
+
+    // 생성자를 통해 초기 값 설정
+    public User(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    // public 메서드를 통해 값을 설정 (필요한 경우)
+    public void setAge(int age) {
+        if (age > 0) {
+            this.age = age;
+        } else {
+            System.out.println("유효한 나이를 입력하세요.");
+        }
+    }
+
+    // 접근자 메서드로 필드 값 반환
+    public String getName() {
+        return name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    // 추가적인 메서드 작성 가능
+    public void displayUserInfo() {
+        System.out.println("이름: " + name + ", 나이: " + age);
+    }
+}
+```
+
+#### 설명
+
+* **`private` 필드**:
+  * `name`과 `age` 필드를 `private`으로 선언하여 **외부에서 직접 접근하거나 수정할 수 없도록** 했습니다.
+* **생성자를 통한 초기화**:
+  * `User` 객체를 생성할 때 생성자를 통해 `name`과 `age` 값을 입력받아 필드에 저장합니다.
+* **`public` 메서드를 통한 값 설정**:
+  * `setAge(int age)` 메서드를 제공하여 \*\*특정 조건(예: 나이가 0보다 큰지 확인)\*\*을 만족하는 경우에만 `age` 필드의 값을 변경할 수 있도록 합니다.
+* **접근자 메서드**:
+  * `getName()`과 `getAge()` 메서드를 통해 `private` 필드의 값을 읽을 수 있습니다.
+* **정보 표시 메서드**:
+  * `displayUserInfo()` 메서드를 통해 사용자 정보를 출력할 수 있습니다.
+
+#### 사용 예시
+
+```java
+public class Main {
+
+    public static void main(String[] args) {
+        // 객체 생성
+        User user = new User("홍길동", 25);
+
+        // 정보 출력
+        user.displayUserInfo(); // 출력: 이름: 홍길동, 나이: 25
+
+        // 나이 변경
+        user.setAge(30);
+
+        // 변경된 정보 출력
+        user.displayUserInfo(); // 출력: 이름: 홍길동, 나이: 30
+
+        // 필드에 직접 접근하려고 하면 오류 발생
+        // user.age = 35; // 컴파일 오류: age has private access in User
+    }
+}
+```
+
+#### 핵심 포인트
+
+* **캡슐화(Encapsulation)**:
+  * `private` 필드를 사용함으로써 **데이터를 보호**하고, **클래스 내부 구현을 숨길 수 있습니다**.
+  * 외부에서는 **제공된 `public` 메서드를 통해서만 필드에 접근하거나 수정**할 수 있습니다.
+* **데이터 무결성 유지**:
+  * `setAge()` 메서드에서 나이가 0보다 큰지 확인하는 것처럼, **필드 값의 유효성을 검증**할 수 있습니다.
+  * 이를 통해 **잘못된 데이터가 필드에 저장되는 것을 방지**합니다.
+* **유지보수성 향상**:
+  * 내부 구현이 변경되더라도 외부에서 사용하는 인터페이스(`public` 메서드)는 그대로 유지될 수 있으므로, **코드의 변경이 외부에 미치는 영향을 최소화**합니다.
+
+#### 결론
+
+* **`private` 필드를 사용하면** 클라이언트가 **객체의 내부 상태를 직접 변경하지 못하게 막을 수 있지만**, **생성자나 메서드를 통해 필요한 값을 입력받고 저장할 수 있습니다**.
+* **`public` 메서드를 통해 필드의 값을 제공하거나 수정할 수 있으므로**, 클라이언트는 필요한 기능을 사용할 수 있습니다.
+* 이렇게 하면 **데이터의 무결성을 유지하면서도 필요한 동작을 제공**할 수 있습니다.
+
+> 근데 setter도 안쓰는게 좋다고 했는데 user.setAge는 생성자라 괜찮은거야? 생성자는 불변으로 안 만들어도 돼?
+
+좋은 질문입니다! \*\*불변 클래스(Immutable Class)\*\*를 만들 때 **setter 메서드**를 제공하지 않는 것이 좋다고 말씀드렸습니다. 이는 객체의 상태를 변경할 수 없도록 하기 위함입니다. 하지만 **생성자**는 객체를 생성할 때 필수적인 요소이며, 객체의 초기 상태를 설정하는 역할을 합니다.
+
+#### Setter와 생성자의 차이점
+
+* **Setter 메서드**:
+  * 객체가 생성된 이후에 **필드의 값을 변경**할 수 있게 합니다.
+  * 불변 클래스에서는 **제공하지 않는 것이 좋습니다**. 왜냐하면 객체의 상태가 변경되면 불변성이 깨지기 때문입니다.
+* **생성자**:
+  * 객체가 **생성될 때 한 번만 호출**되며, **필드의 초기값을 설정**합니다.
+  * 불변 클래스에서도 **필수적으로 사용**됩니다. 생성자를 통해 초기 상태를 설정한 후에는 상태를 변경할 수 없도록 합니다.
+
+#### 코드 예시로 설명
+
+당신이 제공한 코드에서 `user.setAge(30);`은 **setter 메서드**를 호출하여 `age` 필드의 값을 변경하고 있습니다. 이는 객체의 상태를 변경하므로 **불변 클래스의 원칙에 위배됩니다**.
+
+```java
+public class User {
+
+    private String name;
+    private int age;
+
+    public User(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    // 이 메서드는 객체의 상태를 변경하므로 불변성을 깨뜨립니다.
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void displayUserInfo() {
+        System.out.println("이름: " + name + ", 나이: " + age);
+    }
+}
+```
+
+위 코드에서 `setAge` 메서드는 **객체의 상태를 변경**하므로 불변 클래스에서는 제거해야 합니다.
+
+#### 불변 클래스로 수정하기
+
+**불변 클래스**를 만들기 위해서는 다음과 같이 수정해야 합니다:
+
+1. **필드를 `private final`로 선언**하여 객체 생성 후에는 값이 변경되지 않도록 합니다.
+2. **Setter 메서드를 제거**하여 외부에서 객체의 상태를 변경할 수 없게 합니다.
+3. **생성자를 통해 필드 초기화**를 진행합니다.
+
+```java
+public final class User {
+
+    private final String name;
+    private final int age;
+
+    public User(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    // Getter 메서드만 제공
+    public String getName() {
+        return name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void displayUserInfo() {
+        System.out.println("이름: " + name + ", 나이: " + age);
+    }
+}
+```
+
+이렇게 수정하면 `User` 클래스는 **불변 클래스**가 됩니다. 이제 객체를 생성한 후에는 상태를 변경할 수 없으며, **클라이언트가 필드에 직접 접근하거나 수정할 수 없습니다**.
+
+#### 사용 예시
+
+```java
+public class Main {
+
+    public static void main(String[] args) {
+        User user = new User("홍길동", 25);
+
+        user.displayUserInfo(); // 출력: 이름: 홍길동, 나이: 25
+
+        // 아래 코드는 컴파일 오류를 발생시킴
+        // user.setAge(30); // 오류: setAge(int)은 User 클래스에서 정의되지 않음
+
+        // 새로운 객체를 생성하여 값 변경
+        User updatedUser = new User("홍길동", 30);
+        updatedUser.displayUserInfo(); // 출력: 이름: 홍길동, 나이: 30
+    }
+}
+```
+
+#### 생성자는 불변 클래스로 만들 수 있을까?
+
+* **생성자 자체는 객체를 생성할 때 한 번만 호출**되며, 필드의 초기값을 설정하는 역할을 합니다.
+* **생성자 내부에서 필드를 변경하는 것은 객체의 초기 상태를 설정하는 것이므로 불변성에 위배되지 않습니다**.
+* 따라서 **생성자는 불변 클래스에서도 필수적이며, 불변 클래스를 만드는 데 문제가 되지 않습니다**.
+
+#### 불변 클래스에서의 값 변경은 어떻게 하나요?
+
+불변 클래스에서는 객체의 상태를 변경할 수 없기 때문에, **새로운 객체를 생성하여 변경된 값을 갖도록 합니다**.
+
+**예시: 나이를 변경하고 싶은 경우**
+
+```java
+User user = new User("홍길동", 25);
+
+// 나이를 30으로 변경하고 싶을 때 새로운 객체 생성
+User updatedUser = new User(user.getName(), 30);
+
+user.displayUserInfo();         // 출력: 이름: 홍길동, 나이: 25
+updatedUser.displayUserInfo();  // 출력: 이름: 홍길동, 나이: 30
+```
+
+#### 불변 클래스의 장점 다시 정리
+
+* **안전성**: 객체의 상태가 변경되지 않으므로 예기치 않은 변경으로 인한 오류를 방지할 수 있습니다.
+* **스레드 안전성**: 여러 스레드에서 동시에 객체를 사용해도 상태가 변경되지 않으므로 안전합니다.
+* **단순성**: 객체의 상태 변화에 따른 복잡한 로직을 관리할 필요가 없습니다.
+
+#### 결론
+
+* **Setter 메서드는 불변 클래스에서 제공하지 않는 것이 좋습니다**. 객체의 상태를 변경할 수 없도록 하기 위해서입니다.
+* **생성자는 객체의 초기 상태를 설정하는 역할**을 하며, 불변 클래스에서도 필요합니다.
+* **필드를 `private final`로 선언하고, 생성자를 통해 초기화**하며, **Setter 메서드를 제거**하면 불변 클래스를 만들 수 있습니다.
+* 값의 변경이 필요할 때는 **새로운 객체를 생성**하여 사용하면 됩니다.
+
+## 8. 그렇다면 스프링에서의 불변 클래스
+
+#### 스프링 프레임워크에서의 불변 클래스 사용
+
+스프링(Spring) 프레임워크는 자바 개발에서 널리 사용되는 애플리케이션 프레임워크로, 주로 \*\*의존성 주입(Dependency Injection)\*\*과 \*\*제어의 역전(Inversion of Control)\*\*을 통해 객체의 생성과 관리를 담당합니다. 스프링에서 객체의 상태 관리와 불변 클래스의 사용에 대해 궁금하신 것 같습니다. 아래에서는 스프링에서 불변 클래스를 어떻게 활용하고, 어떤 상황에서 주의해야 하는지 설명해 드리겠습니다.
+
+***
+
+#### 1. **스프링과 자바빈 규약**
+
+스프링은 전통적으로 **자바빈(JavaBean) 규약**을 따르는 것을 권장합니다. 자바빈은 다음과 같은 특징을 갖습니다:
+
+* **기본 생성자 제공**: 파라미터가 없는 public 기본 생성자.
+* **프라이빗 필드와 공개된 Getter/Setter**: 필드는 `private`으로 선언하고, `public` 접근자와 변경자를 제공합니다.
+
+이러한 규약은 **스프링이 객체를 생성하고 관리하는 데 용이**하게 만들어줍니다. 특히, 스프링의 **데이터 바인딩**이나 **프로퍼티 설정** 기능을 사용할 때 유용합니다.
+
+***
+
+#### 2. **불변 클래스와 스프링**
+
+불변 클래스를 사용하면 **객체의 상태가 변경되지 않아** 여러 가지 장점을 얻을 수 있지만, 스프링에서는 다음과 같은 고려사항이 있습니다:
+
+* **의존성 주입과 생성자 사용**: 스프링은 의존성 주입 시 \*\*생성자 주입(Constructor Injection)\*\*을 지원합니다. 이를 통해 **불변 클래스의 필드를 설정**할 수 있습니다.
+* **Setter를 사용하지 않는 방식**: 생성자 주입을 사용하면 Setter 메서드가 없어도 됩니다.
+
+**예시: 불변 클래스를 스프링 빈으로 등록하기**
+
+```java
+@Component
+public class UserService {
+
+    private final UserRepository userRepository;
+
+    // 생성자 주입을 통해 의존성 주입
+    public UserService(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
+
+    // 비즈니스 로직 메서드
+}
+```
+
+* `UserService`는 `userRepository`를 생성자를 통해 주입받으며, 필드는 `private final`로 선언되어 있습니다.
+* 스프링은 생성자를 통해 의존성을 주입할 수 있으므로 Setter가 필요 없습니다.
+
+***
+
+#### 3. **스프링 데이터와 엔티티 불변성**
+
+스프링 데이터 JPA를 사용할 때는 **엔티티 클래스**를 정의해야 합니다. 여기서는 몇 가지 주의할 점이 있습니다:
+
+* **JPA 엔티티는 기본 생성자가 필요**합니다. 이는 프록시를 생성하거나 조회 시 객체를 생성하기 위해 필요합니다.
+* **필드는 프라이빗으로 선언하고 Getter/Setter를 제공**하는 것이 일반적입니다.
+* **불변성을 유지하려면**:
+  * 필드를 `final`로 선언하지 못하는 경우가 많습니다.
+  * Setter를 제공하지 않고, 필요할 경우 **접근 수준을 `protected`로 낮추어 사용**할 수 있습니다.
+
+**예시: 불변 엔티티 클래스**
+
+```java
+@Entity
+public class User {
+
+    @Id
+    @GeneratedValue
+    private Long id;
+
+    private String name;
+
+    // 기본 생성자: JPA 구현체가 사용 (접근 제한자를 protected로 설정)
+    protected User() {
+    }
+
+    // 생성자를 통해 필드 초기화
+    public User(String name) {
+        this.name = name;
+    }
+
+    // Getter만 제공
+    public Long getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    // Setter를 제공하지 않음으로써 불변성 유지
+}
+```
+
+* **주의점**: JPA 엔티티의 경우 프록시 생성을 위해 **기본 생성자**가 필요하며, 이는 `protected`로 선언하여 외부에서 사용되지 않도록 합니다.
+* **Setter를 제공하지 않음**으로써 엔티티의 불변성을 어느 정도 유지할 수 있습니다.
+* 하지만 필드를 `final`로 선언할 수는 없으므로 완전한 불변성을 달성하기는 어렵습니다.
+
+***
+
+#### 4. **DTO(Data Transfer Object)와 불변성**
+
+스프링 애플리케이션에서 **DTO**는 계층 간 데이터 전달을 위해 사용됩니다. DTO를 불변 클래스로 만들면 다음과 같은 이점이 있습니다:
+
+* **안전한 데이터 전달**: 객체의 상태가 변경되지 않아 예기치 않은 수정으로부터 보호됩니다.
+* **직렬화와 역직렬화**: JSON 등으로 데이터를 주고받을 때 불변성을 유지할 수 있습니다.
+
+**예시: 불변 DTO 클래스**
+
+```java
+public final class UserDto {
+
+    private final String name;
+    private final int age;
+
+    @JsonCreator
+    public UserDto(@JsonProperty("name") String name, @JsonProperty("age") int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    // Getter만 제공
+    public String getName() {
+        return name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+}
+```
+
+* **Lombok 라이브러리**를 사용하면 불변 DTO를 더 쉽게 생성할 수 있습니다.
+
+**Lombok을 사용한 불변 DTO**
+
+```java
+import lombok.Value;
+
+@Value
+public class UserDto {
+    String name;
+    int age;
+}
+```
+
+* `@Value` 어노테이션은 모든 필드를 `private final`로 선언하고, Getter를 생성하며, 생성자를 만들어 줍니다.
+
+***
+
+#### 5. **ConfigurationProperties와 불변성**
+
+스프링에서는 애플리케이션 설정 값을 바인딩하기 위해 `@ConfigurationProperties`를 사용합니다. 이때도 불변 클래스를 사용할 수 있습니다.
+
+**예시: 불변 설정 클래스**
+
+```java
+@Configuration
+@EnableConfigurationProperties(AppProperties.class)
+public class AppConfig {
+}
+
+@ConfigurationProperties(prefix = "app")
+public class AppProperties {
+
+    private final String name;
+    private final String version;
+
+    public AppProperties(String name, String version) {
+        this.name = name;
+        this.version = version;
+    }
+
+    // Getter만 제공
+    public String getName() {
+        return name;
+    }
+
+    public String getVersion() {
+        return version;
+    }
+}
+```
+
+* 그러나 `@ConfigurationProperties`는 기본적으로 Setter를 통해 프로퍼티를 주입하기 때문에, 불변 클래스를 사용하려면 **Constructor Binding**을 활성화해야 합니다.
+* **스프링 부트 2.2 이상**에서는 `@ConstructorBinding`을 사용하여 생성자 바인딩을 할 수 있습니다.
+
+**생성자 바인딩 예시**
+
+```java
+@ConfigurationProperties(prefix = "app")
+@ConstructorBinding
+public class AppProperties {
+
+    private final String name;
+    private final String version;
+
+    public AppProperties(String name, String version) {
+        this.name = name;
+        this.version = version;
+    }
+
+    // Getter만 제공
+}
+```
+
+* 이렇게 하면 프로퍼티 값이 생성자를 통해 주입되며, 불변성을 유지할 수 있습니다.
+
+***
+
+#### 6. **결론 및 권장 사항**
+
+* **스프링에서 불변 클래스를 사용할 수 있으며**, 생성자 주입과 Getter를 활용하여 불변성을 유지할 수 있습니다.
+* **JPA 엔티티나 일부 스프링 기능에서는 불변성을 완벽히 유지하기 어려울 수 있지만**, 가능한 범위 내에서 불변성을 지키는 것이 좋습니다.
+* **Setter 메서드를 제공하지 않고**, 필요하다면 생성자나 정적 팩토리 메서드를 통해 객체를 생성합니다.
+* **Lombok**이나 **Immutable**과 같은 라이브러리를 활용하면 불변 클래스를 더 쉽게 만들 수 있습니다.
+* **불변성을 유지하면** 멀티스레드 환경에서의 안전성, 예측 가능한 코드 작성, 유지보수성 향상 등의 이점을 얻을 수 있습니다.
+
+***
+
+## 9. 레이스 컨디션
+
+**레이스 컨디션(Race Condition)이란 무엇인가요?**
+
+레이스 컨디션은 멀티스레드 또는 멀티프로세스 환경에서 두 개 이상의 스레드나 프로세스가 **동시에 공유 자원에 접근하거나 조작하려고 할 때 발생하는 문제**를 말합니다. 이로 인해 프로그램의 실행 결과가 의도치 않게 달라지거나 예기치 않은 버그가 발생할 수 있습니다.
+
+#### 왜 발생하나요?
+
+* **동기화 부족**: 공유 자원에 대한 접근이 적절히 동기화되지 않으면, 여러 스레드가 동시에 자원에 접근하여 상태를 변경할 수 있습니다.
+* **비결정적 실행 순서**: 스레드의 실행 순서는 운영체제의 스케줄링에 따라 결정되며, 예측할 수 없습니다. 이로 인해 실행 결과가 매번 달라질 수 있습니다.
+
+#### 예시
+
+간단한 예로, 두 개의 스레드가 하나의 변수 `counter`를 증가시키는 작업을 수행한다고 가정해보겠습니다.
+
+```java
+public class Counter {
+    private int counter = 0;
+
+    public void increment() {
+        counter++;
+    }
+
+    public int getCounter() {
+        return counter;
+    }
+}
+```
+
+두 스레드가 동시에 `increment()` 메서드를 호출하면 다음과 같은 문제가 발생할 수 있습니다:
+
+1. 스레드 A가 `counter`의 값을 읽음 (`counter = 0`)
+2. 스레드 B가 `counter`의 값을 읽음 (`counter = 0`)
+3. 스레드 A가 `counter`를 1 증가시킴 (`counter = 1`)
+4. 스레드 B가 `counter`를 1 증가시킴 (`counter = 1`)
+
+이 경우, 두 번 증가시켰지만 `counter`의 값은 1이 됩니다. 의도한 결과는 2여야 하지만, 레이스 컨디션으로 인해 올바르지 않은 결과가 나왔습니다.
+
+#### 해결 방법
+
+*   **동기화 사용**: `synchronized` 키워드나 `Lock` 객체를 사용하여 공유 자원에 대한 접근을 직렬화합니다.
+
+    ```java
+    public class Counter {
+        private int counter = 0;
+
+        public synchronized void increment() {
+            counter++;
+        }
+
+        public synchronized int getCounter() {
+            return counter;
+        }
+    }
+    ```
+*   **원자적 연산 사용**: `AtomicInteger`와 같은 원자적 클래스를 사용하여 동기화 없이도 안전하게 연산할 수 있습니다.
+
+    ```java
+    import java.util.concurrent.atomic.AtomicInteger;
+
+    public class Counter {
+        private AtomicInteger counter = new AtomicInteger(0);
+
+        public void increment() {
+            counter.incrementAndGet();
+        }
+
+        public int getCounter() {
+            return counter.get();
+        }
+    }
+    ```
+* **불변 객체 사용**: 객체의 상태를 변경하지 않고 새로운 객체를 생성하여 반환하는 불변 객체 패턴을 사용하면 레이스 컨디션을 방지할 수 있습니다.
+
+#### 결론
+
+레이스 컨디션은 멀티스레드 환경에서 매우 흔하게 발생하는 문제로, 프로그램의 신뢰성과 안정성을 해칠 수 있습니다. 따라서 공유 자원에 대한 접근은 반드시 적절한 동기화 메커니즘을 사용하여 제어해야 합니다.
