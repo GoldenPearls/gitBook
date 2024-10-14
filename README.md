@@ -46,6 +46,7 @@
       * [item 19 : 상속을 고려해 설계하고 문서화하라. 그러지 않았다면 상속을 금지하라](developLog/programming-lanuage/java/effective-java/4/item-19-..md)
       * [item 20 : 추상클래스보다는 인터페이스를 고려하라](developLog/programming-lanuage/java/effective-java/4/item-20.md)
       * [item 21 : 인터페이스는 구현하는 쪽을 생각해 설계하라](developLog/programming-lanuage/java/effective-java/4/item-21.md)
+      * [item 22 : 인터페이스는 타입을 정의하는 용도로만 사용하라](developLog/programming-lanuage/java/effective-java/4/item-22.md)
     * [스터디에서 알아가는 것](developLog/programming-lanuage/java/effective-java/undefined.md)
   * [모던 자바 인 액션](developLog/programming-lanuage/java/modern-java-in-action/README.md)
     * [chaper 1. 자바 8, 9, 10, 11 : 무슨 일이 일어나고 있는가?](developLog/programming-lanuage/java/modern-java-in-action/chaper-1.-8-9-10-11.md)
