@@ -44,6 +44,7 @@
       * [item 17 : 변경 가능성을 최소화하라](programming-lanuage/java/effective-java/4/item-17.md)
       * [item 18 : 상속보다는 컴포지션을 사용하라](programming-lanuage/java/effective-java/4/item-18.md)
       * [item 19 : 상속을 고려해 설계하고 문서화하라. 그러지 않았다면 상속을 금지하라](programming-lanuage/java/effective-java/4/item-19-..md)
+      * [item 20 :추상클래스보다는 인터페이스를 고려하라](programming-lanuage/java/effective-java/4/item-20.md)
     * [스터디에서 알아가는 것](programming-lanuage/java/effective-java/undefined.md)
   * [모던 자바 인 액션](programming-lanuage/java/modern-java-in-action/README.md)
     * [chaper 1. 자바 8, 9, 10, 11 : 무슨 일이 일어나고 있는가?](programming-lanuage/java/modern-java-in-action/chaper-1.-8-9-10-11.md)
