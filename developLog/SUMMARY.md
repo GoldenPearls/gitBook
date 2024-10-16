@@ -49,6 +49,7 @@
       * [item 22 : 인터페이스는 타입을 정의하는 용도로만 사용하라](programming-lanuage/java/effective-java/4/item-22.md)
       * [item 23 : 태그 달린 클래스보다는 클래스 계층구조를 활용하라](programming-lanuage/java/effective-java/4/item-23.md)
       * [item 24 : 멤버 클래스는 되도록 static으로 만들라](programming-lanuage/java/effective-java/4/item-24-static.md)
+      * [item 25 : 톱레벨 클래스는 한 파일에 하나만 담으라](programming-lanuage/java/effective-java/4/item-25.md)
     * [스터디에서 알아가는 것](programming-lanuage/java/effective-java/undefined.md)
   * [모던 자바 인 액션](programming-lanuage/java/modern-java-in-action/README.md)
     * [chaper 1. 자바 8, 9, 10, 11 : 무슨 일이 일어나고 있는가?](programming-lanuage/java/modern-java-in-action/chaper-1.-8-9-10-11.md)
