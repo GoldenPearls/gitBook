@@ -11,7 +11,7 @@
 ### 2) 상속의 문제점
 
 {% hint style="danger" %}
-상속은 코드를 재사용하는 강력한 수단이지만, 항상 최선은 아니다
+[상속은 코드를 재사용하는 강력한 수단이지만, 항상 최선은 아니다](https://inpa.tistory.com/entry/OOP-%F0%9F%92%A0-%EA%B0%9D%EC%B2%B4-%EC%A7%80%ED%96%A5%EC%9D%98-%EC%83%81%EC%86%8D-%EB%AC%B8%EC%A0%9C%EC%A0%90%EA%B3%BC-%ED%95%A9%EC%84%B1Composition-%EC%9D%B4%ED%95%B4%ED%95%98%EA%B8%B0)
 {% endhint %}
 
 * 강한 결합 : 부모 클래스의 내부 변경이 자식 클래스에 영향을 줄 수 있어 유연성이 저하된다.

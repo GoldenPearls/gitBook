@@ -16,6 +16,8 @@
 
 ### 1) Collection의 removeIf 메서드
 
+> [관련 참고 하면 좋은 글로 멀티스레드에서의   문제 ](https://sejoung.github.io/2018/12/2018-12-17-Design\_interfaces\_for\_posterity/#%EC%95%84%EC%9D%B4%ED%85%9C-21-%EC%9D%B8%ED%84%B0%ED%8E%98%EC%9D%B4%EC%8A%A4%EB%A5%BC-%EA%B5%AC%ED%98%84%ED%95%98%EB%8A%94-%EC%AA%BD%EC%9D%84-%EC%83%9D%EA%B0%81%ED%95%B4-%EC%84%A4%EA%B3%84%ED%95%98%EB%9D%BC)
+
 이 코드는 컬렉션의 각 요소를 반복하며, 주어진 프레디케이트(Predicate) 조건이 참이면 해당 요소를 제거하는 기본 구현이다.
 
 ```java

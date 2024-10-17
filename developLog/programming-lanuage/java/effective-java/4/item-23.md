@@ -167,7 +167,7 @@ abstract class Shape {
 예를 들어, 도형 클래스에서 면적을 구하는 `area()` 메서드는 각 도형마다 다르게 구현되겠지만, `toString()` 같은 공통적인 동작은 추상 클래스에서 미리 정의해줄 수 있다.
 
 ```java
-사abstract class Shape {
+abstract class Shape {
     abstract double area();
 
     @Override
@@ -300,6 +300,72 @@ public class Main {
 {% hint style="success" %}
 #### 서브타이핑은 상위 타입(인터페이스나 추상 클래스)의 동작을 하위 타입이 구현해서 **상위 타입처럼 동작할 수 있는 관계**를 말하며, 인터페이스는 서브타이핑을 구현하는 중요한 방법 중 하나이다.
 {% endhint %}
+
+## **5. 스터디에서 추가 설명 :** API SERVER APPLICATION 에서 Entity를 클래스 계층구조로 만드려면&#x20;
+
+> 출처 : [https://antique-banon-928.notion.site/Effective-Java-20-25-10-17-11d82aee42598045ab1ded57b536635b](https://antique-banon-928.notion.site/Effective-Java-20-25-10-17-11d82aee42598045ab1ded57b536635b)
+
+### 1) 퍼시스턴스 레이어 활용
+
+> **퍼시스턴스 레이어**에서 단순히 DB에 저장되어 있는 값을 꺼내오는 역할만 하지 않고, **계층구조의 타입으로 변환해주는 역할**을 해준다.
+
+**레이어드 아키텍쳐**
+
+퍼시스턴스 레이어로 Repository, Dao Layer 총 두계층으로 나눈다.Dao는 DB에서 값을 꺼내오는 역할을, Repository는 계층구조의 타입으로 전환해주는 역할을 맡는다.
+
+![](https://antique-banon-928.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2Fe2ba546f-5712-4557-b5d2-b776f0a2f06a%2F8a3e786a-5a82-440e-a0d0-a4ad2d860d21%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA\_2024-10-13\_%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE\_12.41.35.png?table=block\&id=11e82aee-4259-8037-8a35-e650f22aaf98\&spaceId=e2ba546f-5712-4557-b5d2-b776f0a2f06a\&width=1420\&userId=\&cache=v2)
+
+#### 예시
+
+![](https://antique-banon-928.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2Fe2ba546f-5712-4557-b5d2-b776f0a2f06a%2F6375739f-470f-4034-bc62-552ae34ed1d7%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA\_2024-10-13\_%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE\_12.58.30.png?table=block\&id=11e82aee-4259-8054-93b3-ce5f91eadd06\&spaceId=e2ba546f-5712-4557-b5d2-b776f0a2f06a\&width=1420\&userId=\&cache=v2)
+
+이미지 퀴즈, 텍스트 퀴즈 총 2 종류의 퀴즈가 존재한다.
+
+**Dao**
+
+* QuizEntity 타입값을 가지게 되기 때문에 객체지향적으로 좋다는 것
+
+```java
+@Repository
+@RequiredArgsConstructor
+public class QuizDao {
+
+    private final JPAQueryFactory queryFactory;
+    
+    public List<QuizEntity> findQuiz(QuizType quizType) {
+        return queryFactory
+                .select(quiz)
+                .from(quiz)
+                .where(quiz.type.eq(quizType))
+                .fetch();
+    }
+}
+```
+
+
+
+**Repository**
+
+```java
+@Repository
+@RequiredArgsConstructor
+public class QuizRepository {
+
+    private final QuizDao quizDao;
+
+    public List<TextQuiz> findTextQuiz() {
+        return quizDao.findQuiz(QuizType.TEXT)
+                .map(TextQuiz::from).collect(Collectors.toList());
+    }
+
+    public List<ImageQuiz> findImageQuiz() {
+        return quizDao.findQuiz(QuizType.IMAGE)
+                .map(ImageQuiz::from).collect(Collectors.toList());
+    }
+}
+```
+
+
 
 ## **✨** 최종 정리
 

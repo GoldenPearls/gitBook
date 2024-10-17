@@ -37,8 +37,6 @@
 효율적인 하위 클래스를 큰 어려움 없이 만들 수 있게 하려면 클래스의 내부 동작 과정 중간에 끼어들 수 있는 훅(hook)을 잘 선별하여 하위클래스에서  확장할 수  있는 protected 메서드 형태로 공개해야 할 수도 있다. 이를 통해 하위 클래스 작성자가 원하는 대로 기능을 변경하거나 성능을 향상시킬 수 있다.
 {% endhint %}
 
-<figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
-
 * 다음은 `java.util.Abstract`의 `removeRange` 메서드이다. List의 구현체의 최종 사용자는 해당 메서드에 관심이 없다.&#x20;
 * 그럼에도 이 메서드를 제공한 이유는 단지 하위 클래스에서 부분리스트의 clear 메서드를 고성능으로 만들기 쉽게 하기 위해서다.
 

@@ -87,6 +87,29 @@ public class Test {
 
 > 소스 파일 하나에는 반드시 톱레벨 클래스(혹은 톱레벨 인터페이스)를 하나만 담자.&#x20;
 
+```java
+src/
+  com/
+    example/
+      ClassA.java
+```
+
+```java
+package com.example;
+
+public class ClassA {
+    public void print() {
+        System.out.println("This is ClassA");
+    }
+}
+
+class ClassB {
+    public void print() {
+        System.out.println("This is ClassB");
+    }
+}
+```
+
 1. **톱레벨 클래스는** 보통 소스 파일당 하나만 선언하는 것이 좋다. 여러 톱레벨 클래스를 한 파일에 정의하면, 컴파일 순서에 따라 프로그램 동작이 달라질 수 있어 유지보수와 디버깅이 어려워진다.
 2. **정적 멤버 클래스를 사용**하면, 외부 클래스와 함께 사용될 수 있으면서도 외부 클래스의 상태와 독립적으로 동작할 수 있어 코드의 안정성과 효율성이 높아진다.
 3. **정적 멤버 클래스를 적절히 활용**하면 코드의 가독성과 유지보수성이 향상되며, 불필요한 외부 참조로 인한 메모리 누수를 방지할 수 있다
