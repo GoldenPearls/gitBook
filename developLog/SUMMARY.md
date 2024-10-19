@@ -51,6 +51,8 @@
       * [item 24 : 멤버 클래스는 되도록 static으로 만들라](programming-lanuage/java/effective-java/4/item-24-static.md)
       * [item 25 : 톱레벨 클래스는 한 파일에 하나만 담으라](programming-lanuage/java/effective-java/4/item-25.md)
       * [item 18 - item 19의 확장 : 🤔 자바 기초 배울 때 앞쪽에 나오는 상속 왜 현업에서는 잘 안쓴다고 하는 걸까? (feat. 코틀린에서 상속은?)](programming-lanuage/java/effective-java/4/item-18-item-19-feat..md)
+    * [5장 : 제네릭](programming-lanuage/java/effective-java/5/README.md)
+      * [item 26 : 로 타입은 사용하지 말라](programming-lanuage/java/effective-java/5/item-26.md)
     * [스터디에서 알아가는 것](programming-lanuage/java/effective-java/undefined.md)
   * [모던 자바 인 액션](programming-lanuage/java/modern-java-in-action/README.md)
     * [chaper 1. 자바 8, 9, 10, 11 : 무슨 일이 일어나고 있는가?](programming-lanuage/java/modern-java-in-action/chaper-1.-8-9-10-11.md)
