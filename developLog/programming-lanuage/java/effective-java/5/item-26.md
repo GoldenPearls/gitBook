@@ -60,7 +60,46 @@ void printCollection(Collection&#x3C;Object> c) {
 
 이러한 제네릭의 불공변 때문에 와일드카드[^2]\(제네릭의 ?타입)가 등장할 수 밖에 없었다.&#x20;
 
-### 2) 제네릭(Generic)이란?
+### 2) **제네릭의 등장 이전  및 도입 배경**
+
+> 제네릭이 도입되기 전, <mark style="color:red;">컬렉션의 요소를 다루는 메서드(= 로 타입)는 타입 안전성을 보장하지 못했다.</mark> 컬렉션의 타입 매개변수를 명시할 수 없기 때문에, 모든 요소는 `Object` 타입으로 처리되었고, 타입 캐스팅이 필요한 상황에서 문제가 발생할 수 있었다.
+
+**예시 1: 컬렉션 요소 출력**
+
+```java
+void printCollection(Collection c) {
+    Iterator i = c.iterator(); // 타입 지정 없이 Iterator 사용
+    while (i.hasNext()) {
+        System.out.println(i.next()); // 모든 요소는 Object 타입으로 간주
+    }
+}
+```
+
+위 코드에서 컬렉션의 요소들은 `Object` 타입으로 취급되기 때문에, 특정 타입으로 다루려면 타입 캐스팅이 필요하다. 이는 런타임에 타입 에러를 발생시킬 수 있는 잠재적인 위험을 내포하고 있다다.
+
+
+
+**예시 2: 컬렉션 요소 합 구하기**
+
+```java
+int sum(Collection c) {
+    int sum = 0;
+    Iterator i = c.iterator();
+    while (i.hasNext()) {
+        // 문제: 컬렉션의 요소가 Integer가 아닐 수도 있음
+        sum += Integer.parseInt(i.next().toString()); // 런타임 오류 가능성
+    }
+    return sum;
+}
+```
+
+위의 메서드는 `Collection`에 있는 요소들이 `Integer` 타입이라고 가정하고 작성된 것이다. 하지만 만약 `String`과 같은 다른 타입의 요소를 가진 컬렉션을 전달하면, 컴파일 시에는 문제가 없지만 **런타임에** `ClassCastException`이 발생할 수 있다.
+
+> 위와 같은 문제를 해결하기 위해 Java 개발자들은 **타입을 지정하여 컴파일 시점에 타입 안전성을 보장**할 수 있는 방법을 고안하였고, 그 결과 제네릭이 등장하게 되었다.
+
+제네릭을 사용하면, 컬렉션이나 메서드에 타<mark style="color:red;">입 매개변수를 지정할 수 있어, 컴파일 시점에 타입을 검사할 수 있다.</mark> 이렇게 하면 런타임 오류의 가능성을 줄이고, 코드의 안정성과 가독성을 높일 수 있다.
+
+### 3) 제네릭(Generic)이란?
 
 제네릭은 **런타임 형변환 오류를 방지**하기 위해, **자바 5(JDK 1.5)**부터 도입되었다. 컴파일러가 **안전하게 자동으로 형변환을 추가**해줄 수 있게 되었다.&#x20;
 
@@ -70,12 +109,82 @@ void printCollection(Collection&#x3C;Object> c) {
 
 제네릭 타입을 하나 정의하면, 그에 딸린 **로 타입(Raw Type)**도 함께 정의된다.
 
+### 4) 와일드 카드의 등장 이유
+
+**제네릭 도입 후 코드 수정**
+
+제네릭을 사용하면 컬렉션에 타입을 지정할 수 있어, 컴파일 시점에 타입 안전성을 보장할 수 있다. 예를 들어, `Collection<Integer>` 타입을 사용하여 숫자들의 합을 구하는 메서드를 작성할 수 있다.
+
+**수정된 코드 예제**
+
+```java
+int sum(Collection<Integer> c) {
+    int sum = 0;
+    for (Integer e : c) { // Collection의 요소 타입을 Integer로 제한
+        sum += e;
+    }
+    return sum;
+}
+```
+
+* 위 코드에서는 `Collection<Integer>` 타입을 사용하여, 컬렉션이 `Integer` 타입의 요소만 포함하도록 제한했다.
+* 컴파일 시점에 타입 검사가 이루어져, 다른 타입의 컬렉션이 전달되면 컴파일 오류가 발생합니다. 이로써 타입 안전성을 보장할 수 있다.
+
+{% hint style="danger" %}
+제네릭 타입은 **불공변성(Invariance)** 을 가진다. 즉, `Collection<Integer>`와 `Collection<Object>`는 아무런 관계가 없다. 제네릭이 도입되기 전에는 가능했던 작업이 이제는 불가능해진 경우가 발생할 수 있다.
+{% endhint %}
+
+아래와 같이 `printCollection` 메서드를 작성하고 `List<Integer>`를 전달하려고 하면, 컴파일 오류가 발생한다.
+
+```java
+@Test
+void genericTest() {
+    List<Integer> list = Arrays.asList(1, 2, 3);
+    printCollection(list); // 컴파일 오류: Collection<Object>는 Collection<Integer>와 호환되지 않음
+}
+
+void printCollection(Collection<Object> c) {
+    for (Object e : c) {
+        System.out.println(e);
+    }
+}
+```
+
+* `Collection<Object>`는 `Collection<Integer>`의 상위 타입이 아니기 때문에, 제네릭 타입에서는 서로 호환되지 않는다. 이로 인해 `printCollection` 메서드에 `List<Integer>`를 전달하려고 하면 컴파일 오류가 발생한다.
+* 이는 제네릭의 불공변성으로 인한 문제이다.
+
+**와일드카드의 도입**
+
+위와 같은 문제를 해결하기 위해 `와일드카드(?)`가 도입되었다. <mark style="color:red;">와일드카드를 사용하면 제네릭 타입을 보다 유연하게 사용할 수 있으며, 모든 타입의 컬렉션에서 공통으로 사용할 수 있는 메서드를 작성할 수 있다.</mark>
+
+**와일드카드 타입 사용 예제**
+
+```java
+void printCollection(Collection<?> c) {
+    for (Object e : c) { // 와일드카드 타입으로 컬렉션의 요소를 다룸
+        System.out.println(e);
+    }
+}
+
+@Test
+void genericTest() {
+    List<Integer> list = Arrays.asList(1, 2, 3);
+    printCollection(list); // 이제 컴파일 오류 없이 호출 가능
+}
+```
+
+* `Collection<?>`는 [**비한정적 와일드카드 타입**](#user-content-fn-3)[^3]으로, 어떤 타입의 컬렉션이라도 인자로 받을 수 있다.
+* `List<Integer>`, `List<String>`, `List<Object>` 등 다양한 타입의 컬렉션을 모두 전달할 수 있어, 보다 유연한 메서드를 작성할 수 있다.
+* 단, 와일드카드 타입에서는 컬렉션에 새로운 요소를 추가할 수 없고, `null`만 허용됩니다. 이는 타입 안전성을 유지하기 위함이다.
+
+> 와일드 카드에 대한 설명 블로그 : [https://mangkyu.tistory.com/241](https://mangkyu.tistory.com/241)
+
 ## 2. 로(raw) 타입이란?
 
 ### 1) 로 타입의 정의
 
 {% hint style="info" %}
-**로 타입**은 제네릭(Generic) 타입에서 타입 매개변수를 전혀 사용하지 않은 때를 말한다.   (ex)`List`). 또한 타입 선언에서 제네릭 타입 정보가 전부 지워진 것처럼 동작한다.3
+**로 타입**은 제네릭(Generic) 타입에서 타입 매개변수를 전혀 사용하지 않은 때를 말한다.   (ex)`List`). 또한 타입 선언에서 제네릭 타입 정보가 전부 지워진 것처럼 동작한다.
 {% endhint %}
 
 ### 2) 로 타입을 사용하면 문제가 뭘까?
@@ -110,7 +219,63 @@ stamps.add(new Coin()); // 컴파일 오류 발생
 
 **컴파일 오류**가 바로 발생한다. 컴파일러는 컬렉션에서 원소를 꺼내는 모든 곳에 보이지 않는 `형변환`을 **추가** 하여 절대 실패하지 않음을 보장한다.
 
-### 4)  왜 로 타입보다 제네릭을 사용해야 할까?
+> 제네릭을 사용하여 컬렉션의 타입을 지정함으로써, 컴파일러가 타입 안전성을 보장할 수 있다.
+
+### **4)** 로 타입(Raw Type)과 제네릭 코드의 비교
+
+**로 타입을 사용한 코드**
+
+```java
+import java.util.ArrayList;
+import java.util.List;
+
+public class RawTypeExample {
+    public static void main(String[] args) {
+        // 로 타입 사용
+        List list = new ArrayList(); // 타입 매개변수를 지정하지 않음
+        list.add("Hello");
+        list.add(123); // 문자열과 숫자를 모두 추가할 수 있음
+
+        // 컬렉션의 요소를 가져올 때마다 타입 캐스팅이 필요함
+        String str = (String) list.get(0);
+        Integer num = (Integer) list.get(1);
+
+        System.out.println(str); // 출력: Hello
+        System.out.println(num); // 출력: 123
+    }
+}
+```
+
+위 예제에서 `List`는 로 타입으로 사용되었다. 이 경우, 리스트에 어떤 타입의 객체든 추가할 수 있기 때문에, 각 요소를 꺼낼 때 타입 캐스팅이 필요하다. 만약 잘못된 타입으로 캐스팅하려고 하면 `ClassCastException`이 발생할 수 있다.
+
+
+
+**제네릭을 사용한 코드**
+
+```java
+import java.util.ArrayList;
+import java.util.List;
+
+public class GenericTypeExample {
+    public static void main(String[] args) {
+        // 제네릭을 사용하여 List<String>으로 선언
+        List<String> list = new ArrayList<>();
+        list.add("Hello");
+        // list.add(123); // 컴파일 오류: 정수는 추가할 수 없음
+
+        // 타입 캐스팅이 필요 없음
+        String str = list.get(0);
+
+        System.out.println(str); // 출력: Hello
+    }
+}
+```
+
+위 코드에서 `List<String>`은 제네릭 타입을 사용하여 선언되었다.&#x20;
+
+> 이제 이 리스트에는 `String` 타입만 저장할 수 있으며, 컴파일 시점에 타입 오류가 발생할 가능성을 줄일 수 있다. 요소를 가져올 때도 타입 캐스팅이 필요하지 않다.
+
+### 5)  왜 로 타입보다 제네릭을 사용해야 할까?
 
 1. **타입 안전성이 확보된다.**
 
@@ -176,9 +341,7 @@ private static void unsafeAdd(List<Object> list, Object o) {
 
 컴파일 오류가 발생하며 `incompatible types: List<String> cannot be converted to List<Object>...` 라는 메시지가 출력된다. 실행 시점이 아닌 컴파일 시점에 오류를 확인할 수 있어 보다 안전하다.
 
-## 4.&#x20;
-
-## 전체 용어 정리  및 사용 코드
+## 4. 전체 용어 정리  및 사용 코드
 
 #### 1. 매개변수화 타입 (Parameterized Type)
 
@@ -377,6 +540,102 @@ System.out.println(str); // 출력: 빈 문자열 (String의 기본 생성자 �
 
 위의 예제들은 제네릭 프로그래밍의 다양한 개념을 설명하며, 각각의 코드에 대한 주석을 통해 해당 개념이 어떻게 적용되는지 쉽게 이해할 수 있도록 돕습니다.
 
+## 4. 원소의 타입을 모른채 쓰고 싶다면? 비한정적 와일드 카드 타입
+
+**제네릭을 사용하는 이유**는 타입 안전성을 보장하고, 코드의 가독성과 유지보수성을 높이기 위함이다.&#x20;
+
+> 하지만 모든 상황에서 특정 타입을 명시할 수 없는 경우가 있기 때문에 비한정적 와일드카드(`?`)와 로 타입(Raw Type)이 존재한다.
+
+### 1) 비한정적 와일드카드 타입 (`Set<?>`)
+
+* **비한정적 와일드카드 타입**은 제네릭 타입 매개변수가 무엇이든 상관없이 사용할 수 있도록 한다.
+* 제네릭 타입의 안전성을 유지하면서도, 실제 타입 매개변수에 의존하지 않는 메서드를 작성할 수 있다.
+* `Set<?>`와 같은 비한정적 와일드카드 타입은 `Set<String>`, `Set<Integer>` 등 어떤 타입의 `Set`이라도 사용할 수 있다.
+* 하지만 와일드카드 타입에서는 `null` 외에는 어떤 원소도 추가할 수 없다.
+
+```java
+public class TypeTest {
+    private static void addToWildList(final List<?> list, final Object o) {
+        // 컴파일 오류: 제네릭 타입에 의존성이 있음
+        // list.add(o);
+
+        // null은 허용됨
+        list.add(null);
+    }
+
+    public static void main(String[] args) {
+        List<String> list = new ArrayList<>();
+        String s = "kimtaeng";
+
+        addToWildList(list, s); // Okay! 메서드 호출 자체는 문제없음
+    }
+}
+```
+
+### 2) 로 타입 (`Set`)
+
+* **로 타입**은 제네릭 도입 이전의 컬렉션 타입으로, 타입 안전성을 보장하지 않는다.
+* 로 타입을 사용할 경우, 어떤 타입의 객체든 추가할 수 있으며, 컴파일 시점에 타입 검사가 이루어지지 않아 런타임 오류의 가능성이 높다.
+* 제네릭 타입의 타입 정보가 런타임에 지워지기 때문에 `Set<String>`과 `Set`은 동일하게 취급된된다.
+
+<pre class="language-java"><code class="lang-java">public class TypeTest2 {
+    public static void main(String[] args) {
+        <a data-footnote-ref href="#user-content-fn-4">List raw = new ArrayList&#x3C;String>();</a> // Okay! 로 타입은 타입 안전성을 제공하지 않음
+        <a data-footnote-ref href="#user-content-fn-5">List&#x3C;?> wildcard = new ArrayList&#x3C;String>();</a> // Okay! 비한정적 와일드카드
+
+        raw.add("Hello"); // Okay! 로 타입은 어떤 타입의 원소도 추가 가능
+        raw.add(1); // 컴파일러가 타입 검사를 하지 않기 때문에 가능
+        // wildcard.add("Hello"); // 컴파일 오류: 비한정적 와일드카드 타입은 null 외에 추가할 수 없음
+        
+       <a data-footnote-ref href="#user-content-fn-6"> List&#x3C;String> list = new ArrayList&#x3C;>(); // 제네릭 타입 사용</a>
+<strong>        list.add("Hello"); // String 타입의 원소만 추가 가능
+</strong>        // list.add(1); // 컴파일 오류: 정수는 추가할 수 없음
+
+        // 메서드 호출은 가능
+        wildcard.size(); // Okay!
+        wildcard.clear(); // Okay!
+    }
+}
+</code></pre>
+
+### 3) 로 타입과 비한정적 와일드카드 타입의 차이
+
+| 특성            | 로 타입 (`Set`)                            | 비한정적 와일드카드 (`Set<?>`)      |
+| ------------- | --------------------------------------- | -------------------------- |
+| **타입 안전성**    | 보장되지 않음                                 | 보장됨                        |
+| **타입 불변식 유지** | 위반하기 쉬움                                 | 타입 불변식 유지                  |
+| **원소 추가**     | 어떤 타입의 원소도 추가 가능                        | `null` 외에는 추가할 수 없음        |
+| **메서드 호출**    | 타입에 관계없이 사용 가능                          | 제네릭 타입에 의존하지 않는 메서드만 사용 가능 |
+| **사용 가능 상황**  | 하위 버전과의 호환성 필요 시, 클래스 리터럴, `instanceof` | 제네릭 타입에 의존하지 않는 메서드 작성 시   |
+
+
+
+## 6. 로 타입이 필요한 예외적인 상황
+
+### **1) 클래스 리터럴**
+
+제네릭 타입은 [**클래스 리터럴**](#user-content-fn-7)[^7]**에서 사용할 수 없다.** `List.class`와 같은 로 타입만 사용할 수 있으며, `List<String>.class`나 `List<?>.class`는 허용되지 않는다.
+
+```java
+Class<List> listClass = List.class; // Okay!
+```
+
+### **2) `instanceof` 연산자**
+
+제네릭 타입 정보는 런타임에 제거되므로, `instanceof` 연산자는 로 타입이나 비한정적 와일드카드 타입에서만 사용할 수 있다. `Set<?>`을 사용해 타입 캐스팅을 할 수 있다.
+
+```java
+if (o instanceof Set) {
+    Set<?> s = (Set<?>) o; // 로 타입 대신 비한정적 와일드카드 타입으로 형변환
+}
+```
+
+#### 5. 정리
+
+* **로 타입**은 타입 안전성이 보장되지 않기 때문에, 사용을 피해야 합니다. 로 타입을 사용하는 주요 이유는 하위 버전과의 호환성 때문입니다.
+* \*\*비한정적 와일드카드 타입 (`<?>`)\*\*은 제네릭 타입의 타입 매개변수를 알 수 없거나 신경 쓰지 않아도 될 때 사용합니다. 타입 안전성을 유지하면서 제네릭을 사용할 수 있습니다.
+* 로 타입과 비한정적 와일드카드 타입은 클래스 리터럴과 `instanceof` 연산자와 같은 특정 상황에서 로 타입이 필요할 때만 사용해야 하며, 그 외에는 제네릭 타입을 사용하는 것이 좋습니다.
+
 ## 최종 정리
 
 {% hint style="danger" %}
@@ -402,3 +661,44 @@ System.out.println(str); // 출력: 빈 문자열 (String의 기본 생성자 �
 [^1]: `asList`는 Java에서 배열을 리스트로 변환하는 데 사용되는 메서드입니다. `java.util.Arrays` 클래스의 정적 메서드로 제공되며, 주어진 배열을 `List` 타입으로 변환하여 반환합니다
 
 [^2]: 모든 타입을 대신할 수 있는 와일드카드 타
+
+[^3]: Java 제네릭에서 사용하는 와일드카드의 한 종류로, 어떤 타입이든 수용할 수 있는 제네릭 타입을 나타냅니다. 비한정적 와일드카드는 물음표 기호 `?`로 표현되며, 구체적인 타입을 알 수 없거나 타입에 상관없이 작업을 수행할 때 사용됩니다.
+
+    #### 비한정적 와일드카드의 사용법
+
+    * **표기법**: `?` 기호를 사용하여 나타냅니다. 예를 들어, `Collection<?>`는 "아무 타입의 `Collection`"을 의미합니다.
+    * **의미**: 어떤 타입이든 수용할 수 있다는 의미입니다. 즉, `Collection<Integer>`, `Collection<String>`, `Collection<Object>`와 같은 다양한 타입의 제네릭 컬렉션을 인자로 받을 수 있습니다.
+
+[^4]: **`List raw`**:
+
+    * `List` 타입의 참조 변수 `raw`를 선언한 것입니다.
+    * **로 타입**으로 선언되었기 때문에, 제네릭 타입 매개변수가 없는 상태입니다. 즉, `List`에 어떤 타입의 요소든 저장할 수 있습니다.
+    * **로 타입**은 제네릭이 도입되기 이전의 Java 스타일로, 타입 안전성이 보장되지 않습니다.
+
+    <!---->
+
+    * **`new ArrayList<String>()`**:
+      * `String` 타입을 요소로 갖는 `ArrayList` 객체를 생성합니다. 즉, 이 리스트에는 `String` 타입의 요소가 들어가도록 설계되었습니다.
+      * 그러나 참조 변수가 로 타입(`List raw`)으로 선언되었기 때문에, 이 생성된 리스트의 타입 정보는 무시됩니다.
+
+[^5]: * **`List<?> wildcard`**: `List` 타입의 참조 변수 `wildcard`를 선언하고, 이 변수는 비한정적 와일드카드 `?`를 사용합니다. 여기서 `?`는 어떤 타입이든 허용된다는 의미입니다. 즉, `List<?>`는 모든 타입의 리스트를 참조할 수 있습니다.
+
+    <!---->
+
+    * **`new ArrayList<String>()`**: 구체적으로 `String` 타입의 요소를 갖는 `ArrayList` 객체를 생성합니다.
+
+[^6]: **`List<String>`**:
+
+    * 제네릭 타입을 사용하여 `List` 인터페이스의 타입 매개변수를 `String`으로 지정했습니다.
+    * 즉, 이 리스트는 `String` 타입의 요소만 저장할 수 있습니다. 다른 타입의 객체를 추가하려고 하면 컴파일 오류가 발생합니다. 이는 컴파일 시점에 타입을 검사하여 오류를 방지하기 위함입니다.
+
+    <!---->
+
+    * **`list`**:
+      * `List<String>` 타입의 참조 변수입니다. 이 변수는 `String` 타입의 요소를 가지는 리스트를 가리키도록 설계되었습니다.
+    * **`new ArrayList<>()`**:
+      * `ArrayList` 클래스의 인스턴스를 생성합니다.
+      * 빈 꺽쇠(`<>`)는 **다이아몬드 연산자**라고 하며, 컴파일러가 타입 추론을 통해 `ArrayList<String>`으로 간주합니다. 즉, `ArrayList<String>`과 같은 의미입니다.
+
+[^7]: Java에서 클래스나 인터페이스의 타입 정보를 나타내기 위한 특별한 문법입니다. 클래스 리터럴을 사용하면 클래스의 타입 정보를 런타임에 참조할 수 있습니다. 이는 클래스 파일의 메타데이터를 사용하여 객체의 인스턴스를 생성하거나, 리플렉션(Reflection) 작업 등을 수행할 때 유용합니다.\
+    **기본 문법**: `타입이름.class`
