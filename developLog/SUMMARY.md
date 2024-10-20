@@ -54,6 +54,8 @@
     * [5장 : 제네릭](programming-lanuage/java/effective-java/5/README.md)
       * [item 26 : 로 타입은 사용하지 말라](programming-lanuage/java/effective-java/5/item-26.md)
       * [와일드 카드에 대한 정리](programming-lanuage/java/effective-java/5/undefined.md)
+      * [item 27 : 비검사 경고를 제거하라](programming-lanuage/java/effective-java/5/item-27.md)
+      * [제네릭 배열에 대한 정리](programming-lanuage/java/effective-java/5/undefined-1.md)
     * [스터디에서 알아가는 것](programming-lanuage/java/effective-java/undefined.md)
   * [모던 자바 인 액션](programming-lanuage/java/modern-java-in-action/README.md)
     * [chaper 1. 자바 8, 9, 10, 11 : 무슨 일이 일어나고 있는가?](programming-lanuage/java/modern-java-in-action/chaper-1.-8-9-10-11.md)
