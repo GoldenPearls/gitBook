@@ -57,6 +57,7 @@
       * [item 27 : 비검사 경고를 제거하라](developLog/programming-lanuage/java/effective-java/5/item-27.md)
       * [제네릭 배열에 대한 정리](developLog/programming-lanuage/java/effective-java/5/undefined-1.md)
       * [item 28 : 배열보다는 리스트를 사용하라](developLog/programming-lanuage/java/effective-java/5/item-28.md)
+      * [item 29 : 이왕이면 제네릭 타입으로 만들라.](developLog/programming-lanuage/java/effective-java/5/item-29-..md)
     * [스터디에서 알아가는 것](developLog/programming-lanuage/java/effective-java/undefined.md)
   * [모던 자바 인 액션](developLog/programming-lanuage/java/modern-java-in-action/README.md)
     * [chaper 1. 자바 8, 9, 10, 11 : 무슨 일이 일어나고 있는가?](developLog/programming-lanuage/java/modern-java-in-action/chaper-1.-8-9-10-11.md)
