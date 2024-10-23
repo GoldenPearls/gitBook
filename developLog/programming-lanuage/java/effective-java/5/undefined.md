@@ -116,4 +116,4 @@ void addElement(Collection<? super MyParent> c) {
 
 
 
-> 참고 글 : [https://mangkyu.tistory.com/241](https://mangkyu.tistory.com/241)
+> 출처 : [https://mangkyu.tistory.com/241](https://mangkyu.tistory.com/241)
