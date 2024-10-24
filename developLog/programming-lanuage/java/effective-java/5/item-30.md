@@ -225,6 +225,258 @@ public static <E extends Comparable<E>> E max(Collection<E> c) {
 * 컬렉션이 비어 있을 경우 `IllegalArgumentException`을 찾는다.
 * 재귀적 타입 한정을 통해 `E` 타입의 객체가 서로 비교 가능함을 컴파일러가 보장해준다.
 
+## JPA EnumConverter 예시
+
+```java
+public interface CodeValue {
+	String getCode();
+	String getValue();
+}
+
+public class EnumConverter<E extends Enum<E> & CodeValue> implements AttributeConverter<E, String> {
+
+	private Class<E> clz;
+
+	protected EnumConverter(Class<E> enumClass) {
+		this.clz = enumClass;
+	}
+
+	@Override
+	public String convertToDatabaseColumn(E attribute) {
+		return attribute != null ? attribute.getCode() : null;
+	}
+
+	@Override
+	public E convertToEntityAttribute(String dbData) {
+		if (dbData == null)
+			return null;
+		return EnumSet.allOf(clz).stream()
+			.filter(e -> e.getCode().equals(dbData))
+			.findAny()
+			.orElseThrow(() -> new BusinessException(ErrorCode.ENUM_NOT_FOUND));
+	}
+}
+
+@Converter(autoApply = true)
+public class ChargerTypeConverter extends EnumConverter<ChargerType> {
+	public ChargerTypeConverter() {
+		super(ChargerType.class);
+	}
+}
+
+@Convert(converter = ChargerTypeConverter.class)
+@Column(name = "charger_type", nullable = false)
+private ChargerType chargerType;
+
+public enum ChargerType implements CodeValue {
+	SLOW("SLOW", "완속"),
+	AC3("AC3", "AC3상"),
+	DESTINATION("DESTINATION", "급속"),
+	ETC("ETC", "기타"),
+	;
+
+	private final String code;
+	private final String value;
+
+	ChargerType(String code, String value) {
+		this.code = code;
+		this.value = value;
+	}
+
+	@Override
+	public String getCode() {
+		return code;
+	}
+
+	@Override
+	public String getValue() {
+		return value;
+	}
+}
+```
+
+이 코드는 `JPA`(Java Persistence API)에서 사용되는 커스텀 `AttributeConverter`를 통해 데이터베이스와 엔티티 간의 변환을 처리하는 예제입니다. 여기서는 `Enum` 타입인 `ChargerType`을 데이터베이스 컬럼에 저장하고, 다시 엔티티 속성으로 변환하는 과정을 다룹니다.
+
+#### 주요 구성 요소 설명
+
+1.  **`CodeValue` 인터페이스**
+
+    * 이 인터페이스는 각 열거형(Enum)이 `getCode()`와 `getValue()` 메서드를 구현해야 한다는 것을 보장합니다.
+    * 이 코드에서는 `getCode()`가 데이터베이스에 저장할 값을 반환하고, `getValue()`가 표현할 값을 반환합니다.
+
+    ```java
+    public interface CodeValue {
+        String getCode();
+        String getValue();
+    }
+    ```
+2.  **`EnumConverter` 클래스**
+
+    * 이 클래스는 `AttributeConverter<E, String>`을 구현하여 제네릭 타입의 열거형(`E extends Enum<E> & CodeValue`)을 데이터베이스의 `String` 타입으로 변환하는 역할을 합니다.
+    * `E`는 `Enum` 타입이면서 `CodeValue` 인터페이스를 구현한 열거형을 의미합니다.
+    * `AttributeConverter<E, String>`: `E` 타입의 속성을 데이터베이스의 `String` 타입으로 변환하고, 반대로 변환하는 역할을 합니다.
+
+    ```java
+    public class EnumConverter<E extends Enum<E> & CodeValue> implements AttributeConverter<E, String> {
+        private Class<E> clz;
+
+        protected EnumConverter(Class<E> enumClass) {
+            this.clz = enumClass;
+        }
+
+        @Override
+        public String convertToDatabaseColumn(E attribute) {
+            // 엔티티 속성(E)을 데이터베이스 컬럼(String)으로 변환
+            return attribute != null ? attribute.getCode() : null;
+        }
+
+        @Override
+        public E convertToEntityAttribute(String dbData) {
+            // 데이터베이스의 String을 엔티티 속성으로 변환
+            if (dbData == null)
+                return null;
+            return EnumSet.allOf(clz).stream()
+                .filter(e -> e.getCode().equals(dbData)) // Enum의 코드와 일치하는 항목을 찾음
+                .findAny()
+                .orElseThrow(() -> new BusinessException(ErrorCode.ENUM_NOT_FOUND)); // 찾지 못하면 예외 발생
+        }
+    }
+    ```
+
+    * **`convertToDatabaseColumn` 메서드**:
+      * 엔티티의 열거형 속성을 데이터베이스에 저장할 `String` 타입의 값으로 변환합니다.
+      * 열거형 값이 `null`인 경우 `null`을 반환합니다. 그렇지 않으면 `getCode()` 메서드를 통해 변환된 코드를 반환합니다.
+    * **`convertToEntityAttribute` 메서드**:
+      * 데이터베이스에서 가져온 `String` 값을 엔티티의 열거형 타입으로 변환합니다.
+      * `EnumSet.allOf(clz)`를 통해 해당 열거형 클래스의 모든 값을 순회하며, `getCode()` 메서드로 필터링하여 매칭되는 열거형 값을 찾습니다.
+      * 매칭되는 값이 없으면 `BusinessException`을 발생시킵니다(`ENUM_NOT_FOUND`).
+3.  **`ChargerTypeConverter` 클래스**
+
+    * `EnumConverter`의 구체적인 구현체로, `ChargerType` 열거형 타입에 대한 변환기를 정의합니다.
+    * `@Converter(autoApply = true)` 어노테이션을 사용하여 JPA가 자동으로 이 변환기를 적용하도록 설정합니다.
+
+    ```java
+    @Converter(autoApply = true)
+    public class ChargerTypeConverter extends EnumConverter<ChargerType> {
+        public ChargerTypeConverter() {
+            super(ChargerType.class);
+        }
+    }
+    ```
+4.  **`ChargerType` 열거형**
+
+    * `ChargerType`은 `CodeValue` 인터페이스를 구현한 열거형입니다.
+    * 각 상수에는 `code`와 `value`라는 두 개의 필드를 가지며, 이는 생성자에서 설정됩니다.
+    * 예를 들어, `SLOW("SLOW", "완속")`는 `code`가 `"SLOW"`이고, `value`가 `"완속"`인 열거형 상수를 나타냅니다.
+
+    > <mark style="color:red;">오직 jpa만 있는 컨터버 기능으로 SLOW => 완속으로 DB에 들어가고 또 자바로  나올때 SLOW로 나오는 그런 느낌?</mark>
+
+
+
+    ```java
+    public enum ChargerType implements CodeValue {
+        SLOW("SLOW", "완속"),
+        AC3("AC3", "AC3상"),
+        DESTINATION("DESTINATION", "급속"),
+        ETC("ETC", "기타");
+
+        private final String code;
+        private final String value;
+
+        ChargerType(String code, String value) {
+            this.code = code;
+            this.value = value;
+        }
+
+        @Override
+        public String getCode() {
+            return code;
+        }
+
+        @Override
+        public String getValue() {
+            return value;
+        }
+    }
+    ```
+5.  **엔티티에서의 사용 예시**
+
+    ```java
+    @Convert(converter = ChargerTypeConverter.class)
+    @Column(name = "charger_type", nullable = false)
+    private ChargerType chargerType;
+    ```
+
+    * 이 코드에서는 `chargerType` 필드가 데이터베이스의 `charger_type` 컬럼과 매핑됩니다.
+    * `@Convert` 어노테이션을 통해 `ChargerTypeConverter`를 사용하여 `ChargerType` 값을 변환합니다.
+
+#### 동작 흐름
+
+1. **엔티티 -> 데이터베이스**:
+   * `ChargerType` 열거형 값이 `convertToDatabaseColumn` 메서드를 통해 `String` 값으로 변환되어 데이터베이스에 저장됩니다. 예를 들어, `ChargerType.SLOW`의 경우 `"SLOW"`로 저장됩니다.
+2. **데이터베이스 -> 엔티티**:
+   * 데이터베이스에서 가져온 `String` 값이 `convertToEntityAttribute` 메서드를 통해 `ChargerType` 열거형 값으로 변환됩니다. 예를 들어, `"SLOW"`가 `ChargerType.SLOW`로 변환됩니다.
+3. **예외 처리**:
+   * 데이터베이스의 값이 매칭되는 `ChargerType` 상수를 찾지 못하면 `BusinessException`이 발생하여 처리됩니다.
+
+#### 코드의 장점
+
+* **일관성 유지**: 열거형 값을 데이터베이스에 코드로 저장하고, 코드 값으로부터 열거형 값을 매핑할 수 있는 일관된 방식을 제공합니다.
+* **재사용성**: `EnumConverter`는 모든 `CodeValue` 인터페이스를 구현하는 열거형에 대해 범용적으로 사용할 수 있는 변환기를 제공합니다.
+* **유연한 예외 처리**: 변환 실패 시 예외를 명확하게 정의하여 오류 상황을 쉽게 처리할 수 있습니다.
+
+이 코드는 JPA에서 열거형 타입을 처리하는 데 유용하며, 커스텀 변환기를 통해 데이터베이스와 엔티티 간의 변환을 효과적으로 관리합니다.
+
+
+
+> 장점은?
+
+이 코드는 JPA에서 열거형(Enum) 타입을 데이터베이스와 연동할 때 몇 가지 중요한 이점을 제공합니다:
+
+#### 1. **코드와 데이터베이스 간의 매핑을 일관되게 유지**
+
+* `EnumConverter`를 사용하면 열거형 값(예: `ChargerType.SLOW`)을 데이터베이스에 저장할 때 문자열(`SLOW`)로 변환하고, 다시 데이터베이스에서 열거형 타입으로 변환할 수 있습니다.
+* 이를 통해 데이터베이스와 코드 간의 데이터 일관성을 유지할 수 있으며, 열거형 값이 변경되더라도 코드의 변경만으로 쉽게 반영할 수 있습니다.
+
+#### 2. **커스텀 변환 로직 구현의 유연성**
+
+* `EnumConverter`를 통해 변환 로직을 커스터마이즈할 수 있습니다. 예를 들어, 데이터베이스에 저장하는 값의 형식이나 특정 조건에 따른 변환 방식을 쉽게 조정할 수 있습니다.
+* JPA의 기본 변환기 대신 커스텀 변환기를 사용함으로써, 엔티티 필드에 대한 세부적인 변환 로직을 적용할 수 있습니다.
+
+#### 3. **코드의 재사용성과 유지보수성 향상**
+
+* `EnumConverter`는 제네릭 타입으로 구현되어 있어, `CodeValue` 인터페이스를 구현하는 모든 열거형에 재사용할 수 있습니다. 따라서 코드 중복을 줄이고 변환 로직을 일관되게 적용할 수 있습니다.
+* 예를 들어, 다른 열거형 타입을 추가할 때도 새로운 변환기를 만들지 않고 기존 `EnumConverter`를 재사용할 수 있어 코드 유지보수가 용이합니다.
+
+#### 4. **안전한 타입 변환과 예외 처리**
+
+* 변환 시 매칭되는 열거형이 없으면 `BusinessException`을 통해 예외를 명확하게 처리할 수 있습니다. 이를 통해 잘못된 데이터나 예상치 못한 값이 들어오는 상황에 대비할 수 있습니다.
+* `CodeValue` 인터페이스를 통해 각 열거형이 `getCode()`와 `getValue()`를 반드시 구현하도록 강제함으로써, 타입 안정성을 보장합니다.
+
+#### 5. **자동 매핑 기능 지원**
+
+* `@Converter(autoApply = true)`를 사용하면 해당 변환기를 자동으로 적용하여, 엔티티에서 매번 `@Convert`를 명시하지 않아도 됩니다. 이는 코드의 간결함과 가독성을 높여줍니다.
+
+#### 6. **데이터베이스 스키마 변경 시 유연성 제공**
+
+* 예를 들어, 데이터베이스에 저장되는 문자열 값이 `"SLOW"`에서 `"S"`로 변경되는 상황이 발생할 때, `EnumConverter`의 변환 로직만 수정하면 됩니다. 이를 통해 데이터베이스 스키마 변경에 유연하게 대처할 수 있습니다.
+
+#### 정리
+
+이 코드의 주요 장점은 **일관된 변환 로직**과 **재사용성**, **유연한 예외 처리**를 통해 데이터베이스와 애플리케이션 간의 매핑을 안전하고 효율적으로 관리할 수 있다는 점입니다. `EnumConverter`를 통해 데이터베이스의 값과 코드의 열거형 간의 매핑을 명확히 정의함으로써, 유지보수성이 높고 오류 발생 가능성이 낮아집니다.
+
+
+
+**MYBATIS**
+
+타입 핸들러라는 클래스 정의, XML에 넣어두면 열거형 변환해준다는 것
+
+<figure><img src="../../../../.gitbook/assets/image (70).png" alt=""><figcaption></figcaption></figure>
+
+> 출처 : [https://velog.io/@ghk4889/mybatis%EC%9D%98-custom-typehandler-%EB%A7%8C%EB%93%A4%EA%B8%B0JAVA-Enum-%ED%83%80%EC%9E%85](https://velog.io/@ghk4889/mybatis%EC%9D%98-custom-typehandler-%EB%A7%8C%EB%93%A4%EA%B8%B0JAVA-Enum-%ED%83%80%EC%9E%85)
+
+
+
 **재귀적 타입 한정의 의미**
 
 `<E extends Comparable<E>>`는 "`E` 타입의 객체가 자기 자신(`E`)과 비교 가능하다"는 의미이다. 예를 들어, `String`은 `Comparable<String>`을 구현하고, `Integer`는 `Comparable<Integer>`를 구현하는 식이다. 이를 통해 컬렉션 내의 원소가 서로 비교 가능함을 보장할 수 있다.

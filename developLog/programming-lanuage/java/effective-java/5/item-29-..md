@@ -296,6 +296,119 @@ class DelayQueue<E extends Delayed> implements BlockingQueue<E>
 
 이러한 타입 매개변수 `E` 를 한정적 타입 매개변수라 한다.
 
+
+
+매개변수화 타입을 특정한 타입으로 한정짓고 싶을 때 사용할 수 있다.
+
+
+
+> 타입 매개변수 목록인 는 java.util.concurrent.Delayed 의 하위 타입만 받는다는 뜻이다.
+
+## 5. 스터디에서 나온 질문
+
+> List\<Number>와 List\<E extends Number>의 차이점
+
+`List<Number>`와 `List<E extends Number>`는 둘 다 제네릭 타입을 사용하지만, 그 의미와 사용 방식에서 중요한 차이점이 있습니다.&#x20;
+
+#### 1. `List<Number>`
+
+`List<Number>`는 `Number` 타입을 요소로 가지는 리스트입니다.&#x20;
+
+> 여기서 중요한 점은, 리스트의 제네릭 타입이 정확히 `Number`여야 한다는 것입니다.
+
+* **`Number` 클래스**: `Number`는 자바에서 모든 숫자 클래스(`Integer`, `Float`, `Double`, `Long` 등)의 부모 클래스입니다. 숫자와 관련된 다양한 클래스는 모두 `Number`를 상속받습니다.
+* **동작 방식**:
+  * `List<Number>`는 `Number` 타입이나 그 하위 타입의 객체를 담을 수 있습니다. 하지만 **제네릭 타입이 정확히 `Number`여야 하므로**, `List<Integer>`, `List<Double>`와 같은 타입은 호환되지 않습니다.
+  * 즉, `List<Number>`는 `List<Integer>`나 `List<Double>`와는 다른 타입으로 간주됩니다.
+
+예를 들어 다음 코드는 유효합니다:
+
+```java
+List<Number> numberList = new ArrayList<>();
+numberList.add(10); // Integer를 추가 (자동 박싱)
+numberList.add(10.5); // Double을 추가
+```
+
+하지만, 다음 코드는 컴파일되지 않습니다:
+
+```java
+List<Integer> intList = new ArrayList<>();
+List<Number> numList = intList; // 컴파일 오류, 서로 다른 타입
+```
+
+위 코드가 컴파일되지 않는 이유는 **제네릭 타입의 불공변성(invariance)** 때문입니다. `List<Number>`와 `List<Integer>`는 서로 다른 제네릭 타입으로 간주됩니다.
+
+#### 2. `List<E extends Number>`
+
+`List<E extends Number>`는 제네릭 타입 매개변수 `E`가 `Number` 클래스의 하위 타입이라는 제약을 가집니다.&#x20;
+
+> 즉, `E`는 `Number`를 상속받는 타입이어야 합니다.
+
+* **제네릭 타입 매개변수 사용**:
+  * `E`는 `Number`와 그 하위 타입 중 하나가 됩니다. 따라서, `E`는 `Integer`, `Float`, `Double` 등을 포함할 수 있습니다.
+  * 이를 사용하여 특정 타입의 숫자에 대한 제네릭 메서드나 클래스를 정의할 수 있습니다.
+* **유연성**:
+  * `List<E extends Number>`는 `Number` 타입을 상속받은 모든 타입의 리스트를 받을 수 있습니다. 예를 들어, `List<Integer>`, `List<Double>`, `List<Long>` 등이 가능합니다.
+  * 이를 통해 제네릭 메서드나 클래스를 작성할 때 다양한 숫자 타입에 대해 처리할 수 있는 범용적인 코드를 작성할 수 있습니다.
+
+예를 들어 다음과 같은 제네릭 메서드를 작성할 수 있습니다:
+
+```java
+public <E extends Number> void processList(List<E> list) {
+    for (E element : list) {
+        System.out.println(element);
+    }
+}
+
+List<Integer> intList = new ArrayList<>();
+intList.add(1);
+intList.add(2);
+
+List<Double> doubleList = new ArrayList<>();
+doubleList.add(3.14);
+doubleList.add(2.71);
+
+// 다양한 타입의 리스트를 처리할 수 있습니다.
+processList(intList); // Integer 타입의 리스트 전달
+processList(doubleList); // Double 타입의 리스트 전달
+```
+
+#### 주요 차이점 요약
+
+1. **제네릭 타입의 고정성**:
+   * `List<Number>`는 `Number` 타입에 고정됩니다. `Number`의 하위 타입(`Integer`, `Double` 등)의 리스트를 사용할 수 없습니다.
+   * `List<E extends Number>`는 `Number`와 그 하위 타입을 모두 지원할 수 있는 유연성을 제공합니다.
+2. **제네릭 메서드 및 클래스에서의 사용**:
+   * `List<E extends Number>`는 제네릭 메서드나 클래스를 설계할 때 유용합니다. 예를 들어, 숫자 타입에 대한 범용적인 코드를 작성할 때 다양한 숫자 타입을 모두 지원할 수 있게 해줍니다.
+3. **불공변성(Invariance)**:
+   * 자바에서 제네릭 타입은 불공변성을 갖습니다. 즉, `List<Number>`와 `List<Integer>`는 서로 다른 타입으로 간주됩니다.
+   * 반면, `List<E extends Number>`는 `E`가 특정 숫자 타입(`Integer`, `Double`, `Float` 등)으로 제한되는 유연성을 제공하여 여러 타입의 리스트를 받을 수 있습니다.
+
+#### 예제: 불공변성의 문제
+
+자바의 제네릭 타입은 불공변성을 갖습니다. 이는 다음과 같은 이유로 문제가 될 수 있습니다.
+
+```java
+List<Integer> intList = new ArrayList<>();
+List<Number> numberList = intList; // 컴파일 오류
+```
+
+위 코드에서 `List<Integer>`를 `List<Number>`로 할당할 수 없는 이유는, 만약 이를 허용한다면 다음과 같은 코드가 컴파일될 수 있기 때문입니다:
+
+```java
+numberList.add(3.14); // 만약 numberList가 intList를 가리킨다면, intList에 Double이 추가되는 문제가 발생
+```
+
+이 경우, `intList`에는 `Integer` 타입만 포함되어야 하는데, `Double` 타입이 추가되어 메모리 안전성을 해칩니다. 따라서 제네릭 타입은 불공변성을 유지해야 합니다.
+
+#### 요약
+
+* `List<Number>`는 `Number` 타입의 요소를 담는 리스트로, 정확히 `Number` 타입으로 고정됩니다.
+* `List<E extends Number>`는 `Number`와 그 하위 타입을 지원하며, 제네릭 메서드나 클래스를 설계할 때 다양한 숫자 타입을 처리할 수 있는 유연성을 제공합니다.
+* 자바의 제네릭 타입은 불공변성을 가지므로, 서로 다른 타입(`List<Number>`와 `List<Integer>` 등)의 리스트를 호환할 수 없습니다. `List<E extends Number>`를 사용하면 이러한 제약을 유연하게 해결할 수 있습니다.
+
+
+
 ## **✨** 최종 정리
 
 클라이언트에서 직접 형변환해야 하는 타입보다 **제네릭 타입이 더 안전하고 쓰기 편하다.**&#x20;
