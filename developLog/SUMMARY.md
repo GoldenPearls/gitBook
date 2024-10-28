@@ -61,7 +61,7 @@
       * [item 30 : 이왕이면 제네릭 메서드로 만들라](programming-lanuage/java/effective-java/5/item-30.md)
       * [item 31 : 한정적 와일드카드를 사용해 API 유연성을 높이라](programming-lanuage/java/effective-java/5/item-31-api.md)
       * [도우미 메서드](programming-lanuage/java/effective-java/5/undefined-2.md)
-      * [Page](programming-lanuage/java/effective-java/5/page.md)
+      * [item 32 : 제네릭과 가변인수를 함께 쓸 때는 신중하라](programming-lanuage/java/effective-java/5/item-32.md)
     * [스터디에서 알아가는 것](programming-lanuage/java/effective-java/undefined.md)
   * [모던 자바 인 액션](programming-lanuage/java/modern-java-in-action/README.md)
     * [chaper 1. 자바 8, 9, 10, 11 : 무슨 일이 일어나고 있는가?](programming-lanuage/java/modern-java-in-action/chaper-1.-8-9-10-11.md)
