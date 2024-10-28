@@ -54,7 +54,7 @@
 
 ### 3) 연결 리스트의 구조
 
-<figure><img src="../../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 1. 마지막 연결할 것은 없기에 null과 연결
 2. 연결리스트의 첫 번째 즉, 시작 지점에 있는 것을 `head`라고 함
