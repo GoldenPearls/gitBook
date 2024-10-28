@@ -157,9 +157,9 @@
 `Github action` 파일에 개인 레포로 변경사항을 `push`할 수 있도록 하려면\
 위에서 발급 받은 개인 토큰을 함께 보내 내 레포에 `push`할 권한을 받은 사람임을 증명 하기 위함
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
-
 <figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * GITBOOK , Github.io레포의 `⚙️ Settings` 클릭
 * `⊞ Secrets and variables`를 펼쳐 `Actions` 클릭
