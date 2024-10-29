@@ -62,6 +62,7 @@
       * [item 31 : 한정적 와일드카드를 사용해 API 유연성을 높이라](developLog/programming-lanuage/java/effective-java/5/item-31-api.md)
       * [도우미 메서드](developLog/programming-lanuage/java/effective-java/5/undefined-2.md)
       * [item 32 : 제네릭과 가변인수를 함께 쓸 때는 신중하라](developLog/programming-lanuage/java/effective-java/5/item-32.md)
+      * [item 33 : 타입 안전 이종 컨테이너를 고려하라](developLog/programming-lanuage/java/effective-java/5/item-33.md)
     * [스터디에서 알아가는 것](developLog/programming-lanuage/java/effective-java/undefined.md)
   * [모던 자바 인 액션](developLog/programming-lanuage/java/modern-java-in-action/README.md)
     * [chaper 1. 자바 8, 9, 10, 11 : 무슨 일이 일어나고 있는가?](developLog/programming-lanuage/java/modern-java-in-action/chaper-1.-8-9-10-11.md)
