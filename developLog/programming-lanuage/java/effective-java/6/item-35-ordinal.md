@@ -68,7 +68,78 @@ return isValidKey(key) && vals[((Enum<?>)key).ordinal()] != null;
 
 * EnumMap은 ordinal()의 값을 값 배열의 인덱스로 활용한다.
 
+### 3) 예제: EnumSet과 EnumMap에서 ordinal()의 사용 예시
 
+```java
+import java.util.EnumSet;
+import java.util.EnumMap;
+import java.util.Map;
+
+public class EnumExample {
+
+    // 열거 타입 정의
+    public enum Day {
+        MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY, SUNDAY
+    }
+
+    public static void main(String[] args) {
+        // EnumSet 예제: 주중과 주말을 구분
+        EnumSet<Day> weekdays = EnumSet.range(Day.MONDAY, Day.FRIDAY);
+        EnumSet<Day> weekend = EnumSet.of(Day.SATURDAY, Day.SUNDAY);
+
+        System.out.println("Weekdays: " + weekdays);
+        System.out.println("Weekend: " + weekend);
+
+        // EnumMap 예제: 각 요일에 할당된 할일을 저장
+        EnumMap<Day, String> dayTasks = new EnumMap<>(Day.class);
+        dayTasks.put(Day.MONDAY, "Study Java");
+        dayTasks.put(Day.TUESDAY, "Go to gym");
+        dayTasks.put(Day.WEDNESDAY, "Grocery shopping");
+        dayTasks.put(Day.THURSDAY, "Clean house");
+        dayTasks.put(Day.FRIDAY, "Watch a movie");
+        
+        System.out.println("Tasks for the week:");
+        for (Map.Entry<Day, String> entry : dayTasks.entrySet()) {
+            System.out.println(entry.getKey() + ": " + entry.getValue());
+        }
+
+        // ordinal() 출력 예제
+        System.out.println("\nOrdinal values:");
+        for (Day day : Day.values()) {
+            System.out.println(day + " ordinal: " + day.ordinal());
+        }
+    }
+}
+```
+
+#### 설명
+
+1. **EnumSet**: `EnumSet.range()` 메서드는 `ordinal()`을 사용해 `Day` 열거 타입의 상수 순서에 따라 월요일부터 금요일까지의 범위를 지정한다. `EnumSet.of()`로 주말만 포함된 집합을 만들 수도 있다. `EnumSet`은 내부적으로 비트 벡터를 이용해 `ordinal()`을 활용해 고속 연산을 한다.
+2. **EnumMap**: `EnumMap`은 열거 타입 상수를 키로 사용하여, `ordinal` 값으로 인덱스를 계산하여 배열처럼 효율적으로 값을 저장하고 검색한다.
+3. **ordinal()**: `ordinal()` 메서드를 통해 열거 타입 상수의 순서(정수 값)를 확인할 수 있으며, 출력된 결과를 통해 각 상수의 `ordinal` 값을 확인할 수 있다.
+
+```plaintext
+Weekdays: [MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY]
+Weekend: [SATURDAY, SUNDAY]
+
+Tasks for the week:
+MONDAY: Study Java
+TUESDAY: Go to gym
+WEDNESDAY: Grocery shopping
+THURSDAY: Clean house
+FRIDAY: Watch a movie
+
+Ordinal values:
+MONDAY ordinal: 0
+TUESDAY ordinal: 1
+WEDNESDAY ordinal: 2
+THURSDAY ordinal: 3
+FRIDAY ordinal: 4
+SATURDAY ordinal: 5
+SUNDAY ordinal: 6
+```
+
+> `EnumSet`과 `EnumMap`은 `ordinal`을 내부적으로 사용해 고성능 자료구조를 제공하며, 이를 통해 열거 타입 상수를 효율적으로 관리할 수 있다.
 
 ## 3. ordinal 메서드 대신 인스턴스 필드를 사용하자
 
