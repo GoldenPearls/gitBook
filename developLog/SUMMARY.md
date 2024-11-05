@@ -68,6 +68,7 @@
       * [item 35 : ordinal 메서드 대신 인스턴스 필드를 사용하라](programming-lanuage/java/effective-java/6/item-35-ordinal.md)
       * [item 36 : 비트 필드 대신 EnumSet을 사용하라](programming-lanuage/java/effective-java/6/item-36-enumset.md)
       * [item 37 : ordinal 인덱싱 대신 EnumMap을 사용하라](programming-lanuage/java/effective-java/6/item-37-ordinal-enummap.md)
+      * [item 38 : 확장할 수 있는 열거 타입이 필요하면 인터페이스를 사용하라](programming-lanuage/java/effective-java/6/item-38.md)
     * [스터디에서 알아가는 것](programming-lanuage/java/effective-java/undefined.md)
   * [모던 자바 인 액션](programming-lanuage/java/modern-java-in-action/README.md)
     * [chaper 1. 자바 8, 9, 10, 11 : 무슨 일이 일어나고 있는가?](programming-lanuage/java/modern-java-in-action/chaper-1.-8-9-10-11.md)
