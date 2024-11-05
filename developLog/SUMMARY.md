@@ -66,6 +66,7 @@
     * [6장 : 열거 타입과 애너테이션](programming-lanuage/java/effective-java/6/README.md)
       * [item 34 : int 상수 대신 열거 타입을 사용하라](programming-lanuage/java/effective-java/6/item-34-int.md)
       * [item 35 : ordinal 메서드 대신 인스턴스 필드를 사용하라](programming-lanuage/java/effective-java/6/item-35-ordinal.md)
+      * [item 36 : 비트 필드 대신 EnumSet을 사용하라](programming-lanuage/java/effective-java/6/item-36-enumset.md)
     * [스터디에서 알아가는 것](programming-lanuage/java/effective-java/undefined.md)
   * [모던 자바 인 액션](programming-lanuage/java/modern-java-in-action/README.md)
     * [chaper 1. 자바 8, 9, 10, 11 : 무슨 일이 일어나고 있는가?](programming-lanuage/java/modern-java-in-action/chaper-1.-8-9-10-11.md)
