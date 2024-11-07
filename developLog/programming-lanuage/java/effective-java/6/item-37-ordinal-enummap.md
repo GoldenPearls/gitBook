@@ -137,10 +137,11 @@ public void plantEnumMapTest() {
 
 > `상태 전이(Transition)`를 Enum으로 관리할 때, 열거형 Enum 간의 전이 상태를 중첩된 `EnumMap`을 통해 관리할 수 있다.&#x20;
 
-### **1) `ordinal()`을 이용한 2차원 배열 인덱스 예제**java코드 복사enum Phase {
+### **1) `ordinal()`을 이용한 2차원 배열 인덱스 예제**
 
 ```java
-    SOLID, LIQUID, GAS;
+    enum Phase {
+        SOLID, LIQUID, GAS;
 
     enum Transition {
         MELT, FREEZE, BOIL, CONDENSE, SUBLIME, DEPOSIT;
@@ -174,7 +175,7 @@ public void plantEnumMapTest() {
 
 2차원 배열 대신 `EnumMap`을 사용하여 이러한 문제를 해결할 수 있다.
 
-> 2중 중첩첩
+> 2중 중첩
 
 ```java
 import java.util.*;
