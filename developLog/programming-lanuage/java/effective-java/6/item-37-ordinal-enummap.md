@@ -240,6 +240,30 @@ public enum Phase {
 * **효율성**: `EnumMap`은 내부적으로 배열을 사용하여 빠르면서도 메모리를 절약할 수 있다.
 * (x, y) -> y 부분은 원래 중복된 키에 값이 들어왔을 때 어떻게 합칠까를 관여하는 부분인데, 여기서는 중복된 키가 없으므로 쓰이지 않고 있다.
 
+**하드 코딩으로 어려움을 겪기에 EnumMap을 씀**
+
+```java
+public enum Phase {
+    SOLID, LIQUID, GAS;
+
+    public enum Transition {
+        MELT, FREEZE, BOIL, CONDENSE, SUBLIME, DEPOSIT;
+
+        private static final Transition[][] TRANSITIONS = {
+                {null, MELT, SUBLIME},
+                {FREEZE, null, BOIL},
+                {DEPOSIT, CONDENSE, null}
+        };
+
+        public static Transition from(Phase from, Phase to) {
+            return TRANSITIONS[from.ordinal()][to.ordinal()];
+        }
+    }
+}
+```
+
+
+
 ## 핵심 정리
 
 * **비트 필드나 `ordinal()`을 사용하는 배열 기반 방식**은 오류 발생 가능성이 높고, 코드의 가독성과 안전성이 떨어진다. 즉, 배열의 인덱스를 위해 `ordinal()`을 쓰는 것은 일반적으로 좋지 않다.
