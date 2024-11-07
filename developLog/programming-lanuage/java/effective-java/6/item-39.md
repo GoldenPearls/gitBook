@@ -69,6 +69,8 @@ public class MyTests {
 
 ## 3. 애너테이션(Annotation)
 
+> > * [애너테이션의 동작 원리](https://velog.io/@anak\_2/Java-annotations-%EC%9D%B4%EB%9E%80-%EC%84%A4%EB%AA%85-%ED%99%9C%EC%9A%A9)
+>
 > Test라는 자동으로 수행되는 간단한 테스트용 애너테이션으로, 예외가 발생하면 테스트를 실패로 처리한다.
 
 ### 1) 마커 애너테이션 타입 선언
