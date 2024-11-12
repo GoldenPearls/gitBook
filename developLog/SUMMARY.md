@@ -76,6 +76,7 @@
     * [7장 : 람다와 스트림](programming-lanuage/java/effective-java/7/README.md)
       * [item 42 : 익명 클래스보다는 람다를 사용하라](programming-lanuage/java/effective-java/7/item-42.md)
       * [item 43 : 람다보다는 메서드 참조를 사용하라](programming-lanuage/java/effective-java/7/item-43.md)
+      * [item 44 : 표준 함수형 인터페이스를 사용하라](programming-lanuage/java/effective-java/7/item-44.md)
     * [스터디에서 알아가는 것](programming-lanuage/java/effective-java/undefined.md)
   * [모던 자바 인 액션](programming-lanuage/java/modern-java-in-action/README.md)
     * [chaper 1. 자바 8, 9, 10, 11 : 무슨 일이 일어나고 있는가?](programming-lanuage/java/modern-java-in-action/chaper-1.-8-9-10-11.md)
