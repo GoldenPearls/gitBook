@@ -2,29 +2,27 @@
 
 스트림이란 자바 8부터 **다량의 데이터 처리 작업**(순차/병렬)을 돕고자 나온 API이며, 두 가지 핵심적인 추상 개념을 제공한다.
 
-스트림은 원하는 결과를 생성하기 위해 파이프라인으로 연결될 수 있는 다양한 메서드를 지원하는 개체 시퀀스이다. 데이터의 흐름, 즉 스트림이 흘러가는 과정에서 데이터가 순차적으로 하나씩 사용되고 사라진다.
+`스트림`은 **원하는 결과를 생성하기 위해 파이프라인으로 연결될 수 있는 다양한 메서드를 지원하는 개체 시퀀스**이다. 데이터의 흐름, 즉 스트림이 흘러가는 과정에서 데이터가 순차적으로 하나씩 사용되고 사라진다.
 
 대용량 데이터를 처리할 때 효율을 높이기 위해, 오토박싱/언박싱 과정이 필요 없는 `Intstream` 과 같은 기본형 스트림도 제공한다.
 
 > 🔖 **스트림의 추상 개념**\
 > 1\. 스트림(stream) : 데이터 원소의 유한 혹은 무한 시퀀스\
-> 2\. 스트림 파이프라인(stream pipeline) : 이 원소들로 수행하는 연산 단계를 표현
+> 2\. 스트림 파이프라인(stream pipeline) : 이 원소들로 수행하는 **연산 단계를 표현**
 
-#### ☁️ 스트림 파이프라인 <a href="#undefined" id="undefined"></a>
+## 1. 스트림 파이프라인 <a href="#undefined" id="undefined"></a>
 
 ![](https://velog.velcdn.com/images/semi-cloud/post/8f2e7dd2-405b-4653-bc32-9269a0f7cc59/image.png)
 
-**스트림 파이프라인 연산**
+### 🌱 **스트림 파이프라인 연산**
 
 스트림 파이프라인은 소스 스트림에서 시작해 종단 연산으로 끝나며, 그 사이에 하나 이상의 중간 연산이 있을 수 있다.
 
-**1. 중간 연산(Intermediate Operation)**\
-각 중간 연산은 **스트림을 어떠한 방식으로 변환**하는 역할을 수행하며, 모두 한 스트림을 다른 스트림으로 변환하게 하여 메서드 체이닝을 가능하게 한다. 예를 들어, 각 원소에 함수를 적용하거나 특정 조건을 만족 못하는 원소를 걸러낼 수 있다.
+#### **1. 중간 연산(Intermediate Operation)** 각 중간 연산은 **스트림을 어떠한 방식으로 변환**하는 역할을 수행하며, 모두 한 스트림을 다른 스트림으로 변환하게 하여 메서드 체이닝을 가능하게 한다. 변환 된 스트림의 원소 타입은 변환 전 스트림의 원소 타입과 같을 수도 있고 다를 수도 있다. 예를 들어, 각 원소에 함수를 적용하거나 특정 조건을 만족 못하는 원소를 걸러낼 수 있다.&#x20;
 
 * `filter()`, `map()`, `sorted()`
 
-**2. 종단 연산(Terminal Operation)**\
-종단 연산은 마지막 중간 연산이 내놓은 **스트림에 최후의 연산을 가하는** 역할을 한다. 예를 들어, 원소를 정렬해 컬렉션에 담거나 특정 원소를 하나 선택하는 식이다.
+#### **2. 종단 연산(Terminal Operation)** 종단 연산은 마지막 중간 연산이 내놓은 **스트림에 최후의 연산을 가하는** 역할을 한다. 예를 들어, 원소를 정렬해 컬렉션에 담거나 특정 원소를 하나 선택하는 식이다.
 
 * `forEach()`, `collect()`, `match()`, `count()`, `reduce()`
 
@@ -39,18 +37,19 @@ List<Integer> transactionsIds =
 
 ![](https://velog.velcdn.com/images/semi-cloud/post/7f73e3a6-941c-4c4d-af7e-b3a19d1b921e/image.png)
 
-[https://www.geeksforgeeks.org/java-8-stream-tutorial/](https://www.geeksforgeeks.org/java-8-stream-tutorial/)
+> [https://www.geeksforgeeks.org/java-8-stream-tutorial/](https://www.geeksforgeeks.org/java-8-stream-tutorial/)
 
-#### ☁️ 스트림 파이프라인 특징 <a href="#undefined" id="undefined"></a>
+### 🌱 스트림 파이프라인 특징 <a href="#undefined" id="undefined"></a>
 
-**1. 지연 평가(lazy evaluation)**
+#### **1. 지연 평가(lazy evaluation)** <a href="#undefined" id="undefined"></a>
 
 먼저 지연이란 **결과값이 필요할때까지 계산을 늦추는** 기법을 의미한다. 이렇게 함으로써 어느 부분에서 가장 큰 이익을 얻을 수 있을까?
 
 > 대용량의 데이터에서, **실제로 필요하지 않은 데이터들을 탐색하는 것을 방지**해 속도를 높일 수 있다. 즉, 종단 연산에 쓰이지 않는 데이터 원소는 계산 자체에 쓰이지 않는다. 그리고 이것을 `Short-Circuit` 방식이라 부른다.
 
-![](https://velog.velcdn.com/images/semi-cloud/post/46a80a05-ff1a-4ab6-9e43-88aadb31e8cc/image.png)\
-[https://www.logicbig.com/tutorials/core-java-tutorial/java-util-stream/short-circuiting.html](https://www.logicbig.com/tutorials/core-java-tutorial/java-util-stream/short-circuiting.html)
+<figure><img src="https://velog.velcdn.com/images/semi-cloud/post/46a80a05-ff1a-4ab6-9e43-88aadb31e8cc/image.png" alt=""><figcaption></figcaption></figure>
+
+> [https://www.logicbig.com/tutorials/core-java-tutorial/java-util-stream/short-circuiting.html](https://www.logicbig.com/tutorials/core-java-tutorial/java-util-stream/short-circuiting.html)
 
 스트림 파이프라인을 실행하게 되면, `JVM` 은 곧바로 스트림 연산을 실행시키지 않는다. 최소한으로 필수적인 작업만 수행하고자 검사를 먼저 하고, 이를 바탕으로 최적화 방법을 찾아내 계획한다. 그리고 그 계획에 따라 개별 요소에 대한 스트림 연산을 수행한다.
 
@@ -58,13 +57,19 @@ List<Integer> transactionsIds =
 
 하지만 어짜피 최종적으로 2개만 탐색하면 되는데 전체 데이터를 다 볼 필요가 있을까?
 
-1. `limit` 사용 O\
-   ![](https://velog.velcdn.com/images/semi-cloud/post/d762d983-e0dd-4f8f-a535-c7fef2c58483/image.png)
-2. `limit` 사용 X\
-   ![](https://velog.velcdn.com/images/semi-cloud/post/ee8b44f3-0172-4b03-bcd6-f3979d65f342/image.png)
+1.  `limit` 사용 O\
+
+
+    <figure><img src="https://velog.velcdn.com/images/semi-cloud/post/d762d983-e0dd-4f8f-a535-c7fef2c58483/image.png" alt=""><figcaption></figcaption></figure>
+2.  `limit` 사용 X\
+
+
+    <figure><img src="https://velog.velcdn.com/images/semi-cloud/post/ee8b44f3-0172-4b03-bcd6-f3979d65f342/image.png" alt=""><figcaption></figcaption></figure>
 
 결과를 봐보자. `limit(n)` 연산이 내부적으로 자신에게 도달한 요소가 `n` 개가 되었을 때 스트림 내 다른 요소들에 대해 더 이상 순회하지 않고 탈출하도록 만들었기 때문에, 길이가 `5`가 넘는 데이터 `4` 개가 아닌, 맨 앞에 `2` 개 데이터가 출력된 것을 볼 수 있다.\
-![](https://velog.velcdn.com/images/semi-cloud/post/bc56f393-72aa-492e-b91c-c14269478d0e/image.png)
+
+
+<figure><img src="https://velog.velcdn.com/images/semi-cloud/post/bc56f393-72aa-492e-b91c-c14269478d0e/image.png" alt=""><figcaption></figcaption></figure>
 
 **예외 사항: Stateful operations**
 
@@ -97,7 +102,7 @@ List<Integer> transactionsIds =
 
 기본적으로 스트림 파이프라인은 순차적으로 수행된다. 파이프라인을 병렬로 실행하려면, 파이프라인을 구성하는 스트림 중 하나에서 `parallel` 메서드를 호출해주기만 하면 되나, 효과를 볼 수 있는 상황은 많지 않다.
 
-#### ☁️ 반복문을 스트림으로 무조건 바꾸는것이 좋을까? <a href="#undefined" id="undefined"></a>
+### 🌱 반복문을 스트림으로 무조건 바꾸는것이 좋을까? <a href="#undefined" id="undefined"></a>
 
 스트림을 제대로 사용하면 프로그램이 짧고 깔끔해지지만, 잘못 사용하면 읽기 어렵고 유지보수가 힘들다. 그렇다면 방법은?
 
@@ -194,7 +199,7 @@ public class Anagrams {
 4. 원소들의 시퀀스를 컬렉션에 모으는 경우(공통된 속성을 기준으로) : `collect()`
 5. 원소들의 시퀀스에서 특정 조건을 만족하는 원소를 찾을 경우 : `filter()`
 
-#### ☁️ 스트림으로 처리하기 어려운 경우 <a href="#undefined" id="undefined"></a>
+### 🌱 스트림으로 처리하기 어려운 경우 <a href="#undefined" id="undefined"></a>
 
 한 데이터가 파이프라인의 여러 단계를 통과해야할때, 이 데이터의 각 단계에서의 값들에 동시에 접근하는 경우에는 스트림을 사용하기 힘들다. 파이프라인은 일단 한 값을 다른 값에 매핑하고 나면 원래의 값은 잃는 구조이기 때문이다.
 
