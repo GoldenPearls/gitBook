@@ -6,6 +6,17 @@
 
 대용량 데이터를 처리할 때 효율을 높이기 위해, 오토박싱/언박싱 과정이 필요 없는 `Intstream` 과 같은 기본형 스트림도 제공한다.
 
+`스트림의 원소`들은 어디로부터든 올 수 있 다. 대표적으로는 **컬렉션, 배열, 파일, 정규표현식 패턴 매처(matcher), 난수 생성기, 혹은 다른 스트림**이 있다.
+
+{% hint style="info" %}
+스트림 안의 데이터 원소들은 객체 참조나 기본 타입값이다. 기본 타입 값으로는 int, long, double을 지원하는데 **기본 타입의 경우 IntStream, LongStream, DoubleStream과 같은 Stream을 사용하는게 성능상 좋다.**
+{% endhint %}
+
+* Stream - 객체 참조에 대한 Stream
+* IntStream - int 타입에 대한 Stream
+* LongStream - long 타입에 대한 Stream
+* DoubleStream - double 타입에 대한 Stream
+
 > 🔖 **스트림의 추상 개념**\
 > 1\. 스트림(stream) : 데이터 원소의 유한 혹은 무한 시퀀스\
 > 2\. 스트림 파이프라인(stream pipeline) : 이 원소들로 수행하는 **연산 단계를 표현**
@@ -14,9 +25,22 @@
 
 ![](https://velog.velcdn.com/images/semi-cloud/post/8f2e7dd2-405b-4653-bc32-9269a0f7cc59/image.png)
 
+이미지 분석
+
+1. **Stream Source**: 배열, 컬렉션, I/O 채널 등 다양한 소스에서 스트림을 생성할 수 있음을 나타낸다.
+2. **Intermediate Operations**: 필터링, 정렬, 타입 변환, 매핑 등의 중간 연산이 포함된다. 이 연산들은 스트림을 계속 반환하며, 메서드 체이닝 스타일로 연달아 적용할 수 있다.
+3. **Terminal Operation**: 스트림을 소비하여 최종 결과를 반환하는 연산이다. 예를 들어 `collect`, `sum`, `count`와 같은 연산들이 있다.
+4. **Operation Result**: 최종 연산의 결과를 보여주는 부분
+
+
+
+<figure><img src="../../../../.gitbook/assets/image.png" alt=""><figcaption><p>https://sas-study.tistory.com/239 이미지 참고</p></figcaption></figure>
+
 ## 🌱 **스트림 파이프라인 연산**
 
 스트림 파이프라인은 소스 스트림에서 시작해 종단 연산으로 끝나며, 그 사이에 하나 이상의 중간 연산이 있을 수 있다.
+
+> 기본적으로 스트림 파이프라인은 순차적으로 수행되는데, **파이프라인을 병렬로 실행**하려면 파이프라인을 구성하는 스트림 중 하나에 `parallel 메서드`를 호출해 사용하면 되긴하나, 효과를 볼 수 있는 상황은 많지 않다.
 
 ### **1. 중간 연산(Intermediate Operation)**
 
@@ -24,11 +48,35 @@
 
 * `filter()`, `map()`, `sorted()`
 
+| 메서드                                                                    | 설명                                            |
+| ---------------------------------------------------------------------- | --------------------------------------------- |
+| `filter(Predicate<? super T> predicate)`                               | 지정된 `predicate` 함수에 맞는 요소만 스트림에 포함하도록 필터링     |
+| `map(Function<? super T, ? extends R> function)`                       | 스트림의 각 요소에 `function`을 적용하여 새로운 요소로 변환        |
+| `flatMap(Function<? super T, ? extends Stream<? extends R>> function)` | 각 요소에 `function`을 적용하여 생성된 스트림을 하나의 스트림으로 평탄화 |
+| `distinct()`                                                           | 스트림의 중복 요소를 제거                                |
+| `sorted()`                                                             | 요소를 기본 정렬(오름차순)                               |
+| `sorted(Comparator<? super T> comparator)`                             | 지정된 `comparator` 함수를 사용하여 요소를 정렬              |
+| `skip(long n)`                                                         | 스트림의 첫 `n`개의 요소를 건너뜀                          |
+| `limit(long maxSize)`                                                  | 스트림의 요소 중 최대 `maxSize` 개수만큼만 반환다.             |
+
 ### **2. 종단 연산(Terminal Operation)**
 
-종단 연산은 마지막 중간 연산이 내놓은 **스트림에 최후의 연산을 가하는** 역할을 한다. 예를 들어, 원소를 정렬해 컬렉션에 담거나 특정 원소를 하나 선택하는 식이다.
+종단 연산은 마지막 중간 연산이 내놓은 **스트림에 최후의 연산을 가하는** 역할을 한다.예를 들어, 원소를 정렬해 컬렉션에 담거나 특정 원소를 하나 선택하는 식이다.
 
 * `forEach()`, `collect()`, `match()`, `count()`, `reduce()`
+
+Java Stream API의 추가 메서드와 설명을 표로 정리했습니다.
+
+| 메서드                                        | 설명                                                                  |
+| ------------------------------------------ | ------------------------------------------------------------------- |
+| `forEach(Consumer<? super T> consumer)`    | 스트림의 각 요소를 `consumer`에 전달하여 순회하며 소비한다.                              |
+| `count()`                                  | 스트림 내의 요소 개수를 반환한다.                                                 |
+| `max(Comparator<? super T> comparator)`    | `comparator`를 사용하여 스트림 내의 최대 값을 반환한다.                               |
+| `min(Comparator<? super T> comparator)`    | `comparator`를 사용하여 스트림 내의 최소 값을 반환한다.                               |
+| `allMatch(Predicate<? super T> predicate)` | 스트림의 모든 요소가 `predicate`에 만족하면 `true`를 반환한다.                         |
+| `anyMatch(Predicate<? super T> predicate)` | 스트림의 요소 중 하나라도 `predicate`에 만족하면 `true`를 반환한다.                      |
+| `sum()`                                    | 스트림의 요소 합계를 반환한다. (`IntStream`, `LongStream`, `DoubleStream`에 사용)   |
+| `average()`                                | 스트림의 요소 평균 값을 반환한다. (`IntStream`, `LongStream`, `DoubleStream`에 사용) |
 
 ```java
 List<Integer> transactionsIds = 
@@ -43,9 +91,19 @@ List<Integer> transactionsIds =
 
 > [https://www.geeksforgeeks.org/java-8-stream-tutorial/](https://www.geeksforgeeks.org/java-8-stream-tutorial/)
 
+1. **Stream\<Transaction> 생성**: 다양한 `Transaction` 객체들이 스트림에 포함되어 있다.
+2. **`filter` 단계**: `t -> t.getType() == Transaction.GROCERY` 조건을 만족하는 `Transaction` 객체들만 필터링하여 `Stream<Transaction>`을 생성한다.
+3. **`sorted` 단계**: `Transaction` 객체들을 값 (`getValue()`) 기준으로 내림차순 정렬한다.
+4. **`map` 단계**: 각 `Transaction` 객체의 `id`만 추출하여 `Stream<Integer>`로 변환한다.
+5. **`collect` 단계**: 최종적으로 `collect(toList())`를 사용하여 `List<Integer>`로 결과를 수집한다.
+
+> 결과적으로 이 스트림 작업은 특정 조건을 만족하는 트랜잭션을 필터링하고, 정렬한 후, ID만 수집하여 리스트로 반환하는 과정이다.
+
 ## &#x20;🌱 스트림 파이프라인 특징 <a href="#undefined" id="undefined"></a>
 
 ### **1. 지연 평가(lazy evaluation)** <a href="#undefined" id="undefined"></a>
+
+지연평가는 종단 연산이 호출될 때 이뤄지며, 종단 연산에 쓰이지 않는 데이터 원소는 계산에 쓰이지 않는다. 이 한 지연 평가가 **무한 스트림을 다룰 수 있게 해주는 열쇠**다. <mark style="color:red;">종단 연산이 없는 스트림 파이프라인은 아무 일도 하지 않는 명령어인 no-op과 같으니, 종단 연산을 빼먹는 일이 절대 없도록 하자.</mark>
 
 먼저 지연이란 **결과값이 필요할때까지 계산을 늦추는** 기법을 의미한다. 이렇게 함으로써 어느 부분에서 가장 큰 이익을 얻을 수 있을까?
 
@@ -78,11 +136,11 @@ List<Integer> transactionsIds =
 * **Finding an element**: `findFirst()`와 `findAny()`를 사용하여 특정 요소를 찾을 수 있으며, 요소를 찾으면 연산이 종료
 * **Testing a match**: `anyMatch()`, `allMatch()`, `noneMatch()` 연산을 사용하여 조건에 맞는 요소가 있는지 확인할 수 있다.
 
-스트림 파이프라인을 실행하게 되면, `JVM` 은 곧바로 스트림 연산을 실행시키지 않는다. **최소한으로 필수적인 작업만 수행하고자 검사를 먼저 하고, 이를 바탕으로 최적화 방법을 찾아내 계획한다.** 그리고 그 계획에 따라 개별 요소에 대한 스트림 연산을 수행한다.
+스트림 파이프라인을 실행하게 되면, `JVM` 은 곧바로 스트림 연산을 실행시키지 않는다. <mark style="color:red;">최소한으로 필수적인 작업만 수행하고자 검사를 먼저 하고, 이를 바탕으로 최적화 방법을 찾아내 계획한다.</mark> 그리고 그 계획에 따라 개별 요소에 대한 스트림 연산을 수행한다.
 
 예를 들어, `10000` 개의 데이터중에 길이가 5가 넘는 문자열에서 가장 알파벳순으로 앞에 있는 2개의 문자열만 가지고 오고 싶다고 하자. 지연 평가가 없이 순서대로 바로 동작했다면, `10000` 개의 데이터를 모두 순회해야 했을 것이다.
 
-> 하지만 어짜피 최종적으로 2개만 탐색하면 되는데 전체 데이터를 다 볼 필요가 있을까?
+> 하지만 어짜피 최종적으로 2개만 탐색하면 되는데 <mark style="color:red;">전체 데이터를 다 볼 필요가 있을까?</mark>
 
 1.  `limit` 사용 O\
 
