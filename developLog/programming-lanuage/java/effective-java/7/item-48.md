@@ -1,5 +1,7 @@
 # item 48 : 스트림 병렬화는 주의해서 적용하라
 
+<figure><img src="../../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
 ## 1. 자바의 동시성 프로그래밍의 역사
 
 > 주류 언어 중, 동시성 프로그래밍 측면에서 자바는 항상 앞서갔다

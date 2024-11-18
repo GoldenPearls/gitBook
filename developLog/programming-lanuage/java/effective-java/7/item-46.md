@@ -1,5 +1,7 @@
 # item 46 : 스트림에서는 부작용 없는 함수를 사용하라
 
+<figure><img src="../../../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+
 ## 1. 스트림의 핵심 :  스트림을 이해하기 어려울 수 있음
 
 **스트림**은 <mark style="color:red;">그저 또 하나의 API가 아닌, 함수형 프로그래밍에 기초한 패러다임이기 때문</mark>이다. 스트림이 제공하는 표현력, 속도,  상황에 따라서는 병렬성을 얻으려면 API는 말할 것 도 없고 이 패러다임까지 함께 받아들여야 한다.
