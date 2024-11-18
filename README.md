@@ -81,6 +81,8 @@
       * [item 46 : 스트림에서는 부작용 없는 함수를 사용하라](developLog/programming-lanuage/java/effective-java/7/item-46.md)
       * [item 47 : 반환타입으로는 스트림보다는 컬렉션이 낫다.](developLog/programming-lanuage/java/effective-java/7/item-47-..md)
       * [item 48 : 스트림 병렬화는 주의해서 적용하라](developLog/programming-lanuage/java/effective-java/7/item-48.md)
+    * [8장 : 메서드](developLog/programming-lanuage/java/effective-java/8/README.md)
+      * [item 49 : 매개변수가 유효한지 검사하라](developLog/programming-lanuage/java/effective-java/8/item-49.md)
     * [스터디에서 알아가는 것](developLog/programming-lanuage/java/effective-java/undefined.md)
   * [모던 자바 인 액션](developLog/programming-lanuage/java/modern-java-in-action/README.md)
     * [chaper 1. 자바 8, 9, 10, 11 : 무슨 일이 일어나고 있는가?](developLog/programming-lanuage/java/modern-java-in-action/chaper-1.-8-9-10-11.md)
