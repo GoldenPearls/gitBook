@@ -80,6 +80,7 @@
       * [item 45 : 스트림은 주의해서 사용하라](programming-lanuage/java/effective-java/7/item-45.md)
       * [item 46 : 스트림에서는 부작용 없는 함수를 사용하라](programming-lanuage/java/effective-java/7/item-46.md)
       * [item 47 : 반환타입으로는 스트림보다는 컬렉션이 낫다.](programming-lanuage/java/effective-java/7/item-47-..md)
+      * [item 48 : 스트림 병렬화는 주의해서 적용하라](programming-lanuage/java/effective-java/7/item-48.md)
     * [스터디에서 알아가는 것](programming-lanuage/java/effective-java/undefined.md)
   * [모던 자바 인 액션](programming-lanuage/java/modern-java-in-action/README.md)
     * [chaper 1. 자바 8, 9, 10, 11 : 무슨 일이 일어나고 있는가?](programming-lanuage/java/modern-java-in-action/chaper-1.-8-9-10-11.md)
