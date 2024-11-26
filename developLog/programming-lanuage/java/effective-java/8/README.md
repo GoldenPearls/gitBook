@@ -6,4 +6,4 @@
 
 이번 장의 내용 중 상당 부분은 메서드뿐 아니라 생성자에도 적용된다. 그리고 ‘4장 클래스와 인터페이 스’와 마찬가지로 이번 장도 사용성, 견고성, 유연성에 집중할 것이다.
 
-<figure><img src="../../../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>

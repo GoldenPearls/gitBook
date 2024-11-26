@@ -320,7 +320,7 @@ public class DataService {
 
 <figure><img src="../../../../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
 
-##
+
 
 ## 📚 핵심 정리
 

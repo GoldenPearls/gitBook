@@ -102,7 +102,7 @@
 * 제이보스
 * 출처
 
-[https://ko.wikipedia.org/wiki/웹\_컨테이너](https://ko.wikipedia.org/wiki/%EC%9B%B9\_%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88)
+[https://ko.wikipedia.org/wiki/웹\_컨테이너](https://ko.wikipedia.org/wiki/%EC%9B%B9_%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88)
 
 [https://helloworld-88.tistory.com/71#:\~:text=■](https://helloworld-88.tistory.com/71) 웹 애플리케이션 서버 (WAS%2C Web Application Server)란%3F,컴퓨터나 장치에 애플리케이션을 수행해 주는 미들웨어 (소프트웨어 엔진)이다.
 
@@ -239,7 +239,7 @@
   * **8080 포트**
 * 이런 에러 발생 원인
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * 외부에서 실행되는 톰캣 서버 존재
 * 서버 연결 정보가 제대로 주어지지 않을 때
@@ -300,7 +300,7 @@ CF. 여러 개의 브라우저 서버 동시 접속 시도는 지원 되어야 �
 
 8. **다음의 화면을 구현하기 위한 HTML 코드를 작성해 주세요**
 
-<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ```java
 <html>
