@@ -33,11 +33,7 @@ layout:
 
 ### 😀 블로그의 주인장에  대해 말하자면,
 
-<div align="center">
-
-<img src="https://github.com/user-attachments/assets/79379010-591b-4608-8fa7-ec1fec6d8840" alt="KakaoTalk_20240531_095426888_02" width="300">
-
-</div>
+<div align="center"><img src="https://github.com/user-attachments/assets/79379010-591b-4608-8fa7-ec1fec6d8840" alt="KakaoTalk_20240531_095426888_02" width="300"></div>
 
 > 🌱 1년차  주니어 개발자입니다.&#x20;
 
@@ -46,7 +42,7 @@ layout:
 * 📝 저는 기록하고 남들과 정보를 나누는 것을 좋아하기에 [![](https://img.shields.io/badge/Velog-20C997?style=flat-square\&logo=Velog\&logoColor=white\&https://velog.io/@prettylee620)](https://velog.io/@prettylee620) 와 [![](https://img.shields.io/badge/Notion-000000?style=flat-square\&logo=Notion\&logoColor=white)](https://mellona.oopy.io/)에 기록합니다.
 * 📌 최근에 기록하여 많은 공감을 얻었던 글은 **면접에 관련된 글**이며, 그 외의 다수의 글로 공감과 댓글을 받았으며, 2024년 **velog 팔로워 100명 이상**을 달성하였습니다.
 
-<figure><img src=".gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### ☎ CONTACT
 

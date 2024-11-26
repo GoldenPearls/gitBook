@@ -97,7 +97,7 @@ public class Stack<E> {
 
 다음과 같은 컴파일 에러 발생
 
-<figure><img src="../../../../.gitbook/assets/image (4) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (4) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 > <mark style="color:red;">제네릭은 E와 같은 실체화 불가 타입으로는 배열을 만들 수 없다.</mark>
 
@@ -421,5 +421,5 @@ numberList.add(3.14); // 만약 numberList가 intList를 가리킨다면, intLis
 
 > 참고 글&#x20;
 >
-> * [이왕이면 제네릭 타입으로 만들라.pdf](https://github.com/woowacourse-study/2022-effective-java/blob/main/05%EC%9E%A5/%EC%95%84%EC%9D%B4%ED%85%9C\_29/%EC%9D%B4%EC%99%95%EC%9D%B4%EB%A9%B4%20%EC%A0%9C%EB%84%A4%EB%A6%AD%20%ED%83%80%EC%9E%85%EC%9C%BC%EB%A1%9C%20%EB%A7%8C%EB%93%A4%EB%9D%BC.pdf)
+> * [이왕이면 제네릭 타입으로 만들라.pdf](https://github.com/woowacourse-study/2022-effective-java/blob/main/05%EC%9E%A5/%EC%95%84%EC%9D%B4%ED%85%9C_29/%EC%9D%B4%EC%99%95%EC%9D%B4%EB%A9%B4%20%EC%A0%9C%EB%84%A4%EB%A6%AD%20%ED%83%80%EC%9E%85%EC%9C%BC%EB%A1%9C%20%EB%A7%8C%EB%93%A4%EB%9D%BC.pdf)
 > * [https://kangmanjoo.tistory.com/136](https://kangmanjoo.tistory.com/136)
