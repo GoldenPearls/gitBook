@@ -87,6 +87,7 @@
       * [item 51 : 메서드 시그니처를 신중히 설계하라](developLog/programming-lanuage/java/effective-java/8/item-51.md)
       * [item 52 : 다중정의는 신중히 사용하라](developLog/programming-lanuage/java/effective-java/8/item-52.md)
       * [item 53 : 가변인수는 신중히 사용하라.](developLog/programming-lanuage/java/effective-java/8/item-53-..md)
+      * [item 54 : null이 아닌, 빈 컬렉션이나 배열을 반환하라](developLog/programming-lanuage/java/effective-java/8/item-54-null.md)
     * [스터디에서 알아가는 것](developLog/programming-lanuage/java/effective-java/undefined.md)
   * [모던 자바 인 액션](developLog/programming-lanuage/java/modern-java-in-action/README.md)
     * [chaper 1. 자바 8, 9, 10, 11 : 무슨 일이 일어나고 있는가?](developLog/programming-lanuage/java/modern-java-in-action/chaper-1.-8-9-10-11.md)
