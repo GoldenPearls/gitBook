@@ -236,24 +236,25 @@ list = [-2, 0, 2]
 
 ### 2) 다중 정의의 함정 2: 람다와 메서드 참조
 
-*   **문제 코드**:
+**문제 코드**:
 
-    ```java
-    @Test
-    public void lambdaTest1() {
-        new Thread(System.out::println).start();
-    }
+```java
+@Test
+public void lambdaTest1() {
+    new Thread(System.out::println).start();
+}
 
-    @Test
-    public void lambdaTest2() {
-        ExecutorService exec = Executors.newCachedThreadPool();
-        exec.submit(System.out::println);  // 컴파일 오류 발생 가능
-    }
-    ```
+@Test
+public void lambdaTest2() {
+    ExecutorService exec = Executors.newCachedThreadPool();
+    exec.submit(System.out::println);  // 컴파일 오류 발생 가능
+}
+```
 
-    * `lambdaTest1()`은 `Runnable`을 요구하기 때문에 문제없이 컴파일된다.
-    * `lambdaTest2()`에서는 `submit()` 메서드가 `Runnable`과 `Callable<T>`를 모두 받을 수 있어 **컴파일러가 어떤 메서드를 선택해야 할지 모호해** 컴파일 오류가 발생한다.
-    * **서로 다른 함수형 인터페이스**라도 **같은 위치의 인수**로 받을 경우, 다중 정의는 혼란을 초래할 수 있다.
+* `lambdaTest1()`은 `Runnable`을 요구하기 때문에 문제없이 컴파일된다.
+* `lambdaTest2()`에서는 `submit()` 메서드가 `Runnable`과 `Callable<T>`를 모두 받을 수 있어 **컴파일러가 어떤 메서드를 선택해야 할지 모호해** 컴파일 오류가 발생한다.
+* **서로 다른 함수형 인터페이스**라도 **같은 위치의 인수**로 받을 경우, 다중 정의는 혼란을 초래할 수 있다.
+  * 이 말은 서로 다른 함수형 인터페이스라도 서로 근본적으로 다르지 않다는 뜻이다. 컴파일할 때 명령줄 스위치로 -Xlint:overloads를 지정하면 이런 종류의 다중정의를 경고해줄 것이다.
 
 {% hint style="danger" %}
 자바 4와 그 이후에 대해서
