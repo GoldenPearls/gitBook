@@ -312,7 +312,7 @@ TMI이지만 완전 밑쪽이지만 간추린 버전이 **트렌딩**에 떴다!
 
 ### 1) 인성 질문(...?)
 
-> **사실 인성 면접만 보는 데의 기준은 뭔지 잘 모르겠..?**🤔 오래 봐서 이사람이 어떤지 보고 뽑는 느낌이면 모르겠는데 **인성면접에서 거의 기술적으로 뭘 다룰 수 있는지 상 중 하로 따지고 바로 실무 투입하길 원하는 느낌?** 근데 또 코딩테스트나 과제 면접는 안 보고 말만으로 이 사람의 실력을 판단할 수 있나? 그걸 어떻게 알고 뽑지? 🤔 라는 의문이 드는 면접들이 많았다.
+> **사실 인성 면접만 보는 데의 기준은 뭔지 잘 모르겠..?**&#xD83E;� 오래 봐서 이사람이 어떤지 보고 뽑는 느낌이면 모르겠는데 **인성면접에서 거의 기술적으로 뭘 다룰 수 있는지 상 중 하로 따지고 바로 실무 투입하길 원하는 느낌?** 근데 또 코딩테스트나 과제 면접는 안 보고 말만으로 이 사람의 실력을 판단할 수 있나? 그걸 어떻게 알고 뽑지? 🤔 라는 의문이 드는 면접들이 많았다.
 
 1. 아르바이트를 오래했는데 오래한 이유
 2. 스트레스 해소법
@@ -373,7 +373,7 @@ TMI이지만 완전 밑쪽이지만 간추린 버전이 **트렌딩**에 떴다!
 * [신입 개발자 전공 지식 & 기술 면접 백과사전](https://gyoogle.dev/blog/): 기술 면접에 대한 정리가 체계적으로 잘되어 있는 편
 * [다른 사람이 면접시 물어본 것을 VELOG에 정리한 것](https://velog.io/@matisse/%EA%B8%B0%EC%88%A0%EB%A9%B4%EC%A0%91-%EC%A7%88%EB%AC%B8-%EC%A0%95%EB%A6%AC-CS) : 3년전 글이긴 한데 정리가 잘되있어서 나도 나중에 면접시 저런식으로 정리해야 겠다를 생각함
 * [READY FOR TECH INTERVIEW](https://github.com/WooVictory/Ready-For-Tech-Interview) : 이 곳은 신입 혹은 주니어 개발자에게 필요한 지식을 정리하는 GITHUB
-* [Technical Interview Guidelines for Beginners](https://github.com/JaeYeopHan/Interview\_Question\_for\_Beginner) : 시작하는 주니어 개발자들을 위한 기초 지식 정리한 GITHUB
+* [Technical Interview Guidelines for Beginners](https://github.com/JaeYeopHan/Interview_Question_for_Beginner) : 시작하는 주니어 개발자들을 위한 기초 지식 정리한 GITHUB
 * [Backend-Interview-Question](https://github.com/ksundong/backend-interview-question) : 백엔드 개발자 입사시 질문, 예상질문 GITHUB
 * [프론트엔드 기술 면접 대비하기 -1편](https://f-lab.kr/blog/frontend-interview-1) : 프론트앤드 면접질문정리되어 있는 F-LAB
 * [자바 백엔드 개발자 질문](https://f-lab.kr/blog/java-backend-interview-2) : 자바 기술 면접 대비하기정리 되어 있는 F-LAB
@@ -439,7 +439,7 @@ TMI이지만 완전 밑쪽이지만 간추린 버전이 **트렌딩**에 떴다!
 
 #### 면접에 대해 너무 두려워 하지 말자.
 
-> 참고 : 🔗 [일부러 거절당해보기(feat. 부트캠프 끝나고 뭐할까)](https://velog.io/@eddy\_song/rejection)
+> 참고 : 🔗 [일부러 거절당해보기(feat. 부트캠프 끝나고 뭐할까)](https://velog.io/@eddy_song/rejection)
 
 그렇지만 이력서랑 포트폴리오로 고민하는 사람들을 위해 적어봤다. 그리고 너무 겁먹지 말고 지원해보자. 생각보다 면접관들 친절하다. 그리고 친구가 해준 말 중에 가장 기억에 남는 말이 있다. 나도 면접에 대한 두려움이 많았다.&#x20;
 
@@ -616,7 +616,7 @@ SI의 경우 팀으로 가는 경우들도 많은데.. 진짜 딱 파견만 하�
 * [주니어를 위한 취업 사이트 신입이 경력 쌓긴 좋은 회사 추천](https://github.com/jojoldu/junior-recruit-scheduler) 주니어 개발자를 위한 취업 정보
 * [신입을 뽑는 회사](https://www.jobplanet.co.kr/contents/news-4400)
 * [인프로 멘토링](https://www.inflearn.com/mentors?)
-* [혁신의 숲](https://www.innoforest.co.kr/?utm\_source=google\&utm\_medium=cpc\&utm\_campaign=main-ver-2\&gclid=Cj0KCQjw3JanBhCPARIsAJpXTx7xhY5mxodlrrLzW\_sYVboO-iBuH4qk9eZcw2Ylk231TTHH8tiq6LoaAk5LEALw\_wcB) : 스타트업 확인 가능
+* [혁신의 숲](https://www.innoforest.co.kr/?utm_source=google\&utm_medium=cpc\&utm_campaign=main-ver-2\&gclid=Cj0KCQjw3JanBhCPARIsAJpXTx7xhY5mxodlrrLzW_sYVboO-iBuH4qk9eZcw2Ylk231TTHH8tiq6LoaAk5LEALw_wcB) : 스타트업 확인 가능
 
 #### 🗒 알고리즘 공부 사이트
 
@@ -688,7 +688,7 @@ SI의 경우 팀으로 가는 경우들도 많은데.. 진짜 딱 파견만 하�
 
 특히.. IT 업계는 확실히 덜 본다는 게 맞는 것 같다.
 
-\+++ TMI이지만 출근하고보니 28이지만 나이로 완전 어린편이다! 너무 걱정 안해도 될 것 같다.
++++ TMI이지만 출근하고보니 28이지만 나이로 완전 어린편이다! 너무 걱정 안해도 될 것 같다.
 
 ### 5) 자기 혐오는 하지말자.
 

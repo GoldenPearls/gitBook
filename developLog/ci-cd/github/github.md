@@ -86,7 +86,7 @@ $ rm -rf old-repository.git
 > 1. GitHub 계정으로 로그인합니다.
 > 2. [GitHub의 Personal Access Token 생성 페이지](https://github.com/settings/tokens)로 이동합니다.
 > 3. "Generate new token" 버튼을 클릭합니다.
-> 4. **권한(Scopes)**에서 `repo`, `workflow`, `admin:repo_hook` 권한을 선택합니다. 이 토큰은 저장소에 대한 읽기/쓰기 권한을 가집니다.
+> 4. **권한(Scopes)**&#xC5D0;서 `repo`, `workflow`, `admin:repo_hook` 권한을 선택합니다. 이 토큰은 저장소에 대한 읽기/쓰기 권한을 가집니다.
 > 5. 생성된 토큰을 복사해둡니다. 이 토큰은 나중에 사용할 것입니다.
 > 6. 개인잘페이지에 토큰기록해두기!!!
 

@@ -48,7 +48,7 @@
 
 ### Github PAT 발급
 
-> 나임을 증명하여 개인 레포로 푸쉬할 수 있는 권한을 가진 **개인 토큰 (PAT, Personal Access Token)**을 발급 받아야 한다.
+> 나임을 증명하여 개인 레포로 푸쉬할 수 있는 권한을 가진 **개인 토큰 (PAT, Personal Access Token)**&#xC744; 발급 받아야 한다.
 
 **<< Github PAT 발급 >>**
 
@@ -107,7 +107,7 @@
 
 * GitHub Actions <mark style="color:red;">워크플로 파일을 추가하고 업데이트하는 기능을 부여</mark>합니다.&#x20;
 * 경로와 내용이 모두 동일한 파일이 동일한 리포지토리의 다른 분기에 있는 경우 이 범위 없이 워크플로 파일을 커밋할 수 있습니다. 워크플로 파일은 다른 범위 집합을 포함할 수 있는 `GITHUB_TOKEN`을 노출할 수 있습니다.&#x20;
-* 자세한 내용은 "[자동 토큰 인증](https://docs.github.com/ko/actions/security-guides/automatic-token-authentication#permissions-for-the-github\_token)"을(를) 참조하세요.
+* 자세한 내용은 "[자동 토큰 인증](https://docs.github.com/ko/actions/security-guides/automatic-token-authentication#permissions-for-the-github_token)"을(를) 참조하세요.
 
 ## repo끼리 연결하기 위한 토큰 발급
 

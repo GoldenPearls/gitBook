@@ -225,7 +225,7 @@ Producer Extends, Consumer Super의 약자로 이는 생산자(`Producer`) 역�
 
 여기서 `Iterable<? extends E>`는 `E`의 **하위 타입**을 허용한다. 그 이유는 :
 
-1. **하위 타입은 상위 타입으로 **<mark style="color:red;">**변환**</mark>**될 수 있습니다**: 예를 들어, `Integer`는 `Number`의 하위 타입이기 때문에, `Integer`를 `Number` 타입으로 사용해도 문제가 없다. 따라서, `E` 타입을 수용할 수 있는 하위 타입의 데이터를 받아들일 수 있다.
+1. **하위 타입은 상위 타입으로&#x20;**<mark style="color:red;">**변환**</mark>**될 수 있습니다**: 예를 들어, `Integer`는 `Number`의 하위 타입이기 때문에, `Integer`를 `Number` 타입으로 사용해도 문제가 없다. 따라서, `E` 타입을 수용할 수 있는 하위 타입의 데이터를 받아들일 수 있다.
 2. **생산자 관점에서 데이터 제공**: `pushAll` 메서드는 외부에서 제공된 데이터를 `Stack`에 추가한다. 이때, 하위 타입의 데이터를 허용하면, 다양한 타입의 데이터를 `Stack`에 추가할 수 있다. `extends`를 사용하면 하위 타입도 수용할 수 있는 유연성을 제공힌다.
 3. 위 코드는 `Iterable<E>` 대신 `Iterable<? extends E>`를 사용함으로써 `Stack<Number>`에 `Iterable<Integer>`와 같은 `Number`의 하위 타입 컬렉션을 전달할 수 있게 만들어준다.
 
@@ -252,7 +252,7 @@ Producer Extends, Consumer Super의 약자로 이는 생산자(`Producer`) 역�
 
 여기서 `Collection<? super E>`는 `E`의 **상위 타입**을 허용한다. 그 이유는&#x20;
 
-1. **상위 타입은 하위 타입을 **<mark style="color:red;">**수용**</mark>**할 수 있다**: 예를 들어, `Number`가 `Integer`의 상위 타입이기 때문에 `Number` 타입의 변수에는 `Integer` 값을 저장할 수 있다. 즉, 더 넓은 범위의 타입을 허용할 수 있기 때문에 상위 타입을 사용할 수 있는 것이다.
+1. **상위 타입은 하위 타입을&#x20;**<mark style="color:red;">**수용**</mark>**할 수 있다**: 예를 들어, `Number`가 `Integer`의 상위 타입이기 때문에 `Number` 타입의 변수에는 `Integer` 값을 저장할 수 있다. 즉, 더 넓은 범위의 타입을 허용할 수 있기 때문에 상위 타입을 사용할 수 있는 것이다.
 2. **소비자 관점에서 데이터의 수용**: `popAll` 메서드는 `Stack`의 모든 원소를 `Collection`에 추가한다. 이때, `E`의 상위 타입(`Collection<? super E>`)을 사용하면 `Stack`의 원소들을 더 넓은 범위의 타입으로 수용할 수 있다.&#x20;
 3. <mark style="color:red;">하위 타입은 더 많은 정보를 담고 있는 반면, 상위 타입은 더 일반적이다. 따라서, 상위 타입이 하위 타입의 데이터를 수용할 수 있는 것이다.</mark>
 4. `popAll` 메서드의 실행 과정에서 **`Collection`이 소비자 역할을 수행**한다.

@@ -36,7 +36,7 @@ public class Main {
 
 ```
 
-비교 로직을 익명 클래스로 작성하여`Comparator`  구현했지만 익명 클래스 방식은 코드가 너무 길기 때문에 자바는 **함수형 프로그래밍(Functional Programming)**에 적합하지 않다.
+비교 로직을 익명 클래스로 작성하여`Comparator`  구현했지만 익명 클래스 방식은 코드가 너무 길기 때문에 자바는 **함수형 프로그래밍(Functional Programming)**&#xC5D0; 적합하지 않다.
 
 ## 2. 자바 8에서의 람다 표현식 도입
 

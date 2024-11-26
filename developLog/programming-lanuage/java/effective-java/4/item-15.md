@@ -105,7 +105,7 @@ public 클래스의 인스턴스 필드는 되도록 public이 아니어야 한�
 public static final int MAX_VALUE = 100;
 ```
 
-위와 같이 숫자 같은 **기본 타입(Primitive Type)이나, 불변 객체(Immutable Object)**를 참조할 때는 `public static final`을 사용해도 안전합니다. 즉, **숫자 값**, **문자열** 등은 **변경되지 않으므로 안전**하게 사용할 수 있다.
+위와 같이 숫자 같은 **기본 타입(Primitive Type)이나, 불변 객체(Immutable Object)**&#xB97C; 참조할 때는 `public static final`을 사용해도 안전합니다. 즉, **숫자 값**, **문자열** 등은 **변경되지 않으므로 안전**하게 사용할 수 있다.
 
 **불변 객체란?**
 

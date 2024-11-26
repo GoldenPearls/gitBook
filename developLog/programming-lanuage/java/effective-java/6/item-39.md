@@ -69,7 +69,7 @@ public class MyTests {
 
 ## 3. 애너테이션(Annotation)
 
-> > * [애너테이션의 동작 원리](https://velog.io/@anak\_2/Java-annotations-%EC%9D%B4%EB%9E%80-%EC%84%A4%EB%AA%85-%ED%99%9C%EC%9A%A9)
+> > * [애너테이션의 동작 원리](https://velog.io/@anak_2/Java-annotations-%EC%9D%B4%EB%9E%80-%EC%84%A4%EB%AA%85-%ED%99%9C%EC%9A%A9)
 >
 > Test라는 자동으로 수행되는 간단한 테스트용 애너테이션으로, 예외가 발생하면 테스트를 실패로 처리한다.
 
@@ -91,7 +91,7 @@ public @interface Test {
 ```
 
 {% hint style="info" %}
-`@Test` 에너테이션 타입 선언 자체에 두 가지의 다른 애너테이션이 달려 있는데, 이를 **메타 애너테이션(meta-annotation)**이라 한다.
+`@Test` 에너테이션 타입 선언 자체에 두 가지의 다른 애너테이션이 달려 있는데, 이를 **메타 애너테이션(meta-annotation)**&#xC774;라 한다.
 {% endhint %}
 
 * **`@Retention(RetentionPolicy.RUNTIME)`**: <mark style="color:red;">애너테이션을 런타임에도 유지하도록 설정하여 리플렉션을 통해 접근할 수 있게 한다.</mark> 메타 애너테이션은 `@Test`가 런타임에도 유지되어야 한다는 의미이며, 만약 이를 생략하면 테스트 도구는 `@Test`를 인식할 수 없게 된다.

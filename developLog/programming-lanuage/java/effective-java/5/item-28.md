@@ -194,7 +194,7 @@ public class VarargsExample {
 
 ### 3) 제네릭과 가변인수 메서드의 문제
 
-* **제네릭 타입과 가변인수 메서드(varargs method)**를 함께 사용하면 경고 메시지가 발생할 수 있다. 가변인수 메서드를 호출할 때마다 매개변수를 담을 배열이 생성되는데, 그 배열의 원소가 실체화 불가 타입일 경우 경고가 발생하다.
+* **제네릭 타입과 가변인수 메서드(varargs method)**&#xB97C; 함께 사용하면 경고 메시지가 발생할 수 있다. 가변인수 메서드를 호출할 때마다 매개변수를 담을 배열이 생성되는데, 그 배열의 원소가 실체화 불가 타입일 경우 경고가 발생하다.
 * 이 문제는 `@SafeVarargs` 애너테이션을 사용하여 해결할 수 있다. `@SafeVarargs`는 메서드의 <mark style="color:red;">가변인수 매개변수가 안전하다고 확신될 때 사용한다.</mark>
 
 > 아래 예제에서는 가변인수를 사용해 여러 개의 리스트를 결합하는 메서드를 정의하고, `@SafeVarargs` 애너테이션을 사용해 경고를 억제한다.
@@ -304,7 +304,7 @@ public class Chooser<T> {
 * **실체화 불가 타입**: 런타임에 타입 정보를 유지하지 않는 제네릭 타입을 의미하며, 제네릭 배열 생성과 관련된 문제의 원인이다.
 * **대안**: 배열 대신 컬렉션(`List<`[`E`](#user-content-fn-3)[^3]`>`)을 사용하는 것이 타입 안전성과 상호운용성을 높이는 방법이이다.
 
-> 참고 글 : [https://github.com/woowacourse-study/2022-effective-java/blob/main/05%EC%9E%A5/%EC%95%84%EC%9D%B4%ED%85%9C\_28/%EB%B0%B0%EC%97%B4%EB%B3%B4%EB%8B%A4%EB%8A%94\_%EB%A6%AC%EC%8A%A4%ED%8A%B8%EB%A5%BC\_%EC%82%AC%EC%9A%A9%ED%95%98%EB%9D%BC.md](https://github.com/woowacourse-study/2022-effective-java/blob/main/05%EC%9E%A5/%EC%95%84%EC%9D%B4%ED%85%9C\_28/%EB%B0%B0%EC%97%B4%EB%B3%B4%EB%8B%A4%EB%8A%94\_%EB%A6%AC%EC%8A%A4%ED%8A%B8%EB%A5%BC\_%EC%82%AC%EC%9A%A9%ED%95%98%EB%9D%BC.md)
+> 참고 글 : [https://github.com/woowacourse-study/2022-effective-java/blob/main/05%EC%9E%A5/%EC%95%84%EC%9D%B4%ED%85%9C\_28/%EB%B0%B0%EC%97%B4%EB%B3%B4%EB%8B%A4%EB%8A%94\_%EB%A6%AC%EC%8A%A4%ED%8A%B8%EB%A5%BC\_%EC%82%AC%EC%9A%A9%ED%95%98%EB%9D%BC.md](https://github.com/woowacourse-study/2022-effective-java/blob/main/05%EC%9E%A5/%EC%95%84%EC%9D%B4%ED%85%9C_28/%EB%B0%B0%EC%97%B4%EB%B3%B4%EB%8B%A4%EB%8A%94_%EB%A6%AC%EC%8A%A4%ED%8A%B8%EB%A5%BC_%EC%82%AC%EC%9A%A9%ED%95%98%EB%9D%BC.md)
 
 [^1]: List, Set, Map
 

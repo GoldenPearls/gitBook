@@ -114,7 +114,7 @@ void addElement(Collection<? super MyParent> c) {
 }
 ```
 
-`printCollection` 같은 경우에는 **컬렉션으로부터 원소들을 꺼내면서 와일드카드 타입 객체를 생성(produce)**하고 있다. 반대로 `addElement`의 경우에는 **컬렉션에 해당 타입의 원소를 추가함으로써 객체를 사용(consume)**하고 있다. 그러므로 와일드카드 타입의 객체를 produce하는 printCollection은 extends가, 객체를 consume하는 addElement에는 super가 적합한 것이다.
+`printCollection` 같은 경우에는 **컬렉션으로부터 원소들을 꺼내면서 와일드카드 타입 객체를 생성(produce)**&#xD558;고 있다. 반대로 `addElement`의 경우에는 **컬렉션에 해당 타입의 원소를 추가함으로써 객체를 사용(consume)**&#xD558;고 있다. 그러므로 와일드카드 타입의 객체를 produce하는 printCollection은 extends가, 객체를 consume하는 addElement에는 super가 적합한 것이다.
 
 ## 7. 결론
 

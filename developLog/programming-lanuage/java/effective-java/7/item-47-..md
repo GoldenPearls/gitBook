@@ -30,7 +30,7 @@
 
 > Java 8에서는 스트림(Stream)이 등장하며, 원소 시퀀스를 반환할 때 선택지가 복잡해졌다.
 
-스트림은 **반복(iteration)**을 지원하지 않는다. 따라서 원소 시퀀스를 반환할때 스트림을 사용하면 아래와 같이 `for-each` 로 반복을 수행할 수 없다.
+스트림은 **반복(iteration)**&#xC744; 지원하지 않는다. 따라서 원소 시퀀스를 반환할때 스트림을 사용하면 아래와 같이 `for-each` 로 반복을 수행할 수 없다.
 
 ```java
 for (ProcessHandle ph : ProcessHandle.allProcesses()::iterator) {

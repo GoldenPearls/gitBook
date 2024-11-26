@@ -134,7 +134,7 @@ System.out.println(color1.equals(color3)); // false
 * 따라서 `==` 연산자와 `equals` 메서드 모두 `true`를 반환한한다.
 * `equals` 메서드를 재정의하지 않았지만, `Object` 클래스의 기본 구현으로도 논리적 동치성을 올바르게 판단할 수 있다.
 
-## 3. equals 메서드 재정의 시 지켜야  할  일반 규약**.**
+## 3. equals 메서드 재정의 시 지켜야  할  일반 규&#xC57D;**.**
 
 * **반사성(reflexive)**: `x.equals(x)`는 항상 `true`여야 한다.
 * **대칭성(symmetric)**: `x.equals(y)`가 `true`이면 `y.equals(x)`도 `true`여야 한다.

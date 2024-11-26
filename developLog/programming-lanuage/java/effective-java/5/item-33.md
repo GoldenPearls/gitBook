@@ -287,7 +287,7 @@ int result = f.getFavorite(Integer.class);  // ClassCastException
 
 <figure><img src="https://velog.velcdn.com/images/semi-cloud/post/51dedfcc-281b-4fe5-9ad1-7a77d63a2e72/image.png" alt=""><figcaption></figcaption></figure>
 
-이처럼 인스턴스가 타입 불변식을 어기는 일이 없도록 보장하려면, 다음과 같이 **동적 형변환(cast)**을 통해 인수로 주어진 `instance` 의 타입이 `type` 으로 명시한 타입과 같은지 확인하면 된다.
+이처럼 인스턴스가 타입 불변식을 어기는 일이 없도록 보장하려면, 다음과 같이 **동적 형변환(cast)**&#xC744; 통해 인수로 주어진 `instance` 의 타입이 `type` 으로 명시한 타입과 같은지 확인하면 된다.
 
 ```java
  public <T> void putFavorite(Class<T> type, T instance) {
