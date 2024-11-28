@@ -89,6 +89,7 @@
       * [item 53 : 가변인수는 신중히 사용하라.](programming-lanuage/java/effective-java/8/item-53-..md)
       * [item 54 : null이 아닌, 빈 컬렉션이나 배열을 반환하라](programming-lanuage/java/effective-java/8/item-54-null.md)
       * [item 55 : 옵셔널 반환은 신중히 하라](programming-lanuage/java/effective-java/8/item-55.md)
+      * [item 56 :  공개된 API 요소에는 항상 문서화 주석을 작성하라](programming-lanuage/java/effective-java/8/item-56-api.md)
     * [스터디에서 알아가는 것](programming-lanuage/java/effective-java/undefined.md)
   * [모던 자바 인 액션](programming-lanuage/java/modern-java-in-action/README.md)
     * [chaper 1. 자바 8, 9, 10, 11 : 무슨 일이 일어나고 있는가?](programming-lanuage/java/modern-java-in-action/chaper-1.-8-9-10-11.md)
