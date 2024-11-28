@@ -4,6 +4,8 @@
 
 ### 1) 메서드 이름을 신중히 짓자.
 
+> 변수명 지어주는 사이트 : [https://www.curioustore.com/#!/](https://www.curioustore.com/#!/)
+
 <figure><img src="../../../../.gitbook/assets/image (76).png" alt=""><figcaption></figcaption></figure>
 
 > 항상 표준 명명 규칙을 따라야 한다.&#x20;
