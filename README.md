@@ -95,6 +95,8 @@
       * [item 70 : 복구할 수 있는 상황에는 검사 예외를, 프로그래밍 오류에는 런타임 예외를 사용하라](developLog/programming-lanuage/java/effective-java/10/item-70.md)
       * [item 71 : 필요 없는 검사 예외 사용은 피하라](developLog/programming-lanuage/java/effective-java/10/item-71.md)
       * [item 72 : 표준 예외를 사용하라](developLog/programming-lanuage/java/effective-java/10/item-72.md)
+      * [item 73 : 주상화 수준에 맞는 예외를 던지라](developLog/programming-lanuage/java/effective-java/10/item-73.md)
+      * [item 74 : 메서드가 던지는 모든 예외를 문서화하라](developLog/programming-lanuage/java/effective-java/10/item-74.md)
     * [스터디에서 알아가는 것](developLog/programming-lanuage/java/effective-java/undefined.md)
   * [모던 자바 인 액션](developLog/programming-lanuage/java/modern-java-in-action/README.md)
     * [chaper 1. 자바 8, 9, 10, 11 : 무슨 일이 일어나고 있는가?](developLog/programming-lanuage/java/modern-java-in-action/chaper-1.-8-9-10-11.md)
