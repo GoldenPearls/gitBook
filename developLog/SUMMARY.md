@@ -97,6 +97,7 @@
       * [item 72 : 표준 예외를 사용하라](programming-lanuage/java/effective-java/10/item-72.md)
       * [item 73 : 주상화 수준에 맞는 예외를 던지라](programming-lanuage/java/effective-java/10/item-73.md)
       * [item 74 : 메서드가 던지는 모든 예외를 문서화하라](programming-lanuage/java/effective-java/10/item-74.md)
+      * [item 75 : 예외의 상세 메시지에 실패 관련 정보를 담으라](programming-lanuage/java/effective-java/10/item-75.md)
     * [스터디에서 알아가는 것](programming-lanuage/java/effective-java/undefined.md)
   * [모던 자바 인 액션](programming-lanuage/java/modern-java-in-action/README.md)
     * [chaper 1. 자바 8, 9, 10, 11 : 무슨 일이 일어나고 있는가?](programming-lanuage/java/modern-java-in-action/chaper-1.-8-9-10-11.md)
