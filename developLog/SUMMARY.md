@@ -99,6 +99,7 @@
       * [item 74 : 메서드가 던지는 모든 예외를 문서화하라](programming-lanuage/java/effective-java/10/item-74.md)
       * [item 75 : 예외의 상세 메시지에 실패 관련 정보를 담으라](programming-lanuage/java/effective-java/10/item-75.md)
       * [item 76 : 가능한 한 실패 원자적으로 만들라](programming-lanuage/java/effective-java/10/item-76.md)
+      * [item 77 : 예외를 무시하지 말라](programming-lanuage/java/effective-java/10/item-77.md)
     * [스터디에서 알아가는 것](programming-lanuage/java/effective-java/undefined.md)
   * [모던 자바 인 액션](programming-lanuage/java/modern-java-in-action/README.md)
     * [chaper 1. 자바 8, 9, 10, 11 : 무슨 일이 일어나고 있는가?](programming-lanuage/java/modern-java-in-action/chaper-1.-8-9-10-11.md)
