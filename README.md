@@ -100,6 +100,8 @@
       * [item 75 : 예외의 상세 메시지에 실패 관련 정보를 담으라](developLog/programming-lanuage/java/effective-java/10/item-75.md)
       * [item 76 : 가능한 한 실패 원자적으로 만들라](developLog/programming-lanuage/java/effective-java/10/item-76.md)
       * [item 77 : 예외를 무시하지 말라](developLog/programming-lanuage/java/effective-java/10/item-77.md)
+    * [11장 : 동시성](developLog/programming-lanuage/java/effective-java/11/README.md)
+      * [item  78 : 공유 중인 가변 데이터는 동기화해 사용하라](developLog/programming-lanuage/java/effective-java/11/item-78.md)
     * [스터디에서 알아가는 것](developLog/programming-lanuage/java/effective-java/undefined.md)
   * [모던 자바 인 액션](developLog/programming-lanuage/java/modern-java-in-action/README.md)
     * [chaper 1. 자바 8, 9, 10, 11 : 무슨 일이 일어나고 있는가?](developLog/programming-lanuage/java/modern-java-in-action/chaper-1.-8-9-10-11.md)
