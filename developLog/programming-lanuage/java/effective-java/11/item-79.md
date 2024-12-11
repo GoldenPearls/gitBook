@@ -8,12 +8,16 @@
 
 ### 1) 동기화된 영역 내부에서 피해야 할 행동  (외계인 메서드)
 
+<figure><img src="../../../../.gitbook/assets/image (86).png" alt=""><figcaption></figcaption></figure>
+
 1. **재정의 가능한 메서드 호출 금지**
 2. **클라이언트가 제공한 함수 객체 호출 금지** (예: `아이템 24`)
 
 이러한 메서드들은 `외계인 메서드(alien method)`라고 부른다. 외계인 메서드는 어떤 동작을 수행할지 예측할 수 없고, 통제도 불가능하다. 동기화된 영역에서 외계인 메서드를 호출하면 다음과 같은 문제가 발생할 수 있다
 
 ### 2) 동기화 된 영역에서 외계인 메서드 호출 시 발생하는 문제
+
+<figure><img src="../../../../.gitbook/assets/image (87).png" alt=""><figcaption></figcaption></figure>
 
 1. 예외 발생
 
@@ -36,6 +40,8 @@
 ***
 
 ### 3) 잘못된 코드 예제: 외계인 메서드를 호출하는 경우
+
+<figure><img src="../../../../.gitbook/assets/image (88).png" alt=""><figcaption></figcaption></figure>
 
 다음은 `집합(Set)`을 감싸는 래퍼 클래스이다. 이 클래스는 관찰자 패턴을 사용하여 집합에 원소가 추가될 때 알림을 보낸다. 이 예제는 잘못된 방식으로 동기화된 영역 내부에서 외계인 메서드를 호출하는 상황을 보여준다.
 
@@ -128,6 +134,8 @@ for (int i = 0; i < 100; i++) {
 
 ### 개선 방법 1: 동기화 블록 밖으로 외계인 메서드 이동
 
+<figure><img src="../../../../.gitbook/assets/image (89).png" alt=""><figcaption></figcaption></figure>
+
 외계인 메서드를 호출하기 전에 관찰자 리스트를 복사하여 동기화 블록 밖에서 순회하도록 수정하면 문제가 해결된다.
 
 ```java
@@ -196,6 +204,8 @@ public class ObservableSet<E> extends ForwardingSet<E> {
 
 #### CopyOnWriteArrayList의 장점
 
+<figure><img src="../../../../.gitbook/assets/image (90).png" alt=""><figcaption></figcaption></figure>
+
 * **동기화 필요 없음**: 읽기 작업은 동기화 없이 안전하게 수행된다.
 * **코드 단순화**: 리스트 복사를 제거하여 코드가 더 간결해진다.
 * **안전한 수정**: 수정 작업이 복사본에서 이루어지기 때문에 동기화 문제가 발생하지 않는다.
@@ -214,6 +224,8 @@ public class ObservableSet<E> extends ForwardingSet<E> {
 
 ### 📚 핵심 정리
 
+<figure><img src="../../../../.gitbook/assets/image (91).png" alt=""><figcaption></figcaption></figure>
+
 교착상태와 데이터 손상을 방지하려면 동기화 블록 내부에서 외계인 메서드를 호출하지 말아야 한다. 이를 위해 다음 지침을 따른다:
 
 1. **동기화 블록 내부 작업 최소화**:
@@ -226,6 +238,8 @@ public class ObservableSet<E> extends ForwardingSet<E> {
 멀티코어 환경에서는 과도한 동기화를 피하는 것이 특히 중요하다. 내부 동기화는 필요할 때만 사용하고, 이를 명확히 문서화해야 한다. 동기화 설계에서 실수는 치명적인 결과를 초래할 수 있으므로, 철저한 검토가 필요하다.
 
 **부록: CopyOnWriteArrayList와 ArrayList 비교**
+
+<figure><img src="../../../../.gitbook/assets/image (92).png" alt=""><figcaption></figcaption></figure>
 
 | 특징         | CopyOnWriteArrayList | ArrayList     |
 | ---------- | -------------------- | ------------- |
