@@ -102,6 +102,7 @@
       * [item 77 : 예외를 무시하지 말라](programming-lanuage/java/effective-java/10/item-77.md)
     * [11장 : 동시성](programming-lanuage/java/effective-java/11/README.md)
       * [item  78 : 공유 중인 가변 데이터는 동기화해 사용하라](programming-lanuage/java/effective-java/11/item-78.md)
+      * [item 79 : 과도한 동기화는 피하라](programming-lanuage/java/effective-java/11/item-79.md)
     * [스터디에서 알아가는 것](programming-lanuage/java/effective-java/undefined.md)
   * [모던 자바 인 액션](programming-lanuage/java/modern-java-in-action/README.md)
     * [chaper 1. 자바 8, 9, 10, 11 : 무슨 일이 일어나고 있는가?](programming-lanuage/java/modern-java-in-action/chaper-1.-8-9-10-11.md)
