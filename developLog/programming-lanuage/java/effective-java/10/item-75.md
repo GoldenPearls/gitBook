@@ -78,8 +78,6 @@ public class CustomIndexOutOfBoundsException extends IndexOutOfBoundsException {
 
 
 
-1.
-
 ***
 
 #### **추가 설명 및 부연**
@@ -265,7 +263,7 @@ public class Example {
   * 런타임에 발생하며, 반드시 처리하지 않아도 된다.
   * 프로그램적 접근이 드물지만, `toString`을 통해 디버깅 정보를 제공하는 것이 좋다.
 
-## 🗂️ 정리: 실패 포착의 중요성
+## 📚 정리: 실패 포착의 중요성
 
 <figure><img src="../../../../.gitbook/assets/image (4) (1).png" alt=""><figcaption></figcaption></figure>
 

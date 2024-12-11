@@ -147,7 +147,7 @@ map.put("key2", 123); // ClassCastException 발생
 * 메서드가 실패하더라도 객체 상태가 이전 상태를 유지해야 한다는 것을 **명시적으로 문서화**해야 한다.
 * 예외가 발생할 경우 객체 상태가 변경될 수밖에 없는 상황이라면, 이를 API 문서에 반드시 기술해야 한다.
 
-## 🗂️ **정리**
+## 📚 **정리**
 
 <figure><img src="../../../../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
 

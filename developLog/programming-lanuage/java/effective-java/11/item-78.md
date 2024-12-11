@@ -239,7 +239,7 @@ public static long generateSerialNumber() {
 
 
 
-## 🗂️ 핵심 정리
+## 📚 핵심 정리
 
 > 여러 스레드가 가변 데이터를 공유한다면 그 데이터를 읽고 쓰는 동작은 반드시 동기화 해야 한다.  **Synchronized**와 **volatile**은 자바의 동기화에서 필수적이다.
 
