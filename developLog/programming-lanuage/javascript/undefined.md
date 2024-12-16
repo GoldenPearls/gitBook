@@ -147,13 +147,31 @@ $("[class^='pic_box_po']").on("click", function() {
 
 이렇게 하면 `pic_box_po_01`, `pic_box_po_02` 등 `pic_box_po_`로 시작하는 모든 요소에 클릭 이벤트가 적용됩니다.
 
-### 6. 단일 이미지 처리, 여러 개 처리&#x20;
+## 6. 단일 이미지 처리, 여러 개 처리&#x20;
 
 코드에서 `missionCt == 2` 이상일 때 이미지 `step02_off.png`가 `step02_on.png`로 변경되지 않는 이유는 **`imgElement`의 `src`가 이미 `step01_on.png`로 변경되었기 때문**입니다. `imgElement`는 `.event_status img`로 선택된 **단일 이미지 요소**이기 때문에, 이 코드로는 여러 이미지를 관리할 수 없습니다.
 
 ***
 
 #### 문제 분석
+
+```javascript
+var missionCt = 0;
+const imgElement = document.querySelector('.event_status img');
+										
+if (missionCt == 3) {
+	if (imgElement.src.includes('step01_off.png')) {
+		imgElement.src = imgElement.src.replace('step01_off.png', 'step01_on.png');}
+												
+	if (imgElement.src.includes('step02_off.png')) {
+	        imgElement.src = imgElement.src.replace('step02_off.png', 'step02_on.png');}
+												
+	if (imgElement.src.includes('step03_off.png')) {
+		imgElement.src = imgElement.src.replace('step03_off.png', 'step03_on.png');}
+											} 											}
+```
+
+
 
 1. **`imgElement`는 단일 이미지 요소를 참조**:
    * `imgElement`는 `.event_status img` 셀렉터로 선택된 첫 번째 `img` 요소만 참조합니다. 따라서 `step02_off.png`, `step03_off.png` 등의 이미지를 변경하려 해도 다른 이미지를 참조하지 못합니다.
