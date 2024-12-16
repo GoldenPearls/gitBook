@@ -147,3 +147,66 @@ $("[class^='pic_box_po']").on("click", function() {
 
 이렇게 하면 `pic_box_po_01`, `pic_box_po_02` 등 `pic_box_po_`로 시작하는 모든 요소에 클릭 이벤트가 적용됩니다.
 
+### 6. 단일 이미지 처리, 여러 개 처리&#x20;
+
+코드에서 `missionCt == 2` 이상일 때 이미지 `step02_off.png`가 `step02_on.png`로 변경되지 않는 이유는 **`imgElement`의 `src`가 이미 `step01_on.png`로 변경되었기 때문**입니다. `imgElement`는 `.event_status img`로 선택된 **단일 이미지 요소**이기 때문에, 이 코드로는 여러 이미지를 관리할 수 없습니다.
+
+***
+
+#### 문제 분석
+
+1. **`imgElement`는 단일 이미지 요소를 참조**:
+   * `imgElement`는 `.event_status img` 셀렉터로 선택된 첫 번째 `img` 요소만 참조합니다. 따라서 `step02_off.png`, `step03_off.png` 등의 이미지를 변경하려 해도 다른 이미지를 참조하지 못합니다.
+2. **한 개의 이미지에서 조건문을 처리**:
+   * `if (imgElement.src.includes('step01_off.png')) { ... }`로 첫 번째 이미지를 변경한 이후, 같은 `imgElement`에서 `step02_off.png`를 찾으려 하지만 해당 이미지 경로가 존재하지 않으므로 조건이 실패합니다.
+3. **여러 이미지를 선택 및 처리하지 않음**:
+   * `document.querySelector`는 첫 번째 `img` 요소만 선택하기 때문에 다수의 이미지를 처리할 수 없습니다.
+
+***
+
+#### 해결 방법: 여러 이미지를 처리하도록 수정
+
+**수정된 코드**
+
+<pre class="language-javascript"><code class="lang-javascript">const imgElements = document.querySelectorAll('.event_status img'); // 모든 img 태그 선택
+
+<strong>if (data.evegeYn == 'Y') {
+</strong>    missionCt = missionCt + 1;
+
+    if (data.stdourseCt > 0) {
+        missionCt = missionCt + 1;
+    }
+
+    if (data.stdyount >= 4) {
+        missionCt = missionCt + 1;
+    }
+
+    if (data.lmsnt > 0) {
+        missionCt = missionCt + 1;
+    }
+
+    // 미션 수에 따라 이미지 상태 변경
+    imgElements.forEach((imgElement, index) => {
+        const stepIndex = index + 1; // step01, step02, etc.
+        if (missionCt >= stepIndex) {
+            imgElement.src = imgElement.src.replace(`step0${stepIndex}_off.png`, `step0${stepIndex}_on.png`);
+        }
+    });
+}
+</code></pre>
+
+***
+
+#### 변경 내용 설명
+
+1. **`document.querySelectorAll` 사용**:
+   * `querySelectorAll`로 `.event_status` 클래스 내부의 모든 `img` 요소를 선택합니다.
+   * 반환된 `NodeList`는 각 이미지 요소를 순회하며 변경할 수 있습니다.
+2. **`forEach`로 이미지 반복 처리**:
+   * 각 이미지의 순서를 `index`로 참조하여 `step01`, `step02`, ...와 매칭합니다.
+   * `missionCount`가 해당 `stepIndex`보다 크거나 같으면 이미지를 변경합니다.
+3. **동적 파일명 생성**:
+   * `step0${stepIndex}_off.png`와 `step0${stepIndex}_on.png`로 파일명을 동적으로 생성하여 코드의 중복을 줄였습니다
+
+
+
