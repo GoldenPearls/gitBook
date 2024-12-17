@@ -104,6 +104,7 @@
       * [item  78 : 공유 중인 가변 데이터는 동기화해 사용하라](developLog/programming-lanuage/java/effective-java/11/item-78.md)
       * [item 79 : 과도한 동기화는 피하라](developLog/programming-lanuage/java/effective-java/11/item-79.md)
       * [item 80 : 스레드보다는 실행자, 태스크, 스트림을 애용하라.](developLog/programming-lanuage/java/effective-java/11/item-80-..md)
+      * [item 81 : wait와 notify보다는 동시성 유틸리티를 애용하라](developLog/programming-lanuage/java/effective-java/11/item-81-wait-notify.md)
     * [스터디에서 알아가는 것](developLog/programming-lanuage/java/effective-java/undefined.md)
   * [모던 자바 인 액션](developLog/programming-lanuage/java/modern-java-in-action/README.md)
     * [chaper 1. 자바 8, 9, 10, 11 : 무슨 일이 일어나고 있는가?](developLog/programming-lanuage/java/modern-java-in-action/chaper-1.-8-9-10-11.md)
