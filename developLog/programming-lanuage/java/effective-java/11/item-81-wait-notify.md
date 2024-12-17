@@ -157,6 +157,12 @@ public class ProducerConsumerExample {
 * **`countDown()`**: 호출될 때마다 카운트가 감소한다.
 * **`await()`**: 카운트가 `0`이 될 때까지 현재 스레드를 차단한다.
 
+CountDownLatch는 일회성 장벽으로, 하나 이상의 스레드가 또 다른 하나 이상의 스레드 작업이 끝날 때까지 기다리게 하는 역할을 한다.
+
+생성자로 받는 int 값을 받으며, 이 값이 countDown 메서드를 몇 번 호출해야 대기 중인 스레드를 깨우는지를 결정한다.
+
+<figure><img src="https://blog.kakaocdn.net/dn/nAnjp/btrj87soXbB/Ct4GPgMjGO9kb8gkGWUT71/img.png" alt=""><figcaption></figcaption></figure>
+
 #### **CountDownLatch 예제 코드**
 
 ```java
@@ -390,3 +396,8 @@ synchronized (obj) {
 3. **레거시 코드**: `wait`와 `notify`를 사용해야 한다면 반드시 반복문과 함께 사용하며 `notifyAll`을 권장한다.
 
 새로운 코드에서는 동시성 유틸리티를 적극 활용하여 **안전하고 효율적인** 동시성 프로그래밍을 구현하자.
+
+
+
+> 참고 \
+> \- [https://jjingho.tistory.com/131](https://jjingho.tistory.com/131)
