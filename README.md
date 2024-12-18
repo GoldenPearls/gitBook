@@ -107,6 +107,7 @@
       * [item 81 : wait와 notify보다는 동시성 유틸리티를 애용하라](developLog/programming-lanuage/java/effective-java/11/item-81-wait-notify.md)
       * [item 82 : 스레드의 안정성 수준을 문서화하라](developLog/programming-lanuage/java/effective-java/11/item-82.md)
       * [item 83 : 지연 초기화는 신중히 사용하라](developLog/programming-lanuage/java/effective-java/11/item-83.md)
+      * [item 84 : 프로그램의 동작을 스레드 스케줄러 에 기대지 말라](developLog/programming-lanuage/java/effective-java/11/item-84.md)
     * [스터디에서 알아가는 것](developLog/programming-lanuage/java/effective-java/undefined.md)
   * [모던 자바 인 액션](developLog/programming-lanuage/java/modern-java-in-action/README.md)
     * [chaper 1. 자바 8, 9, 10, 11 : 무슨 일이 일어나고 있는가?](developLog/programming-lanuage/java/modern-java-in-action/chaper-1.-8-9-10-11.md)
