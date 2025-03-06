@@ -152,6 +152,9 @@
 
 * [모르는 용어 그때 그때 정리하기](developLog/cs/undefined.md)
 * [CS 관련 BOOKMARK](developLog/cs/cs-bookmark.md)
+* [한권으로 읽는 컴퓨터 구조와 프로그래밍](developLog/cs/undefined-1/README.md)
+  * [들어가며](developLog/cs/undefined-1/undefined.md)
+  * [1장 : 컴퓨터 내부의 언어 체계](developLog/cs/undefined-1/1.md)
 * [Network](developLog/cs/network/README.md)
   * [네트워크 공부하기 프롤로그](developLog/cs/network/undefined.md)
   * [Story 01. HTTP 리퀘스트 메세지를 작성한다.](developLog/cs/network/story-01.-http-..md)
@@ -300,3 +303,4 @@
   * [대학 입학 - 취업 전까지의 아르바이트 회고](developLog/ex/my-story/undefined.md)
 * [얻은 지식 모음](developLog/ex/knowledge/README.md)
   * [트위터를 통한 모르는 지식을 얻어가기](developLog/ex/knowledge/undefined.md)
+* [앞으로 할 것 3/6](developLog/ex/3-6.md)
