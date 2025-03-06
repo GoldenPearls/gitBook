@@ -1,3 +1,7 @@
+---
+icon: list-timeline
+---
+
 # 로그 파일 관련
 
 {% hint style="info" %}
