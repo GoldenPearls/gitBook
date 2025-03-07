@@ -13,7 +13,7 @@
 
 동기화는 자바 프로그램에서 매우 중요한 역할을 한다. **스레드 간의 데이터 일관성을 유지**하고, **스레드 안전성을 보장**하기 위해 필수적이다. 동기화가 없다면, 프로그램이 **의도하지 않은 동작**을 수행할 가능성이 커지고, 디버깅이 극도로 어려워질 수 있다. 스레드 간의 통신과 실행 순서가 불확실할 때, 동기화는 안정성과 예측 가능성을 제공한다.
 
-<figure><img src="../../../../.gitbook/assets/image (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (2) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 특히, 멀티스레드 환경에서는 데이터 불일치와 경쟁 상태가 빈번하게 발생할 수 있다. 이 문제는 동기화를 통해 해결할 수 있으며, 이를 통해 코드의 신뢰성과 안전성을 크게 향상시킬 수 있다.
 
@@ -21,7 +21,7 @@
 
 ### **1) 원자적 동작**
 
-<figure><img src="../../../../.gitbook/assets/image (2) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (2) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * **long**과 **double**을 제외한 변수의 읽기와 쓰기 동작은 **원자적**이다.
   * 즉, 동기화 없이 여러 스레드가 같은 변수를 수정하더라도 항상 어떤 스레드가 정상적으로 저장한 값을 읽어오는 것을 보장한다는 것이다.
@@ -34,7 +34,7 @@
 
 ### **2) 동기화의 필요성**
 
-<figure><img src="../../../../.gitbook/assets/image (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * 동기화 없이 원자적 데이터를 읽고 쓸 경우 **치명적 문제**가 발생할 수 있다.
 * **Thread.stop() 메서드**의 사례를 통해 이를 이해할 수 있다.

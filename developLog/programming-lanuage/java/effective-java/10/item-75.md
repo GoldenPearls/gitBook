@@ -10,7 +10,7 @@
 
 ## 1. 실패 원인 포착을 위한 상세 메시지 작성법
 
-<figure><img src="../../../../.gitbook/assets/image (2) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### 1) 상세 메시지 작성의 기본 원칙
 
@@ -192,7 +192,7 @@ public class EnhancedIndexOutOfBoundsException extends IndexOutOfBoundsException
 
 **예외 연쇄**는 **저수준 예외**(근본 원인)를 **고수준 예외**에 포함시키는 방식이다. 이를 통해 문제의 근본 원인을 분석할 수 있다.
 
-<figure><img src="../../../../.gitbook/assets/image (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### **2) 예외 연쇄 구현 예시**
 
