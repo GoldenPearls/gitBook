@@ -36,7 +36,7 @@
 
 ## 2. 연결리스트란?
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### 1) 개념
 
@@ -45,7 +45,7 @@
 
 ### 2) 노드(Node)
 
-<figure><img src="../../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * 연결리스트에서 사용되는 하나의 데이터 덩어리이며, `데이터 & 링크`이 2가지의 필드를 담고 있는 구조
 * data : 노드가 담고 있는 데이터/값, 문자열, 숫자 등등 원하는 값을 넣고 저장
@@ -54,7 +54,7 @@
 
 ### 3) 연결 리스트의 구조
 
-<figure><img src="../../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 1. 마지막 연결할 것은 없기에 null과 연결
 2. 연결리스트의 첫 번째 즉, 시작 지점에 있는 것을 `head`라고 함
@@ -62,7 +62,7 @@
 
 ### 4) 배열 vs 연결리스트
 
-<figure><img src="../../.gitbook/assets/image (5) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (5) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 #### 배열
 
@@ -85,7 +85,7 @@
 
 #### Singly Linked List(단일 연결 리스트)
 
-<figure><img src="../../.gitbook/assets/image (6) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (6) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 1. 대부분의 연결리스트의 문제의 주력
 2. 다음 노드에 대한 포인터만 가지고 있다
@@ -93,14 +93,14 @@
 
 #### Doubly Linked List(이중 연결 리스트)
 
-<figure><img src="../../.gitbook/assets/image (9) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (9) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 1. 다음 노드에 대한 포인터와 이전 노드를 가르치는 포인터를 가지고 있다.
 2. 앞 뒤로 탐색하는 게 빠르다는 장점이 있지만, 노드마다 2개의 포인터를 가져야 해서 데이터의 구조와 흐름이 복잡해질 수 있음
 
 #### Circular Linked List(원형 연결 리스트)
 
-<figure><img src="../../.gitbook/assets/image (8) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (8) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * 이중연결리스트와 같지만 **마지막 노드의 next 포인터가 헤드 노드**를 가르친다.
 
@@ -108,7 +108,7 @@
 
 #### 노드의 구현 방법
 
-<figure><img src="../../.gitbook/assets/image (10) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (10) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ```jsx
 class Node{
@@ -121,7 +121,7 @@ class Node{
 
 #### 연결리스트
 
-<figure><img src="../../.gitbook/assets/image (11) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (11) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ```jsx
 let head = new Node("a");
