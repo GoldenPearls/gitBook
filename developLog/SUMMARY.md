@@ -166,7 +166,7 @@
   * [Call by value vs Call by Reference + 기본형과 참조형](cs/os/call-by-value-vs-call-by-reference-+.md)
 * [Linux](cs/linux/README.md)
   * [그림으로 배우는 리눅스 구조](cs/linux/undefined/README.md)
-    * [1장 리눅스 개요1장 리눅스 개요](cs/linux/undefined/1-1.md)
+    * [1장 리눅스 개요](cs/linux/undefined/1.md)
 * [보안](cs/security/README.md)
   * [우리나라 보안의 실태](cs/security/undefined.md)
 * [HTTP 웹 지식](cs/http/README.md)
