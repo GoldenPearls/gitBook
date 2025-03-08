@@ -166,7 +166,7 @@
   * [Call by value vs Call by Reference + 기본형과 참조형](developLog/cs/os/call-by-value-vs-call-by-reference-+.md)
 * [Linux](developLog/cs/linux/README.md)
   * [그림으로 배우는 리눅스 구조](developLog/cs/linux/undefined/README.md)
-    * [1장 리눅스 개요1장 리눅스 개요](developLog/cs/linux/undefined/1-1.md)
+    * [1장 리눅스 개요](developLog/cs/linux/undefined/1.md)
 * [보안](developLog/cs/security/README.md)
   * [우리나라 보안의 실태](developLog/cs/security/undefined.md)
 * [HTTP 웹 지식](developLog/cs/http/README.md)
