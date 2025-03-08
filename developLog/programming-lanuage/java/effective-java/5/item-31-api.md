@@ -44,7 +44,7 @@ public void pushAll(Iterable<E> src) {
 
 integer은 Number의 하위 타입이니 잘 동작해야 한다 하지만 클라이언트  코드에서 실제로는 오류 메세지가 뜬다.
 
-<figure><img src="../../../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ```java
 import java.util.Arrays;
@@ -432,7 +432,7 @@ private static <E> void swapHelper(List<E> list, int i, int j) {
 
 예를 들어서 `Java 5` 부터 지원한 `ScheduledFuture` 인터페이스의 구현 코드를 살펴보면 아래와 같다. `Delayed`의 하위 인터페이스이며 `Delayed`인터페이스는 `Comparable<Delayed>`를 확장했다. 반면에 `ScheduledFuture` 인터페이스는 `Comparable<ScheduledFuture>`를 확장(extends)하지 않는다.
 
-<figure><img src="../../../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ```java
 // ScheduledFuture interface

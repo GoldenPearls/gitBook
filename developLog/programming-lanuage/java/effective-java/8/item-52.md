@@ -142,7 +142,7 @@ wine.name() = 샴페인
 
 ## 2. 다중 정의 사용시 주의사항
 
-<figure><img src="../../../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 1. **다중 정의가 혼란을 일으킬 수 있는 상황 피하기**:
    * 다중 정의는 메서드를 **컴파일타임에 선택**하므로, 런타임 타입이 아닌 **매개변수의 정적 타입**에 따라 호출할 메서드가 결정된다.
