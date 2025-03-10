@@ -306,4 +306,4 @@
   * [대학 입학 - 취업 전까지의 아르바이트 회고](ex/my-story/undefined.md)
 * [얻은 지식 모음](ex/knowledge/README.md)
   * [트위터를 통한 모르는 지식을 얻어가기](ex/knowledge/undefined.md)
-* [앞으로 할 것 3/6](ex/3-6.md)
+* [2025년도에 해보고 싶거나 해야하는 것들 간단 정리](ex/2025.md)
