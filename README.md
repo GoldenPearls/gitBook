@@ -155,6 +155,7 @@
 * [한권으로 읽는 컴퓨터 구조와 프로그래밍](developLog/cs/undefined-1/README.md)
   * [들어가며](developLog/cs/undefined-1/undefined.md)
   * [1장 : 컴퓨터 내부의 언어 체계](developLog/cs/undefined-1/1.md)
+  * [deepdive 지식 모음](developLog/cs/undefined-1/deepdive.md)
 * [Network](developLog/cs/network/README.md)
   * [네트워크 공부하기 프롤로그](developLog/cs/network/undefined.md)
   * [Story 01. HTTP 리퀘스트 메세지를 작성한다.](developLog/cs/network/story-01.-http-..md)
