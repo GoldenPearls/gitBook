@@ -354,8 +354,6 @@ print("🐱".encode("utf-32"))  # b'\xff\xfe\x00\x00\xf4\x01\x00\x00'
 4️⃣ **폰트 렌더링**: 🐱를 표시할 수 있는 폰트(`Apple Color Emoji`, `Noto Emoji`)에서 이모지를 이미지로 변환\
 5️⃣ **디스플레이 출력**: GPU가 최종적으로 픽셀을 조합하여 화면에 🐱를 표시
 
->
-
 ### 5) 정의된 시스템
 
 > 정의된 시스템이 어디 있다는 걸까?
@@ -480,3 +478,288 @@ OS는 해당 문자(🐱)가 포함된 **폰트 데이터를 찾아서 렌더링
 ```
 
 **🧐 "정의된 시스템"은 OS 내부, 프로그래밍 언어 라이브러리, 폰트 파일, GPU 드라이버 등 다양한 곳에 내장되어 있음!** 🚀
+
+### 6) 그렇다면 결국 이미지도 비트아닌가.. 이미지는 어떤식으로 변환되는데?
+
+#### 🖼 **이미지는 어떻게 변환될까?**
+
+(비트와 픽셀, 그리고 GPU의 역할)
+
+**1️⃣ 모든 데이터는 결국 비트(Binary)**
+
+🐱 이모지도, 📄 텍스트도, 🎵 음악도 결국 **비트(Binary, 0과 1의 조합)** 로 표현됨.\
+그렇다면 **이미지는 어떻게 비트로 변환되고, 컴퓨터 내부에서 처리될까?**
+
+**2️⃣ 이미지의 비트 표현 (Raster Graphics)**
+
+이미지는 기본적으로 **픽셀(Pixel, Picture Element)** 로 구성됨.\
+각 픽셀은 **RGB (Red, Green, Blue) 색상 값**을 가지며, **비트(Binary)** 로 저장됨.
+
+📌 **예: 24비트 컬러 이미지**
+
+* **RGB 값 각각 8비트(0\~255) → 24비트(3바이트)**
+* 🎨 예: **빨간색(RGB: 255, 0, 0)**
+  * **2진수:** `11111111 00000000 00000000`
+  * **16진수:** `0xFF0000`
+
+📌 **예: 1픽셀만 저장할 경우 (24비트 이미지)**
+
+| 픽셀 색상 | 10진수 (RGB)  | 16진수       | 2진수 (Binary)                 |
+| ----- | ----------- | ---------- | ---------------------------- |
+| 🔴 빨강 | (255, 0, 0) | `0xFF0000` | `11111111 00000000 00000000` |
+| 🟢 초록 | (0, 255, 0) | `0x00FF00` | `00000000 11111111 00000000` |
+| 🔵 파랑 | (0, 0, 255) | `0x0000FF` | `00000000 00000000 11111111` |
+
+✅ **정리: 이미지 파일은 픽셀(RGB) 값을 2진수로 변환하여 저장하는 구조!**
+
+**3️⃣ 이미지 파일 포맷 (JPEG, PNG, BMP 등)**
+
+이미지는 **파일 크기를 줄이기 위해 압축(Compression)** 함.\
+주요 이미지 파일 형식과 압축 방식:
+
+#### **🔹 비손실 압축 (Lossless Compression)**
+
+* 🎯 원본 품질 그대로 유지
+* **PNG, BMP, GIF**
+* **예시:** 동일한 픽셀 값이 반복될 경우, 압축하여 저장 (Run-Length Encoding)
+
+#### **🔹 손실 압축 (Lossy Compression)**
+
+* 🎯 용량을 줄이지만, 약간의 화질 손실
+* **JPEG, WebP**
+* **예시:** 사람 눈에 덜 민감한 색상을 버려서 용량 절약
+
+✅ **정리: 이미지 포맷은 비트 데이터를 효율적으로 저장하기 위한 압축 방식이 다름!**
+
+**4️⃣ 이미지가 모니터에 출력될 때 (GPU & VRAM)**
+
+#### **🖥️ 디지털 이미지 → 화면 출력 과정**
+
+1️⃣ **파일을 읽음 (JPEG, PNG, BMP 등) → 비트 데이터(픽셀)로 변환**\
+2️⃣ **CPU가 데이터를 해석 후, GPU에 전달**\
+3️⃣ **GPU가 VRAM(Video RAM)에 저장 후, 픽셀 단위로 화면에 출력**\
+4️⃣ **모니터가 RGB 픽셀을 조합하여 화면을 표시**
+
+#### **🔹 GPU가 중요한 이유?**
+
+✅ **CPU 대신 GPU가 이미지 연산을 처리하여 빠른 렌더링 가능!**\
+✅ **3D 그래픽이나 동영상도 같은 원리로 픽셀 단위로 처리됨!**
+
+**5️⃣ 정리: 이미지도 결국 비트!**
+
+📌 **이미지는 픽셀 단위로 저장되며, RGB 값을 2진수(비트)로 변환하여 저장**\
+📌 **GPU가 비트 데이터를 해석하여 모니터에 픽셀 단위로 출력**\
+📌 **JPEG, PNG 같은 파일 포맷은 압축 방식에 따라 저장 방식이 다름**
+
+➡ **즉, 이모지도 결국 픽셀 단위로 저장된 비트 데이터!** 🎨🖥️🚀
+
+### 7) 이미지 압축을이용한 알고리즘
+
+웹툰 서비스에서 이미지를 다운로드할 때 파일 크기를 줄이는 방법에는 **이미지 압축 알고리즘, 데이터 인코딩, 스트리밍 기법** 등이 활용됩니다.\
+Java에서 웹툰 이미지를 효율적으로 압축하고 다운로드할 수 있도록 **JPEG/PNG 압축, WebP 변환, HTTP 압축 전송** 등을 적용할 수 있습니다.
+
+***
+
+1️⃣ **웹툰 이미지 최적화 원칙**
+
+✅ **비손실 압축 (Lossless Compression)** → PNG, WebP(Lossless) → 그림 선명도 유지\
+✅ **손실 압축 (Lossy Compression)** → JPEG, WebP(Lossy) → 용량 감소\
+✅ **Resizing (리사이징)** → 모바일, 태블릿, PC별 해상도 조정\
+✅ **스트리밍 기법** → Progressive JPEG, Chunked Transfer Encoding
+
+***
+
+**2️⃣ 알고리즘을 활용한 이미지 압축 방법 (Java)**
+
+#### **🔹 1. JPEG 품질 조절을 통한 손실 압축**
+
+* 웹툰은 선명도가 중요한 경우가 많아 **JPEG의 품질(Quality) 조절**을 통해 적절한 압축 필요
+* **Java ImageIO + JPEGImageWriteParam**을 사용하여 압축
+* **Quality 0.75**(75%) 정도로 설정하면 파일 크기가 30\~50% 감소
+
+```java
+import javax.imageio.ImageIO;
+import javax.imageio.ImageWriteParam;
+import javax.imageio.ImageWriter;
+import javax.imageio.stream.ImageOutputStream;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.Iterator;
+
+public class ImageCompressor {
+    public static void compressJPEG(String inputPath, String outputPath, float quality) throws IOException {
+        File inputFile = new File(inputPath);
+        BufferedImage image = ImageIO.read(inputFile);
+
+        File compressedFile = new File(outputPath);
+        FileOutputStream os = new FileOutputStream(compressedFile);
+
+        Iterator<ImageWriter> writers = ImageIO.getImageWritersByFormatName("jpeg");
+        ImageWriter writer = writers.next();
+
+        ImageOutputStream ios = ImageIO.createImageOutputStream(os);
+        writer.setOutput(ios);
+
+        ImageWriteParam param = writer.getDefaultWriteParam();
+        param.setCompressionMode(ImageWriteParam.MODE_EXPLICIT);
+        param.setCompressionQuality(quality); // 0.0 ~ 1.0 (0은 고압축, 1은 무압축)
+
+        writer.write(null, new javax.imageio.IIOImage(image, null, null), param);
+
+        os.close();
+        ios.close();
+        writer.dispose();
+    }
+
+    public static void main(String[] args) throws IOException {
+        compressJPEG("webtoon_original.jpg", "webtoon_compressed.jpg", 0.75f);
+        System.out.println("JPEG 이미지 압축 완료!");
+    }
+}
+```
+
+🔹 **효과:**\
+✅ **이미지 크기 최대 50% 감소**\
+✅ **웹툰의 선명도를 유지하면서 압축 가능**
+
+***
+
+#### **🔹 2. PNG를 WebP로 변환하여 압축**
+
+**WebP**는 Google이 개발한 이미지 포맷으로, PNG보다 25\~30% 가볍고, 투명도를 지원\
+**Java에서 WebP 변환 라이브러리(`libwebp`) 사용**
+
+```java
+import com.luciad.imageio.webp.WebPWriteParam;
+import javax.imageio.ImageIO;
+import javax.imageio.ImageWriteParam;
+import javax.imageio.ImageWriter;
+import javax.imageio.stream.ImageOutputStream;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.Iterator;
+
+public class PNGtoWebP {
+    public static void convertToWebP(String inputPath, String outputPath, float quality) throws IOException {
+        File inputFile = new File(inputPath);
+        BufferedImage image = ImageIO.read(inputFile);
+
+        File outputFile = new File(outputPath);
+        FileOutputStream os = new FileOutputStream(outputFile);
+
+        Iterator<ImageWriter> writers = ImageIO.getImageWritersByFormatName("webp");
+        ImageWriter writer = writers.next();
+
+        ImageOutputStream ios = ImageIO.createImageOutputStream(os);
+        writer.setOutput(ios);
+
+        WebPWriteParam param = new WebPWriteParam(writer.getLocale());
+        param.setCompressionMode(ImageWriteParam.MODE_EXPLICIT);
+        param.setCompressionQuality(quality);
+
+        writer.write(null, new javax.imageio.IIOImage(image, null, null), param);
+
+        os.close();
+        ios.close();
+        writer.dispose();
+    }
+
+    public static void main(String[] args) throws IOException {
+        convertToWebP("webtoon_original.png", "webtoon_compressed.webp", 0.8f);
+        System.out.println("PNG → WebP 변환 완료!");
+    }
+}
+```
+
+🔹 **효과:**\
+✅ **PNG보다 파일 크기 30% 이상 감소**\
+✅ **투명도 유지 가능 (Alpha 채널 지원)**
+
+***
+
+**3️⃣ HTTP 전송 최적화 (스트리밍 & 압축)**
+
+이미지 크기를 줄이는 것 외에도 **전송 속도를 최적화**해야 함.
+
+#### **🔹 1. HTTP 압축 (Gzip & Brotli)**
+
+웹 서버에서 Gzip 압축을 적용하면 전송 크기가 30\~50% 줄어듦.\
+Spring Boot 기반으로 설정 가능:
+
+```java
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.web.filter.CommonsRequestLoggingFilter;
+import org.springframework.boot.web.server.Compression;
+import org.springframework.boot.web.server.ConfigurableServletWebServerFactory;
+import org.springframework.boot.web.server.WebServerFactoryCustomizer;
+
+@Configuration
+public class CompressionConfig {
+    @Bean
+    public WebServerFactoryCustomizer<ConfigurableServletWebServerFactory> compressionCustomizer() {
+        return factory -> {
+            Compression compression = new Compression();
+            compression.setEnabled(true);
+            compression.setMimeTypes(new String[]{"image/webp", "image/jpeg", "image/png"});
+            compression.setMinResponseSize(1024); // 1KB 이상일 때만 압축
+            factory.setCompression(compression);
+        };
+    }
+}
+```
+
+✅ **효과:**\
+🚀 이미지 크기 30\~50% 줄이면서 **다운로드 속도 향상**
+
+***
+
+**4️⃣ 이미지 스트리밍 (Chunked Transfer Encoding)**
+
+웹툰의 경우, **한꺼번에 다운로드하지 않고, 부분적으로 스트리밍**하면 사용자 경험이 향상됨.\
+**Spring Boot**에서 **StreamingResponseBody**를 이용하여 **Chunked Transfer Encoding** 적용:
+
+```java
+import org.springframework.core.io.InputStreamResource;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.io.*;
+
+@RestController
+@RequestMapping("/webtoon")
+public class WebtoonController {
+    
+    @GetMapping("/image")
+    public ResponseEntity<InputStreamResource> streamWebtoon(@RequestParam String imagePath) throws IOException {
+        File file = new File(imagePath);
+        InputStream inputStream = new FileInputStream(file);
+        InputStreamResource resource = new InputStreamResource(inputStream);
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("Content-Disposition", "inline; filename=" + file.getName());
+        headers.add("Transfer-Encoding", "chunked");
+
+        return new ResponseEntity<>(resource, headers, HttpStatus.OK);
+    }
+}
+```
+
+✅ **효과:**\
+🚀 사용자가 웹툰 페이지를 열 때 **점진적으로 로딩 → 빠른 사용자 경험**
+
+***
+
+**5️⃣ 최종 정리 🚀**
+
+💡 **웹툰 서비스를 위한 최적화 방법:**\
+✅ **JPEG 압축** (`ImageIO`) → **75% 품질 유지하면서 용량 감소**\
+✅ **PNG → WebP 변환** → **파일 크기 30% 절감 & 투명도 유지**\
+✅ **Gzip / Brotli 압축 적용** → **전송 크기 50% 절감**\
+✅ **Chunked Transfer Streaming** → **웹툰을 점진적으로 로딩하여 빠른 UX 제공**
