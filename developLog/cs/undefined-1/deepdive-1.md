@@ -224,6 +224,8 @@ RAM의 각 주소(0x100, 0x101, ...)에 1바이트(8비트)씩 저장됨.\
 
 #### **📌 가비지 컬렉션(GC)과 메모리 최적화 🔄**
 
+<figure><img src="../../.gitbook/assets/image (138).png" alt=""><figcaption></figcaption></figure>
+
 Java는 **자동 메모리 관리** 기능을 제공하며, 가비지 컬렉터(Garbage Collector, GC)가 사용되지 않는 객체를 정리하여 메모리 누수를 방지함.
 
 1️⃣ **객체가 Heap 메모리에 할당됨**
@@ -289,6 +291,8 @@ public class MemoryTest {
 
 ### **📌 최적의 메모리 사용을 위한 방법**
 
+<figure><img src="../../.gitbook/assets/image (137).png" alt=""><figcaption></figcaption></figure>
+
 1️⃣ **String 대신 StringBuilder 사용**
 
 * `String`은 **불변(Immutable)** 이므로, 문자열이 변경될 때마다 새로운 객체가 생성됨.
@@ -351,13 +355,12 @@ public class BufferedExample {
 
 ## 4. 유니코드 이모지 변환
 
+### **🔢 유니코드 변환 과정**
+
 {% hint style="warning" %}
-🐱 유니코드 변환
+**🐱의 유니코드 코드 포인트: `U+1F431` (16진수), `128049` (10진수)**\
+이 값은 UTF-8, UTF-16, UTF-32와 같은 인코딩 방식으로 변환 가능하다.
 {% endhint %}
-
-🐱 (고양이 이모지)의 **유니코드 코드 포인트**는 다음과 같다.
-
-#### **🔢 유니코드 변환 과정**
 
 1. **유니코드 코드 포인트** : `U+1F431`
 2. **10진수로 변환** : `128049`
@@ -369,7 +372,9 @@ public class BufferedExample {
        11110000 10011111 10010000 10110001
        ```
 
-#### **📌 유니코드 변환 방법**
+### **📌 유니코드 변환 방법**
+
+<figure><img src="../../.gitbook/assets/image (140).png" alt=""><figcaption></figcaption></figure>
 
 유니코드는 **UTF-8, UTF-16, UTF-32** 등의 방식으로 인코딩할 수 있음.
 
@@ -379,44 +384,130 @@ public class BufferedExample {
 | UTF-16     | `D83D DC31`   |
 | UTF-32     | `0001F431`    |
 
-***
+### **💡 Java 코드로 변환하기**
 
-#### **💡 실제 변환 코드 (Python)**
+**`bytesToHex(byte[] bytes)`**
 
-```python
-# 🐱의 유니코드 코드 포인트 출력
-print(hex(ord("🐱")))  # 0x1f431
+* 바이트 배열을 **16진수(헥사) 문자열**로 변환하는 메서드
+* 바이트 값은 `0~255 (0x00~0xFF)` 범위를 가지므로, 이를 `2자리 16진수(00~FF)`로 변환하여 가독성을 높임
 
-# UTF-8 인코딩
-print("🐱".encode("utf-8"))  # b'\xf0\x9f\x90\xb1'
+**`bytesToBinary(byte[] bytes)`**
 
-# UTF-16 인코딩
-print("🐱".encode("utf-16"))  # b'\xff\xfe=\xd8\x31\xdc'
+* 바이트 배열을 **2진수(바이너리) 문자열**로 변환하는 메서드
+* 각 바이트를 `8자리 2진수 (00000000~11111111)` 형식으로 변환하여 가독성을 높임
 
-# UTF-32 인코딩
-print("🐱".encode("utf-32"))  # b'\xff\xfe\x00\x00\xf4\x01\x00\x00'
+```java
+import java.nio.charset.StandardCharsets;
+import java.util.Arrays;
+
+public class UnicodeConversion {
+    public static void main(String[] args) {
+        // 🐱 이모지
+        String emoji = "🐱";
+
+        // 1️⃣ 유니코드 코드 포인트 출력 (10진수, 16진수)
+        int codePoint = emoji.codePointAt(0);
+        System.out.println("유니코드 코드 포인트 (10진수): " + codePoint);
+        System.out.printf("유니코드 코드 포인트 (16진수): U+%X\n", codePoint);
+
+        // 2️⃣ UTF-8 인코딩
+        byte[] utf8Bytes = emoji.getBytes(StandardCharsets.UTF_8);
+        System.out.println("UTF-8 인코딩 (16진수): " + bytesToHex(utf8Bytes));
+        System.out.println("UTF-8 인코딩 (바이너리): " + bytesToBinary(utf8Bytes));
+
+        // 3️⃣ UTF-16 인코딩
+        byte[] utf16Bytes = emoji.getBytes(StandardCharsets.UTF_16);
+        System.out.println("UTF-16 인코딩 (16진수): " + bytesToHex(utf16Bytes));
+        System.out.println("UTF-16 인코딩 (바이너리): " + bytesToBinary(utf16Bytes));
+
+        // 4️⃣ UTF-32 인코딩
+        byte[] utf32Bytes = emoji.getBytes(StandardCharsets.UTF_32);
+        System.out.println("UTF-32 인코딩 (16진수): " + bytesToHex(utf32Bytes));
+        System.out.println("UTF-32 인코딩 (바이너리): " + bytesToBinary(utf32Bytes));
+    }
+
+    // 바이트 배열을 16진수 문자열로 변환하는 메서드
+    private static String bytesToHex(byte[] bytes) {
+        StringBuilder hex = new StringBuilder();
+        for (byte b : bytes) {
+            hex.append(String.format("%02X ", b));
+        }
+        return hex.toString().trim();
+    }
+
+    // 바이트 배열을 2진수 문자열로 변환하는 메서드
+    private static String bytesToBinary(byte[] bytes) {
+        StringBuilder binary = new StringBuilder();
+        for (byte b : bytes) {
+            binary.append(String.format("%8s ", Integer.toBinaryString(b & 0xFF)).replace(' ', '0'));
+        }
+        return binary.toString().trim();
+    }
+}
 ```
 
+#### **✅ 실행 결과**
+
+```
+유니코드 코드 포인트 (10진수): 128049
+유니코드 코드 포인트 (16진수): U+1F431
+UTF-8 인코딩 (16진수): F0 9F 90 B1
+UTF-8 인코딩 (바이너리): 11110000 10011111 10010000 10110001
+UTF-16 인코딩 (16진수): FE FF D8 3D DC 31
+UTF-16 인코딩 (바이너리): 11111110 11111111 11011000 00111101 11011100 00110001
+UTF-32 인코딩 (16진수): 00 01 F4 31
+UTF-32 인코딩 (바이너리): 00000000 00000001 11110100 00110001
+```
+
+#### **🔍 상세 설명**
+
+1. **🐱의 유니코드 코드 포인트 (`U+1F431`)**
+   * 🐱 이모지는 **U+1F431** (16진수), **128049** (10진수)로 표현됨.
+   * `emoji.codePointAt(0)`을 사용하여 코드 포인트(숫자) 출력 가능.
+2. **UTF-8 인코딩**
+   * **F0 9F 90 B1 (16진수)**
+   * **11110000 10011111 10010000 10110001 (2진수)**
+   * UTF-8은 1\~4바이트를 사용하며, **🐱 이모지는 4바이트로 저장됨.**
+3. **UTF-16 인코딩**
+   * **FE FF D8 3D DC 31 (16진수)**
+   * **11111110 11111111 11011000 00111101 11011100 00110001 (2진수)**
+   * UTF-16은 보통 2바이트를 사용하지만, 🐱는 **서로게이트 페어(Surrogate Pair)** 로 표현되어 **4바이트**가 됨.
+4. **UTF-32 인코딩**
+   * **00 01 F4 31 (16진수)**
+   * **00000000 00000001 11110100 00110001 (2진수)**
+   * UTF-32는 모든 문자를 4바이트(32비트)로 표현.
+
+### ✔ **왜 UTF-8에서 🐱 이모지는 4바이트인가?**
+
+* 🐱 (U+1F431)은 **U+10000 이상**이므로 UTF-8에서 4바이트를 사용함.
+* 첫 바이트(`11110xxx`)가 **4바이트로 인코딩됨을 의미**.
+
+### ✔ **UTF-16에서 왜 6바이트인가?**
+
+* UTF-16은 **BOM(Byte Order Mark) `FE FF`** 가 추가됨.
+* 🐱는 **서로게이트 페어(2개 유니코드 블록 조합)** 로 표현됨.
+
+### ✔ **UTF-32는 왜 4바이트인가?**
+
+* UTF-32는 모든 문자를 **4바이트(32비트)** 로 고정 저장함.
+
+### **🚀 최종 정리**
+
+✅ **🐱의 코드 포인트** = `U+1F431`\
+✅ **UTF-8 변환** → `F0 9F 90 B1` (4바이트)\
+✅ **UTF-16 변환** → `FE FF D8 3D DC 31` (BOM 포함, 6바이트)\
+✅ **UTF-32 변환** → `00 01 F4 31` (4바이트)\
+✅ **UTF-8은 문자에 따라 가변 길이 인코딩을 사용하여 메모리 절약 가능!** 🚀
+
 ***
 
-#### **🔍 정리**
+## 5. 유니코드 변환은 컴퓨터 내부에서 어디서 처리될까?
 
-* **🐱는 `U+1F431`(16진수) → `128049`(10진수)**
-* **UTF-8에서는 `F0 9F 90 B1`로 변환됨.**
-* **컴퓨터에서는 바이트 단위로 저장하고 처리함.**
-* **다른 문자들도 같은 방식으로 변환 가능!** 🚀
+컴퓨터 내부 어디서 되고 있는 건데? 이미 이것에 대해서는 컴퓨터 내부에 프로그래밍 되어 있다는 거잖아 유니코드 변환 및 처리는 컴퓨터 내부에서 여러 계층을 거쳐 이루어진다.
 
-### 4) 유니코드 변환은 컴퓨터 내부에서 어디서 처리될까?
+<figure><img src="../../.gitbook/assets/image (141).png" alt=""><figcaption></figcaption></figure>
 
-{% hint style="warning" %}
-컴퓨터 내부 어디서 되고 있는 건데? 이미 이것에 대해서는 컴퓨터 내부에 프로그래밍 되어 있다는 거잖아
-{% endhint %}
-
-#### **🐱 유니코드 변환은 컴퓨터 내부에서 어디서 처리될까?**
-
-> 유니코드 변환 및 처리는 컴퓨터 내부에서 여러 계층을 거쳐 이루어지며, 주요한 단계는 다음과 같다.
-
-**📌 1. 키보드 입력 (입력 장치)**
+### **1) 키보드 입력 (입력 장치)**
 
 {% hint style="warning" %}
 키보드 인터럽트 (Interrupt)와 관련이 있다.&#x20;
@@ -433,7 +524,7 @@ print("🐱".encode("utf-32"))  # b'\xff\xfe\x00\x00\xf4\x01\x00\x00'
 * **Mac/Linux** → `X11 Input Event`, `Wayland Key Event`
 * **IME (Input Method Editor)** → 한글, 이모지 같은 **다중 문자 입력** 지원
 
-**📌 2. 운영체제(OS)에서 처리**
+### **2) 운영체제(OS)에서 처리**
 
 {% hint style="warning" %}
 운영체제는 입력된 문자(🐱)를 **유니코드 코드 포인트**(U+1F431)로 변환 후, **응용 프로그램(브라우저, 텍스트 에디터 등)** 에 전달한다.
@@ -455,9 +546,7 @@ print("🐱".encode("utf-32"))  # b'\xff\xfe\x00\x00\xf4\x01\x00\x00'
 * **X11 또는 Wayland** → 키보드 이벤트 처리
 * **Pango 및 HarfBuzz** → 폰트 렌더링 및 텍스트 레이아웃 처리
 
-
-
-**📌 3. 애플리케이션(웹 브라우저, 터미널, 문서 편집기 등)**
+### **3) 애플리케이션(웹 브라우저, 터미널, 문서 편집기 등)**
 
 * 웹 브라우저, 터미널, IDE 등 응용 프로그램이 운영체제로부터 유니코드 문자를 받음.
 * 애플리케이션 내부에서 문자 데이터를 저장할 때, **UTF-8 / UTF-16 / UTF-32 등으로 인코딩하여 처리**.
@@ -468,7 +557,7 @@ print("🐱".encode("utf-32"))  # b'\xff\xfe\x00\x00\xf4\x01\x00\x00'
 * **터미널**: `echo "🐱"` 실행 시 UTF-8로 출력
 * **텍스트 에디터**: Sublime Text, VSCode 등에서 유니코드 기반으로 저장
 
-**📌 4. 폰트 렌더링 (GPU & 폰트 엔진)**
+### **4) 폰트 렌더링 (GPU & 폰트 엔진)**
 
 * 프로그램이 유니코드 문자를 화면에 표시하려면, **폰트 렌더링 엔진**을 통해 문자 → 이미지로 변환해야 함.
 * 🐱 이모지를 표현하기 위해 운영체제 또는 웹 브라우저는 `Noto Color Emoji`, `Apple Color Emoji`, `Segoe UI Emoji` 같은 **이모지 폰트**를 사용.
@@ -481,7 +570,7 @@ print("🐱".encode("utf-32"))  # b'\xff\xfe\x00\x00\xf4\x01\x00\x00'
 * **웹 브라우저**: CSS `font-family: "Noto Color Emoji";`
 * **GPU 렌더링**: 이모지 이미지를 GPU의 VRAM에 로드 후 렌더링
 
-**📌 5. 출력 장치 (디스플레이, 모니터)**
+### **5) 출력 장치 (디스플레이, 모니터)**
 
 * 최종적으로 🐱 이모지는 **픽셀 데이터로 변환되어 GPU를 통해 모니터에 표시됨**.
 * 모니터에서 **RGB 픽셀 데이터**를 조합하여 🐱 모양의 이미지를 보여줌.
@@ -492,7 +581,7 @@ print("🐱".encode("utf-32"))  # b'\xff\xfe\x00\x00\xf4\x01\x00\x00'
 * **Mac/Linux**: `Cairo Graphics`, `OpenGL`, `Vulkan`
 * **모니터**: 픽셀 데이터 기반으로 🐱를 최종적으로 출력
 
-**📌 6. OS 내부 시스템이 정의된 곳**
+### &#x20;**6) OS 내부 시스템이 정의된 곳**
 
 운영체제의 유니코드 및 텍스트 렌더링 시스템은 **시스템 라이브러리 및 설정 파일**로 관리됨.
 
@@ -509,9 +598,9 @@ print("🐱".encode("utf-32"))  # b'\xff\xfe\x00\x00\xf4\x01\x00\x00'
 
 이처럼 운영체제 내부에는 **유니코드 입력, 변환, 폰트 처리 시스템이 미리 정의되어 있다.**
 
-#### **🎯 최종 정리**
+### **🎯 최종 정리**
 
-🐱 이모지를 입력하고 화면에 출력하는 과정은 다음과 같다:
+🐱 이모지를 입력하고 화면에 출력하는 과정은 다음과 같다, 아스키 코드와 동일함
 
 1️⃣ **입력 단계**: 키보드/IME에서 유니코드 변환 (`U+1F431`)\
 2️⃣ **운영체제 처리**: 입력된 유니코드를 메모리에 저장 후 프로그램에 전달\
@@ -519,136 +608,329 @@ print("🐱".encode("utf-32"))  # b'\xff\xfe\x00\x00\xf4\x01\x00\x00'
 4️⃣ **폰트 렌더링**: 🐱를 표시할 수 있는 폰트(`Apple Color Emoji`, `Noto Emoji`)에서 이모지를 이미지로 변환\
 5️⃣ **디스플레이 출력**: GPU가 최종적으로 픽셀을 조합하여 화면에 🐱를 표시
 
-### 5) 정의된 시스템
+***
 
-> 정의된 시스템이 어디 있다는 걸까?
+## 5. 아스키 코드와 유니코드는 같은 방식으로 동작할까? 그리고 현재 윈도우나 맥은 어떤 걸 쓸까?
 
-#### **🖥️ 유니코드 및 문자 처리 시스템이 정의된 곳은?**
+{% hint style="info" %}
+아니! **아스키(ASCII)와 유니코드(Unicode)는 개념적으로 비슷하지만, 동작 방식과 범위가 다르다.**\
+둘 다 **문자를 숫자로 매핑하여 저장하고 처리하는 체계**지만, **지원하는 문자 범위와 인코딩 방식이 다름**.
+{% endhint %}
 
-🐱(U+1F431) 같은 유니코드 문자는 컴퓨터 내부에서 여러 **소프트웨어 및 하드웨어 계층**을 거쳐 처리된다.\
-이 과정에서 사용되는 **정의된 시스템**은 다음과 같이 분류할 수 있다.
+### **1️⃣ 아스키(ASCII)**
+
+✅ **7비트(0\~127)의 코드 체계**\
+✅ **총 128개 문자만 표현 가능**\
+✅ 영어, 숫자, 특수 기호 등 **기본적인 문자만 포함**\
+✅ **고정 길이 인코딩(1바이트 = 1문자)**\
+✅ **과거 운영체제(예: MS-DOS)에서는 기본 문자 체계로 사용됨**
+
+#### **🔹 ASCII 예제**
+
+| 문자 | ASCII (10진수) | ASCII (16진수) | 2진수      |
+| -- | ------------ | ------------ | -------- |
+| A  | 65           | 0x41         | 01000001 |
+| B  | 66           | 0x42         | 01000010 |
+| C  | 67           | 0x43         | 01000011 |
+
+📌 **ASCII는 간단하고 빠르지만, 영어 이외의 언어를 표현할 수 없다는 한계가 있음.**\
+📌 **한글, 중국어, 일본어, 이모지 등은 ASCII로 표현 불가능!**
+
+### **2️⃣ 유니코드(Unicode)**
+
+✅ **전 세계 모든 문자를 표현 가능**\
+✅ **UCS(Universal Character Set) 기반으로 100만 개 이상의 문자를 지원**\
+✅ **가변 길이 인코딩(1\~4바이트) → UTF-8, UTF-16, UTF-32 등으로 저장 가능**\
+✅ **현대 운영체제(Windows, macOS, Linux)는 기본적으로 유니코드(UTF-8/UTF-16) 사용**
+
+#### **🔹 유니코드 예제**
+
+| 문자 | 유니코드 (16진수) | UTF-8 (16진수)  | 2진수 (UTF-8)                         |
+| -- | ----------- | ------------- | ----------------------------------- |
+| A  | U+0041      | 0x41          | 01000001                            |
+| 한  | U+AC00      | 0xEA B0 80    | 11101010 10110000 10000000          |
+| 🐱 | U+1F431     | 0xF0 9F 90 B1 | 11110000 10011111 10010000 10110001 |
+
+📌 **UTF-8은 기존 ASCII(1바이트)와 호환되면서, 한글(3바이트), 이모지(4바이트) 등 다양한 문자를 표현할 수 있음.**\
+📌 **즉, 영어는 1바이트로 저장되지만, 복잡한 문자(한글, 중국어, 이모지)는 3\~4바이트로 저장됨.**
+
+### **3️⃣ 현대 운영체제(Windows, macOS)는 어떤 문자 체계를 사용하나?**
+
+**🔹 Windows → 기본적으로 "UTF-16(LE)" 사용**\
+**🔹 macOS, Linux → 기본적으로 "UTF-8" 사용**
+
+#### 📌 **Windows (UTF-16)**
+
+* Windows는 내부적으로 **UTF-16(LE, Little Endian)** 인코딩을 사용
+* UTF-16은 **2바이트(16비트) 단위로 문자 저장**
+* 단, **일반적인 텍스트 파일과 웹 브라우저에서는 UTF-8이 기본**
+* `C:\Windows\System32\unifont.dll` 같은 시스템 파일에서 유니코드 지원
+
+#### 📌 **macOS & Linux (UTF-8)**
+
+* macOS와 Linux는 대부분 **UTF-8을 기본 문자 인코딩으로 사용**
+* UTF-8은 ASCII와 100% 호환되면서, **모든 유니코드 문자를 표현 가능**
+* `/usr/share/unicode/`에서 유니코드 데이터베이스를 관리
+
+> 즉, <mark style="color:red;">윈도우는 UTF-16을 기반으로 하지만, 웹과 파일 시스템에서는 UTF-8</mark>을 많이 사용 <mark style="color:red;">맥과 리눅스는 기본적으로 UTF-8을 사용</mark>한다.
+
+### **🔍 정리**
+
+<figure><img src="../../.gitbook/assets/image (142).png" alt=""><figcaption></figcaption></figure>
+
+| 비교 항목       | ASCII              | 유니코드(Unicode)                       |
+| ----------- | ------------------ | ----------------------------------- |
+| **비트 크기**   | 7비트(128문자)         | 16비트 이상(10억 개 이상 문자 지원)             |
+| **지원 문자**   | 영어, 숫자, 특수기호       | 모든 언어(한글, 이모지 포함)                   |
+| **인코딩 방식**  | 고정 길이 (1바이트 = 1문자) | 가변 길이 (UTF-8: 14바이트, UTF-16: 24바이트) |
+| **운영체제 사용** | MS-DOS, 초창기 시스템    | Windows(UTF-16), macOS/Linux(UTF-8) |
+| **웹 표준**    | ❌ (지원 안 함)         | ✅ UTF-8이 웹 표준                       |
+
+> 과거(도스 시절)에는 ASCII가 쓰였지만, 현재는 Windows, macOS, Linux 모두 유니코드(UTF-8 또는 UTF-16)를 사용한다. 그래서 한글, 이모지, 다양한 언어를 자유롭게 표현할 수 있다.&#x20;
+
+
 
 ***
 
-**📌 1. 운영체제 (OS)**
+## 6. 🐱 **이모지를 인터넷에서 복사하면 어떤 과정이 일어날까?**
 
-운영체제는 키보드 입력을 받아 이를 **유니코드 코드 포인트**로 변환하고, 응용 프로그램이 사용할 수 있도록 제공한다.
+<figure><img src="../../.gitbook/assets/image (143).png" alt=""><figcaption></figcaption></figure>
 
-#### **💾 OS 내부 유니코드 처리 관련 시스템**
+### **1️⃣ 이모지(🐱)를 복사하는 순간**
 
-* **Windows**
-  * `Win32 API` → `Text Services Framework (TSF)`를 통해 입력된 문자 처리
-  * `DirectWrite` 또는 `GDI+`를 이용해 폰트 렌더링
-* **MacOS**
-  * `CoreText` 및 `NSInputManager`로 유니코드 문자 처리
-* **Linux (Ubuntu, Debian, etc.)**
-  * `X11` 또는 `Wayland`를 통해 입력 이벤트 처리
-  * `Pango`와 `HarfBuzz`를 사용하여 폰트 렌더링
+✅ **🐱(U+1F431) 이모지는 유니코드 문자**\
+✅ 복사하면 **OS의 클립보드(Clipboard)** 에 저장됨\
+✅ 이 과정에서 운영체제(OS)는 UTF-8 또는 UTF-16 인코딩을 사용하여 **이진 데이터(비트)로 변환 후 저장**
 
-🔹 **어디에 정의되어 있나?**
+### **2️⃣ 운영체제(OS) 관점에서 복사 & 저장 과정**
 
-* OS 내부의 **입력 시스템(IME), 키보드 드라이버, 텍스트 렌더링 라이브러리**에 정의되어 있음.
-* `/usr/share/unicode` 또는 `/System/Library/Fonts` 등의 시스템 디렉터리에 폰트 데이터가 저장됨.
+**예제: 🐱(U+1F431, CAT FACE)를 복사하면 내부적으로 어떤 과정이 발생할까?**
 
-**📌 2. 유니코드 표준 (Unicode Standard)**
+1. **키보드/마우스 입력 이벤트**
+   * 사용자가 `Ctrl + C` (Windows) 또는 `Cmd + C` (Mac) 입력
+   * 운영체제는 현재 선택된 텍스트(`🐱`)를 복사해야 한다는 **인터럽트(Interrupt)** 발생
+   * 해당 문자를 **클립보드 메모리(Clipboard Memory)에 저장**
+2. **유니코드 변환 & 인코딩**
+   * 🐱의 유니코드 코드 포인트(U+1F431) 확인
+   * UTF-8 인코딩: `F0 9F 90 B1` (4바이트)
+   * UTF-16 인코딩: `D83D DC31` (2바이트 쌍)
+   * 운영체제(Windows: UTF-16, Mac/Linux: UTF-8)는 이모지를 **메모리에 저장**
+3. **클립보드에 저장**
+   * Windows: UTF-16으로 저장 (메모리 내부 구조는 Little Endian)
+   * macOS/Linux: UTF-8로 저장 (웹 브라우저와의 호환성 고려)
+   * 저장된 🐱 데이터는 단순한 문자열이 아니라, **유니코드 문자 데이터**
 
-유니코드는 국제 표준(ISO 10646)으로 정의되어 있으며, **전 세계 모든 문자에 대해 고유한 코드 포인트를 할당**한다.
+### **3️⃣ 붙여넣기(Paste) 과정**
 
-🔹 **어디에 정의되어 있나?**
+✅ 사용자가 `Ctrl + V` (Windows) 또는 `Cmd + V` (Mac)로 붙여넣기 하면?\
+✅ 복사된 🐱의 유니코드 값이 프로그램으로 전달됨
 
-* 공식 유니코드 표준 문서 📜
-  * [https://www.unicode.org/](https://www.unicode.org/)
-  * [Unicode Character Database (UCD)](https://www.unicode.org/ucd/)
-  * [Unicode Emoji 표준](https://unicode.org/emoji/)
-* 각 OS의 **유니코드 라이브러리**에 내장됨 (Windows, MacOS, Linux 등)
+**📌 붙여넣기 과정**
 
-📄 **예시: 유니코드 문서에서 🐱 (U+1F431) 정의**
+1. 운영체제(OS)는 클립보드에 저장된 데이터를 가져옴
+2. 해당 프로그램(예: 메모장, 브라우저, VSCode 등)이 유니코드를 지원하는지 확인
+3. 🐱의 유니코드 데이터를 적절한 **인코딩(UTF-8 또는 UTF-16)으로 변환**
+4. 프로그램이 폰트 엔진(Font Engine)을 통해 🐱를 화면에 표시
 
-* **Code Point**: `U+1F431`
-* **Name**: CAT FACE
-* **Category**: Emoji, Symbol
-* **UTF-8 Encoding**: `F0 9F 90 B1`
-* **UTF-16 Encoding**: `D83D DC31`
+### **4️⃣ 웹 브라우저에서 복사/붙여넣기 (HTML & JavaScript 관점)**
 
-**📌 3. 폰트 시스템 (Font Rendering System)**
+✅ 웹 브라우저(Chrome, Firefox, Safari 등)는 기본적으로 UTF-8을 사용\
+✅ 사용자가 웹에서 🐱를 복사하면, UTF-8 인코딩으로 **이진 데이터(비트)로 변환**\
+✅ 붙여넣을 때, HTML 또는 JavaScript 내부에서 🐱를 어떻게 처리하는지 확인
 
-🐱 이모지가 화면에 출력되려면, **폰트 파일**이 필요하다.\
-OS는 해당 문자(🐱)가 포함된 **폰트 데이터를 찾아서 렌더링**한다.
+**📌 웹 브라우저 예제**
 
-#### **💾 폰트 렌더링 시스템**
-
-* **Windows**: `Segoe UI Emoji`, `DirectWrite`
-* **MacOS**: `Apple Color Emoji`, `CoreText`
-* **Linux**: `Noto Color Emoji`, `Pango`, `HarfBuzz`
-* **웹 브라우저**: `CSS font-family: "Noto Color Emoji";` 등을 통해 렌더링
-
-🔹 **어디에 정의되어 있나?**
-
-* `/System/Library/Fonts` (MacOS)
-* `/usr/share/fonts/` (Linux)
-* `C:\Windows\Fonts\` (Windows)
-
-📂 **폰트 파일 예시**
-
-* `NotoColorEmoji.ttf` → Google이 만든 오픈소스 이모지 폰트
-* `AppleColorEmoji.ttf` → MacOS, iOS에서 사용하는 기본 이모지 폰트
-
-**📌 4. 응용 프로그램 내부 문자열 처리**
-
-웹 브라우저, 터미널, 텍스트 에디터는 OS에서 받은 유니코드 데이터를 **UTF-8, UTF-16 등으로 변환하여** 사용한다.
-
-#### **💾 문자열 처리 라이브러리**
-
-* **Python**: `unicodedata` 모듈
-* **JavaScript**: `String.prototype.charCodeAt()`, `Intl` API
-* **Java**: `Character.toChars()`, `String.getBytes()`
-* **C/C++**: `wchar_t`, `char16_t`
-
-🔹 **어디에 정의되어 있나?**
-
-* 프로그래밍 언어의 **표준 라이브러리(Standard Library)** 내부에 정의되어 있음.
-*   **Python 예시**
-
-    ```python
-    import unicodedata
-
-    char = "🐱"
-    print(unicodedata.name(char))  # 'CAT FACE'
-    print(ord(char))  # 128049 (10진수), U+1F431 (16진수)
-    ```
-*   **JavaScript 예시**
-
-    ```javascript
-    console.log("🐱".charCodeAt(0).toString(16)); // "d83d"
-    console.log("🐱".charCodeAt(1).toString(16)); // "dc31"
-    ```
-
-**📌 5. 하드웨어 (GPU, 디스플레이)**
-
-🐱는 최종적으로 GPU(Graphics Processing Unit)에서 픽셀 데이터로 변환되고, **디스플레이**에 출력된다.
-
-🔹 **어디에 정의되어 있나?**
-
-* **GPU 드라이버** 내부에서 폰트 데이터를 픽셀로 변환
-* Windows: `Direct2D`, MacOS: `Metal API`, Linux: `Mesa`, `OpenGL`
-
-📌 **최종적으로 🐱는 GPU가 픽셀로 변환하여 모니터에서 표시됨!**
-
-```
-1️⃣ 키보드 입력 → OS가 유니코드 변환 (U+1F431)
-2️⃣ OS가 프로그램에 전달 (Windows API, Mac CoreText, Linux X11 등)
-3️⃣ 프로그램이 UTF-8/UTF-16으로 저장 및 처리
-4️⃣ 폰트 시스템이 🐱를 찾아서 이미지로 변환
-5️⃣ GPU가 🐱를 픽셀 데이터로 변환 후 화면에 출력
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Emoji Copy</title>
+</head>
+<body>
+    <p id="emoji">🐱</p>
+    <button onclick="copyEmoji()">Copy</button>
+    <script>
+        function copyEmoji() {
+            let emoji = document.getElementById("emoji").innerText;
+            navigator.clipboard.writeText(emoji).then(() => {
+                alert("Copied: " + emoji);
+            });
+        }
+    </script>
+</body>
+</html>
 ```
 
-**🧐 "정의된 시스템"은 OS 내부, 프로그래밍 언어 라이브러리, 폰트 파일, GPU 드라이버 등 다양한 곳에 내장되어 있음!** 🚀
+✅ **브라우저는 🐱를 UTF-8(4바이트)로 변환하여 클립보드에 저장함**\
+✅ **붙여넣을 때 다시 UTF-8에서 유니코드 문자로 변환 후 표시**
 
-### 6) 그렇다면 결국 이미지도 비트아닌가.. 이미지는 어떤식으로 변환되는데?
+### **5️⃣ 아스키(ASCII) 관점에서 보면?**
 
-#### 🖼 **이미지는 어떻게 변환될까?**
+✅ 🐱는 ASCII로 저장할 수 없음!\
+✅ ASCII는 **7비트(0\~127)** 만 사용 → 오직 영어, 숫자, 특수기호만 지원\
+✅ 🐱(U+1F431)는 ASCII 범위를 초과하는 문자 → **ASCII 시스템에서는 깨짐(□, ?)**\
+✅ 따라서 현대 시스템(Windows, Mac, Linux)은 **유니코드를 기본 문자 인코딩으로 사용**
 
-(비트와 픽셀, 그리고 GPU의 역할)
+### **6️⃣ 정리: 이모지 복사 & 붙여넣기 전체 과정**
+
+**🐱를 복사하는 순간**
+
+* 운영체제(OS)는 🐱의 **유니코드 값을 인코딩(UTF-8/UTF-16)하여 클립보드에 저장**
+* Windows는 **UTF-16**, macOS/Linux는 **UTF-8**을 사용
+
+**🐱를 붙여넣을 때**
+
+* 프로그램(브라우저, 메모장 등)이 유니코드 데이터를 읽고 폰트 엔진을 통해 표시
+
+**웹 브라우저에서 복사 & 붙여넣기**
+
+* 🐱는 UTF-8(4바이트)로 저장됨
+* 붙여넣을 때 JavaScript `navigator.clipboard.writeText()` 사용 가능
+
+**ASCII 시스템에서는 🐱를 표현할 수 없음**
+
+* ASCII(7비트)에는 🐱가 없음 → 깨진 문자(□, ?)로 출력됨
+
+> **우리가 인터넷에서 🐱를 복사하고 붙여넣는 모든 과정에서 OS는 유니코드를 사용하며, 웹 브라우저는 UTF-8을 기본 인코딩으로 사용함!**&#x20;
+
+## **🧐 이모지가 깨지는 이유?**
+
+🐱 **이모지를 복사했을 때 환경에 따라 깨지는 이유** 🤔
+
+🐱(U+1F431, **CAT FACE**) 같은 이모지를 복사하고 붙여넣을 때 **환경(OS, 프로그램, 브라우저 등)에 따라 깨지는 이유**는 다음과 같은 요인이 있다.
+
+<figure><img src="../../.gitbook/assets/image (144).png" alt=""><figcaption></figcaption></figure>
+
+**1️⃣ 폰트(Font) 문제**
+
+유니코드 이모지를 표시하려면 해당 문자를 지원하는 **폰트가 필요**하지만, 모든 운영체제와 프로그램이 같은 폰트를 지원하는 것은 아니다.\
+폰트가 없으면 이모지가 **□(빈 박스), ?(물음표), ⍰(깨진 문자)** 등으로 표시된다.
+
+📌 **예제: 환경별 이모지 폰트 지원 여부**
+
+| 환경                               | 폰트                    | 🐱 표시 가능? |
+| -------------------------------- | --------------------- | --------- |
+| Windows 10+                      | Segoe UI Emoji        | ✅         |
+| Windows 7                        | Segoe UI Symbol (제한적) | ❌ (□, ?)  |
+| MacOS                            | Apple Color Emoji     | ✅         |
+| Linux (Ubuntu)                   | Noto Color Emoji      | ✅         |
+| Linux (CentOS 7)                 | 기본 폰트 없음              | ❌ (□, ?)  |
+| Android                          | Noto Emoji            | ✅         |
+| iOS                              | Apple Color Emoji     | ✅         |
+| 웹 브라우저 (Chrome, Safari, Firefox) | OS별 기본 폰트 사용          | ✅         |
+
+**해결 방법:**
+
+* 이모지가 깨지는 경우, 해당 운영체제/브라우저에 적절한 **이모지 폰트를 설치**
+* 웹에서는 CSS에서 `"Noto Color Emoji", "Apple Color Emoji", "Segoe UI Emoji"` 폰트를 설정하여 해결 가능
+
+***
+
+**2️⃣ 인코딩(Encoding) 문제**
+
+이모지는 **UTF-8(4바이트) 또는 UTF-16(2바이트 쌍)** 으로 저장된다.\
+붙여넣을 때 프로그램이 이를 잘못된 인코딩으로 해석하면 **깨진 문자(□, ?)** 로 표시된다.
+
+📌 **예제: 인코딩 오류 발생 가능성**
+
+| 프로그램                 | 기본 문자 인코딩         | 🐱 표시 가능? |
+| -------------------- | ----------------- | --------- |
+| Windows 메모장 (기본)     | ANSI (ISO-8859-1) | ❌ (깨짐)    |
+| Windows 메모장 (UTF-8)  | UTF-8             | ✅         |
+| 터미널 (기본 Windows CMD) | CP949             | ❌ (깨짐)    |
+| VSCode               | UTF-8             | ✅         |
+| macOS 터미널            | UTF-8             | ✅         |
+
+**💡 해결 방법:**
+
+* **UTF-8로 인코딩을 설정**해야 함 (Windows 메모장에서 저장 시 UTF-8 선택)
+* 터미널에서 깨질 경우 `chcp 65001` (UTF-8 모드) 사용
+
+**3️⃣ 클립보드(Clipboard) 호환성 문제**
+
+운영체제별로 클립보드 데이터 저장 방식이 다르다.
+
+* **Windows는 UTF-16으로 저장**
+* **macOS/Linux는 UTF-8으로 저장**
+
+이 차이로 인해 일부 프로그램에서 깨질 수 있다.
+
+📌 **예제: 클립보드 인코딩 차이**
+
+| 환경                 | 클립보드 저장 인코딩 | 🐱 복사 & 붙여넣기 |
+| ------------------ | ----------- | ------------ |
+| Windows            | UTF-16      | ✅ (일반적으로 정상) |
+| macOS              | UTF-8       | ✅            |
+| Linux (Ubuntu)     | UTF-8       | ✅            |
+| Linux (서버, X11 없음) | 클립보드 지원 없음  | ❌            |
+
+📌 **깨짐 현상 발생 예제**
+
+```sh
+# Windows (UTF-16)에서 클립보드 복사 후 Linux (UTF-8) 터미널에 붙여넣기
+🐱 → � (깨진 문자)
+```
+
+**💡 해결 방법:**
+
+* Windows에서 UTF-16을 UTF-8로 변환 후 붙여넣기 (`iconv` 사용 가능)
+* 클립보드에서 데이터를 직접 UTF-8로 변환하는 프로그램 사용
+
+**4️⃣ 문자 결합 방식(ZWJ, Zero Width Joiner) 문제**
+
+일부 이모지는 여러 개의 문자 조합으로 만들어진다.\
+예: 가족 이모지 👨‍👩‍👧‍👦
+
+* `👨(U+1F468) + ZWJ(U+200D) + 👩(U+1F469) + ZWJ(U+200D) + 👧(U+1F467) + ZWJ(U+200D) + 👦(U+1F466)`
+* ✅ **일부 프로그램은 ZWJ(Zero Width Joiner)를 제대로 처리하지 못해 깨짐**
+
+📌 **ZWJ 미지원 환경에서는 어떻게 보일까?**
+
+| 환경                                       | 👨‍👩‍👧‍👦 표시 방식 |
+| ---------------------------------------- | ----------------- |
+| 최신 OS (Windows 10+, MacOS, Android, iOS) | 👨‍👩‍👧‍👦 (정상)  |
+| 구형 OS (Windows 7, Ubuntu 14)             | 👨 👩 👧 👦 (분리됨) |
+| 일부 터미널                                   | □ □ □ □ (깨짐)      |
+
+**💡 해결 방법:**
+
+* OS 또는 브라우저를 최신 버전으로 업데이트
+* ZWJ를 지원하는 프로그램(웹 브라우저, 메시지 앱) 사용
+
+**5️⃣ 이모지 색상(Color Emoji) 지원 문제**
+
+일부 환경에서는 이모지가 **흑백으로 보이거나 깨질 수 있다.**\
+이는 OS나 프로그램이 **컬러 이모지를 지원하는 폰트를 가지고 있지 않기 때문**이다.
+
+📌 **예제: 컬러 이모지 지원 여부**
+
+| 환경                           | 🐱 표시 색상 |
+| ---------------------------- | -------- |
+| Windows 10+ (Segoe UI Emoji) | 🐱 (컬러)  |
+| Windows 7 (Segoe UI Symbol)  | 🐱 (흑백)  |
+| macOS (Apple Color Emoji)    | 🐱 (컬러)  |
+| Linux (Noto Color Emoji)     | 🐱 (컬러)  |
+| Linux (기본 폰트 없음)             | □ (깨짐)   |
+
+**💡 해결 방법:**
+
+* 컬러 이모지를 지원하는 폰트를 설치 (`Noto Color Emoji` 등)
+* 일부 프로그램에서는 흑백 폰트만 지원 → **컬러 지원 폰트로 변경**
+
+**✅ 결론: 🐱 이모지가 깨지는 이유 & 해결 방법**
+
+| 원인         | 발생 가능성                 | 해결 방법                                                       |
+| ---------- | ---------------------- | ----------------------------------------------------------- |
+| 폰트 미지원     | OS/프로그램에 따라 다름         | 폰트 설치 (Segoe UI Emoji, Apple Color Emoji, Noto Color Emoji) |
+| 잘못된 인코딩    | 일부 프로그램에서 발생           | UTF-8로 저장/읽기 설정                                             |
+| 클립보드 호환성   | Windows ↔ Linux 등에서 발생 | UTF-16 → UTF-8 변환 사용 (`iconv`)                              |
+| ZWJ 지원 부족  | 구형 OS에서 발생             | 최신 OS/브라우저 사용                                               |
+| 컬러 이모지 미지원 | Windows 7, 일부 터미널 등    | 컬러 폰트 설치                                                    |
+
+***
+
+## 7. 그렇다면 결국 이미지도 비트아닌가.. **🧐**이미지는 어떤식으로 변환되는데? (비트와 픽셀, 그리고 GPU의 역할)
 
 **1️⃣ 모든 데이터는 결국 비트(Binary)**
 
