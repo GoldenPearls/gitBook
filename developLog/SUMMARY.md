@@ -155,7 +155,7 @@
 * [한권으로 읽는 컴퓨터 구조와 프로그래밍](cs/undefined-1/README.md)
   * [들어가며](cs/undefined-1/undefined.md)
   * [1장 : 컴퓨터 내부의 언어 체계](cs/undefined-1/1.md)
-  * [deepdive 지식 모음](cs/undefined-1/deepdive.md)
+  * [deepdive 지식 - 1장](cs/undefined-1/deepdive-1.md)
 * [Network](cs/network/README.md)
   * [네트워크 공부하기 프롤로그](cs/network/undefined.md)
   * [Story 01. HTTP 리퀘스트 메세지를 작성한다.](cs/network/story-01.-http-..md)
