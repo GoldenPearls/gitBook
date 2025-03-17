@@ -48,17 +48,17 @@ print(c2 in unique) //true
 
 * c1과 c2의 메모리 주소는 당연히 다름 ⇒ 다른값이 나옴
 
-<figure><img src="../../.gitbook/assets/image (5) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (5) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 2. 만약 모듈러 연산해서 **나온 값이 같더라도**, 그 자리에 있는 해시값을 비교해서 다르면 아 키가 다르구나 다른 키라고 판단하고 다른 곳에 저장
 
-<figure><img src="../../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 3. 만약 우연의 확률로 **두 개의 해시값이 비교해서 같더라도**, 아 해시충돌이 나서 같을 수 있으니 실제 키 c1와 c2 객체끼리 비교를 하게 됨
 4. 객체끼리의 비교는 어떻게 하냐? 실제 메모리 주소를 가지고 비교를 함
 5. 당연히 서로 다른 객체는 서로 다른 메모리 주소를 갖기 때문에 다르다고 봄
 
-<figure><img src="../../.gitbook/assets/image (6) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (6) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 6. set에 있는지 확인하는 동작방식
 
@@ -115,7 +115,7 @@ print(c2 in unique) //true
 
 #### 변화된 형태에서 실행
 
-<figure><img src="../../.gitbook/assets/image (7) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (7) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 1. 먼저 같은 인덱스 위치로 갔다면, 해시값 비교
 2. 두 번째로 재정의한 메소드로 인해 x, y 좌표 비교

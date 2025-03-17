@@ -157,6 +157,7 @@
   * [1장 : 컴퓨터 내부의 언어 체계](cs/undefined-1/1.md)
   * [2장 : 전자 회로의 조합 논리](cs/undefined-1/2.md)
   * [deepdive 지식 - 1장](cs/undefined-1/deepdive-1.md)
+  * [DeepDive 지식 : 2장](cs/undefined-1/deepdive-2.md)
 * [Network](cs/network/README.md)
   * [네트워크 공부하기 프롤로그](cs/network/undefined.md)
   * [Story 01. HTTP 리퀘스트 메세지를 작성한다.](cs/network/story-01.-http-..md)

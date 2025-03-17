@@ -88,7 +88,7 @@ public Cheese[] getCheeses4() {
 
 ## 📚 핵심 정리
 
-<figure><img src="../../../../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 1. **null 반환을 피하고 빈 컬렉션이나 배열을 반환하자**:
    * 배열이나 컬렉션을 반환할 때는 **null 대신 빈 컬렉션이나 배열**을 반환하는 것이 좋다.
