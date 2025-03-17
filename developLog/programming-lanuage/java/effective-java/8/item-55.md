@@ -183,7 +183,7 @@ Connection connection = getConnection(dataSource).orElseGet(() -> getLocalConnec
 
 ## 5. Optional 사용 시 주의사항
 
-<figure><img src="../../../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * **Optional 사용을 피해야 하는 경우**:
   1. **컨테이너 타입** (예: `List`, `Stream`, 배열)에 Optional을 사용하지 말 것.
@@ -195,7 +195,7 @@ Connection connection = getConnection(dataSource).orElseGet(() -> getLocalConnec
 
 ## 📚 핵심 정리
 
-<figure><img src="../../../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * 반환값이 없을 가능성이 있는 메서드라면 **Optional을 반환**하는 것이 좋다.
   * 이를 통해 **반환값이 없을 가능성을 명확히 알리고**, **null 처리를 통한 NPE 위험**을 줄일 수 있다.
