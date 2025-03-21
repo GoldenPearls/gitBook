@@ -126,7 +126,7 @@ print(c2 in unique) //true
 
 5. c1 in unique
 
-<figure><img src="../../.gitbook/assets/image (9) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (9) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * 자기 자신과의 비교이기 때문에 동일하다고 봄
 

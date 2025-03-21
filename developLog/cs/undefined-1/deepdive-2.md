@@ -26,7 +26,7 @@ CPU(Central Processing Unit, 중앙처리장치)는 컴퓨터에서 데이터를
 
 2. **쓰레드(Thread)**
 
-<figure><img src="../../.gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
 
 * 코어는 물리적인 개념이지만, **쓰레드는 논리적인 개념**이야.
 * **하이퍼쓰레딩(Hyper-Threading)** 기술을 사용하면 하나의 코어를 논리적으로 나누어 **한 코어에서 두 개의 작업을 동시에 수행할 수 있어.**
@@ -558,7 +558,7 @@ CPU는 0과 1의 **디지털 신호**만 처리할 수 있어.\
 
 ### **1) 컴퓨터는 전기로 움직인다 → 2진법이 유리하다**
 
-<figure><img src="../../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (9) (1).png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="warning" %}
 컴퓨터의 동작 원리를 살펴보면, **전압(Voltage)을 기반으로 정보를 표현**해.\

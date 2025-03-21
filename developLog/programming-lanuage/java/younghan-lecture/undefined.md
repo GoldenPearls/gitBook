@@ -132,7 +132,7 @@ public class Var6 {
 }
 ```
 
-<figure><img src="../../../.gitbook/assets/image (9) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (9) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 > tip : 1줄 복사 단축키 `ctrl + D`
 

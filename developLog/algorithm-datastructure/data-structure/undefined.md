@@ -93,7 +93,7 @@
 
 #### Doubly Linked List(이중 연결 리스트)
 
-<figure><img src="../../.gitbook/assets/image (9) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (9) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 1. 다음 노드에 대한 포인터와 이전 노드를 가르치는 포인터를 가지고 있다.
 2. 앞 뒤로 탐색하는 게 빠르다는 장점이 있지만, 노드마다 2개의 포인터를 가져야 해서 데이터의 구조와 흐름이 복잡해질 수 있음
