@@ -156,6 +156,7 @@
   * [들어가며](developLog/cs/undefined-1/undefined.md)
   * [1장 : 컴퓨터 내부의 언어 체계](developLog/cs/undefined-1/1.md)
   * [2장 : 전자 회로의 조합 논리](developLog/cs/undefined-1/2.md)
+  * [3장 : 메모리와 디스크의 핵심:  순차 논리](developLog/cs/undefined-1/3.md)
   * [deepdive 지식 - 1장](developLog/cs/undefined-1/deepdive-1.md)
   * [DeepDive 지식 : 2장](developLog/cs/undefined-1/deepdive-2.md)
 * [Network](developLog/cs/network/README.md)
