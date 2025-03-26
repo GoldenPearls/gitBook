@@ -261,7 +261,7 @@ ETC.... 그냥 `보조 선생님`임 교구 만들기로 진짜 평생의 가위
 
 내가 그림을 그려주면 애들이 색칠 했음... 그 중 아주 일부,...
 
-<figure><img src="../../.gitbook/assets/image (12) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (12) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 마음에 안들면 삐지고 울고... 다치는 애들 있고 진짜 힘겨웠다 ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ 그래도 **장점**은 밥, 간식 공짜로 주셨어서 좋았다... 그리고 가끔 정이 가는 애들이 있었어..ㅠㅜㅠㅠ 이런거 줬다구...&#x20;
 

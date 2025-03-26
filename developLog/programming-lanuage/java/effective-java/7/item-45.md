@@ -34,7 +34,7 @@
 
 
 
-<figure><img src="../../../../.gitbook/assets/image (8) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption><p>https://sas-study.tistory.com/239 이미지 참고</p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (8) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption><p>https://sas-study.tistory.com/239 이미지 참고</p></figcaption></figure>
 
 ## 🌱 **스트림 파이프라인 연산**
 

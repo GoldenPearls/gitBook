@@ -157,6 +157,7 @@
   * [1장 : 컴퓨터 내부의 언어 체계](cs/undefined-1/1.md)
   * [2장 : 전자 회로의 조합 논리](cs/undefined-1/2.md)
   * [3장 : 메모리와 디스크의 핵심:  순차 논리](cs/undefined-1/3.md)
+  * [4장 : 컴퓨터 내부 구조](cs/undefined-1/4.md)
   * [deepdive 지식 - 1장](cs/undefined-1/deepdive-1.md)
   * [DeepDive 지식 : 2장](cs/undefined-1/deepdive-2.md)
 * [Network](cs/network/README.md)
