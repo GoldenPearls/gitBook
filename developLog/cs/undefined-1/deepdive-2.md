@@ -8,15 +8,15 @@ icon: head-side-goggles
 
 CPU(Central Processing Unit, 중앙처리장치)는 컴퓨터에서 데이터를 처리하는 핵심 장치로, **기억, 해석, 연산, 제어**라는 네 가지 주요 기능을 수행해.
 
-<figure><img src="../../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### **1) CPU의 구성 요소**
 
-<figure><img src="../../.gitbook/assets/image (4) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (4) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 1. **코어(Core) ⇒ 프로세서라고도 불렸음**
 
-<figure><img src="../../.gitbook/assets/image (5) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (5) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * CPU 내부에서 **연산을 수행하는 핵심 단위**야.
 * `싱글코어(single-core)`는 한 번에 하나의 작업만 가능하지만, **멀티코어(multi-core)**&#xB294; 여러 작업을 동시에 처리할 수 있어.
@@ -26,7 +26,7 @@ CPU(Central Processing Unit, 중앙처리장치)는 컴퓨터에서 데이터를
 
 2. **쓰레드(Thread)**
 
-<figure><img src="../../.gitbook/assets/image (9) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (9) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * 코어는 물리적인 개념이지만, **쓰레드는 논리적인 개념**이야.
 * **하이퍼쓰레딩(Hyper-Threading)** 기술을 사용하면 하나의 코어를 논리적으로 나누어 **한 코어에서 두 개의 작업을 동시에 수행할 수 있어.**
@@ -51,7 +51,7 @@ CPU(Central Processing Unit, 중앙처리장치)는 컴퓨터에서 데이터를
 
 
 
-<figure><img src="../../.gitbook/assets/image (7) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (7) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### **2) CPU의 종류와 차이점**
 
@@ -75,7 +75,7 @@ CPU(Central Processing Unit, 중앙처리장치)는 컴퓨터에서 데이터를
 
 ### 3) 코어와 스레드
 
-<figure><img src="../../.gitbook/assets/image (5) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (5) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 #### **코어는 물리적인 개념이지만, 쓰레드는 논리적인 개념이라는 뜻**
 
@@ -85,7 +85,7 @@ CPU(Central Processing Unit, 중앙처리장치)는 컴퓨터에서 데이터를
 
 #### **1. 코어(Core)란?**
 
-<figure><img src="../../.gitbook/assets/image (3) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * **CPU(중앙 처리 장치, Central Processing Unit)의 물리적인 연산 장치**야.
 * 한 개의 코어는 **한 번에 하나의 연산을 수행**할 수 있어.
@@ -99,7 +99,7 @@ CPU(Central Processing Unit, 중앙처리장치)는 컴퓨터에서 데이터를
 
 > 작업관리자 프로세서에서 내 스레드의 개수 확인할 수 있음
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * **프로그램이 실행될 때 CPU에서 실행되는 최소 단위**를 의미해.
 * 쓰레드는 실제 연산을 수행하는 코어에서 실행되지만, **하드웨어적으로 존재하는 게 아니라 소프트웨어적으로 관리되는 논리적인 개념이야**.
@@ -150,7 +150,7 @@ CPU(Central Processing Unit, 중앙처리장치)는 컴퓨터에서 데이터를
 
 > 하드웨어 내 스레드 논리적 코어는 8개인데 위  사진상에 스레드는 어떻게 3951개가 될까?
 
-<figure><img src="../../.gitbook/assets/image (6) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (6) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 **논리적 코어가 8개인데도 스레드 개수가 3951개가 되는 이유**는 **운영체제에서 관리하는 소프트웨어적인 스레드와 하드웨어적인 스레드가 다르기 때문이야.**
 
@@ -393,7 +393,7 @@ CPU가 작아질수록 **전기 신호 간섭이 증가**하고, **신호 무결
 * 하지만 **전력 소모, 발열, 잡음 문제**로 인해 클럭 속도를 무한정 높일 수 없다.
 * 현재 CPU는 **클럭 속도 대신 멀티코어, 병렬 처리, AI 가속기** 등을 활용하는 방향으로 발전하고 있다.
 
-<figure><img src="../../.gitbook/assets/image (8) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (8) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### **3) CPU 소형화의 한계점과 해결 방법**
 
@@ -473,7 +473,7 @@ CPU와 CPU 다이는 비슷한 개념이지만, 조금 다른 의미를 가지�
 
 ### 4) CPU 다이(Die) 구조
 
-<figure><img src="../../.gitbook/assets/image (6) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (6) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * **Core (코어)**: CPU에서 연산을 수행하는 핵심 유닛. 멀티코어 CPU에서는 여러 개의 코어가 존재.
 * **Shared L3 Cache (공유 L3 캐시)**: 모든 코어가 공유하는 고속 메모리로, CPU와 RAM 간 속도 차이를 줄여줌.
@@ -558,7 +558,7 @@ CPU는 0과 1의 **디지털 신호**만 처리할 수 있어.\
 
 ### **1) 컴퓨터는 전기로 움직인다 → 2진법이 유리하다**
 
-<figure><img src="../../.gitbook/assets/image (9) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (9) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="warning" %}
 컴퓨터의 동작 원리를 살펴보면, **전압(Voltage)을 기반으로 정보를 표현**해.\
@@ -734,7 +734,7 @@ CPU → 트랜지스터 → 논리 게이트 → 전기 신호 → 시스템 버
 
 ### **트랜지스터**와 현대 컴퓨터
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 컴퓨터의 발전 과정에서 트랜지스터는 핵심적인 역할을 하는 부품이야. 과거에는 **릴레이와 진공관**을 이용해 컴퓨터를 만들었지만, 크기가 크고 전력 소모가 많으며 발열이 심한 문제가 있었어. 트랜지스터의 등장은 <mark style="color:red;">컴퓨터 소형화와 성능 향상을 가능하게 만들었지.</mark>
 
@@ -742,7 +742,7 @@ CPU → 트랜지스터 → 논리 게이트 → 전기 신호 → 시스템 버
 
 ### 1) 트랜지스터란?
 
-<figure><img src="../../.gitbook/assets/image (3) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * 트랜지스터(Transistor)는 전송 저항(Transfer Resistor)이라는 단어에서 유래한 전자 부품이야.
 * 전류의 흐름을 조절하는 **스위치 역할**을 하며, `반도체(Semiconductor)`라는 특별한 물질을 이용해 만들어져.
@@ -762,9 +762,9 @@ CPU → 트랜지스터 → 논리 게이트 → 전기 신호 → 시스템 버
 
 ### 3) 트랜지스터의 구조와 유형
 
-<figure><img src="../../.gitbook/assets/image (4) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (4) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (5) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (5) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 1.  **쌍극 접합 트랜지스터(BJT, Bipolar Junction Transistor)**
 
@@ -780,7 +780,7 @@ CPU → 트랜지스터 → 논리 게이트 → 전기 신호 → 시스템 버
 
 > FET(Field Effect Transistor)는 전계효과 트랜지스터 또는 장효과 트랜지스터로, **전기장을 이용해 전류의 흐름을 제어하는 반도체 트랜지스터**
 
-<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * **MOSFET(Metal-Oxide Semiconductor Field Effect Transistor)**&#xC774; 가장 대표적인 FET야.
 * **게이트(Gate), 드레인(Drain), 소스(Source)**&#xB77C;는 세 개의 단자로 구성돼.
@@ -821,7 +821,7 @@ CPU → 트랜지스터 → 논리 게이트 → 전기 신호 → 시스템 버
   * **OFF 상태**: 베이스에서 전류가 빠져나가지 않으면 전류가 흐르지 않음.
   * **NPN보다 속도가 느리고 효율이 떨어지지만**, 일부 아날로그 회로나 전력 회로에서는 여전히 사용됨.
 
-<figure><img src="../../.gitbook/assets/image (8) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (8) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * **NPN형**: 화살표가 **밖으로 나가는 방향** → 전류가 **컬렉터 → 이미터로 흐름**.
 * **PNP형**: 화살표가 **안으로 들어가는 방향** → 전류가 **이미터 → 컬렉터로 흐름**.
@@ -832,7 +832,7 @@ CPU → 트랜지스터 → 논리 게이트 → 전기 신호 → 시스템 버
 
 트랜지스터는 실리콘(Si) 같은 **반도체 재료**를 사용해 제작되며, 내부적으로 **다층 구조**를 가지고 있어.
 
-<figure><img src="../../.gitbook/assets/image (10) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (10) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 **✅ NPN 트랜지스터 내부 구조**
 
@@ -848,7 +848,7 @@ CPU → 트랜지스터 → 논리 게이트 → 전기 신호 → 시스템 버
 
 **NPN vs. PNP 트랜지스터 비교 정리**
 
-<figure><img src="../../.gitbook/assets/image (11) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (11) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 | 특징       | **NPN 트랜지스터**           | **PNP 트랜지스터**        |
 | -------- | ----------------------- | -------------------- |
@@ -1069,7 +1069,7 @@ MOSFET은 단일 캐리어 방식(Unipolar Carrier Transistor)을 사용하는 �
 
 맞아! 지금의 CPU(중앙처리장치)는 대부분 **트랜지스터**로 이루어져 있어. 하지만 그 트랜지스터들이 \*\*집적 회로(IC, Integrated Circuit)로 구현되어 있다는 점이 핵심이야.
 
-<figure><img src="../../.gitbook/assets/image (7) (1) (1) (1) (1).png" alt=""><figcaption><p>집적 회로</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (7) (1) (1) (1) (1) (1).png" alt=""><figcaption><p>집적 회로</p></figcaption></figure>
 
 ### 1) 현재 CPU는 집적 회로(IC)인가, 트랜지스터인가?
 

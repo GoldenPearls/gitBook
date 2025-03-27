@@ -31,11 +31,11 @@ IllegalArgumentException, IndexOutOFBoundsException, NullPointerException 중 �
 메서드와 생성자는 입력 매개변수의 값이 특정 조건을 만족해야 하는 경우가 많은데, 이러한 경우 오류는 가능한 한 빨리 검사해야 하는 것이 좋으므로 **메서드 몸체가 시작되기 전에 매개변수를 검사하는 것이 좋다.**
 {% endhint %}
 
-<figure><img src="../../../../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## 2. 매개변수를 검사하는 방법 : 공개 메서드 <a href="#id-1" id="id-1"></a>
 
-<figure><img src="../../../../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### 1) @throws <a href="#throws" id="throws"></a>
 
@@ -127,7 +127,7 @@ public class Item49Test {
 
 ## 3. 매개변수를 검사하는 방법 : 비공개 메서드 <a href="#id-2" id="id-2"></a>
 
-<figure><img src="../../../../.gitbook/assets/image (5) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (5) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### 1) **Java의 `assert` 구문을 사용한 `null` 검사** <a href="#assert" id="assert"></a>
 
@@ -180,7 +180,7 @@ public class Item49Test {
 
 ### **4. 오류 검사의 일반 원칙 2: 나중에 쓰려고 저장하는 매개변수의 유효성 검사**
 
-<figure><img src="../../../../.gitbook/assets/image (7) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (7) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 어떤 메서드에서 반환된 값을 **나중에 사용하기 위해 보관**할 때, 해당 값이 `null`인지 확인하지 않으면 **예상치 못한 오류**가 발생할 수 있다.&#x20;
 
@@ -318,7 +318,7 @@ public class DataService {
 
 예를 들어 후자의 경우, `Collections.sort(List)` 처럼 객체 리스트를 정렬하는 메서드를 생각해보면 리스트 안의 객체들은 모두 상호 비교되어 있어야 하며 비교될 수 없는 타입의 객체가 들어있다면 ClassCastException을 던진다. 하지만 암묵적 유효성 검사에 너무 의존한다면 실패 원자성(_아이템 76_)을 해칠 수 있으니 주의하자.
 
-<figure><img src="../../../../.gitbook/assets/image (6) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (6) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 
 
