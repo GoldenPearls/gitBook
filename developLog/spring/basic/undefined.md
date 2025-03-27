@@ -69,7 +69,7 @@ object를 의자 s = new 의자();로 **heap**에 올리면 이 s는 만든 메�
   * Method Injection (필드 주입)
 * DL 사용시 컨테이너 종속이 증가하기 때문에 주로 DI를 사용한다. DI로 인해 스프링이 만든 것들을 다른 곳에서 사용이 가능하다. **즉, 공유가 가능하다.**
 
-<figure><img src="../../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 > 🔗 출처 : [https://dog-developers.tistory.com/12](https://dog-developers.tistory.com/12)
 
@@ -109,7 +109,7 @@ object를 의자 s = new 의자();로 **heap**에 올리면 이 s는 만든 메�
   * 리스너로 등록된 빈에게 **이벤트 발생을 알려준다.**
   *
 
-      <figure><img src="../../.gitbook/assets/image (5) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+      <figure><img src="../../.gitbook/assets/image (5) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 > 🔗 출처 : [https://dog-developers.tistory.com/12](https://dog-developers.tistory.com/12)
 
@@ -123,7 +123,7 @@ object를 의자 s = new 의자();로 **heap**에 올리면 이 s는 만든 메�
 
 A나라의 성을 `tomcat`이라고 보고 왕의 집을 `스프링 컨테이너`라고 생각하면 됨
 
-<figure><img src="../../.gitbook/assets/image (7) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (7) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 **톰켓 쪽으로 들어오는 필터**는 실제 `filter`라고 불리며, web.xml을 가진다. 두 번째로 스**프링 컨테이너로 들어가는 필터**는 `Interceptor`(AOP)로 권한체크를 해줌
 

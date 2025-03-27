@@ -124,7 +124,7 @@ public void foo(int a1, int a2, int a3, int... rest) { }
 
 ## 📚 핵심 정리
 
-<figure><img src="../../../../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 1. **가변 인수를 사용하자**:
    * 인수 개수가 일정하지 않은 메서드를 정의할 때 **가변 인수**를 사용하는 것이 좋다.
