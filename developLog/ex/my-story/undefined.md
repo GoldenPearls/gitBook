@@ -17,10 +17,10 @@ icon: building
 
 gs25 를 가장 많이 함&#x20;
 
-| 사진 1                                                                                     | 사진 2                                                                                                 | 사진 3                                                                                     |
-| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
-| <img src="../../.gitbook/assets/image (16) (1) (1) (1).png" alt="" data-size="original"> | <img src="../../.gitbook/assets/image (13) (1) (1) (1) (1) (1) (1).png" alt="" data-size="original"> | <img src="../../.gitbook/assets/image (14) (1) (1) (1).png" alt="" data-size="original"> |
-| <img src="../../.gitbook/assets/image (15) (1) (1) (1).png" alt="" data-size="original"> | <img src="../../.gitbook/assets/image (19) (1).png" alt="" data-size="original">                     | <img src="../../.gitbook/assets/image (20) (1).png" alt="" data-size="original">         |
+| 사진 1                                                                                         | 사진 2                                                                                                 | 사진 3                                                                                         |
+| -------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| <img src="../../.gitbook/assets/image (16) (1) (1) (1) (1).png" alt="" data-size="original"> | <img src="../../.gitbook/assets/image (13) (1) (1) (1) (1) (1) (1).png" alt="" data-size="original"> | <img src="../../.gitbook/assets/image (14) (1) (1) (1) (1).png" alt="" data-size="original"> |
+| <img src="../../.gitbook/assets/image (15) (1) (1) (1) (1).png" alt="" data-size="original"> | <img src="../../.gitbook/assets/image (19) (1).png" alt="" data-size="original">                     | <img src="../../.gitbook/assets/image (20) (1).png" alt="" data-size="original">             |
 
 ### &#x20;1)  했던 일
 
@@ -332,7 +332,7 @@ ETC.... 그냥 `보조 선생님`임 교구 만들기로 진짜 평생의 가위
 
 마지막은 예전에 키운 햄스터들과 지금 우리 복이 사진 끝!
 
-| 사진 1                                                                         | 사진 2                                                                         | 사진 3                                                                         |
-| ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
-| <img src="../../.gitbook/assets/image (18).png" alt="" data-size="original"> | <img src="../../.gitbook/assets/image (20).png" alt="" data-size="original"> | <img src="../../.gitbook/assets/image (21).png" alt="" data-size="original"> |
+| 사진 1                                                                             | 사진 2                                                                         | 사진 3                                                                         |
+| -------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| <img src="../../.gitbook/assets/image (18) (2).png" alt="" data-size="original"> | <img src="../../.gitbook/assets/image (20).png" alt="" data-size="original"> | <img src="../../.gitbook/assets/image (21).png" alt="" data-size="original"> |
 

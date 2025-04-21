@@ -256,6 +256,6 @@ git push
 
 훔... 일단 배포만 해두고 ... 지금 gitbook 테마가 더 마음에 들어서 gitbook에만 해둘까? 아님 github.io랑 연결해서 할 수 있는 방법을 찾을까 고민중임
 
-<figure><img src="../../../.gitbook/assets/image (17).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (17) (1).png" alt=""><figcaption></figcaption></figure>
 
 내 [gitbook](https://mellona-log.gitbook.io/log)

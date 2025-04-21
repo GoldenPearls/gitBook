@@ -168,7 +168,7 @@
 
 ### 3) 프로토콜 종류
 
-<figure><img src="../../.gitbook/assets/image (17) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (17) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ***
 

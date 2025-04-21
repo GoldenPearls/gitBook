@@ -967,7 +967,7 @@ public class Casting2 {
 }
 ```
 
-<figure><img src="../../../.gitbook/assets/image (14) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (14) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 > 이런 문제는 매우 큰 버그를 유발할 수 있다. 예를 들어서 은행 프로그램이 고객에게 은행 이자를 계산해서 입금해야 하는데 만약 이런 코드가 아무런 오류 없이 수행된다면 끔찍한 문제를 만들 수 있다. 그래서 자바는 이런 경우 컴파일 오류를 발생시킨다. 항상 강조하지만 `컴파일 오류`는 **문제를 가장 빨리 발견할 수 있는 좋은 오류**이다
 
@@ -1009,7 +1009,7 @@ public class Casting3 {
 }
 ```
 
-<figure><img src="../../../.gitbook/assets/image (15) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (15) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 #### 정상 범위
 
