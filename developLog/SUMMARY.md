@@ -174,6 +174,7 @@
   * [그림으로 배우는 리눅스 구조](cs/linux/undefined/README.md)
     * [1장 리눅스 개요](cs/linux/undefined/1.md)
     * [2장 : 프로세스 관리(기초편)](cs/linux/undefined/2.md)
+    * [6장 : 장치접근](cs/linux/undefined/6.md)
 * [보안](cs/security/README.md)
   * [우리나라 보안의 실태](cs/security/undefined.md)
 * [HTTP 웹 지식](cs/http/README.md)
