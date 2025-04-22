@@ -159,6 +159,7 @@
   * [3장 : 메모리와 디스크의 핵심:  순차 논리](cs/undefined-1/3.md)
   * [4장 : 컴퓨터 내부 구조](cs/undefined-1/4.md)
   * [3장 - 4장 DeepDive 5개만 발표용](cs/undefined-1/3-4-deepdive-5.md)
+  * [프로그래밍 언어 처리 - 컴퓨터는 프로그램을 어떻게 해석하고 변환하는 가?](cs/undefined-1/undefined-1.md)
   * [deepdive 지식 - 1장](cs/undefined-1/deepdive-1.md)
   * [DeepDive 지식 : 2장](cs/undefined-1/deepdive-2.md)
 * [Network](cs/network/README.md)
