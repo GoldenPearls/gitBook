@@ -120,11 +120,11 @@ public void foo(int a1, int a2, int a3, int... rest) { }
 
 결론적으로, **오버로딩**은 **상황에 따라 장단점이 있으며, 어떤 상황에서는 피해야 하지만** 성능 최적화와 같이 특정한 이유가 있다면 **신중하게 사용할 수 있습니다**. 중요한 것은 오버로딩으로 인해 발생할 수 있는 **혼란과 장점을 잘 저울질하여 사용 여부를 결정하는 것**입니다.
 
-<figure><img src="../../../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## 📚 핵심 정리
 
-<figure><img src="../../../../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 1. **가변 인수를 사용하자**:
    * 인수 개수가 일정하지 않은 메서드를 정의할 때 **가변 인수**를 사용하는 것이 좋다.
