@@ -85,7 +85,7 @@ CPU(Central Processing Unit, 중앙처리장치)는 컴퓨터에서 데이터를
 
 #### **1. 코어(Core)란?**
 
-<figure><img src="../../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * **CPU(중앙 처리 장치, Central Processing Unit)의 물리적인 연산 장치**야.
 * 한 개의 코어는 **한 번에 하나의 연산을 수행**할 수 있어.
@@ -99,7 +99,7 @@ CPU(Central Processing Unit, 중앙처리장치)는 컴퓨터에서 데이터를
 
 > 작업관리자 프로세서에서 내 스레드의 개수 확인할 수 있음
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * **프로그램이 실행될 때 CPU에서 실행되는 최소 단위**를 의미해.
 * 쓰레드는 실제 연산을 수행하는 코어에서 실행되지만, **하드웨어적으로 존재하는 게 아니라 소프트웨어적으로 관리되는 논리적인 개념이야**.
@@ -734,7 +734,7 @@ CPU → 트랜지스터 → 논리 게이트 → 전기 신호 → 시스템 버
 
 ### **트랜지스터**와 현대 컴퓨터
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 컴퓨터의 발전 과정에서 트랜지스터는 핵심적인 역할을 하는 부품이야. 과거에는 **릴레이와 진공관**을 이용해 컴퓨터를 만들었지만, 크기가 크고 전력 소모가 많으며 발열이 심한 문제가 있었어. 트랜지스터의 등장은 <mark style="color:red;">컴퓨터 소형화와 성능 향상을 가능하게 만들었지.</mark>
 
@@ -742,7 +742,7 @@ CPU → 트랜지스터 → 논리 게이트 → 전기 신호 → 시스템 버
 
 ### 1) 트랜지스터란?
 
-<figure><img src="../../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * 트랜지스터(Transistor)는 전송 저항(Transfer Resistor)이라는 단어에서 유래한 전자 부품이야.
 * 전류의 흐름을 조절하는 **스위치 역할**을 하며, `반도체(Semiconductor)`라는 특별한 물질을 이용해 만들어져.
@@ -780,7 +780,7 @@ CPU → 트랜지스터 → 논리 게이트 → 전기 신호 → 시스템 버
 
 > FET(Field Effect Transistor)는 전계효과 트랜지스터 또는 장효과 트랜지스터로, **전기장을 이용해 전류의 흐름을 제어하는 반도체 트랜지스터**
 
-<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * **MOSFET(Metal-Oxide Semiconductor Field Effect Transistor)**&#xC774; 가장 대표적인 FET야.
 * **게이트(Gate), 드레인(Drain), 소스(Source)**&#xB77C;는 세 개의 단자로 구성돼.
