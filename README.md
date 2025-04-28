@@ -176,6 +176,7 @@
     * [1장 리눅스 개요](developLog/cs/linux/undefined/1.md)
     * [2장 : 프로세스 관리(기초편)](developLog/cs/linux/undefined/2.md)
     * [6장 : 장치접근](developLog/cs/linux/undefined/6.md)
+    * [7장 : 파일시스템](developLog/cs/linux/undefined/7.md)
 * [보안](developLog/cs/security/README.md)
   * [우리나라 보안의 실태](developLog/cs/security/undefined.md)
 * [HTTP 웹 지식](developLog/cs/http/README.md)
