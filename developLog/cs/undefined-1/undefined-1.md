@@ -14,7 +14,7 @@ icon: '8'
 
 프로그래밍 언어의 계층은 사진과 같습니다!
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### 1. 기계어는 너무 괴로워! 어셈블리 언어의 등장
 
@@ -132,7 +132,7 @@ next:    bss    1    ; next가 저장될 위치
 
 #### 그림으로 보는 세그먼트 구조
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ```
 ┌──────────────┐
@@ -310,7 +310,7 @@ GOTO가 많아서 **스파게티 코드**가 되기 쉬웠고, 구조적인 코�
 
 이제 컴퓨터가 프로그래밍 언어를 어떻게 **분해해서 이해하는지** 살펴보겠습니다. 언어를 어떤 식으로 처리하는지 살펴봅시다. 먼저, 어휘 분석을 알아보는 거로!
 
-<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 컴파일러의 첫 번째 단계는 **소스 코드를 정규 문법에 따라 토큰으로 분류하는 어휘 분석** 또는 스캔입니다.
 
@@ -414,11 +414,11 @@ lexeme는 token의 예시라고 생각하면 되고, token은 카테고리라고
 
 > 📍 **그림 8-2**에서는 이 과정을 시각적으로 표현
 
-<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### 4) 부동소수점 수에 대한 상태 테이블
 
-<figure><img src="../../.gitbook/assets/image (3) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 
 
@@ -868,7 +868,7 @@ Lex는 각 `+`나 숫자를 **그냥 토큰으로만 구분**할 수 있을 뿐,
 
 이런 **토큰들의 순서를 검사**하는 도구가 바로 `Yacc (Yet Another Compiler Compiler)`입니다.
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * Lex가 만든 **토큰 시퀀스**를 입력으로 받아
 * **BNF(Backus-Naur Form) 문법**에 따라
@@ -889,7 +889,7 @@ Yacc이 만들어내는 파서는 **스택 기반의 시프트-리듀스 파서(
 
 #### 🔄 예: `4 + 5 - 3`을 처리하는 과정 (그림 8-4)
 
-<figure><img src="../../.gitbook/assets/image (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ```
 [입력] 4 + 5 - 3
