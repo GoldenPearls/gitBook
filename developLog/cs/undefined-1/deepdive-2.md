@@ -848,7 +848,7 @@ CPU → 트랜지스터 → 논리 게이트 → 전기 신호 → 시스템 버
 
 **NPN vs. PNP 트랜지스터 비교 정리**
 
-<figure><img src="../../.gitbook/assets/image (11) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (11) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 | 특징       | **NPN 트랜지스터**           | **PNP 트랜지스터**        |
 | -------- | ----------------------- | -------------------- |

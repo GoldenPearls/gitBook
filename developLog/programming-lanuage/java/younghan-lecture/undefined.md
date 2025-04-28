@@ -353,7 +353,7 @@ b = a //2.  이후에 a를 대입 b = 2
 
 * **다른 연산이 먼저 수행된 후** 증감 연산이 수행된다.
 
-<figure><img src="../../../.gitbook/assets/image (11) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (11) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ```java
 a = 1, b = 0

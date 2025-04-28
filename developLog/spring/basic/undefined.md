@@ -164,6 +164,6 @@ A나라의 성을 `tomcat`이라고 보고 왕의 집을 `스프링 컨테이너
 
     라면, B 클래스 스캔 시 **분석하는 기법으로 런타임 시 분석하며, 이를** `리플렉션`이라고 하는데 분석 시 메서드, 필드, 어노테이션이 어떤 것이 있는지와 **무엇인가 해**라고 설정할 수 있다.
 
-<figure><img src="../../.gitbook/assets/image (11) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (11) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 2. // 주석 : 컴파일러가 무시

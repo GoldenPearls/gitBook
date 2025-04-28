@@ -132,7 +132,7 @@ print(c2 in unique) //true
 
 6. c2 in unique
 
-<figure><img src="../../.gitbook/assets/image (11) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (11) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * 마찬가지로 해시값과 x,y 좌표를 비교하기에 같아서, c1이 있음에도 c2 또한 있다고 판단하고 true 반환
 
