@@ -418,7 +418,7 @@ lexeme는 token의 예시라고 생각하면 되고, token은 카테고리라고
 
 ### 4) 부동소수점 수에 대한 상태 테이블
 
-<figure><img src="../../.gitbook/assets/image (3) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (2).png" alt=""><figcaption></figcaption></figure>
 
 
 
