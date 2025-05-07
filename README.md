@@ -161,6 +161,7 @@
   * [3장 - 4장 DeepDive 5개만 발표용](developLog/cs/undefined-1/3-4-deepdive-5.md)
   * [프로그래밍 언어 처리 – 코드가 컴퓨터에서 실행되기까지의 여정](developLog/cs/undefined-1/undefined-1.md)
   * [웹 브라우저](developLog/cs/undefined-1/undefined-2.md)
+  * [🔟 애플리케이션 프로그래밍과  시스템 프로그래밍](developLog/cs/undefined-1/undefined-3.md)
   * [deepdive 지식 - 1장](developLog/cs/undefined-1/deepdive-1.md)
   * [DeepDive 지식 : 2장](developLog/cs/undefined-1/deepdive-2.md)
 * [Network](developLog/cs/network/README.md)
