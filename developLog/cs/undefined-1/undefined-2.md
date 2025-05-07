@@ -878,6 +878,146 @@ javascript만 할 줄 알던 사람도 **새로운 언어의 학습없이 서버
 
 <figure><img src="../../.gitbook/assets/image (321).png" alt=""><figcaption></figcaption></figure>
 
+## 5. HTML5, JSON, SVG/Canvas의 진화와 현대 프론트엔드 기술 구조
+
+### 1) HTML5와 웹 기술의 현대적 재정비
+
+HTML5는 단순한 HTML의 업그레이드가 아니라, **웹 플랫폼 전반에 걸친 시맨틱 구조와 미디어 처리의 기준**을 재정의한 구현입니다.
+
+#### 1-1. 시맨틱 엘리먼트의 등장
+
+기존의 `<div>`, `<span>` 중심의 구조 대신, 의미가 명확한 태그들로 문서의 구조를 일관되게 표현할 수 있게 되었습니다.
+
+* `<header>`, `<footer>`: 문서의 머리말과 꼬리말
+* `<nav>`, `<section>`, `<article>`: 탐색/구역/기사 단위 표현
+
+이러한 구조는 \*\*검색 엔진 최적화(SEO)\*\*와 **접근성 향상(Accessibility)** 측면에서 큰 장점을 제공합니다.
+
+#### 1-2. `<canvas>`와 `<svg>`의 역할 분담
+
+* `<canvas>`: 자바스크립트를 통해 픽셀 단위의 그래픽을 실시간으로 조작할 수 있는 **비트맵 기반 그래픽 처리 영역**입니다. (게임, 실시간 시뮬레이션 등)
+* `<svg>`: **DOM 기반 벡터 그래픽**, XML 문법으로 직접 마크업할 수 있으며 DOM과 통합되어 CSS 및 JavaScript로 제어가 가능
+
+👉 주요 차이점:
+
+| 항목 | SVG          | Canvas               |
+| -- | ------------ | -------------------- |
+| 구조 | DOM 요소       | 비트맵                  |
+| 수정 | 개별 객체 접근 가능  | 픽셀 재렌더링 필요           |
+| 사용 | 인터랙티브 UI, 차트 | 게임, 비디오 편집 등 고성능 그래픽 |
+
+### 2) JSON: 웹 데이터 교환의 표준
+
+JSON은 **AJAX 이후 XML을 대체**하며 **경량화된 데이터 포맷**으로 웹의 표준으로 자리잡았습니다.
+
+```javascript
+var argonauts = {
+  goal: "황금 양털",
+  sailors: [
+    { name: "아카스토스", father: "펠리아스" },
+    { name: "악토르", father: "히파소스" },
+    { name: "아드메토스", father: "페레스" },
+    { name: "암피아라우스", father: "오이클레스" },
+    { name: "안카이오스", father: "포세이돈" }
+  ]
+};
+
+var the_quest = JSON.stringify(argonauts);
+```
+
+* `JSON.stringify()`: JS 객체 → JSON 문자열
+* `JSON.parse()`: JSON 문자열 → JS 객체
+
+#### 2-1. JSON → DB → 프론트엔드 흐름 예시
+
+```mermaid
+graph LR
+  A[프론트엔드: 입력폼] --> B[JSON 생성]
+  B --> C[API로 서버 전송]
+  C --> D[DB에 저장 (예: MongoDB)]
+  D --> E[API로 클라이언트에 재전송]
+  E --> F[프론트엔드 렌더링 (React, Vue)]
+```
+
+> JSON은 **프론트와 백엔드, DB 사이에서 공통의 데이터 표현 방식**으로 사용됨.
+
+### 3) 현대 프레임워크 (React 기준)에서의 구조 및 데이터 흐름
+
+React를 기준으로 설명하면, **상태(state)를 중심으로 한 컴포넌트 기반 개발**이 핵심입니다.
+
+#### 3-1. React 구성 요소 개요
+
+* **컴포넌트**: UI 단위를 함수나 클래스로 선언
+* **State / Props**: 데이터 흐름 (단방향)
+* **Virtual DOM**: 효율적인 리렌더링 수행
+* **Hooks (useState, useEffect 등)**: 라이프사이클 및 상태 관리
+
+#### 3-2. 데이터 흐름 요약 (CRUD 예시)
+
+```mermaid
+graph LR
+  UI[사용자 입력: 폼 작성] --> JS[onChange로 상태 반영]
+  JS --> JSON[JSON 객체 생성]
+  JSON --> API[POST 요청]
+  API --> DB[MongoDB 등에 저장]
+  DB --> API2[GET 요청 응답]
+  API2 --> State[React State로 저장]
+  State --> View[컴포넌트가 렌더링]
+```
+
+<figure><img src="../../.gitbook/assets/image (322).png" alt=""><figcaption></figcaption></figure>
+
+브라우저 블록도의그림은 하드웨어와 소프트웨어 설계의 차이를 보여줍니다.&#x20;
+
+하드웨어 설계는 소프트웨어&#x20;설계보다 비용이 더 많이 듭니다.&#x20;
+
+하드웨어 설계자가 아침식사 전에 서로 호환되지 않는 방식으로&#x20;똑같은 일을 하는 여섯 가지 모듈로 이뤄진 시스템을 구성할 가능성은 거의 없어요. 하지만 소프\
+트웨어에서 미리 지불해야 하는 비용은 하드웨어와 다르기 때문에, **소프트웨어 설계자들은 덜&#x20;조심하는 경우가 자주 있어요.**&#x20;
+
+그 결과 처음에는 비용이 덜 들어서 더 크고 복잡한 시스템을 설계&#x20;했는데, 나중에는 꼭 유지보수해야 하는 복잡하게 서로 상호 운용되는 부품 수가 늘어남에 따라&#x20;더 많은 비용이 들 수 있습니다.
+
+### 4) 자바스크립트에서 SVG/Canvas 제어 예시
+
+#### 4-1. SVG DOM 제어 예시
+
+```html
+<svg width="200" height="200">
+  <circle id="circle" cx="100" cy="100" r="50" fill="red" />
+</svg>
+<script>
+  document.getElementById('circle').setAttribute('fill', 'blue');
+</script>
+```
+
+#### 4-2. Canvas 조작 예시
+
+```html
+<canvas id="myCanvas" width="200" height="200"></canvas>
+<script>
+  const canvas = document.getElementById('myCanvas');
+  const ctx = canvas.getContext('2d');
+  ctx.beginPath();
+  ctx.arc(100, 100, 50, 0, Math.PI * 2);
+  ctx.fillStyle = 'green';
+  ctx.fill();
+</script>
+```
+
+### ✅ 마무리 요약
+
+| 기술     | 목적              | 특징                                   |
+| ------ | --------------- | ------------------------------------ |
+| HTML5  | 시맨틱 웹, 멀티미디어 지원 | `<section>`, `<canvas>`, `<video>` 등 |
+| JSON   | 데이터 전송 포맷       | JS와 호환성 높음, 경량화된 구조                  |
+| SVG    | 구조적 벡터 그래픽      | DOM 조작 가능, 이벤트 바인딩 가능                |
+| Canvas | 픽셀 단위 그래픽       | 빠른 렌더링, 게임/그래픽 적합                    |
+| React  | UI 프레임워크        | 상태 중심 컴포넌트, Virtual DOM              |
+
+웹 브라우저는 단순한 문서 뷰어를 넘어, **완전한 실행 환경**이 되었습니다.\
+프론트엔드는 문서를 그리는 일에서, 데이터를 다루는 애플리케이션 개발자로 성장했습니다.
+
+***
+
 
 
 ## 출처&#x20;
