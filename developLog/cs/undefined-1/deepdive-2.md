@@ -8,15 +8,15 @@ icon: head-side-goggles
 
 CPU(Central Processing Unit, 중앙처리장치)는 컴퓨터에서 데이터를 처리하는 핵심 장치로, **기억, 해석, 연산, 제어**라는 네 가지 주요 기능을 수행해.
 
-<figure><img src="../../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### **1) CPU의 구성 요소**
 
-<figure><img src="../../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 1. **코어(Core) ⇒ 프로세서라고도 불렸음**
 
-<figure><img src="../../.gitbook/assets/image (5) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (5) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * CPU 내부에서 **연산을 수행하는 핵심 단위**야.
 * `싱글코어(single-core)`는 한 번에 하나의 작업만 가능하지만, **멀티코어(multi-core)**&#xB294; 여러 작업을 동시에 처리할 수 있어.
@@ -75,7 +75,7 @@ CPU(Central Processing Unit, 중앙처리장치)는 컴퓨터에서 데이터를
 
 ### 3) 코어와 스레드
 
-<figure><img src="../../.gitbook/assets/image (5) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (5) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 #### **코어는 물리적인 개념이지만, 쓰레드는 논리적인 개념이라는 뜻**
 
@@ -762,9 +762,9 @@ CPU → 트랜지스터 → 논리 게이트 → 전기 신호 → 시스템 버
 
 ### 3) 트랜지스터의 구조와 유형
 
-<figure><img src="../../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (5) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (5) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 1.  **쌍극 접합 트랜지스터(BJT, Bipolar Junction Transistor)**
 

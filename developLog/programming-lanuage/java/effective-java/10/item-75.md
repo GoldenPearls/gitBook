@@ -265,7 +265,7 @@ public class Example {
 
 ## 📚 정리: 실패 포착의 중요성
 
-<figure><img src="../../../../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * **예외 메시지**는 실패 원인을 분석하는 데 중요한 정보를 제공하자
 * 모든 매개변수와 상태 정보를 담아 예외 생성자를 설계하자
