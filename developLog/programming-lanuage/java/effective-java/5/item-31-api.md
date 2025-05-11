@@ -44,7 +44,7 @@ public void pushAll(Iterable<E> src) {
 
 integer은 Number의 하위 타입이니 잘 동작해야 한다 하지만 클라이언트  코드에서 실제로는 오류 메세지가 뜬다.
 
-<figure><img src="../../../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ```java
 import java.util.Arrays;
@@ -110,7 +110,7 @@ class Item28Test {
 
 > 약간, 코드 뒤져보니 PolicyUtils 등 자바 코드 기본 제공 클래스들에서 많이 쓰는 듯? 실제 코드에서는 잘 안쓰는 느낌임
 
-<figure><img src="../../../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 직접 정의한 Stack 클래스는 `push(E)` 메서드를 통해서만 요소를 추가할 수 있다. 따라서 타입 안전성은 확인되지만 elements 배열은 런타임 시에 `E[]`가 아닌 `Object[]`가 된다. 역시나 이부분도 런타임 시에 제네릭 타입이 소거되기 때문임
 
@@ -182,7 +182,7 @@ public void popAll(Collection<? super E> dst) {
 
 
 
-<figure><img src="../../../../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 <mark style="color:red;">모든 타입은 자기 자신의 상위 타입이</mark>므로 `Collection<? super Number>`선언은 \`Collection을 비롯하여  Collection\` 타입의 매개변수가 전달되어도 오류가 발생하지 않는다.
 
@@ -432,7 +432,7 @@ private static <E> void swapHelper(List<E> list, int i, int j) {
 
 예를 들어서 `Java 5` 부터 지원한 `ScheduledFuture` 인터페이스의 구현 코드를 살펴보면 아래와 같다. `Delayed`의 하위 인터페이스이며 `Delayed`인터페이스는 `Comparable<Delayed>`를 확장했다. 반면에 `ScheduledFuture` 인터페이스는 `Comparable<ScheduledFuture>`를 확장(extends)하지 않는다.
 
-<figure><img src="../../../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ```java
 // ScheduledFuture interface

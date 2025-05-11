@@ -180,6 +180,7 @@
     * [2장 : 프로세스 관리(기초편)](cs/linux/undefined/2.md)
     * [6장 : 장치접근](cs/linux/undefined/6.md)
     * [7장 : 파일시스템](cs/linux/undefined/7.md)
+    * [8장 : 메모리 계층](cs/linux/undefined/8.md)
 * [보안](cs/security/README.md)
   * [우리나라 보안의 실태](cs/security/undefined.md)
 * [HTTP 웹 지식](cs/http/README.md)

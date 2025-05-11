@@ -74,7 +74,7 @@
 
 2. <mark style="color:red;">repo</mark> ⭐&#x20;
 
-<figure><img src="../../.gitbook/assets/image (5) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (5) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * 코드, 커밋 상태, 리포지토리 초대, 협력자, 배포 상태 및 리포지토리 웹후크에 대한 읽기 및 쓰기 권한을 포함하여 퍼블릭 및 프라이빗 리포지토리에 대한 모든 권한을 부여합니다.&#x20;
 * **참고**: 리포지토리 관련 리소스 외에도 `repo` 범위는 <mark style="color:red;">프로젝트, 초대, 팀 멤버 자격 및 웹후크를 포함하여 조직 소유 리소스를 관리할 수 있는 액세스 권한을 부여</mark>합니다. 이 범위는 사용자가 소유한 프로젝트를 관리하는 기능도 부여합니다.
@@ -157,9 +157,9 @@
 `Github action` 파일에 개인 레포로 변경사항을 `push`할 수 있도록 하려면\
 위에서 발급 받은 개인 토큰을 함께 보내 내 레포에 `push`할 권한을 받은 사람임을 증명 하기 위함
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
-
 <figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * GITBOOK , Github.io레포의 `⚙️ Settings` 클릭
 * `⊞ Secrets and variables`를 펼쳐 `Actions` 클릭
