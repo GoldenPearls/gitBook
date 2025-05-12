@@ -11,7 +11,7 @@
 
 ## **2. 실패 원자성을 구현하는 방법**
 
-<figure><img src="../../../../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### **1) 불변 객체(Immutable Object) 사용**
 
@@ -149,7 +149,7 @@ map.put("key2", 123); // ClassCastException 발생
 
 ## 📚 **정리**
 
-<figure><img src="../../../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * 실패 원자성을 지키면 예외가 발생하더라도 객체는 일관된 상태를 유지하며, 호출자가 오류를 복구하기 용이하다.
 * 실패 원자성을 확보하기 위해 **불변 객체 사용**, **유효성 검사**, **임시 복사본 활용**, **상태 복구 로직** 등을 설계에 반영하자.

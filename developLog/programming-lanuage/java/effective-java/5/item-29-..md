@@ -97,7 +97,7 @@ public class Stack<E> {
 
 다음과 같은 컴파일 에러 발생
 
-<figure><img src="../../../../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 > <mark style="color:red;">제네릭은 E와 같은 실체화 불가 타입으로는 배열을 만들 수 없다.</mark>
 
