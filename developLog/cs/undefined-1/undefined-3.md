@@ -554,7 +554,7 @@ C 프로그램이 파일 시스템의 **입력/출력 추상화**를 직접 활�
 반면 **브라우저 환경**은 C처럼 직접 시스템 자원을 제어할 수 없습니다.\
 왜냐하면 브라우저는 사용자를 보호하기 위해 **보안 모델과 추상화 레이어**를 더 높게 설정해두기 때문이죠.
 
-<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
 #### ❌ 추상화가 ‘숨겨져 있는’ 구조
 
@@ -626,7 +626,7 @@ C로 작성한 프로그램이 `./a.out`이나 `gta` 같은 이름으로 실행�
 
 #### 🤔 `stdout`과 `stderr`의 차이는?
 
-<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * 둘 다 **콘솔로 출력**됨
 * 하지만 **버퍼링 방식이 다름**:
