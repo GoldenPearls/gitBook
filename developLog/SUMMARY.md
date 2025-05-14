@@ -162,6 +162,7 @@
   * [프로그래밍 언어 처리 – 코드가 컴퓨터에서 실행되기까지의 여정](cs/undefined-1/undefined-1.md)
   * [웹 브라우저](cs/undefined-1/undefined-2.md)
   * [🔟 애플리케이션 프로그래밍과  시스템 프로그래밍](cs/undefined-1/undefined-3.md)
+  * [11장 성능을 위한 알고리즘](cs/undefined-1/11.md)
   * [deepdive 지식 - 1장](cs/undefined-1/deepdive-1.md)
   * [DeepDive 지식 : 2장](cs/undefined-1/deepdive-2.md)
   * [컴퓨터 구조 9-10장 DeepDive 지식](cs/undefined-1/9-10-deepdive.md)
