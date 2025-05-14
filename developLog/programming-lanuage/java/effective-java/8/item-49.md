@@ -31,11 +31,11 @@ IllegalArgumentException, IndexOutOFBoundsException, NullPointerException 중 �
 메서드와 생성자는 입력 매개변수의 값이 특정 조건을 만족해야 하는 경우가 많은데, 이러한 경우 오류는 가능한 한 빨리 검사해야 하는 것이 좋으므로 **메서드 몸체가 시작되기 전에 매개변수를 검사하는 것이 좋다.**
 {% endhint %}
 
-<figure><img src="../../../../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## 2. 매개변수를 검사하는 방법 : 공개 메서드 <a href="#id-1" id="id-1"></a>
 
-<figure><img src="../../../../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### 1) @throws <a href="#throws" id="throws"></a>
 
