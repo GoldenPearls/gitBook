@@ -166,6 +166,7 @@
   * [deepdive 지식 - 1장](cs/undefined-1/deepdive-1.md)
   * [DeepDive 지식 : 2장](cs/undefined-1/deepdive-2.md)
   * [컴퓨터 구조 9-10장 DeepDive 지식](cs/undefined-1/9-10-deepdive.md)
+  * [컴퓨터 구조 9주차 딥다이브](cs/undefined-1/9.md)
 * [Network](cs/network/README.md)
   * [네트워크 공부하기 프롤로그](cs/network/undefined.md)
   * [Story 01. HTTP 리퀘스트 메세지를 작성한다.](cs/network/story-01.-http-..md)

@@ -195,7 +195,7 @@ Connection connection = getConnection(dataSource).orElseGet(() -> getLocalConnec
 
 ## 📚 핵심 정리
 
-<figure><img src="../../../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * 반환값이 없을 가능성이 있는 메서드라면 **Optional을 반환**하는 것이 좋다.
   * 이를 통해 **반환값이 없을 가능성을 명확히 알리고**, **null 처리를 통한 NPE 위험**을 줄일 수 있다.
