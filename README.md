@@ -185,6 +185,7 @@
     * [8장 : 메모리 계층](developLog/cs/linux/undefined/8.md)
     * [10장 가상화](developLog/cs/linux/undefined/10.md)
     * [11장 컨테이너](developLog/cs/linux/undefined/11.md)
+    * [12장 cgroup](developLog/cs/linux/undefined/12-cgroup.md)
 * [보안](developLog/cs/security/README.md)
   * [우리나라 보안의 실태](developLog/cs/security/undefined.md)
 * [HTTP 웹 지식](developLog/cs/http/README.md)
