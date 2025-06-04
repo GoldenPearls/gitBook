@@ -163,6 +163,7 @@
   * [웹 브라우저](developLog/cs/undefined-1/undefined-2.md)
   * [🔟 애플리케이션 프로그래밍과  시스템 프로그래밍](developLog/cs/undefined-1/undefined-3.md)
   * [11장 성능을 위한 알고리즘](developLog/cs/undefined-1/11.md)
+  * [『한 권으로 읽는 컴퓨터 구조와 프로그래밍』 12\~13장](developLog/cs/undefined-1/12-13.md)
   * [deepdive 지식 - 1장](developLog/cs/undefined-1/deepdive-1.md)
   * [DeepDive 지식 : 2장](developLog/cs/undefined-1/deepdive-2.md)
   * [컴퓨터 구조 9-10장 DeepDive 지식](developLog/cs/undefined-1/9-10-deepdive.md)
