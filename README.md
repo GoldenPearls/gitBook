@@ -265,6 +265,10 @@
 * [객체지향의 오해와 사실](developLog/book/oop/README.md)
   * [1장 협력하는 객체들의 공동체](developLog/book/oop/1.md)
 
+***
+
+* [보안파트](undefined.md)
+
 ## 🌸 회고록 <a href="#memoir" id="memoir"></a>
 
 * [2023년](developLog/memoir/2023/README.md)
