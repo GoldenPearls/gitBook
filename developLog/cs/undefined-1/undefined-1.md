@@ -625,7 +625,7 @@ else if (state == -1)
 
 #### 4️⃣ 📌 부동소수점 수를 표현한 정규표현식 (그림 8-3)
 
-<figure><img src="../../.gitbook/assets/image (12).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (12) (3).png" alt=""><figcaption></figcaption></figure>
 
 ```regex
 [+-]?(([0-9]*\.?[0-9]+)|([0-9]+\.?[0-9]*))([Ee][+-]?[0-9]+)?

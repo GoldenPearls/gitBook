@@ -21,7 +21,7 @@ cgroup(Control Group)은 리눅스에서 **CPU, 메모리, 디스크 I/O, 네트
 
 #### 가상화, 클라우드, 공유 환경에서의 문제
 
-<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (17).png" alt=""><figcaption></figcaption></figure>
 
 * 하나의 머신에 여러 사용자가 접근 → 자원 과도 사용
 * 특정 사용자가 **메모리 12GB**를 써버리면, 나머지 사용자에게 **단 4GB**만 남음\
@@ -33,7 +33,7 @@ cgroup(Control Group)은 리눅스에서 **CPU, 메모리, 디스크 I/O, 네트
 또한, **백업 등 비업무 처리**가 I/O 자원을 과점해버리면,\
 **업무 처리 성능이 급격히 저하**될 수 있음.
 
-<figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 이런 문제는 cgroup을 사용하면 해결할 수 있다.
 
