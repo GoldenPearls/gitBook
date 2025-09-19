@@ -162,11 +162,11 @@ MIME은 **웹에서 데이터를 주고받을 때 파일 형식을 설명하는 
 그 안에서 `multipart/form-data`는 **여러 조각 데이터를 동시에 보내는 특수한 경우**임.
 {% endhint %}
 
-<figure><img src="../../../../.gitbook/assets/image (1).png" alt=""><figcaption><p><a href="https://hanamon.kr/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC-%EA%B8%B0%EB%B3%B8-url-uri-urn-%EC%B0%A8%EC%9D%B4%EC%A0%90/">https://hanamon.kr/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC-%EA%B8%B0%EB%B3%B8-url-uri-urn-%EC%B0%A8%EC%9D%B4%EC%A0%90/</a></p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (1) (1).png" alt=""><figcaption><p><a href="https://hanamon.kr/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC-%EA%B8%B0%EB%B3%B8-url-uri-urn-%EC%B0%A8%EC%9D%B4%EC%A0%90/">https://hanamon.kr/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC-%EA%B8%B0%EB%B3%B8-url-uri-urn-%EC%B0%A8%EC%9D%B4%EC%A0%90/</a></p></figcaption></figure>
 
 ### <mark style="background-color:red;">2. URI (Uniform Resource Identifier)</mark>
 
-<figure><img src="../../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
 
 * **정의**: 인터넷상의 자원을 **고유하게 식별하고 위치 지정**하는 문자열
 * **역할 비유**: 인터넷 세계의 **우편 주소**
@@ -177,7 +177,7 @@ MIME은 **웹에서 데이터를 주고받을 때 파일 형식을 설명하는 
 
 ### <mark style="background-color:red;">3. URL (Uniform Resource Locator)</mark>
 
-<figure><img src="../../../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
 
 * **URI의 한 종류** → 가장 흔히 사용됨
 * **특징**: 특정 리소스의 **정확한 위치와 접근 방법**을 알려줌

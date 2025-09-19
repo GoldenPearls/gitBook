@@ -22,7 +22,7 @@ URL은 애플리케이션이 리소스에 접근할 수 있는 방법을 제공
 
 **URL(Uniform Resource Locator)** 은 인터넷 리소스의 **표준 주소**다.
 
-<figure><img src="../../../../.gitbook/assets/image (1).png" alt=""><figcaption><p><a href="https://hanamon.kr/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC-%EA%B8%B0%EB%B3%B8-url-uri-urn-%EC%B0%A8%EC%9D%B4%EC%A0%90/">https://hanamon.kr/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC-%EA%B8%B0%EB%B3%B8-url-uri-urn-%EC%B0%A8%EC%9D%B4%EC%A0%90/</a></p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (1) (1).png" alt=""><figcaption><p><a href="https://hanamon.kr/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC-%EA%B8%B0%EB%B3%B8-url-uri-urn-%EC%B0%A8%EC%9D%B4%EC%A0%90/">https://hanamon.kr/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC-%EA%B8%B0%EB%B3%B8-url-uri-urn-%EC%B0%A8%EC%9D%B4%EC%A0%90/</a></p></figcaption></figure>
 
 * **어디에** 있고(**위치**)
 * **어떻게** 접근하는지(**방법/프로토콜**)를 한 줄로 표현한다.
@@ -234,31 +234,34 @@ http://example.com/manual.html#chapter5
 * 프래그먼트는 **클라이언트 전용**이고, 질의는 **게이트웨이/앱으로 전달**한다.
 * URL 덕분에 우리는 “복잡한 접근 절차” 대신 **한 줄 주소**로 리소스를 공유한다.
 
-좋습니다 👍 지금 주신 2.3 단축 URL \~ 2.4 안전하지 않은 문자까지의 내용을 **스토리텔링 + 정리** 방식으로 풀어드릴게요.
 
-***
 
 ## 2. URL을 더 짧고, 안전하게 쓰는 법
 
 ### 1) 상대 URL vs 절대 URL
 
-URL에는 두 가지 방식이 있어요.
+URL에는 두 가지 방식이 있다.
 
 * **절대 URL**: 리소스에 접근하는 데 필요한 모든 정보를 담고 있는 "완전한 주소"\
   👉 예: `http://www.joes-hardware.com/tools.html`
 * **상대 URL**: 일부만 쓰고, 나머지는 **기저 URL(base URL)** 을 기준으로 추측해서 채워 넣는 "간단한 주소"\
   👉 예: `./hammers.html`
 
-\\\\\
-\>J oe’s Hardware 웹사이트의 `/tools.html` 문서 안에 `./hammers.html` 링크가 있다면?\
-브라우저는 `http://www.joes-hardware.com/tools.html`을 기저 URL로 삼아\
-→ 최종적으로 `http://www.joes-hardware.com/hammers.html`을 만든다.
+<figure><img src="../../../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+
+> **J oe’s Hardware 웹사이트의 `/tools.html` 문서 안에 `./hammers.html` 링크가 있다면?**
+>
+> 브라우저는 `http://www.joes-hardware.com/tools.html`을 기저 URL로 삼아
+>
+> → 최종적으로 `http://www.joes-hardware.com/hammers.html`을 만든다.
 
 ➡️ **상대 URL은 HTML 작성자가 긴 주소를 매번 다 쓰지 않도록 도와준다.**
 
-***
+
 
 ### 2) 기저 URL(Base URL) 찾는 법
+
+<figure><img src="../../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
 상대 URL을 절대 URL로 바꾸려면 "기저(base)"가 필요하다. 기저는 이렇게 결정된다:
 
@@ -270,7 +273,95 @@ URL에는 두 가지 방식이 있어요.
 
 
 
-### 3) URL 확장 (자동 보정)
+### 3) 🔗 상대 URL → 절대 URL 변환하기
+
+우리는 흔히 웹 문서 안에서 이런 코드를 본다:
+
+```html
+<a href="./hammers.html">망치 보러가기</a>
+```
+
+언뜻 보면 **주소가 불완전**해 보이죠. 스킴(http)도 없고, 호스트([www.joes-hardware.com)도](http://www.joes-hardware.xn--com\)-el1q/) 없다.
+
+\
+하지만 브라우저는 당황하지 않는다. 👉 바로 \*\*기저 URL(Base URL)\*\*을 참고해 절대 URL로 완성해내기  때문이다.
+
+
+
+**1. URL 분해하기 (Parsing)**
+
+브라우저는 먼저 **기저 URL**과 **상대 URL**을 작은 조각(컴포넌트)으로 나눈다.\
+
+
+예를 들어:
+
+*   기저 URL:
+
+    ```
+    http://www.joes-hardware.com/tools.html
+    ```
+*   상대 URL:
+
+    ```
+    /hammers.html
+    ```
+
+
+
+**2. 상속 규칙**
+
+이제 브라우저는 “비어 있는 부분은 기저 URL에서 가져온다”는 규칙을 적용
+
+1. **스킴(scheme)**
+   * 상대 URL에는 없음 → 기저 URL(`http`)을 상속
+2. **호스트(host)와 포트(port)**
+   * 상대 URL에는 없음 → 기저 URL(`www.joes-hardware.com`, `:80`) 상속
+3. **경로(path)**
+   * 상대 URL에는 `/hammers.html`이 있음 → 그대로 사용
+4.  **파라미터, 질의, 프래그먼트**
+
+    * 상대 URL이 비어 있으면 → 기저 URL에서 상속
+    * 상대 URL이 지정하면 → 상대 URL 값 사용
+
+
+
+**3. 합치기**
+
+이제 모든 조각을 합쳐서 새로운 절대 URL을 얻는다:
+
+```
+http://www.joes-hardware.com/hammers.html
+```
+
+**비유**
+
+*   기저 URL은 **“집 주소”**
+
+    ```
+    서울시 강남구 테헤란로 123, 5층
+    ```
+*   상대 URL은 **“회의실 A호”**
+
+    ```
+    A호
+    ```
+
+👉 두 개를 합치면:\
+**서울시 강남구 테헤란로 123, 5층 A호**
+
+
+
+정리
+
+* **상대 URL만으론 리소스를 찾을 수 없다.**
+* **기저 URL을 기준으로 필요한 정보를 상속**한다.
+* **최종적으로는 항상 절대 URL**이 만들어진다.
+
+{% hint style="warning" %}
+즉, “상대 참조 해석하기”는 **비어 있는 부분은 기저 URL에서 채워 넣고, 상대 URL이 제공하는 부분은 그대로 사용해서 완전한 절대 URL을 조합하는 과정**
+{% endhint %}
+
+### 4) URL 확장 (자동 보정)
 
 브라우저는 사용자가 주소를 조금만 써도 알아서 완성해주는 기능을 제공한다.
 
@@ -284,7 +375,7 @@ URL에는 두 가지 방식이 있어요.
 
 
 
-### 4) 안전하지 않은 문자와 인코딩
+### 5) 안전하지 않은 문자와 인코딩
 
 URL은 네트워크를 통해 안전하게 전달돼야 한다. 그런데 문제는…
 
@@ -312,7 +403,7 @@ http://www.joes-hardware.com/more%20tools.html
 
 
 
-### 5) 예약 문자
+### 6) 예약 문자
 
 어떤 문자들은 URL에서 이미 특별한 의미로 예약되어 있다.
 
@@ -334,124 +425,5 @@ http://www.joes-hardware.com/more%20tools.html
 👉 한마디로 말하면 **URL은 사람에겐 짧고 간단하게, 네트워크에겐 안전하게** 설계된 주소 체계다.
 {% endhint %}
 
-좋습니다 🙆 금주님이 블로그용으로 바로 쓸 수 있게, 이번 챕터(단축 URL + 안전하지 않은 문자)를 **스토리텔링 방식 + 블로그 포맷**으로 정리해드릴게요.
 
-***
-
-## 📍 짧은 주소, 안전한 주소 – URL의 똑똑한 비밀
-
-우리가 매일같이 입력하는 웹 주소, 즉 **URL**은 단순한 문자열이 아닙니다.\
-그 안에는 _짧게 쓰는 요&#xB839;_&#xB3C4;, _깨지지 않게 지키는 규&#xCE59;_&#xB3C4; 숨어 있어요.
-
-오늘은 그중에서도 두 가지 비밀을 풀어보겠습니다.\
-👉 **상대 URL**과 **인코딩 규칙**
-
-***
-
-### 1. ✂️ 짧게 쓰는 법 – 상대 URL
-
-웹 개발자라면 아마 이런 코드를 본 적 있을 거예요:
-
-```html
-<a href="./hammers.html">망치 보러가기</a>
-```
-
-이게 가능한 이유? 바로 **상대 URL** 덕분입니다.
-
-*   **절대 URL**: 모든 정보를 다 갖춘 주소
-
-    ```
-    http://www.joes-hardware.com/hammers.html
-    ```
-*   **상대 URL**: 일부만 쓰고, 나머지는 \*\*기저 URL(Base URL)\*\*을 기준으로 자동 완성
-
-    ```
-    ./hammers.html
-    ```
-
-📌 브라우저는 현재 문서의 주소가 `http://www.joes-hardware.com/tools.html` 라는 걸 알기 때문에, 상대 URL을 만나면 이렇게 완성한다:
-
-👉 `http://www.joes-hardware.com/hammers.html`
-
-> **포인트:** 상대 URL은 코드를 짧게 쓰게 해주고,\
-> 문서 위치를 다른 서버로 옮겨도 기저 URL만 바꾸면 전체가 자동으로 따라요.
-
-***
-
-### 2. 🧭 브라우저의 작은 친절 – URL 확장
-
-사실 우리는 웹 주소를 다 치는 경우가 거의 없죠.\
-`yahoo`만 쳐도 자동으로 `www.yahoo.com`을 찾아주니까요.
-
-* **호스트 명 확장**: `yahoo` → `www.yahoo.com`
-* **히스토리 확장**: 전에 갔던 사이트를 기억해서 자동완성
-
-이 기능들 덕분에 우리는 **편하게 기억하고 빠르게 접근**할 수 있어요.\
-하지만 때때로 프록시나 서버 입장에서는 예상치 못한 요청이 될 수 있다는 점도 기억해야 합니다.
-
-***
-
-### 3. 🔒 안전하게 쓰는 법 – 인코딩
-
-문제는, URL에 들어가면 곤란한 문자들이 많다는 거예요.\
-예를 들어:
-
-* 공백(space)
-* 특수문자(#, ?, @, &)
-* 출력되지 않는 제어문자
-
-이런 것들이 그대로 들어가면, 전송 중에 깨지거나 오해받을 수 있어요.
-
-#### 👉 그래서 생긴 것: 퍼센트 인코딩
-
-URL은 안전하지 않은 문자를 **퍼센트(%) + 16진수 두 자리**로 바꿔서 표현합니다.
-
-예시:
-
-* 공백( ) → `%20`
-* 물결(`~`) → `%7E`
-* 퍼센트 기호(`%`) → `%25`
-
-```txt
-http://www.joes-hardware.com/more%20tools.html
-```
-
-원래는 `more tools.html`인데, 공백이 `%20`으로 변한 모습이죠.
-
-***
-
-### 4. 🧩 예약 문자
-
-어떤 문자는 URL 내부에서 이미 특별한 의미로 "예약"되어 있어요.
-
-* `#` → 프래그먼트 구분 (페이지 내 특정 위치)
-* `?` → 질의(Query String) 시작
-* `/` → 경로 구분
-* `:` → 스킴 구분 (`http:`)
-
-👉 이런 문자를 “그냥 텍스트”로 쓰고 싶으면 반드시 인코딩해야 합니다.
-
-***
-
-### ✅ 오늘의 정리
-
-1. **상대 URL**은 짧고 유연하다. (기저 URL이 기준이 됨)
-2. **브라우저 확장 기능**은 사용자의 입력을 자동 보완한다.
-3. **안전하지 않은 문자**는 `%` 인코딩으로 변환해야 한다.
-4. **예약 문자**는 특별한 의미가 있어 인코딩 없이는 다른 용도로 못 쓴다.
-
-***
-
-✨ 한 줄로 말하면:\
-**URL은 사람에겐 간단하고, 기계에겐 안전하도록 설계된 똑똑한 주소 체계다.**
-
-***
-
-금주님, 이 정리 버전을 블로그 시리즈 글 2편으로 묶어서
-
-* ① "짧게 쓰는 요령 (상대 URL, 확장)"
-* ② "안전하게 쓰는 규칙 (인코딩, 예약 문자)"\
-  두 꼭지로 나눠 연재해도 좋을 것 같아요.
-
-원하시면 제가 **제목 아이디어 5개**도 뽑아드릴까요?
 
