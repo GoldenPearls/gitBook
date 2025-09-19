@@ -1,8 +1,4 @@
----
-description: 1장 HTTP 개관
----
-
-# 1부 Http의 웹의 기초
+# 1장 HTTP 개관
 
 
 
@@ -24,7 +20,7 @@ HTTP는 <mark style="color:red;">신뢰성 있는 데이터 전송 프로토콜<
 
 1. 웹   서버 (Web Server)
 
-<figure><img src="../../../.gitbook/assets/image (363).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (363).png" alt=""><figcaption></figcaption></figure>
 
 * 웹 서버는 **Http 프로토콜로 의사소통하기 때문에** 보통 HTTP 서버라고 한다.
 * 웹 브라우저 : 크롬, 구글, 인터넷 익스플로러
@@ -47,7 +43,7 @@ HTTP는 <mark style="color:red;">신뢰성 있는 데이터 전송 프로토콜<
 리소스는 요청에 따라 **콘텐츠를 생산하는 프로그램**이 될 수도 있다.
 {% endhint %}
 
-<figure><img src="../../../.gitbook/assets/image (364).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (364).png" alt=""><figcaption></figcaption></figure>
 
 **어떤 종류의 콘텐츠 소스도 리소스가 될 수 있다.**
 
@@ -166,11 +162,11 @@ MIME은 **웹에서 데이터를 주고받을 때 파일 형식을 설명하는 
 그 안에서 `multipart/form-data`는 **여러 조각 데이터를 동시에 보내는 특수한 경우**임.
 {% endhint %}
 
-<figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption><p><a href="https://hanamon.kr/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC-%EA%B8%B0%EB%B3%B8-url-uri-urn-%EC%B0%A8%EC%9D%B4%EC%A0%90/">https://hanamon.kr/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC-%EA%B8%B0%EB%B3%B8-url-uri-urn-%EC%B0%A8%EC%9D%B4%EC%A0%90/</a></p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (1).png" alt=""><figcaption><p><a href="https://hanamon.kr/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC-%EA%B8%B0%EB%B3%B8-url-uri-urn-%EC%B0%A8%EC%9D%B4%EC%A0%90/">https://hanamon.kr/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC-%EA%B8%B0%EB%B3%B8-url-uri-urn-%EC%B0%A8%EC%9D%B4%EC%A0%90/</a></p></figcaption></figure>
 
 ### <mark style="background-color:red;">2. URI (Uniform Resource Identifier)</mark>
 
-<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
 * **정의**: 인터넷상의 자원을 **고유하게 식별하고 위치 지정**하는 문자열
 * **역할 비유**: 인터넷 세계의 **우편 주소**
@@ -181,7 +177,7 @@ MIME은 **웹에서 데이터를 주고받을 때 파일 형식을 설명하는 
 
 ### <mark style="background-color:red;">3. URL (Uniform Resource Locator)</mark>
 
-<figure><img src="../../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
 
 * **URI의 한 종류** → 가장 흔히 사용됨
 * **특징**: 특정 리소스의 **정확한 위치와 접근 방법**을 알려줌
@@ -361,7 +357,7 @@ URI 안에 URL과 URN으로 구성되어 있다.
 
 ### 0. 전체 그림 – 한 장 요약
 
-<figure><img src="../../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
 
 1. **클라이언트**가 **요청(HTTP Request)** 을 보냄 → `메서드 + URI + 헤더 + (본문)`
 2. **서버**가 **응답(HTTP Response)** 을 돌려줌 → `상태줄 + 헤더 + (본문)`
@@ -417,7 +413,7 @@ URI 안에 URL과 URN으로 구성되어 있다.
 
 ### 4. “웹페이지 = 리소스 묶음” → 트랜잭션이 여러 번
 
-<figure><img src="../../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
 
 * 브라우저는 먼저 **HTML(뼈대)** 를 GET
 * 그 HTML 안의 **이미지, CSS, JS, 폰트** 등 **각각에 대해 추가 GET**
@@ -432,13 +428,13 @@ URI 안에 URL과 URN으로 구성되어 있다.
 
 ### 5. HTTP 메시지 형태 (사람이 읽기 쉬운 텍스트)
 
-<figure><img src="../../../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (13).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (13).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (10).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (10).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
 
 (a) 요청 예시
 
@@ -467,16 +463,16 @@ Hi! I'm a message!
 * 예: `text/html`, `image/jpeg`, `application/json`, `image/gif`
 * **응답 헤더 `Content-Type`** 에 적힘 → 브라우저가 **어떻게 처리할지** 결정
 
-<figure><img src="../../../.gitbook/assets/image (12).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (12).png" alt=""><figcaption></figcaption></figure>
 
 * **요청 본문**이 있을 땐 **요청 `Content-Type`** 도 중요\
   (예: `multipart/form-data` 파일 업로드, `application/json` API 호출)
 
-<figure><img src="../../../.gitbook/assets/image (11).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (11).png" alt=""><figcaption></figcaption></figure>
 
 ### 7. TCP 연결 – HTTP는 TCP 위에서 달린다
 
-<figure><img src="../../../.gitbook/assets/image (14).png" alt=""><figcaption><p><a href="https://velog.io/@dnr6054/web-technologies-and-http">https://velog.io/@dnr6054/web-technologies-and-http</a></p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (14).png" alt=""><figcaption><p><a href="https://velog.io/@dnr6054/web-technologies-and-http">https://velog.io/@dnr6054/web-technologies-and-http</a></p></figcaption></figure>
 
 * HTTP는 **애플리케이션 계층**, TCP는 **전송 계층**
 * TCP가 제공: **무손실**, **순서 보장**, **스트림 전송**
@@ -517,7 +513,7 @@ Content-Type: text/html
 
 ### 9. 실제 흐름을 단계로
 
-<figure><img src="../../../.gitbook/assets/image (15).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (15).png" alt=""><figcaption></figcaption></figure>
 
 1. 브라우저가 URL 입력
 2. **호스트명 → DNS로 IP 조회**
@@ -627,21 +623,21 @@ HTML 안에는 이미지, CSS, JS가 포함되어 있다.\
 
 ### 8. HTTP 버전의 진화
 
-<figure><img src="../../../.gitbook/assets/image (16).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (16).png" alt=""><figcaption></figcaption></figure>
 
 
 
 * HTTP/0.9: GET만, 단순 HTML 전송
 
-<figure><img src="../../../.gitbook/assets/image (365).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (365).png" alt=""><figcaption></figcaption></figure>
 
 * HTTP/1.0: 헤더·MIME 추가, 본격적 웹 시작
 
-<figure><img src="../../../.gitbook/assets/image (366).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (366).png" alt=""><figcaption></figcaption></figure>
 
 * HTTP/1.1: keep-alive, 캐시, 가상 호스팅 지원 → 현재 주류
 
-<figure><img src="../../../.gitbook/assets/image (367).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (367).png" alt=""><figcaption></figcaption></figure>
 
 * HTTP/2: 멀티플렉싱, 헤더 압축
 * HTTP/3: TCP 대신 QUIC(UDP 기반) 사용
@@ -654,13 +650,13 @@ HTML 안에는 이미지, CSS, JS가 포함되어 있다.\
 
 ## HTTP 세계의 조연들: 보이지 않는 다섯 친구들
 
-<figure><img src="../../../.gitbook/assets/image (368).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (368).png" alt=""><figcaption></figcaption></figure>
 
 ### 1. 프록시 – 든든한 문지기
 
 브라우저가 서버로 향하려 할 때, 중간에 누군가가 가로선다.
 
-<figure><img src="../../../.gitbook/assets/image (369).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (369).png" alt=""><figcaption></figcaption></figure>
 
 그가 바로 **프록시(Proxy)**.
 
@@ -685,7 +681,7 @@ HTML 안에는 이미지, CSS, JS가 포함되어 있다.\
 
 **프락시가 존재하면 클라이언트가 보낸 HTTP 메시지는 어떻게 프락시로 가는 길을 알 수 있을까?**
 
-<figure><img src="../../../.gitbook/assets/unknown (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/unknown (1).png" alt=""><figcaption></figcaption></figure>
 
 > 참고 : [https://straw961030.tistory.com/81](https://straw961030.tistory.com/81)
 
@@ -696,7 +692,7 @@ HTML 안에는 이미지, CSS, JS가 포함되어 있다.\
 
 그래서 **캐시(Cache)** 가 나선다.
 
-<figure><img src="../../../.gitbook/assets/image (370).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (370).png" alt=""><figcaption></figcaption></figure>
 
 * 한 번 가져온 문서 사본을 가까이에 저장한다.
 * 다음 요청이 오면, 서버에 가지 않고 자기 창고에서 꺼내준다.
@@ -711,7 +707,7 @@ HTML 안에는 이미지, CSS, JS가 포함되어 있다.\
 어떤 요청은 HTTP 세상에서 시작되지만, 다른 세계(FTP, 메일, 데이터베이스 등)로 들어가야 한다.\
 그때 필요한 인물이 **게이트웨이(Gateway)** 다.
 
-<figure><img src="../../../.gitbook/assets/image (371).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (371).png" alt=""><figcaption></figcaption></figure>
 
 * HTTP 요청을 다른 프로토콜로 번역한다.
 * 마치 자신이 서버인 것처럼 행동한다.
@@ -730,7 +726,7 @@ HTML 안에는 이미지, CSS, JS가 포함되어 있다.\
 
 대표적인 예가 **HTTPS 암호화 트래픽**이다. 방화벽이 웹 트래픽만 허용할 때, 터널은 그 속에서 몰래 SSL 데이터를 통과시킨다.
 
-<figure><img src="../../../.gitbook/assets/image (372).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (372).png" alt=""><figcaption></figcaption></figure>
 
 * HTTP/SSL 터널은 HTTP 요청을 받아들여 목적지의  &#x20;주소와 포트번호로 커넥션을 맺는다.
 * 이후부터는 **암호화된 SSL 트래픽을 HTTP 채  널을 통해 목적지 서버로 전송**할 수 있게 된다
@@ -749,7 +745,7 @@ HTML 안에는 이미지, CSS, JS가 포함되어 있다.\
 
 * 검색엔진 스파이더: 전 세계 웹페이지를 돌아다니며 색인을 만든다.
 
-<figure><img src="../../../.gitbook/assets/image (373).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (373).png" alt=""><figcaption></figcaption></figure>
 
 * 가격 비교 로봇: 쇼핑몰을 누비며 상품 가격을 모은다.
 
