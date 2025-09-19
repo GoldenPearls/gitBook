@@ -1,10 +1,14 @@
+---
+description: 1장 HTTP 개관
+---
+
 # 1부 Http의 웹의 기초
 
-## 1장 HTTP 개관
+
 
 > 전 세계의 웹브라우저, 서버, 웹 애플리케이션은 모두 HTTP를 통해 서로 대화한다. HTTP는 현대 인터넷의 공용어다.
 
-### Http : 인터넷의 멀티미디어 배달부&#x20;
+## Http : 인터넷의 멀티미디어 배달부&#x20;
 
 Http는 전 세계의 **웹 서버로부터** 이 대량의 정보를 빠르고, 간편하고, 정확하게 사람들의 PC에 설치된 **웹브라우저로 옮겨준다.**&#x20;
 
@@ -14,7 +18,7 @@ HTTP는 <mark style="color:red;">신뢰성 있는 데이터 전송 프로토콜<
 
 
 
-### 웹 클라이언트와 서버
+## 웹 클라이언트와 서버
 
 > 웹 콘텐츠는 웹 서버에 존재한다.&#x20;
 
@@ -26,7 +30,7 @@ HTTP는 <mark style="color:red;">신뢰성 있는 데이터 전송 프로토콜<
 * 웹 브라우저 : 크롬, 구글, 인터넷 익스플로러
   * 서버에게 HTTP 객체를 요청하고 사용자의 화면에 보여준다.
 
-### 🌐 Web Resource
+## Web Resource
 
 > Web Server는 Web Resource를 관리하고 제공한다.&#x20;
 
@@ -47,7 +51,7 @@ HTTP는 <mark style="color:red;">신뢰성 있는 데이터 전송 프로토콜<
 
 **어떤 종류의 콘텐츠 소스도 리소스가 될 수 있다.**
 
-#### <mark style="background-color:red;">미디어 타입</mark>&#x20;
+### <mark style="background-color:red;">1. 미디어 타입</mark>&#x20;
 
 > 참고하면 좋을 만 한 글 :[ HTTP multipart/form-data 이해하기](https://lena-chamna.netlify.app/post/http_multipart_form-data/)
 
@@ -164,7 +168,7 @@ MIME은 **웹에서 데이터를 주고받을 때 파일 형식을 설명하는 
 
 <figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption><p><a href="https://hanamon.kr/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC-%EA%B8%B0%EB%B3%B8-url-uri-urn-%EC%B0%A8%EC%9D%B4%EC%A0%90/">https://hanamon.kr/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC-%EA%B8%B0%EB%B3%B8-url-uri-urn-%EC%B0%A8%EC%9D%B4%EC%A0%90/</a></p></figcaption></figure>
 
-#### <mark style="background-color:red;">URI (Uniform Resource Identifier)</mark>
+### <mark style="background-color:red;">2. URI (Uniform Resource Identifier)</mark>
 
 <figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
@@ -173,7 +177,9 @@ MIME은 **웹에서 데이터를 주고받을 때 파일 형식을 설명하는 
 * **형태**:
   * `http://www.joes-hardware.com/specials/saw-blade.gif`
 
-#### <mark style="background-color:red;">URL (Uniform Resource Locator)</mark>
+
+
+### <mark style="background-color:red;">3. URL (Uniform Resource Locator)</mark>
 
 <figure><img src="../../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
 
@@ -189,7 +195,7 @@ MIME은 **웹에서 데이터를 주고받을 때 파일 형식을 설명하는 
 
 
 
-#### <mark style="background-color:red;">URN (Uniform Resource Name)</mark>
+### <mark style="background-color:red;">4. URN (Uniform Resource Name)</mark>
 
 * **URI의 또 다른 종류**
 * **특징**:
@@ -212,7 +218,7 @@ MIME은 **웹에서 데이터를 주고받을 때 파일 형식을 설명하는 
 **웹에서 콘텐츠는 ‘웹 리소스’이고, 전송될 때 MIME 타입으로 형식이 구분되며, 클라이언트는 URI(특히 URL)를 통해 해당 리소스에 접근한다.**
 {% endhint %}
 
-### UR, URL, URN 정리
+### 5. UR, URL, URN 정리
 
 > 💡 간단 요약 : `URI`는 자원을 식별하는 방법으로, `URL`은 자원의 위치를, `URN`은 이름을 나타냐고 생각해. URL은 scheme, host, port, path, query, fragment 등으로 이뤄져 있어. **웹 브라우저가 서버에 요청할 때는** DNS 조회, HTTP 요청 생성, TCP/IP 연결 등이 순서대로 이루어져. 그리고 서버가 응답하면 데이터가 브라우저에 렌더링돼. URI는 자원을 유일하게 식별하는 데 쓰여.
 
@@ -351,9 +357,9 @@ URI 안에 URL과 URN으로 구성되어 있다.
 
 
 
-### HTTP 트랜잭션, 메시지, 연결 흐름 총정리
+## HTTP 트랜잭션, 메시지, 연결 흐름 총정리
 
-#### 0) 전체 그림 – 한 장 요약
+### 0. 전체 그림 – 한 장 요약
 
 <figure><img src="../../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
 
@@ -364,7 +370,7 @@ URI 안에 URL과 URN으로 구성되어 있다.
 
 
 
-#### 1) HTTP 트랜잭션(거래) = 요청 + 응답
+### 1. HTTP 트랜잭션(거래) = 요청 + 응답
 
 #### 요청(Request) 핵심
 
@@ -382,7 +388,7 @@ URI 안에 URL과 URN으로 구성되어 있다.
 
 
 
-#### 2) 메서드(Method) – 서버에 “무엇을 해달라”는 지시
+### 2. 메서드(Method) – 서버에 “무엇을 해달라”는 지시
 
 | 메서드        | 의미(대표 용도)                              |
 | ---------- | -------------------------------------- |
@@ -396,7 +402,7 @@ URI 안에 URL과 URN으로 구성되어 있다.
 
 
 
-#### 3) 상태 코드(Status Code) – 요청 결과 요약 숫자
+### 3. 상태 코드(Status Code) – 요청 결과 요약 숫자
 
 | 코드      | 뜻                   |
 | ------- | ------------------- |
@@ -409,7 +415,7 @@ URI 안에 URL과 URN으로 구성되어 있다.
 
 
 
-#### 4) “웹페이지 = 리소스 묶음” → 트랜잭션이 여러 번
+### 4. “웹페이지 = 리소스 묶음” → 트랜잭션이 여러 번
 
 <figure><img src="../../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
 
@@ -424,7 +430,7 @@ URI 안에 URL과 URN으로 구성되어 있다.
 
 
 
-#### 5) HTTP 메시지 형태 (사람이 읽기 쉬운 텍스트)
+### 5. HTTP 메시지 형태 (사람이 읽기 쉬운 텍스트)
 
 <figure><img src="../../../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
 
@@ -456,7 +462,7 @@ Content-Length: 19
 Hi! I'm a message!
 ```
 
-#### 6) MIME(Content-Type) – 브라우저에게 “이건 어떤 데이터야”
+### 6. MIME(Content-Type) – 브라우저에게 “이건 어떤 데이터야”
 
 * 예: `text/html`, `image/jpeg`, `application/json`, `image/gif`
 * **응답 헤더 `Content-Type`** 에 적힘 → 브라우저가 **어떻게 처리할지** 결정
@@ -468,7 +474,7 @@ Hi! I'm a message!
 
 <figure><img src="../../../.gitbook/assets/image (11).png" alt=""><figcaption></figcaption></figure>
 
-#### 7) TCP 연결 – HTTP는 TCP 위에서 달린다
+### 7. TCP 연결 – HTTP는 TCP 위에서 달린다
 
 <figure><img src="../../../.gitbook/assets/image (14).png" alt=""><figcaption><p><a href="https://velog.io/@dnr6054/web-technologies-and-http">https://velog.io/@dnr6054/web-technologies-and-http</a></p></figcaption></figure>
 
@@ -483,7 +489,7 @@ Hi! I'm a message!
 * **포트**: 명시 없으면 기본 `80(HTTP)`, `443(HTTPS)`
 * **경로**: `/path/to/resource.html`
 
-#### 8) 텔넷으로 “손맛” HTTP 해보기 (개념 이해용)
+### 8. 텔넷으로 “손맛” HTTP 해보기 (개념 이해용)
 
 Telnet으로 서버 80포트 연결 후 직접 타이핑:
 
@@ -509,7 +515,7 @@ Content-Type: text/html
 >
 >
 
-#### 9) 실제 흐름을 단계로
+### 9. 실제 흐름을 단계로
 
 <figure><img src="../../../.gitbook/assets/image (15).png" alt=""><figcaption></figcaption></figure>
 
@@ -522,7 +528,7 @@ Content-Type: text/html
 7. 필요 리소스에 대해 **추가 요청 반복**
 8. 렌더링 후 사용자에게 페이지 표시
 
-#### 10) 핵심 포인트만 콕!
+### 10. 핵심 포인트만 콕!
 
 * **요청/응답**은 **텍스트 기반 메시지 구조**(헤더는 줄 단위, 본문은 자유 형식)
 * **메서드**는 “무엇을 할지”, **상태코드**는 “결과가 어땠는지”
@@ -532,16 +538,16 @@ Content-Type: text/html
 
 
 
-### 🌐 웹 브라우저의 모험: HTTP 메시지가 TCP 위를 달린다
+## 웹 브라우저의 모험: HTTP 메시지가 TCP 위를 달린다
 
-#### 1)  출발 – 브라우저의 첫 질문
+### 1.  출발 – 브라우저의 첫 질문
 
 사용자가 주소창에 `http://www.example.com/index.html`을 입력한다.\
 브라우저는 묻는다.
 
 > “이 리소스를 가져오려면 어디로 가야 하지?”
 
-#### 2) 길을 찾는다 – DNS와 포트
+### 2. 길을 찾는다 – DNS와 포트
 
 브라우저는 URL을 분석한다.
 
@@ -555,7 +561,7 @@ DNS는 `93.184.216.34`라는 숫자 주소를 알려준다. 이제 목적지는 
 
 
 
-#### 3) 문을 두드린다 – TCP 연결
+### 3. 문을 두드린다 – TCP 연결
 
 브라우저는 TCP 연결을 연다.\
 전화기의 기능은 단순하지만 확실하다.
@@ -568,7 +574,7 @@ TCP의 3-way handshake가 끝나면 통화가 열린다.
 
 
 
-#### 4) 첫 대화 – HTTP 요청
+### 4. 첫 대화 – HTTP 요청
 
 브라우저는 이렇게 요청한다.
 
@@ -584,7 +590,7 @@ Accept: text/html, image/png, */*
 
 
 
-#### 5) 서버의 답 – HTTP 응답
+### 5. 서버의 답 – HTTP 응답
 
 서버는 대답한다.
 
@@ -602,7 +608,7 @@ Content-Length: 1024
 
 
 
-#### 6) 여정은 한 번으로 끝나지 않는다
+### 6. 여정은 한 번으로 끝나지 않는다
 
 HTML 안에는 이미지, CSS, JS가 포함되어 있다.\
 브라우저는 각각에 대해 추가 요청을 보낸다.\
@@ -610,7 +616,7 @@ HTML 안에는 이미지, CSS, JS가 포함되어 있다.\
 
 
 
-#### 7) 도중의 안내자들
+### 7. 도중의 안내자들
 
 * **프락시**: 요청을 받아 대신 서버에 전송한다. 보안·필터링 담당.
 * **캐시**: 자주 찾는 문서를 저장한다. 가까운 곳에서 빠르게 꺼내준다.
@@ -619,21 +625,148 @@ HTML 안에는 이미지, CSS, JS가 포함되어 있다.\
 
 
 
-#### 8) HTTP 버전의 진화
+### 8. HTTP 버전의 진화
 
 <figure><img src="../../../.gitbook/assets/image (16).png" alt=""><figcaption></figcaption></figure>
 
 
 
 * HTTP/0.9: GET만, 단순 HTML 전송
+
+<figure><img src="../../../.gitbook/assets/image (365).png" alt=""><figcaption></figcaption></figure>
+
 * HTTP/1.0: 헤더·MIME 추가, 본격적 웹 시작
+
+<figure><img src="../../../.gitbook/assets/image (366).png" alt=""><figcaption></figcaption></figure>
+
 * HTTP/1.1: keep-alive, 캐시, 가상 호스팅 지원 → 현재 주류
+
+<figure><img src="../../../.gitbook/assets/image (367).png" alt=""><figcaption></figcaption></figure>
+
 * HTTP/2: 멀티플렉싱, 헤더 압축
 * HTTP/3: TCP 대신 QUIC(UDP 기반) 사용
 
+> 읽어보면 좋은 글 : [자세히 더 버전에 대해 알기](http://velog.io/@dnr6054/web-technologies-and-http)
 
-
-#### 9) 완성 – 브라우저의 보고
+### 9. 완성 – 브라우저의 보고
 
 브라우저는 모든 리소스를 모은다. 화면에는 사용자가 기대한 웹페이지가 나타난다. 여정은 끝났다.
+
+## HTTP 세계의 조연들: 보이지 않는 다섯 친구들
+
+<figure><img src="../../../.gitbook/assets/image (368).png" alt=""><figcaption></figcaption></figure>
+
+### 1. 프록시 – 든든한 문지기
+
+브라우저가 서버로 향하려 할 때, 중간에 누군가가 가로선다.
+
+<figure><img src="../../../.gitbook/assets/image (369).png" alt=""><figcaption></figcaption></figure>
+
+그가 바로 **프록시(Proxy)**.
+
+> 👉 프락시는 “서버에 가기 전 반드시 거쳐야 하는 문지기” 같은 존재다.
+
+**그러면 클라이언트와 서버가 직접 통신하면 되지 왜 프락시를 사용하는 것일까?**
+
+> 그 이유는 프락시를 사용하게 되면 여러 기능과 장점이 생기게 된다.
+
+* 클라이언트의 요청을 대신 받아서 서버로 전달한다.
+* 보안을 개선할 수 있고 성능을 높여줄 수 있고 트래픽을 감시하고 수정할 수 있다.
+* 때로는 요청을 바꾸기도 하고, 위험한 것을 걸러내기도 한다.
+* 회사에서는 바이러스가 섞인 다운로드를 막고, 학교에서는 성인 콘텐츠를 차단한다.
+
+프록시를 사용하면서 가질 수 있는 기능을 예시로 알아보자.
+
+초등학교에서 수업에서 사용하는 컴퓨터에서는 교육 사이트를 제공하면서 <mark style="color:orange;">성인 사이트는 차단</mark>하기 위해 필터링 역할로 프록시를 사용할 수 있다. 즉, **사용자에 따라 접근을 하용하는 사이트와 접근을 강제로 거부할 수 있는 사이트를 프록시가 중간에서 할 수 있다는 것**이다.
+
+{% hint style="success" %}
+프락시가 **웹 캐시의 역할**을 하여 클라이언트가 **자주 요청하는 리소스의 사본을 저장하여 관리**하고 추후에 동일한 요청을 빠르게 응답할 수 있게 해주는 기능을 제공
+{% endhint %}
+
+**프락시가 존재하면 클라이언트가 보낸 HTTP 메시지는 어떻게 프락시로 가는 길을 알 수 있을까?**
+
+<figure><img src="../../../.gitbook/assets/unknown (1).png" alt=""><figcaption></figcaption></figure>
+
+> 참고 : [https://straw961030.tistory.com/81](https://straw961030.tistory.com/81)
+
+### 2. 캐시 – 부지런한 창고 관리자
+
+사용자가 자주 찾는 문서를 계속 서버에 요청한다면 어떨까?\
+서버까지 매번 여행을 다녀오는 건 시간 낭비다.
+
+그래서 **캐시(Cache)** 가 나선다.
+
+<figure><img src="../../../.gitbook/assets/image (370).png" alt=""><figcaption></figcaption></figure>
+
+* 한 번 가져온 문서 사본을 가까이에 저장한다.
+* 다음 요청이 오면, 서버에 가지 않고 자기 창고에서 꺼내준다.
+* 최신 여부를 점검해 오래된 사본은 갱신한다.
+
+> 👉 캐시는 “동네 창고 아저씨”처럼 자주 쓰는 걸 쌓아두고, 빨리 꺼내준다.
+
+
+
+### 3. 게이트웨이 – 다국어 통역사
+
+어떤 요청은 HTTP 세상에서 시작되지만, 다른 세계(FTP, 메일, 데이터베이스 등)로 들어가야 한다.\
+그때 필요한 인물이 **게이트웨이(Gateway)** 다.
+
+<figure><img src="../../../.gitbook/assets/image (371).png" alt=""><figcaption></figcaption></figure>
+
+* HTTP 요청을 다른 프로토콜로 번역한다.
+* 마치 자신이 서버인 것처럼 행동한다.
+* 클라이언트는 사실 게이트웨이랑 얘기하고 있다는 걸 모른다.
+
+> 👉 게이트웨이는 “겉으로는 서버지만, 사실은 통역사 역할을 하는 사람”이다.
+
+
+
+### 4. 터널 – 묵묵한 배달부
+
+터널은 말을 아낀다.&#x20;
+
+* 데이터를 열어보지 않는다.
+* 그대로 양쪽으로 전달한다 .
+
+대표적인 예가 **HTTPS 암호화 트래픽**이다. 방화벽이 웹 트래픽만 허용할 때, 터널은 그 속에서 몰래 SSL 데이터를 통과시킨다.
+
+<figure><img src="../../../.gitbook/assets/image (372).png" alt=""><figcaption></figcaption></figure>
+
+* HTTP/SSL 터널은 HTTP 요청을 받아들여 목적지의  &#x20;주소와 포트번호로 커넥션을 맺는다.
+* 이후부터는 **암호화된 SSL 트래픽을 HTTP 채  널을 통해 목적지 서버로 전송**할 수 있게 된다
+
+> 👉 터널은 “택배 상자를 열어보지 않고 그대로 배달하는 배달원”이다.
+
+
+
+### 5. 에이전트 – 끊임없는 탐험가
+
+마지막은 **에이전트(Agent)**.
+
+> 사용자를 위해 HTTP 요청을 만들어주는> &#x20;클라이언트 프로그램
+
+우리가 흔히 쓰는 브라우저도 에이전트지만, 여기에는 다른 모습도 많다.
+
+* 검색엔진 스파이더: 전 세계 웹페이지를 돌아다니며 색인을 만든다.
+
+<figure><img src="../../../.gitbook/assets/image (373).png" alt=""><figcaption></figcaption></figure>
+
+* 가격 비교 로봇: 쇼핑몰을 누비며 상품 가격을 모은다.
+
+> 👉 에이전트는 “사람 대신 웹 세상을 누비는 탐험가”다.
+
+검색엔진의 데이터베이스나 가격비교 로봇을 위한 제품 카탈로그와 같은 유용한 웹 콘텐츠 보관소를 만든다.
+
+{% hint style="warning" %}
+웹 세상은 브라우저와 서버만의 대화가 아니다.\
+
+
+중간에는 **문지기(프락시)**, **창고 관리자(캐시)**, **통역사(게이트웨이)**, **배달부(터널)**, **탐험가(에이전트)**&#xAC00; 함께 움직인다.
+
+
+
+이 다섯 친구 덕분에 웹은 **더 안전하고, 더 빠르고, 더 넓게** 확장된다.
+{% endhint %}
+
+
 
