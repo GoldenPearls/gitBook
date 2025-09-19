@@ -2,20 +2,6 @@
 cover: >-
   https://file.notion.so/f/f/3f5af70e-5587-4c7a-8846-c7c5c0a904e2/bb5eb3c8-3a67-42a3-9f79-5b9e7ae18004/Untitled.png?table=block&id=b0e23518-b129-4308-b83b-ec65feb78ce5&spaceId=3f5af70e-5587-4c7a-8846-c7c5c0a904e2&expirationTimestamp=1723118400000&signature=rnD47Ut9ef14TJYUsQjV9D1VaLm05HlFUi3ZDGKTiYQ&downloadName=Untitled.png
 coverY: 0
-layout:
-  cover:
-    visible: true
-    size: hero
-  title:
-    visible: true
-  description:
-    visible: true
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
 ---
 
 # Big O

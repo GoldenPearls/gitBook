@@ -6,20 +6,6 @@ cover: >-
   minimalist illustration representing the year 2023. The design features
   playful typography with the numbers '2023' in a prominent .webp
 coverY: 0
-layout:
-  cover:
-    visible: true
-    size: hero
-  title:
-    visible: true
-  description:
-    visible: true
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: false
 ---
 
 # 2023년

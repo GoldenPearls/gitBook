@@ -1,17 +1,6 @@
 ---
-icon: git
 description: github 자주 쓰는 명령어 모아보기
-layout:
-  title:
-    visible: true
-  description:
-    visible: true
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: false
+icon: git
 ---
 
 # github 자주 쓰는 명령어

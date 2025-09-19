@@ -6,20 +6,6 @@ cover: >-
   designed for a GitHub page. The banner features the GitHub logo (Octocat) in a
   playful and adorable style, with elements lik.webp
 coverY: -64
-layout:
-  cover:
-    visible: true
-    size: hero
-  title:
-    visible: true
-  description:
-    visible: true
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: false
 ---
 
 # github

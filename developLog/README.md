@@ -6,20 +6,6 @@ cover: >-
   minimalist winter theme, featuring a snow-covered landscape with a trail of
   footsteps leading through the snow. The desi.webp
 coverY: 0
-layout:
-  cover:
-    visible: true
-    size: hero
-  title:
-    visible: true
-  description:
-    visible: true
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: false
 ---
 
 # About
