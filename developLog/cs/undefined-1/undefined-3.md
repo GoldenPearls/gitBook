@@ -554,7 +554,7 @@ C 프로그램이 파일 시스템의 **입력/출력 추상화**를 직접 활�
 반면 **브라우저 환경**은 C처럼 직접 시스템 자원을 제어할 수 없습니다.\
 왜냐하면 브라우저는 사용자를 보호하기 위해 **보안 모델과 추상화 레이어**를 더 높게 설정해두기 때문이죠.
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 #### ❌ 추상화가 ‘숨겨져 있는’ 구조
 
@@ -626,7 +626,7 @@ C로 작성한 프로그램이 `./a.out`이나 `gta` 같은 이름으로 실행�
 
 #### 🤔 `stdout`과 `stderr`의 차이는?
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * 둘 다 **콘솔로 출력**됨
 * 하지만 **버퍼링 방식이 다름**:
@@ -654,7 +654,7 @@ gets(buffer);  // 👈 문제 발생
 * `gets()`는 입력받는 문자열의 **길이를 제한하지 않음**
 * 사용자 입력이 `buffer`의 크기를 초과하면? → **메모리 침범**
 
-<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 **🚨 실제 위협 사례**
 
@@ -673,7 +673,7 @@ C11에서는 **완전히 삭제**되었습니다.
 \
 가령 8칸짜리 메모리가 있고, 그 안에 4칸짜리 버퍼가 있을 때
 
-<figure><img src="../../.gitbook/assets/image (3) (1) (1) (1) (1).png" alt=""><figcaption><p><a href="https://namu.wiki/w/%EB%B2%84%ED%8D%BC%20%EC%98%A4%EB%B2%84%ED%94%8C%EB%A1%9C">https://namu.wiki/w/%EB%B2%84%ED%8D%BC%20%EC%98%A4%EB%B2%84%ED%94%8C%EB%A1%9C</a></p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3) (1) (1) (1) (1) (1).png" alt=""><figcaption><p><a href="https://namu.wiki/w/%EB%B2%84%ED%8D%BC%20%EC%98%A4%EB%B2%84%ED%94%8C%EB%A1%9C">https://namu.wiki/w/%EB%B2%84%ED%8D%BC%20%EC%98%A4%EB%B2%84%ED%94%8C%EB%A1%9C</a></p></figcaption></figure>
 
 > 이와 같이 사용자가 버퍼를 초과하는 값을 입력하면 버퍼 이후의 값이 바뀌게 된다.\
 > \

@@ -9,7 +9,7 @@ description: HTTP 메시지의 모든 것(어떻게 메시지를 만들고 이�
 * **HTTP 메시지**: 클라이언트, 서버, 프락시 사이 즉, **애플리케이션  사이에서 주고받는 데이터 블록.**
   * 이 데이터 블록들은 메시지의 내용과 의미를 설명하는 **텍스트 메타 정보로 시작**하고 **그 다음에 선택적으로 데이터가 올 수 있다.**
 
-<figure><img src="../../../../.gitbook/assets/image.png" alt=""><figcaption><p><a href="https://velog.io/@hogu8159/3.HTTP-%EB%A9%94%EC%84%B8%EC%A7%80">https://velog.io/@hogu8159/3.HTTP-%EB%A9%94%EC%84%B8%EC%A7%80</a></p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (7).png" alt=""><figcaption><p><a href="https://velog.io/@hogu8159/3.HTTP-%EB%A9%94%EC%84%B8%EC%A7%80">https://velog.io/@hogu8159/3.HTTP-%EB%A9%94%EC%84%B8%EC%A7%80</a></p></figcaption></figure>
 
 * 메시지는 항상 **원 서버 → 클라이언트 방향**으로 이동하며, 다음과 같은 용어로 방향성을 설명함:
   * **인바운드 (Inbound)**: 원 서버로 향하는 메시지 (예: 클라이언트 → 서버의 요청).
@@ -17,7 +17,7 @@ description: HTTP 메시지의 모든 것(어떻게 메시지를 만들고 이�
   * **업스트림 (Upstream)**: 메시지를 보내는 쪽.
   * **다운스트림 (Downstream)**: 메시지를 받는 쪽.
 
-<figure><img src="../../../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="danger" %}
 → 요청/응답 구분 없이 **모든 메시지는 다운스트림으로 흐른다.**
@@ -114,7 +114,7 @@ HTTP 메시지는 크게 **시작줄(Start Line) + 헤더(Header) + 본문(Body)
 
 ## 3. HTTP 메시지 문법 정리
 
-<figure><img src="../../../../.gitbook/assets/image (2).png" alt=""><figcaption><p><a href="https://velog.io/@twomanyzero/01.-%EC%9B%B9-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D%EC%9D%98-%EC%9D%B4%ED%95%B43">https://velog.io/@twomanyzero/01.-%EC%9B%B9-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D%EC%9D%98-%EC%9D%B4%ED%95%B43</a></p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (2) (1).png" alt=""><figcaption><p><a href="https://velog.io/@twomanyzero/01.-%EC%9B%B9-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D%EC%9D%98-%EC%9D%B4%ED%95%B43">https://velog.io/@twomanyzero/01.-%EC%9B%B9-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D%EC%9D%98-%EC%9D%B4%ED%95%B43</a></p></figcaption></figure>
 
 ### 1) HTTP 메시지의 종류
 
@@ -123,7 +123,7 @@ HTTP 메시지는 크게 **시작줄(Start Line) + 헤더(Header) + 본문(Body)
 
 ### 2) 메시지 기본 구조
 
-<figure><img src="../../../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
 
 > 이 그림은 **HTTP 트랜잭션(요청과 응답)**&#xC774; 실제로 어떻게 이루어지는지를 보여주는 예시
 
@@ -184,7 +184,7 @@ HTTP 메시지는 크게 **시작줄(Start Line) + 헤더(Header) + 본문(Body)
 
 **🍕 HTTP 트랜잭션 = 피자 주문 과정**
 
-<figure><img src="../../../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (4) (1).png" alt=""><figcaption></figcaption></figure>
 
 1. **클라이언트 → 주문 넣기 (HTTP 요청)**
 
@@ -655,22 +655,249 @@ HTTP는 확장 가능한 구조라 필요하면 새 제스처를 추가할 수 �
 | **COPY**  | 리소스 복사하기              |
 | **MOVE**  | 리소스 옮기기               |
 
-📌 규칙: “**엄격하게 보내고, 관대하게 받아들여라**” → 내가 모르는 확장 메서드가 와도 무작정 거부하지 말고, 가능한 한 전달하기.
+> 📌 규칙: “**엄격하게 보내고, 관대하게 받아들여라**” → 내가 모르는 확장 메서드가 와도 무작정 거부하지 말고, 가능한 한 전달하기.
 
-***
-
-### 4️⃣ 핵심 정리
+### 4️) 핵심 정리
 
 * 모든 서버가 모든 메서드를 구현하지는 않음. (특히 DELETE, PUT은 제한적)
 * **HTTP/1.1 호환을 위해서는 GET과 HEAD만 있어도 충분.**
 * 메서드는 **“행동을 약속하는 언어”** → GET은 가져오기, POST는 제출하기처럼 직관적.
 
-***
+{% hint style="danger" %}
+요약하자면:\
+HTTP 메서드는 **서버에게 부탁하는 방식**이고, 안전한 조회부터 리소스 생성·삭제, 진단용 메서드까지 다양하다다.\
+웹 개발자는 상황에 맞는 메서드를 쓰고, 브라우저는 이를 이용해 올바르게 동작한다.
+{% endhint %}
 
-✅ 요약하자면:\
-HTTP 메서드는 **서버에게 부탁하는 방식**이고, 안전한 조회부터 리소스 생성·삭제, 진단용 메서드까지 다양해요.\
-웹 개발자는 상황에 맞는 메서드를 쓰고, 브라우저는 이를 이용해 올바르게 동작합니다.
+## 6. 상태 코드
 
-***
+<figure><img src="../../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
-금주님, 혹시 제가 이 정리를 **실생활 비유 일러스트**(예: 도서관, 우편, 책 교체 장면)로 그림까지 만들어드릴까요? 그러면 발표/블로그에서 더 직관적으로 쓸 수 있어요.
+### 1) 상태 코드 다섯 분류의 “의도”와 “실무상 쓰임새”
+
+#### 1. 1xx 정보(Informational): “계속해도 됩니다”
+
+<figure><img src="../../../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+
+* **도입 배경**: 큰 본문(파일 업로드 등)을 **괜히** 보냈다가 서버가 거부하면 네트워크 낭비.
+* **대표 코드**
+  * **100 Continue**
+    * 목적: 클라이언트가 `Expect: 100-continue`를 보냈을 때, **본문을 보내도 된다**는 신호.
+    * 실패 시: 서버가 바로 4xx/5xx로 응답하면, 클라이언트는 큰 본문 전송을 **건너뛰어** 낭비를 줄인다.
+  * **101 Switching Protocols**
+    * `Upgrade` 헤더와 함께, 예: HTTP/1.1 → WebSocket 등 **프로토콜 업그레이드** 승인.
+
+> **실무 주의**
+>
+> * 100은 모든 서버/프락시에서 완벽히 구현되지 않은 사례가 있어 **타임아웃 후 본문 전송** 로직을 넣는 게 안전.
+> * 1.0/레거시 클라이언트와 혼용 시 프락시가 `Expect`/`100`을 **중계하지 말아야** 하는 경우가 있음.
+
+#### 2. 2xx 성공(Success): “요청 OK”
+
+<figure><img src="../../../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+
+* **200 OK**: 가장 일반적. 본문에 요청한 표현이 담김.
+* **201 Created**: `PUT`/`POST` 등으로 **리소스가 새로 생성**되었을 때. 응답의 `Location`에 새 리소스 URL 제공.
+* **202 Accepted**: **비동기 처리** 수락. 결과는 아직 모름(큐 처리/배치 작업). 상태 폴링 엔드포인트를 본문/링크로 함께 제공하기도.
+* **203 Non-Authoritative Information**: 원서버가 아닌 **중개본**에서 온 메타정보. 메타 검증이 불완전할 수 있음을 암시.
+* **204 No Content**: 성공했지만 **본문 없음**(예: 폼 검증 OK 후 화면 갱신 필요 없음).
+* **206 Partial Content**: `Range` 요청(바이트 범위) 응답. 대용량 미디어 **구간 재생/이어받기**에 핵심.
+
+> **실무 팁**
+>
+> * 파일 업로드 후에는 **201 + Location**을 일관되게 제공 → 클라가 후속 조회/갱신 경로를 확실히 알 수 있음.
+> * 스트리밍/다운로드는 **206** 지원 여부가 사용자 경험을 크게 좌우(되감기/이어받기).
+>
+>
+
+#### 3. 3xx 리다이렉션(Redirection): “이동/조건부”
+
+<figure><img src="../../../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+
+* **301 Moved Permanently**: **영구 이동**. 검색엔진은 링크 권한(SEO)을 **새 URL로 이전**. 캐시 강함.
+* **302 Found**: 임시 이동. 전통적으로 브라우저가 **POST→GET**으로 바꿔버리는 혼선이 있었음.
+* **303 See Other**: 명확히 <mark style="color:red;">“리다이렉트는 GET으로 가라”는 의도.</mark> 폼 제출 후 결과 페이지로 보내는 패턴에 적합.
+* **304 Not Modified**: 조건부 요청(예: `If-Modified-Since`, `If-None-Match`)에 대해 **변경 없음** → 본문 없이 캐시 재사용.
+* **307 Temporary Redirect**: **메서드/본문 유지** 보장. POST는 POST 그대로.
+* **308 Permanent Redirect**: 301의 **영구성 + 메서드/본문 유지** 보장.
+
+> **실무 팁**
+>
+> * **POST 후 중복 제출 방지**: 서버는 200 대신 **303**으로 결과 리소스 URL을 제시 → 새로고침해도 재전송 방지.
+> * CDN/리버스프락시 앞단에서 **304**를 적극 활용(ETag/Last-Modified). 대역폭·TTFB 절감에 즉효.
+
+#### 4. 4xx 클라이언트 오류(Client Error): “요청이 잘못됐어요”
+
+<figure><img src="../../../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+
+* **400 Bad Request**: 문법 오류/파싱 실패/스키마 위반. 본문에 **에러 상세**(필드 검증 실패 등) 넣어주면 UX 향상.
+* **401 Unauthorized**: 인증 필요(혹은 실패). **WWW-Authenticate** 헤더로 인증 스킴 제시(Basic/Bearer 등).
+* **403 Forbidden**: 인증은 되었지만 **권한 없음**. 401과 구분.
+* **404 Not Found**: 리소스 없음(혹은 의도적 은폐). 보안상 존재 유무를 감추려 404로 통일 응답하기도.
+* **405 Method Not Allowed**: URL은 존재하지만 **해당 메서드는 금지**. **Allow** 헤더로 허용 목록 제공.
+* **406 Not Acceptable**: `Accept-*` 협상 결과 **보내줄 표현이 없음**.
+* **408 Request Timeout**: 클라이언트가 너무 느림(커넥션 유지 정책). 재시도 힌트를 본문/헤더로 제공 가능.
+* **409 Conflict**: 요청이 **현 리소스 상태와 충돌**. 예: 버전 충돌(Optimistic Locking: `If-Match` 불일치).
+* **410 Gone**: **영구 삭제**를 명시(SEO/클라 캐시의 확실한 폐기 유도).
+* **411 Length Required**: `Content-Length` 필수인데 없음.
+* **412 Precondition Failed**: `If-*` 조건 불충족(Etag/LM 기반 동시성 제어 실패).
+* **413 Payload Too Large**, **414 URI Too Long**, **415 Unsupported Media Type**, **416 Range Not Satisfiable**, **417 Expectation Failed** 등: 용량/형식/범위/Expect 정책 위반.
+
+> **실무 팁**
+>
+> * 리소스 업데이트에는 **조건부 헤더(Etag + If-Match)** 를 강제 → **경합 업데이트 방지**.
+> * 404와 410을 의도에 맞게 구분해 쓰면 SEO/클라이언트 캐시 정리가 깔끔.
+
+#### 5. 5xx 서버 오류(Server Error): “서버 쪽 문제”
+
+<figure><img src="../../../../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+
+* **500 Internal Server Error**: 가장 포괄적. 내부 예외/미처 처리 못한 상황.
+* **501 Not Implemented**: 메서드/기능 미구현(확장 메서드에 흔함).
+* **502 Bad Gateway**: 게이트웨이/프락시가 **업스트림**으로부터 잘못된 응답을 받음.
+* **503 Service Unavailable**: 과부하/점검. 가능한 **Retry-After** 제공.
+* **504 Gateway Timeout**: 업스트림 **타임아웃**.
+* **505 HTTP Version Not Supported**: 미지원 버전.
+
+> **실무 팁**
+>
+> * 503에는 **Retry-After**(초/날짜) 넣어 **백오프**를 유도.
+> * 에러 응답에는 **추적 ID**(예: `X-Request-Id`)를 넣어 고객문의 시 로그 상호참조가 쉽다.
+
+### 2) 100 Continue – 전체 시퀀스(클/서/프 흐름도 느낌)
+
+<figure><img src="../../../../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
+
+1.  **클라이언트**:
+
+    ```
+    POST /upload HTTP/1.1
+    Host: api.example.com
+    Expect: 100-continue
+    Content-Length: 104857600
+    Content-Type: application/octet-stream
+    ```
+
+    → “100 받으면 100MB 본문 보낼게요.”
+2. **서버**(정책/권한/형식 빨리 점검)
+   * 가능 → `HTTP/1.1 100 Continue` → 클라는 본문 전송 시작
+   * 불가 → 즉시 `417/4xx/5xx` → 클라는 **본문 전송 생략**
+3. **프락시**
+   * 다음 홉이 1.1인지 **모르면** `Expect`를 **보존**해서 전달
+   * 1.1 **아님을 알면** `417`로 빠르게 단락시키는 게 낫다
+   * 1.0 클라 대신 `Expect`를 덧붙였다면 **100을 직접 전달하지 말 것**
+4. **최종 응답**: 본문 수신 후 `201/200/4xx/5xx` 중 하나를 **반드시** 보냄.
+
+> **안정성 체크리스트**
+>
+> * 100 응답 **무한대기 금지**(타임아웃·재전송 전략).
+> * 일부 서버는 100을 **생략**하고 바로 최종 응답만 보낼 수도 있게 처리.
+
+
+
+## 7. 헤더 — “분류별 사고법”과 대표 헤더 세트
+
+### 1) 일반 헤더(요청·응답 공통 메타)
+
+* `Date`: 메시지 생성시각
+* `Connection`: `keep-alive`/`close`/hop-by-hop 옵션
+* `Transfer-Encoding`: `chunked` 등 전송 코딩
+* `Upgrade`: 프로토콜 업그레이드 희망(WebSocket 등)
+* `Via`: 거쳐온 **중개자**들 표시(디버깅/루프 방지)
+
+> **팁**: `Connection`/`Proxy-Connection`은 **홉-바이-홉**이므로 프락시가 소비/관리(엔드투엔드 아님).
+
+
+
+### 2) 요청 헤더
+
+* **식별/출처**: `Host`(필수), `Referer`, `User-Agent`
+* **협상(클라 선호도)**:
+  * `Accept`(미디어 타입), `Accept-Language`(언어), `Accept-Encoding`(gzip 등), `Accept-Charset`, `TE`
+* **조건부/범위/동시성**:
+  * `If-Modified-Since` ↔ `Last-Modified`
+  * `If-None-Match`/`If-Match` ↔ `ETag`
+  * `Range`/`If-Range`(부분 전송/재개)
+* **보안/세션**: `Authorization`(Basic/Bearer…), `Cookie`
+* **프락시용**: `Max-Forwards`(TRACE hop 수 제한), `Proxy-Authorization`
+
+> **콘텐츠 협상**: 서버는 요청의 `Accept-*`를 읽어 **가장 적합한 표현**을 선택하고, 응답에 `Vary`로 “어떤 헤더가 선택에 영향을 줬는지”를 알린다(캐시 일관성).
+
+
+
+### 3) 응답 헤더
+
+* **보안/인증유도**: `WWW-Authenticate`, `Proxy-Authenticate`
+* **세션**: `Set-Cookie`, `Set-Cookie2(구식)`
+* **협상정보**: `Accept-Ranges`(바이트 범위 지원), `Vary`(선택에 영향 준 요청 헤더 목록)
+
+
+
+### 4) 엔터티(콘텐츠) 헤더
+
+* **엔터티 정보**:
+  * `Allow`(허용 메서드 목록—405와 함께), `Location`(새/실제 위치: 201/3xx에서 핵심)
+* **콘텐츠 기술**:
+  * `Content-Type`(MIME + charset), `Content-Length`, `Content-Encoding`(gzip 등), `Content-Language`, `Content-Location`, `Content-Range`, `Content-MD5(구현차)`
+* **캐싱/검증**:
+  * `ETag`(버전 식별자—강/약), `Last-Modified`, `Expires`
+  * (캐시 제어는 보통 `Cache-Control`도 함께—max-age, no-cache, must-revalidate 등)
+
+> **캐시 전략 요령**
+>
+> * 정적 파일: `ETag` + `Last-Modified` + `Cache-Control: public, max-age=…`
+> * API JSON: 잦은 변경이라면 `ETag` 기반 조건부 GET으로 304 적극 활용
+> * 다국어/압축: `Vary: Accept-Language, Accept-Encoding`로 캐시 키 분리
+
+
+
+## 8. 미묘하지만 중요한 짝꿍들
+
+* **201 + Location**: 생성 위치를 알려 재조회 가능케 함.
+* **301 vs 308 / 302 vs 307**: **메서드/본문 유지 여부**가 관건(308/307은 유지).
+* **304 + ETag/LM**: “변경 없음”을 통한 대역폭 절감.
+* **405 + Allow**: 허용 메서드 안내로 클라가 **올바른 재시도** 가능.
+* **401 + WWW-Authenticate**: 인증 스킴 명시(없으면 클라가 방법을 모름).
+* **409/412 + If-Match**: 낙관적 락(버전 충돌) 처리의 표준 패턴.
+
+
+
+## 9. 실전 시나리오 3가지
+
+1. **파일 업로드(대용량)**
+
+* 요청: `Expect: 100-continue` → `100` 받으면 본문 전송
+* 응답: 성공 시 `201 Created + Location`
+* 실패: 형식 오류는 **415**, 크기 초과는 **413**, 인증 실패는 **401**
+
+
+
+2. **조건부 GET(캐시 재검증)**
+
+```
+GET /article/123
+If-None-Match: "v7k3"
+If-Modified-Since: Tue, 25 Mar 2025 10:10:10 GMT
+```
+
+* 변경 없으면 **304**(본문 없음)
+* 변경 있으면 **200 + 새 ETag/Last-Modified**
+
+
+
+3. **POST/리다이렉트 패턴**
+
+* 폼 제출 성공 → **303 See Other**로 결과 페이지 GET 유도(중복 제출 방지)
+* 임시 이동이지만 메서드 유지 필요 → **307 Temporary Redirect**
+
+
+
+#### 체크리스트(구현/운영)
+
+* [ ] 2xx/3xx/4xx/5xx **균형 있게** 사용(무조건 200에 오류메시지 넣지 않기)
+* [ ] `Location`, `Allow`, `WWW-Authenticate`, `Retry-After` 등 **꼭 필요한 짝꿍 헤더** 채우기
+* [ ] 캐시 가능 리소스에 **ETag/Last-Modified/Cache-Control** 구성
+* [ ] 업로드/대용량에 **100-continue** 고려 + 클라이언트 타임아웃 전략
+* [ ] 게이트웨이/프락시 앞단의 502/504/503 로깅 및 **X-Request-Id** 추적
+* [ ] 국제화/압축 시 **Vary** 정확히 표기(캐시 오염 방지)
+
