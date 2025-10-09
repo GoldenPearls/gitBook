@@ -16,7 +16,7 @@ CPU(Central Processing Unit, 중앙처리장치)는 컴퓨터에서 데이터를
 
 1. **코어(Core) ⇒ 프로세서라고도 불렸음**
 
-<figure><img src="../../.gitbook/assets/image (5) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (5) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * CPU 내부에서 **연산을 수행하는 핵심 단위**야.
 * `싱글코어(single-core)`는 한 번에 하나의 작업만 가능하지만, **멀티코어(multi-core)**&#xB294; 여러 작업을 동시에 처리할 수 있어.
@@ -26,7 +26,7 @@ CPU(Central Processing Unit, 중앙처리장치)는 컴퓨터에서 데이터를
 
 2. **쓰레드(Thread)**
 
-<figure><img src="../../.gitbook/assets/image (9) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (9) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * 코어는 물리적인 개념이지만, **쓰레드는 논리적인 개념**이야.
 * **하이퍼쓰레딩(Hyper-Threading)** 기술을 사용하면 하나의 코어를 논리적으로 나누어 **한 코어에서 두 개의 작업을 동시에 수행할 수 있어.**
@@ -51,7 +51,7 @@ CPU(Central Processing Unit, 중앙처리장치)는 컴퓨터에서 데이터를
 
 
 
-<figure><img src="../../.gitbook/assets/image (7) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (7) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### **2) CPU의 종류와 차이점**
 
@@ -75,7 +75,7 @@ CPU(Central Processing Unit, 중앙처리장치)는 컴퓨터에서 데이터를
 
 ### 3) 코어와 스레드
 
-<figure><img src="../../.gitbook/assets/image (5) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (5) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 #### **코어는 물리적인 개념이지만, 쓰레드는 논리적인 개념이라는 뜻**
 
@@ -150,7 +150,7 @@ CPU(Central Processing Unit, 중앙처리장치)는 컴퓨터에서 데이터를
 
 > 하드웨어 내 스레드 논리적 코어는 8개인데 위  사진상에 스레드는 어떻게 3951개가 될까?
 
-<figure><img src="../../.gitbook/assets/image (6) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (6) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 **논리적 코어가 8개인데도 스레드 개수가 3951개가 되는 이유**는 **운영체제에서 관리하는 소프트웨어적인 스레드와 하드웨어적인 스레드가 다르기 때문이야.**
 
@@ -473,7 +473,7 @@ CPU와 CPU 다이는 비슷한 개념이지만, 조금 다른 의미를 가지�
 
 ### 4) CPU 다이(Die) 구조
 
-<figure><img src="../../.gitbook/assets/image (6) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (6) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * **Core (코어)**: CPU에서 연산을 수행하는 핵심 유닛. 멀티코어 CPU에서는 여러 개의 코어가 존재.
 * **Shared L3 Cache (공유 L3 캐시)**: 모든 코어가 공유하는 고속 메모리로, CPU와 RAM 간 속도 차이를 줄여줌.
@@ -558,7 +558,7 @@ CPU는 0과 1의 **디지털 신호**만 처리할 수 있어.\
 
 ### **1) 컴퓨터는 전기로 움직인다 → 2진법이 유리하다**
 
-<figure><img src="../../.gitbook/assets/image (9) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (9) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="warning" %}
 컴퓨터의 동작 원리를 살펴보면, **전압(Voltage)을 기반으로 정보를 표현**해.\
@@ -764,7 +764,7 @@ CPU → 트랜지스터 → 논리 게이트 → 전기 신호 → 시스템 버
 
 <figure><img src="../../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (5) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (5) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 1.  **쌍극 접합 트랜지스터(BJT, Bipolar Junction Transistor)**
 
@@ -1069,7 +1069,7 @@ MOSFET은 단일 캐리어 방식(Unipolar Carrier Transistor)을 사용하는 �
 
 맞아! 지금의 CPU(중앙처리장치)는 대부분 **트랜지스터**로 이루어져 있어. 하지만 그 트랜지스터들이 \*\*집적 회로(IC, Integrated Circuit)로 구현되어 있다는 점이 핵심이야.
 
-<figure><img src="../../.gitbook/assets/image (7) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption><p>집적 회로</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (7) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption><p>집적 회로</p></figcaption></figure>
 
 ### 1) 현재 CPU는 집적 회로(IC)인가, 트랜지스터인가?
 
