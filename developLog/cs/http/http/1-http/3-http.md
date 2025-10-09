@@ -17,7 +17,7 @@ description: HTTP 메시지의 모든 것(어떻게 메시지를 만들고 이�
   * **업스트림 (Upstream)**: 메시지를 보내는 쪽.
   * **다운스트림 (Downstream)**: 메시지를 받는 쪽.
 
-<figure><img src="../../../../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="danger" %}
 → 요청/응답 구분 없이 **모든 메시지는 다운스트림으로 흐른다.**
@@ -114,7 +114,7 @@ HTTP 메시지는 크게 **시작줄(Start Line) + 헤더(Header) + 본문(Body)
 
 ## 3. HTTP 메시지 문법 정리
 
-<figure><img src="../../../../.gitbook/assets/image (2) (1) (1).png" alt=""><figcaption><p><a href="https://velog.io/@twomanyzero/01.-%EC%9B%B9-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D%EC%9D%98-%EC%9D%B4%ED%95%B43">https://velog.io/@twomanyzero/01.-%EC%9B%B9-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D%EC%9D%98-%EC%9D%B4%ED%95%B43</a></p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (2) (1) (1) (1).png" alt=""><figcaption><p><a href="https://velog.io/@twomanyzero/01.-%EC%9B%B9-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D%EC%9D%98-%EC%9D%B4%ED%95%B43">https://velog.io/@twomanyzero/01.-%EC%9B%B9-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D%EC%9D%98-%EC%9D%B4%ED%95%B43</a></p></figcaption></figure>
 
 ### 1) HTTP 메시지의 종류
 
@@ -123,7 +123,7 @@ HTTP 메시지는 크게 **시작줄(Start Line) + 헤더(Header) + 본문(Body)
 
 ### 2) 메시지 기본 구조
 
-<figure><img src="../../../../.gitbook/assets/image (3) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (3) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 > 이 그림은 **HTTP 트랜잭션(요청과 응답)**&#xC774; 실제로 어떻게 이루어지는지를 보여주는 예시
 
@@ -184,7 +184,7 @@ HTTP 메시지는 크게 **시작줄(Start Line) + 헤더(Header) + 본문(Body)
 
 **🍕 HTTP 트랜잭션 = 피자 주문 과정**
 
-<figure><img src="../../../../.gitbook/assets/image (4) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (4) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 1. **클라이언트 → 주문 넣기 (HTTP 요청)**
 
@@ -677,7 +677,7 @@ HTTP 메서드는 **서버에게 부탁하는 방식**이고, 안전한 조회�
 
 #### 1. 1xx 정보(Informational): “계속해도 됩니다”
 
-<figure><img src="../../../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * **도입 배경**: 큰 본문(파일 업로드 등)을 **괜히** 보냈다가 서버가 거부하면 네트워크 낭비.
 * **대표 코드**
@@ -694,7 +694,7 @@ HTTP 메서드는 **서버에게 부탁하는 방식**이고, 안전한 조회�
 
 #### 2. 2xx 성공(Success): “요청 OK”
 
-<figure><img src="../../../../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * **200 OK**: 가장 일반적. 본문에 요청한 표현이 담김.
 * **201 Created**: `PUT`/`POST` 등으로 **리소스가 새로 생성**되었을 때. 응답의 `Location`에 새 리소스 URL 제공.
@@ -712,7 +712,7 @@ HTTP 메서드는 **서버에게 부탁하는 방식**이고, 안전한 조회�
 
 #### 3. 3xx 리다이렉션(Redirection): “이동/조건부”
 
-<figure><img src="../../../../.gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (3) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * **301 Moved Permanently**: **영구 이동**. 검색엔진은 링크 권한(SEO)을 **새 URL로 이전**. 캐시 강함.
 * **302 Found**: 임시 이동. 전통적으로 브라우저가 **POST→GET**으로 바꿔버리는 혼선이 있었음.
@@ -728,7 +728,7 @@ HTTP 메서드는 **서버에게 부탁하는 방식**이고, 안전한 조회�
 
 #### 4. 4xx 클라이언트 오류(Client Error): “요청이 잘못됐어요”
 
-<figure><img src="../../../../.gitbook/assets/image (4) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (4) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * **400 Bad Request**: 문법 오류/파싱 실패/스키마 위반. 본문에 **에러 상세**(필드 검증 실패 등) 넣어주면 UX 향상.
 * **401 Unauthorized**: 인증 필요(혹은 실패). **WWW-Authenticate** 헤더로 인증 스킴 제시(Basic/Bearer 등).
@@ -750,7 +750,7 @@ HTTP 메서드는 **서버에게 부탁하는 방식**이고, 안전한 조회�
 
 #### 5. 5xx 서버 오류(Server Error): “서버 쪽 문제”
 
-<figure><img src="../../../../.gitbook/assets/image (5) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (5) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * **500 Internal Server Error**: 가장 포괄적. 내부 예외/미처 처리 못한 상황.
 * **501 Not Implemented**: 메서드/기능 미구현(확장 메서드에 흔함).

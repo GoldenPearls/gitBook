@@ -162,11 +162,11 @@ MIME은 **웹에서 데이터를 주고받을 때 파일 형식을 설명하는 
 그 안에서 `multipart/form-data`는 **여러 조각 데이터를 동시에 보내는 특수한 경우**임.
 {% endhint %}
 
-<figure><img src="../../../../.gitbook/assets/image (1) (1) (1) (1) (1).png" alt=""><figcaption><p><a href="https://hanamon.kr/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC-%EA%B8%B0%EB%B3%B8-url-uri-urn-%EC%B0%A8%EC%9D%B4%EC%A0%90/">https://hanamon.kr/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC-%EA%B8%B0%EB%B3%B8-url-uri-urn-%EC%B0%A8%EC%9D%B4%EC%A0%90/</a></p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (1) (1) (1) (1) (1) (1).png" alt=""><figcaption><p><a href="https://hanamon.kr/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC-%EA%B8%B0%EB%B3%B8-url-uri-urn-%EC%B0%A8%EC%9D%B4%EC%A0%90/">https://hanamon.kr/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC-%EA%B8%B0%EB%B3%B8-url-uri-urn-%EC%B0%A8%EC%9D%B4%EC%A0%90/</a></p></figcaption></figure>
 
 ### <mark style="background-color:red;">2. URI (Uniform Resource Identifier)</mark>
 
-<figure><img src="../../../../.gitbook/assets/image (2) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (2) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * **정의**: 인터넷상의 자원을 **고유하게 식별하고 위치 지정**하는 문자열
 * **역할 비유**: 인터넷 세계의 **우편 주소**
@@ -177,7 +177,7 @@ MIME은 **웹에서 데이터를 주고받을 때 파일 형식을 설명하는 
 
 ### <mark style="background-color:red;">3. URL (Uniform Resource Locator)</mark>
 
-<figure><img src="../../../../.gitbook/assets/image (2) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (2) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * **URI의 한 종류** → 가장 흔히 사용됨
 * **특징**: 특정 리소스의 **정확한 위치와 접근 방법**을 알려줌
@@ -357,7 +357,7 @@ URI 안에 URL과 URN으로 구성되어 있다.
 
 ### 0. 전체 그림 – 한 장 요약
 
-<figure><img src="../../../../.gitbook/assets/image (3) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (3) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 1. **클라이언트**가 **요청(HTTP Request)** 을 보냄 → `메서드 + URI + 헤더 + (본문)`
 2. **서버**가 **응답(HTTP Response)** 을 돌려줌 → `상태줄 + 헤더 + (본문)`
@@ -413,7 +413,7 @@ URI 안에 URL과 URN으로 구성되어 있다.
 
 ### 4. “웹페이지 = 리소스 묶음” → 트랜잭션이 여러 번
 
-<figure><img src="../../../../.gitbook/assets/image (4) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (4) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * 브라우저는 먼저 **HTML(뼈대)** 를 GET
 * 그 HTML 안의 **이미지, CSS, JS, 폰트** 등 **각각에 대해 추가 GET**
@@ -428,7 +428,7 @@ URI 안에 URL과 URN으로 구성되어 있다.
 
 ### 5. HTTP 메시지 형태 (사람이 읽기 쉬운 텍스트)
 
-<figure><img src="../../../../.gitbook/assets/image (5) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (5) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 <figure><img src="../../../../.gitbook/assets/image (13).png" alt=""><figcaption></figcaption></figure>
 

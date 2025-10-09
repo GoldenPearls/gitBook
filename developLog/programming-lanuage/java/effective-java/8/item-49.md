@@ -127,7 +127,7 @@ public class Item49Test {
 
 ## 3. 매개변수를 검사하는 방법 : 비공개 메서드 <a href="#id-2" id="id-2"></a>
 
-<figure><img src="../../../../.gitbook/assets/image (5) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (5) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### 1) **Java의 `assert` 구문을 사용한 `null` 검사** <a href="#assert" id="assert"></a>
 

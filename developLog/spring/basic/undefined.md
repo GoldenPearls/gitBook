@@ -109,7 +109,7 @@ object를 의자 s = new 의자();로 **heap**에 올리면 이 s는 만든 메�
   * 리스너로 등록된 빈에게 **이벤트 발생을 알려준다.**
   *
 
-      <figure><img src="../../.gitbook/assets/image (5) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+      <figure><img src="../../.gitbook/assets/image (5) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 > 🔗 출처 : [https://dog-developers.tistory.com/12](https://dog-developers.tistory.com/12)
 

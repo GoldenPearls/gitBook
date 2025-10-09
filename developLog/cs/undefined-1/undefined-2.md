@@ -229,7 +229,7 @@ https://www.nostarch.com/catalog/general-computing
 
 이 URL은 3개의 주요 파트로 나뉩니다:
 
-<figure><img src="../../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1) (1) (1) (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1) (1) (1) (2) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 | 구성 요소           | 의미                 | 예시                           |
 | --------------- | ------------------ | ---------------------------- |
@@ -257,11 +257,11 @@ https://www.nostarch.com/catalog/general-computing
 HTML 문서는 단순히 줄지어 나열된 텍스트가 아니라, `문서 객체 모델(DOM: Document Object Model)`이라는 **트리 구조**로 해석됩니다.\
 이 구조는 **마트료시카 인형**처럼, **엘리먼트들이 계층적으로 중첩**된 형태를 가집니다.
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (2) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (2) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 예시 구조:
 
-<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (2) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (2) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ```
 html
@@ -299,7 +299,7 @@ DOM은 트리 구조이기 때문에 이를 설명하기 위한 다양한 용어
 
 **🔍 깊이 우선 순회란?**
 
-<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (2) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (2) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * 루트(html)부터 시작해서 **가장 깊은 자식 노드**까지 내려갑니다.
 * 종단 노드에 도달하면 **되돌아와 다른 형제 노드를 탐색**합니다.
@@ -420,7 +420,7 @@ HTML에 너무 많은 스타일 요소가 들어가면서 유지보수가 어려
 🖼 참고 이미지:\
 
 
-<figure><img src="../../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1) (1) (1) (2) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1) (1) (1) (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="success" %}
 구조에 대해 좀 더 자세히 풀어보자면
