@@ -42,7 +42,7 @@
 * 핸드폰에서 깨짐... 반응형이 아닌지 글머리 기호도 안보여...
 * h3는 목차로 쳐주지도 않음
 
-> 결론 자동화해서 github.io 블로그로 연동하기 위![](<../../.gitbook/assets/image (33).png>)
+> 결론 자동화해서 github.io 블로그로 연동하기 위![](<../../.gitbook/assets/image (33) (1).png>)
 
 ## Github Action 설정 시, Access Token의 액세스 제한 범위
 
@@ -115,7 +115,7 @@
 
 > 이 것을 Gitgook이 Github.io로 연결해주기 위한 토근
 
-<figure><img src="../../.gitbook/assets/image (31).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (31) (1).png" alt=""><figcaption></figcaption></figure>
 
 * Github에서 로그인 후 우측 상단의 프로필 아이콘 클릭
 * `⚙️ Settings` 클릭
@@ -150,7 +150,7 @@
 
 > gitbook repo에 push 되거나, 일정 시간마다 github.io에 글을 연결해줄 거임
 
-<figure><img src="../../.gitbook/assets/image (32).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (32) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### 3. Gitbook repo, Github.io repo에 PAT 등록 ⭐
 

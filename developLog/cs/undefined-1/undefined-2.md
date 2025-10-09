@@ -229,7 +229,7 @@ https://www.nostarch.com/catalog/general-computing
 
 이 URL은 3개의 주요 파트로 나뉩니다:
 
-<figure><img src="../../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1) (1) (1) (2) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1) (1) (1) (2) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 | 구성 요소           | 의미                 | 예시                           |
 | --------------- | ------------------ | ---------------------------- |
@@ -257,7 +257,7 @@ https://www.nostarch.com/catalog/general-computing
 HTML 문서는 단순히 줄지어 나열된 텍스트가 아니라, `문서 객체 모델(DOM: Document Object Model)`이라는 **트리 구조**로 해석됩니다.\
 이 구조는 **마트료시카 인형**처럼, **엘리먼트들이 계층적으로 중첩**된 형태를 가집니다.
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (2) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (2) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 예시 구조:
 
@@ -420,7 +420,7 @@ HTML에 너무 많은 스타일 요소가 들어가면서 유지보수가 어려
 🖼 참고 이미지:\
 
 
-<figure><img src="../../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1) (1) (1) (2) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1) (1) (1) (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="success" %}
 구조에 대해 좀 더 자세히 풀어보자면

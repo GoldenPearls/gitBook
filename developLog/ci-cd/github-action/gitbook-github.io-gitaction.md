@@ -4,13 +4,13 @@
 
 > 📁 이전 글&#x20;
 >
-> 📁 참고 : [github action의 워크플로우 구문](https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#jobsjob\_idneeds)
+> 📁 참고 : [github action의 워크플로우 구문](https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#jobsjob_idneeds)
 
 앞에 1, 2은 gitbook repo에 푸시될 때 사용하기 위해 **Gitbook title rename.yml**으로&#x20;
 
 뒤에 3, 4, 5, 6은 github.io repo에 넘어갈 때 작업으로 **Convert and Deploy DevelopLog to Jekyll.ym**l로 작업해야 겠다.
 
-<figure><img src="../../.gitbook/assets/image (35).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (35) (1).png" alt=""><figcaption></figcaption></figure>
 
 1. Gitbook title rename을 dev 브랜치에 먼저 해주기 위해 **Rename and Commit Markdown Files.yml**을 만들어주고 아래의 스크립트 작성
 
