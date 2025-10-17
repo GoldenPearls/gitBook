@@ -17,7 +17,7 @@ description: HTTP 메시지의 모든 것(어떻게 메시지를 만들고 이�
   * **업스트림 (Upstream)**: 메시지를 보내는 쪽.
   * **다운스트림 (Downstream)**: 메시지를 받는 쪽.
 
-<figure><img src="../../../../.gitbook/assets/image (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="danger" %}
 → 요청/응답 구분 없이 **모든 메시지는 다운스트림으로 흐른다.**
@@ -114,7 +114,7 @@ HTTP 메시지는 크게 **시작줄(Start Line) + 헤더(Header) + 본문(Body)
 
 ## 3. HTTP 메시지 문법 정리
 
-<figure><img src="../../../../.gitbook/assets/image (2) (1) (1) (1).png" alt=""><figcaption><p><a href="https://velog.io/@twomanyzero/01.-%EC%9B%B9-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D%EC%9D%98-%EC%9D%B4%ED%95%B43">https://velog.io/@twomanyzero/01.-%EC%9B%B9-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D%EC%9D%98-%EC%9D%B4%ED%95%B43</a></p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (2) (1) (1) (1) (1).png" alt=""><figcaption><p><a href="https://velog.io/@twomanyzero/01.-%EC%9B%B9-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D%EC%9D%98-%EC%9D%B4%ED%95%B43">https://velog.io/@twomanyzero/01.-%EC%9B%B9-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D%EC%9D%98-%EC%9D%B4%ED%95%B43</a></p></figcaption></figure>
 
 ### 1) HTTP 메시지의 종류
 
@@ -677,7 +677,7 @@ HTTP 메서드는 **서버에게 부탁하는 방식**이고, 안전한 조회�
 
 #### 1. 1xx 정보(Informational): “계속해도 됩니다”
 
-<figure><img src="../../../../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * **도입 배경**: 큰 본문(파일 업로드 등)을 **괜히** 보냈다가 서버가 거부하면 네트워크 낭비.
 * **대표 코드**
@@ -694,7 +694,7 @@ HTTP 메서드는 **서버에게 부탁하는 방식**이고, 안전한 조회�
 
 #### 2. 2xx 성공(Success): “요청 OK”
 
-<figure><img src="../../../../.gitbook/assets/image (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (2) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * **200 OK**: 가장 일반적. 본문에 요청한 표현이 담김.
 * **201 Created**: `PUT`/`POST` 등으로 **리소스가 새로 생성**되었을 때. 응답의 `Location`에 새 리소스 URL 제공.

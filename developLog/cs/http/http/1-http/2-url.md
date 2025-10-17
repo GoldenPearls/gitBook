@@ -22,7 +22,7 @@ URL은 애플리케이션이 리소스에 접근할 수 있는 방법을 제공
 
 **URL(Uniform Resource Locator)** 은 인터넷 리소스의 **표준 주소**다.
 
-<figure><img src="../../../../.gitbook/assets/image (1) (1) (1) (1) (1) (1).png" alt=""><figcaption><p><a href="https://hanamon.kr/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC-%EA%B8%B0%EB%B3%B8-url-uri-urn-%EC%B0%A8%EC%9D%B4%EC%A0%90/">https://hanamon.kr/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC-%EA%B8%B0%EB%B3%B8-url-uri-urn-%EC%B0%A8%EC%9D%B4%EC%A0%90/</a></p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption><p><a href="https://hanamon.kr/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC-%EA%B8%B0%EB%B3%B8-url-uri-urn-%EC%B0%A8%EC%9D%B4%EC%A0%90/">https://hanamon.kr/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC-%EA%B8%B0%EB%B3%B8-url-uri-urn-%EC%B0%A8%EC%9D%B4%EC%A0%90/</a></p></figcaption></figure>
 
 * **어디에** 있고(**위치**)
 * **어떻게** 접근하는지(**방법/프로토콜**)를 한 줄로 표현한다.
@@ -247,7 +247,7 @@ URL에는 두 가지 방식이 있다.
 * **상대 URL**: 일부만 쓰고, 나머지는 **기저 URL(base URL)** 을 기준으로 추측해서 채워 넣는 "간단한 주소"\
   👉 예: `./hammers.html`
 
-<figure><img src="../../../../.gitbook/assets/image (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 > **J oe’s Hardware 웹사이트의 `/tools.html` 문서 안에 `./hammers.html` 링크가 있다면?**
 >

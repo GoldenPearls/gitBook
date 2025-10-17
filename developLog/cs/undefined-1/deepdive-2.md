@@ -780,7 +780,7 @@ CPU → 트랜지스터 → 논리 게이트 → 전기 신호 → 시스템 버
 
 > FET(Field Effect Transistor)는 전계효과 트랜지스터 또는 장효과 트랜지스터로, **전기장을 이용해 전류의 흐름을 제어하는 반도체 트랜지스터**
 
-<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * **MOSFET(Metal-Oxide Semiconductor Field Effect Transistor)**&#xC774; 가장 대표적인 FET야.
 * **게이트(Gate), 드레인(Drain), 소스(Source)**&#xB77C;는 세 개의 단자로 구성돼.
