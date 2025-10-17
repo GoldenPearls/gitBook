@@ -33,7 +33,7 @@ cgroup(Control Group)은 리눅스에서 **CPU, 메모리, 디스크 I/O, 네트
 또한, **백업 등 비업무 처리**가 I/O 자원을 과점해버리면,\
 **업무 처리 성능이 급격히 저하**될 수 있음.
 
-<figure><img src="../../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 이런 문제는 cgroup을 사용하면 해결할 수 있다.
 

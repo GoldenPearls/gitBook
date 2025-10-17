@@ -127,7 +127,7 @@ public class Item49Test {
 
 ## 3. 매개변수를 검사하는 방법 : 비공개 메서드 <a href="#id-2" id="id-2"></a>
 
-<figure><img src="../../../../.gitbook/assets/image (5) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (5) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### 1) **Java의 `assert` 구문을 사용한 `null` 검사** <a href="#assert" id="assert"></a>
 
@@ -318,7 +318,7 @@ public class DataService {
 
 예를 들어 후자의 경우, `Collections.sort(List)` 처럼 객체 리스트를 정렬하는 메서드를 생각해보면 리스트 안의 객체들은 모두 상호 비교되어 있어야 하며 비교될 수 없는 타입의 객체가 들어있다면 ClassCastException을 던진다. 하지만 암묵적 유효성 검사에 너무 의존한다면 실패 원자성(_아이템 76_)을 해칠 수 있으니 주의하자.
 
-<figure><img src="../../../../.gitbook/assets/image (6) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (6) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 
 
