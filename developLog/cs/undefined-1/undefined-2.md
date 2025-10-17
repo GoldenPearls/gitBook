@@ -229,7 +229,7 @@ https://www.nostarch.com/catalog/general-computing
 
 이 URL은 3개의 주요 파트로 나뉩니다:
 
-<figure><img src="../../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1) (1) (1) (2) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1) (1) (1) (2) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 | 구성 요소           | 의미                 | 예시                           |
 | --------------- | ------------------ | ---------------------------- |
@@ -420,7 +420,7 @@ HTML에 너무 많은 스타일 요소가 들어가면서 유지보수가 어려
 🖼 참고 이미지:\
 
 
-<figure><img src="../../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1) (1) (1) (2) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1) (1) (1) (2) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="success" %}
 구조에 대해 좀 더 자세히 풀어보자면

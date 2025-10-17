@@ -673,7 +673,7 @@ C11에서는 **완전히 삭제**되었습니다.
 \
 가령 8칸짜리 메모리가 있고, 그 안에 4칸짜리 버퍼가 있을 때
 
-<figure><img src="../../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption><p><a href="https://namu.wiki/w/%EB%B2%84%ED%8D%BC%20%EC%98%A4%EB%B2%84%ED%94%8C%EB%A1%9C">https://namu.wiki/w/%EB%B2%84%ED%8D%BC%20%EC%98%A4%EB%B2%84%ED%94%8C%EB%A1%9C</a></p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption><p><a href="https://namu.wiki/w/%EB%B2%84%ED%8D%BC%20%EC%98%A4%EB%B2%84%ED%94%8C%EB%A1%9C">https://namu.wiki/w/%EB%B2%84%ED%8D%BC%20%EC%98%A4%EB%B2%84%ED%94%8C%EB%A1%9C</a></p></figcaption></figure>
 
 > 이와 같이 사용자가 버퍼를 초과하는 값을 입력하면 버퍼 이후의 값이 바뀌게 된다.\
 > \
