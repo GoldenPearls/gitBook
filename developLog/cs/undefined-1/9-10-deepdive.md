@@ -578,8 +578,7 @@ javascript만 할 줄 알던 사람도 **새로운 언어의 학습없이 서버
 > _Node.js는 Chrome V8 JavaScript 엔진으로 빌드된 JavaScript 런타임입니다._\
 > &#xNAN;_-Node.js는 공식 홈페이지-_
 
-런타임은 특정 언어로 만든 **프로그램들을 실행할 수 있는 환경**을 뜻합니다.\
-
+런타임은 특정 언어로 만든 **프로그램들을 실행할 수 있는 환경**을 뜻합니다.<br>
 
 <figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (2) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 

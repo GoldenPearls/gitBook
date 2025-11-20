@@ -142,17 +142,14 @@ List<Integer> transactionsIds =
 
 > 하지만 어짜피 최종적으로 2개만 탐색하면 되는데 <mark style="color:red;">전체 데이터를 다 볼 필요가 있을까?</mark>
 
-1.  `limit` 사용 O\
-
+1.  `limit` 사용 O<br>
 
     <figure><img src="https://velog.velcdn.com/images/semi-cloud/post/d762d983-e0dd-4f8f-a535-c7fef2c58483/image.png" alt=""><figcaption></figcaption></figure>
-2.  `limit` 사용 X\
-
+2.  `limit` 사용 X<br>
 
     <figure><img src="https://velog.velcdn.com/images/semi-cloud/post/ee8b44f3-0172-4b03-bcd6-f3979d65f342/image.png" alt=""><figcaption></figcaption></figure>
 
-결과를 봐보자. `limit(n)` 연산이 내부적으로 자신에게 도달한 요소가 `n` 개가 되었을 때 스트림 내 다른 요소들에 대해 더 이상 순회하지 않고 탈출하도록 만들었기 때문에, 길이가 `5`가 넘는 데이터 `4` 개가 아닌, 맨 앞에 `2` 개 데이터가 출력된 것을 볼 수 있다.\
-
+결과를 봐보자. `limit(n)` 연산이 내부적으로 자신에게 도달한 요소가 `n` 개가 되었을 때 스트림 내 다른 요소들에 대해 더 이상 순회하지 않고 탈출하도록 만들었기 때문에, 길이가 `5`가 넘는 데이터 `4` 개가 아닌, 맨 앞에 `2` 개 데이터가 출력된 것을 볼 수 있다.<br>
 
 <figure><img src="https://velog.velcdn.com/images/semi-cloud/post/bc56f393-72aa-492e-b91c-c14269478d0e/image.png" alt=""><figcaption></figcaption></figure>
 

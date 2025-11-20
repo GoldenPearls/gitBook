@@ -629,8 +629,7 @@ SI의 경우 팀으로 가는 경우들도 많은데.. 진짜 딱 파견만 하�
 * [마법의 슈퍼마리오 네이버 블로그](https://m.blog.naver.com/PostList.nhn?blogId=kks227\&categoryNo=299\&logCode=0\&categoryName=%EB%8C%80%ED%9A%8C%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98) 유명한 알고리즘 네이버 블로그
 * [알고리즘 초보 벗어나기 3단계](https://claudiajkang.medium.com/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EC%B4%88%EB%B3%B4%EC%97%90%EC%84%9C-%EB%B2%97%EC%96%B4%EB%82%98%EA%B8%B0-%EC%9C%84%ED%95%9C-%EC%97%AC%EC%A0%95-1ffb6bdfec6b) 알고리즘 보보 벗어나기 위한 방안에 대해 나와 있음
 
-\
-
+<br>
 
 ***
 

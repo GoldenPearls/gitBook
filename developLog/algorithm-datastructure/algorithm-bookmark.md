@@ -17,10 +17,9 @@ icon: circle-bookmark
 * [백준 온라인 사이트로 알고리즘 초보가 공부하는 방법](https://velog.io/@dragoocho/%EB%B0%B1%EC%A4%80-%EC%98%A8%EB%9D%BC%EC%9D%B8-%EC%82%AC%EC%9D%B4%ED%8A%B8%EB%A1%9C-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EA%B3%B5%EB%B6%80%ED%95%98%EB%8A%94-%EB%B0%A9%EB%B2%95) 벨로그 글인데 실천적인 방안 잘 나와있음
 * [프로그래밍과 알고리즘 공부법](https://seamless.tistory.com/96) 월간 마소 2002년에 기고된 김창준 님의 "어떻게 공부할까: 프로그래머를 위한 공부론"이라는 기사 내용 포스팅 되어 있는 블로그 글
 * [초급-중급 알고리즘 스터디 커리큘럼 추천 (3개월)](https://dev-dain.tistory.com/155) 초급 알고리즘 커리큘럼에 대해 나와 있음
-*   [원티드 개발자 면접 완전 정복하기 (1) - 코딩 테스트 편](https://www.wanted.co.kr/events/22\_11\_s01\_b15) 원티드 코딩 테스트 편
+*   [원티드 개발자 면접 완전 정복하기 (1) - 코딩 테스트 편](https://www.wanted.co.kr/events/22_11_s01_b15) 원티드 코딩 테스트 편
 
-    \
-
+    <br>
 
 ### 📌 알고리즘 풀이 사이트
 

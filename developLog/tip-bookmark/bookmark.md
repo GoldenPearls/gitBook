@@ -34,7 +34,7 @@ icon: bookmark
 * [balsamiq mockups](https://bubble.io/blog/balsamiq-review-bubble/) 목업용 툴 : 직관적임 유료지만
 * [pencil mockup](https://pencil.evolus.vn/) 목업용 툴
 
-출처 : [개발자로서 좋아할 12개의 사이트 커리어리](https://careerly.co.kr/comments/82743?utm\_campaign=user-share)
+출처 : [개발자로서 좋아할 12개의 사이트 커리어리](https://careerly.co.kr/comments/82743?utm_campaign=user-share)
 
 ## 2. 새로운 기술들 정보? 사이트
 
@@ -47,10 +47,9 @@ icon: bookmark
 * [Prouct hunt](https://www.producthunt.com/) 웹 앱, 모바일, 게임, 팟케스트 테크 관련 새로운 제품 공유
 * [Disquiet](https://disquiet.io/) It 서비스 메이커들의 소셜 네트워크
 * [okky](https://okky.kr/articles/1488333?topic=knowledge\&page=1)
-* [zeen ](https://zenn.dev/noko\_noko/articles/3ccc64c389259c): 엔지니어를 위한 정보 공유 커뮤니티
+* [zeen ](https://zenn.dev/noko_noko/articles/3ccc64c389259c): 엔지니어를 위한 정보 공유 커뮤니티
 
-\
-
+<br>
 
 ## 3. 취업 관련 정보 사이트
 
@@ -61,10 +60,9 @@ icon: bookmark
 * [주니어를 위한 취업 사이트 신입이 경력 쌓긴 좋은 회사 추천](https://github.com/jojoldu/junior-recruit-scheduler) 주니어 개발자를 위한 취업 정보
 * [신입을 뽑는 회사](https://www.jobplanet.co.kr/contents/news-4400)
 * [인프로 멘토링](https://www.inflearn.com/mentors?)
-*   [혁신의 숲](https://www.innoforest.co.kr/?utm\_source=google\&utm\_medium=cpc\&utm\_campaign=main-ver-2\&gclid=Cj0KCQjw3JanBhCPARIsAJpXTx7xhY5mxodlrrLzW\_sYVboO-iBuH4qk9eZcw2Ylk231TTHH8tiq6LoaAk5LEALw\_wcB) : 스타트업 확인 가능
+*   [혁신의 숲](https://www.innoforest.co.kr/?utm_source=google\&utm_medium=cpc\&utm_campaign=main-ver-2\&gclid=Cj0KCQjw3JanBhCPARIsAJpXTx7xhY5mxodlrrLzW_sYVboO-iBuH4qk9eZcw2Ylk231TTHH8tiq6LoaAk5LEALw_wcB) : 스타트업 확인 가능
 
-    \
-
+    <br>
 
 ## 4. SNS
 
@@ -84,26 +82,25 @@ icon: bookmark
 
 ### 트위터
 
-\
-
+<br>
 
 ## 5. 개발 공부
 
 ### 📌 인강 관련 사이트
 
 * [꿈꾸는 개발자 데뷔코스, 새싹, 청년 사관학교](https://sesac.seoul.kr/common/greeting.do)
-* [제로 베이스 : 한달한권 | 클린코드 | zero-base](https://zero-base.co.kr/category\_dev\_camp/cleancode\_1book?utm\_source=facebook\&utm\_medium=paid\&utm\_campaign=cleancode\_1book\_conv\_it\_dr\&utm\_content=set4\_ad4\&fbclid=PAAaaSASJ3pBhZWkgW6TFvMUKQc31ubOegD5HzsHuoVBMdFm75CdihmXg2DoA\&external\_browser\_redirect=true)
-* [유데미](https://www.udemy.com/?utm\_source=adwords-brand\&utm\_medium=udemyads\&utm\_campaign=Brand-Udemy\_la.KR\_cc.KR\&utm\_term=\_.\_ag\_130894067178\_.\_ad\_561967300013\_.\_de\_c\_.\_dm\_\_.\_pl\_\_.\_ti\_kwd-485807761345\_.\_li\_1009871\_.\_pd\_\_.\_\&utm\_term=\_.\_pd\_\_.\_kw\_%EC%9C%A0%EB%8D%B0%EB%AF%B8\_.\_\&matchtype=e)
-* [인프런](https://www.inflearn.com/pages/start-20220103?utm\_source=google\_brand\_search\&utm\_medium=cpc\&utm\_campaign=inflearn\_%ED%8A%B8%EB%9E%98%ED%94%BD\_%EC%9D%B4%EB%B2%A4%ED%8A%B8\_start-20220103\&utm\_content=%EC%9E%A0%EC%9E%AC%EA%B3%A0%EA%B0%9D\_%EC%A0%84%EC%B2%B4\&utm\_term=220105\_main\_will\&gclid=Cj0KCQiAoNWOBhCwARIsAAiHnEgnmEWn4k2pniOzY1zKL8\_cBopHUTKznf\_bNBeT\_PWv2tRwq02ZFqcaAjJOEALw\_wcB)
+* [제로 베이스 : 한달한권 | 클린코드 | zero-base](https://zero-base.co.kr/category_dev_camp/cleancode_1book?utm_source=facebook\&utm_medium=paid\&utm_campaign=cleancode_1book_conv_it_dr\&utm_content=set4_ad4\&fbclid=PAAaaSASJ3pBhZWkgW6TFvMUKQc31ubOegD5HzsHuoVBMdFm75CdihmXg2DoA\&external_browser_redirect=true)
+* [유데미](https://www.udemy.com/?utm_source=adwords-brand\&utm_medium=udemyads\&utm_campaign=Brand-Udemy_la.KR_cc.KR\&utm_term=_._ag_130894067178_._ad_561967300013_._de_c_._dm__._pl__._ti_kwd-485807761345_._li_1009871_._pd__._\&utm_term=_._pd__._kw_%EC%9C%A0%EB%8D%B0%EB%AF%B8_._\&matchtype=e)
+* [인프런](https://www.inflearn.com/pages/start-20220103?utm_source=google_brand_search\&utm_medium=cpc\&utm_campaign=inflearn_%ED%8A%B8%EB%9E%98%ED%94%BD_%EC%9D%B4%EB%B2%A4%ED%8A%B8_start-20220103\&utm_content=%EC%9E%A0%EC%9E%AC%EA%B3%A0%EA%B0%9D_%EC%A0%84%EC%B2%B4\&utm_term=220105_main_will\&gclid=Cj0KCQiAoNWOBhCwARIsAAiHnEgnmEWn4k2pniOzY1zKL8_cBopHUTKznf_bNBeT_PWv2tRwq02ZFqcaAjJOEALw_wcB)
 * [클래스101](https://class101.net/)
 * [패스트 캠퍼스](https://fastcampus.co.kr/)
-* [PROJECT LION : 멋쟁이 사자처럼](https://projectlion.io/?utm\_source=PL\&utm\_medium=SA\&utm\_campaign=PL\_GGL\_Search\_Ondemand\&utm\_content=home\&gclid=Cj0KCQiAoNWOBhCwARIsAAiHnEhbUnlUhxIiIpgChObLBCT0Vr851dRDH08Er75Wc2DWOyidfOPvYJcaAs90EALw\_wcB)
-* [구름EDU](https://edu.goorm.io/?\_ga=2.205116307.2039583478.1641437540-274653811.1639131137)
+* [PROJECT LION : 멋쟁이 사자처럼](https://projectlion.io/?utm_source=PL\&utm_medium=SA\&utm_campaign=PL_GGL_Search_Ondemand\&utm_content=home\&gclid=Cj0KCQiAoNWOBhCwARIsAAiHnEhbUnlUhxIiIpgChObLBCT0Vr851dRDH08Er75Wc2DWOyidfOPvYJcaAs90EALw_wcB)
+* [구름EDU](https://edu.goorm.io/?_ga=2.205116307.2039583478.1641437540-274653811.1639131137)
 * [생활코딩](https://opentutorials.org/course/3083)
-* [코드잇](https://www.codeit.kr/event?utm\_source=google\_paid\&utm\_medium=g\&utm\_campaign=codeit\_sa\_brand\_join%2Fpurchase\_everytime\&utm\_term=brand%20keyword\_de%EC%84%A4%EC%A0%95x\_%EC%84%A4%EC%A0%95x\&utm\_content=\_%2Fevent\&gclid=Cj0KCQiAoNWOBhCwARIsAAiHnEinyQRL27WEPiamuTbQh2OlsA42wogpBkWbGpEaUx0qlvglKFUvz8saAliAEALw\_wcB)
-* [프로그래머스](https://programmers.co.kr/skill\_check\_assignments)
+* [코드잇](https://www.codeit.kr/event?utm_source=google_paid\&utm_medium=g\&utm_campaign=codeit_sa_brand_join%2Fpurchase_everytime\&utm_term=brand%20keyword_de%EC%84%A4%EC%A0%95x_%EC%84%A4%EC%A0%95x\&utm_content=_%2Fevent\&gclid=Cj0KCQiAoNWOBhCwARIsAAiHnEinyQRL27WEPiamuTbQh2OlsA42wogpBkWbGpEaUx0qlvglKFUvz8saAliAEALw_wcB)
+* [프로그래머스](https://programmers.co.kr/skill_check_assignments)
 * [네이버 부스트 캠프](https://m.boostcourse.org/category/537)
-* [컴공 선배](https://risingcamp.com/?utm\_source=adriel\&utm\_medium=cpc\&utm\_campaign=insta\_%EB%B8%8C%EB%9E%9C%EB%94%A9\_%EC%BB%B4%EA%B3%B5%EC%84%A0%EB%B0%B0\_by.%EC%95%84%EB%93%9C%EB%A6%AC%EC%97%98\_campaignid\_67689\_connect\_id\_226336\&fbclid=PAAaY1beMbHQR2GnY6zDN2p1phM59JSfNNKVmcunptJGzbwxeAMhLYh8jDRcM\&external\_browser\_redirect=true)
+* [컴공 선배](https://risingcamp.com/?utm_source=adriel\&utm_medium=cpc\&utm_campaign=insta_%EB%B8%8C%EB%9E%9C%EB%94%A9_%EC%BB%B4%EA%B3%B5%EC%84%A0%EB%B0%B0_by.%EC%95%84%EB%93%9C%EB%A6%AC%EC%97%98_campaignid_67689_connect_id_226336\&fbclid=PAAaY1beMbHQR2GnY6zDN2p1phM59JSfNNKVmcunptJGzbwxeAMhLYh8jDRcM\&external_browser_redirect=true)
 * [넘블](https://www.numble.it/)
 * [부트텐트 : 부트캠프 모음](https://boottent.sayun.studio/camps?r=ka)
 
@@ -112,8 +109,7 @@ icon: bookmark
 1. 점핏 : 개발자 구인 공고 모음
 2. HOLIX : 앱으로 개발자 등 관련 톡방 참여로 정보나 기술 모으기 가능
 3. 잡플래닛 : 다양한 기업 후기 보기 가능
-4. 코멘토 : 8주 부트캠프\
-
+4. 코멘토 : 8주 부트캠프<br>
 
 ### 📌 CS 지식(=기술 면접)
 
@@ -125,15 +121,14 @@ icon: bookmark
 * [신입 개발자 전공 지식 & 기술 면접 백과사전](https://github.com/WooVictory/Ready-For-Tech-Interview) 위의 웹사이트 GITHUB 버전
 * [다른 사람이 면접시 물어본 것을 VELOG에 정리한 것](https://velog.io/@matisse/%EA%B8%B0%EC%88%A0%EB%A9%B4%EC%A0%91-%EC%A7%88%EB%AC%B8-%EC%A0%95%EB%A6%AC-CS) 3년전 글이긴 한데 정리가 잘되있어서 나도 나중에 면접시 저런식으로 정리해야 겠다를 생각함
 * [READY FOR TECH INTERVIEW](https://github.com/WooVictory/Ready-For-Tech-Interview) 이 곳은 신입 혹은 주니어 개발자에게 필요한 지식을 정리하는 GITHUB
-* [Technical Interview Guidelines for Beginners](https://github.com/JaeYeopHan/Interview\_Question\_for\_Beginner) 시작하는 주니어 개발자들을 위한 기초 지식 정리한 GITHUB
+* [Technical Interview Guidelines for Beginners](https://github.com/JaeYeopHan/Interview_Question_for_Beginner) 시작하는 주니어 개발자들을 위한 기초 지식 정리한 GITHUB
 * [Backend-Interview-Question](https://github.com/ksundong/backend-interview-question) 백엔드 개발자 입사시 질문, 예상질문 GITHUB
 * [프론트엔드 기술 면접 대비하기 -1편](https://f-lab.kr/blog/frontend-interview-1) 프론트앤드 면접질문정리되어 있는 F-LAB
 * [자바 백엔드 개발자 질문](https://f-lab.kr/blog/java-backend-interview-2) 자바 기술 면접 대비하기정리 되어 있는 F-LAB
 * [실제로 받은 프론트앤드 질문모음 정리](https://xiubindev.tistory.com/119) 프론트앤드 질문 정리가 되어 있는 Tistory
 *   [컴퓨터 과학 키워드 총정리](https://csnote.net/) : 컴퓨터 과학 키워드가 총 정리되어 있는 사이트
 
-    \
-
+    <br>
 
 ### 📌 알고리즘
 
@@ -148,10 +143,9 @@ icon: bookmark
 * [백준 온라인 사이트로 알고리즘 초보가 공부하는 방법](https://velog.io/@dragoocho/%EB%B0%B1%EC%A4%80-%EC%98%A8%EB%9D%BC%EC%9D%B8-%EC%82%AC%EC%9D%B4%ED%8A%B8%EB%A1%9C-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EA%B3%B5%EB%B6%80%ED%95%98%EB%8A%94-%EB%B0%A9%EB%B2%95) 벨로그 글인데 실천적인 방안 잘 나와있음
 * [프로그래밍과 알고리즘 공부법](https://seamless.tistory.com/96) 월간 마소 2002년에 기고된 김창준 님의 "어떻게 공부할까: 프로그래머를 위한 공부론"이라는 기사 내용 포스팅 되어 있는 블로그 글
 * [초급-중급 알고리즘 스터디 커리큘럼 추천 (3개월)](https://dev-dain.tistory.com/155) 초급 알고리즘 커리큘럼에 대해 나와 있음
-*   [원티드 개발자 면접 완전 정복하기 (1) - 코딩 테스트 편](https://www.wanted.co.kr/events/22\_11\_s01\_b15) 원티드 코딩 테스트 편
+*   [원티드 개발자 면접 완전 정복하기 (1) - 코딩 테스트 편](https://www.wanted.co.kr/events/22_11_s01_b15) 원티드 코딩 테스트 편
 
-    \
-
+    <br>
 
 ### 📌 알고리즘 풀이 사이트
 
@@ -181,7 +175,7 @@ icon: bookmark
 #### 공부 사이트
 
 * [MDN](https://developer.mozilla.org/ko/docs/Web/JavaScript) html, css, JavaScript 공부 사이트
-* [자바공부 ](https://velog.io/@woo0\_hooo/Java-Java%EC%9D%98-%ED%8A%B9%EC%A7%95%EA%B3%BC-JVM)버스안에서 읽기 좋은 5분정보
+* [자바공부 ](https://velog.io/@woo0_hooo/Java-Java%EC%9D%98-%ED%8A%B9%EC%A7%95%EA%B3%BC-JVM)버스안에서 읽기 좋은 5분정보
 * [점프 투 자바](https://wikidocs.net/281) 자바 공부 웹 사이트
 * [더 나은 자바 개발자가 되기 위한 tip](https://sas-study.tistory.com/270?category=774869)
 * [2022년 상위 101가지 자바 질문](https://unstop.com/blog/java-interview-questions)
@@ -215,14 +209,14 @@ icon: bookmark
 * [정보 검색팁](https://boxnwhis.kr/2020/09/27/ir-for-developers.html) 요즘은 chatgpt도 잘 되지만 chatgpt도 언제나 맞지 않기에 정보를 골라내기는 중요하다. 정보 검색팁에 대해 나와있다. awesome 찾고자하는 것 ex, awsome android api
 * [개발자는 도구만 잘써도 이쁨받는 글](https://velog.io/@leehyunho2001/%EA%B0%9C%EB%B0%9C%EC%9E%90-%EB%8F%84%EA%B5%AC%EB%A7%8C-%EC%9E%98%EC%8D%A8%EB%8F%84-%EC%9D%B4%EC%81%A8-%EB%B0%9B%EB%8A%94%EB%8B%A4) 도구에 대한 벨로그 글
 * [개발자들이 관심있는 아티클 정보](https://velog.io/@oneoneone) 매주 업뎃 되어 있음
-* [좋은 개발자란 무엇일까](https://velog.io/@eddy\_song/problem-solver)
+* [좋은 개발자란 무엇일까](https://velog.io/@eddy_song/problem-solver)
 * [깃허브 css 적용방법](https://blog.yena.io/studynote/2017/11/23/Github-resize-image.html)
 * [유명한 향로님 티스토리](https://jojoldu.tistory.com/722)
-* [개발자 주도적 성장을 도와주는 커리어 프레임워크란?](https://yozm.wishket.com/magazine/detail/2198/?utm\_source=oneoneone)
-* [github it 북마크](https://github.com/currenjin/site-for-developers?utm\_source=oneoneone)
+* [개발자 주도적 성장을 도와주는 커리어 프레임워크란?](https://yozm.wishket.com/magazine/detail/2198/?utm_source=oneoneone)
+* [github it 북마크](https://github.com/currenjin/site-for-developers?utm_source=oneoneone)
 * [잘 정리된 개인 블로그 : 개발자국](https://develop-footprint.gitbook.io/o/etc/tech-blog)
 
 ## 7. 쓸 예정이거나 쓰고 싶은 툴
 
 * [inkdrop](https://www.inkdrop.app/) : 노션 같은 느낌의 편집기
-* [정리 글 ](https://dev.to/dev\_kiran/19-open-source-tools-you-should-bookmark-now-5hc4?utm\_source=oneoneone): 지금 북마크 해야 할 오픈소스 모음
+* [정리 글 ](https://dev.to/dev_kiran/19-open-source-tools-you-should-bookmark-now-5hc4?utm_source=oneoneone): 지금 북마크 해야 할 오픈소스 모음

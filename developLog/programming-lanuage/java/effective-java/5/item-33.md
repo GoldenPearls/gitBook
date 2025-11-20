@@ -282,8 +282,7 @@ int result = f.getFavorite(Integer.class);  // ClassCastException
 * 위와 같이 악의적으로 `(Class)`와 같은 캐스팅을 통해 로타입을 사용하는 것에 대한 취약점이 있다.
 * 그냥 실행하면, 런타임에 `ClassCastException`을 만나게 될 것이다.
 
-첨고로 실제 개발할때는 컴파일 과정에서 비검사 경고가 발생하기 때문에, 지켜만 진다면 런타임에 타입 안전성이 보장될 것이다.\
-
+첨고로 실제 개발할때는 컴파일 과정에서 비검사 경고가 발생하기 때문에, 지켜만 진다면 런타임에 타입 안전성이 보장될 것이다.<br>
 
 <figure><img src="https://velog.velcdn.com/images/semi-cloud/post/51dedfcc-281b-4fe5-9ad1-7a77d63a2e72/image.png" alt=""><figcaption></figcaption></figure>
 
