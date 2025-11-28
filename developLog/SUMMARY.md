@@ -214,6 +214,7 @@
       * [11장 클라이언트 식별과 쿠키](cs/http/http/3/11.md)
       * [15장 엔터티와 인코딩](cs/http/http/3/15.md)
       * [16장 국제화](cs/http/http/3/16.md)
+      * [17장 내용 협상과 트랜스코딩](cs/http/http/3/17.md)
 * [SEVER](cs/sever/README.md)
   * [톰켓이란 무엇인가](cs/sever/undefined.md)
 * [그 외](cs/etc/README.md)
